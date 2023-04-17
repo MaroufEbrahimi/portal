@@ -5,13 +5,13 @@
 }
 
 .build h1 {
-   padding-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 .build_boxes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 2.6rem;
+  grid-column-gap: 2.2rem;
   grid-row-gap: 1rem;
 }
 
@@ -22,6 +22,9 @@
   padding-bottom: 7px;
 }
 
+.full_width {
+  grid-column: 1/4;
+}
 
 .build_boxes .build_box input,
 .build_boxes .build_box textarea {
