@@ -7,6 +7,6 @@
 .app main {
   padding-top: 50px;
   margin: 0 260px 0 180px;
-  height: 100vh;
+  /* height: 100vh; */
   box-sizing: border-box;
 }
