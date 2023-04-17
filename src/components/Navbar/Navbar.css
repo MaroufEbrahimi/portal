@@ -1,0 +1,42 @@
+.navbar {
+  position: fixed;
+  width: 160px;
+  padding: 10px;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  background: transparent;
+}
+
+.navbar_menu {
+  margin-top: 50px;
+}
+
+.navbar_menu li {
+  font-size: 20px;
+  margin: 4px 0;
+  text-align: left;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  user-select: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar_menu li:hover,
+.navbar_menu .active {
+  position: relative;
+  background: linear-gradient(to left, red, yellow);
+}
+
+.navbar_menu li a {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+}
+
+.navbar_menu li span {
+  font-weight: 300;
+  font-size: 14px;
+  padding: 0 10px;
+}
