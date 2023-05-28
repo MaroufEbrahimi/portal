@@ -1,12 +1,35 @@
 import React from "react"
 
+import axios from "../../constants/instance"
+
 import "./Build.css"
 
-const Build = () => {
+export const GetStarted = () => {
   return (
-    <div className="build">
-      <div className="build_boxes">
-        <div className="build_box">
+    <div className="get_started">
+      <h1>کار خود را با وارد کردن اطاعات شخصی شروع کنید</h1>
+    </div>
+  )
+}
+// personal information
+export const PersonalInfo = () => {
+  return (
+    <div className="personal_information">
+      <div className="build_boxes"></div>
+    </div>
+  )
+}
+
+export const Contact = () => {
+  return <div className="contact"></div>
+}
+
+const items = [GetStarted, PersonalInfo, Contact]
+
+export default items
+
+/*
+<div className="build_box">
           <label>نام</label>
           <input type="text" />
         </div>
@@ -228,9 +251,4 @@ const Build = () => {
             required
           />
         </div>
-      </div>
-    </div>
-  )
-}
-
-export default Build
+*/
