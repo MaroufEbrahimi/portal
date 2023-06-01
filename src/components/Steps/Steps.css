@@ -1,0 +1,44 @@
+.personal_info form {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
+  margin: 20px;
+}
+/* .personal_info .build_box {
+  background: #fff;
+  color: #444;
+  padding: 20px;
+  line-height: 30px;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+} */
+.personal_info label {
+  display: block;
+  color: #000;
+  font-weight: 500;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+.personal_info input,
+.personal_info select {
+  width: 90%;
+  padding: 8px 10px;
+  font-size: 16px;
+  color: #555;
+  border: 1px solid #e0dcdc;
+  outline: none;
+  transition: border 0.3s ease;
+  border-radius: 8px;
+}
+.personal_info input::placeholder,
+.personal_info select::placeholder {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+.personal_info input:focus,
+.personal_info textarea:focus {
+  border-color: var(--gen-color);
+}
+.personal_info .email input {
+  text-align: end;
+}
