@@ -1,0 +1,50 @@
+.home {
+  width: 100%;
+  height: 100%;
+}
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 0px 30px;
+}
+.header .input_group {
+  display: flex;
+  border: 1px solid var(--gen-color);
+  border-radius: 20px;
+  padding: 6px 10px;
+  /* box-shadow: 1px 1px 7px 1px var(--gen-color); */
+  width: 50%;
+}
+.header .input_group input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  padding: 0 10px;
+}
+.header .input_group button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
+.header .input_group button i {
+  font-weight: bold;
+  font-size: 16px;
+}
+.header img {
+  width: 50px;
+}
+.img_slider {
+  border-radius: 10px;
+}
+.img_slider img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
