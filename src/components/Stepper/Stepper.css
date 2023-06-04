@@ -1,0 +1,59 @@
+.stepper {
+  width: 100%;
+  display: flex;
+}
+.display_nums_des {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.display_nums_des .display_nums {
+  width: 30px;
+  height: 30px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+.display_nums_des .display_nums::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: gray;
+}
+/* .stepper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 15px 60px 15px;
+}
+.dis_nums_des {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dis_nums_des .dis_nums {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid grey;
+  transition: all 0.3s ease-in-out;
+}
+.dis_nums_des .dis_des {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  margin-top: 25px;
+  width: 32px;
+} */
