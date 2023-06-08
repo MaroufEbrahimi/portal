@@ -1,0 +1,50 @@
+.delete_student {
+  margin-top: 2rem;
+}
+
+.delete_student .delete_lock_buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.delete_student .delete_lock_buttons > button {
+  width: 100%;
+  text-align: center;
+}
+.delete_student .delete_lock_buttons > button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--gen-color);
+  width: 500px;
+  border-radius: 10%;
+}
+
+/* delete buttons on modal */
+.delete_cancel_modal i {
+  font-size: 40px;
+  color: #f12525;
+}
+.delete_cancel_modal h3 {
+  font-size: 27px;
+  margin-top: 10px;
+}
+.delete_cancel_modal p {
+  font-size: 14px;
+  line-height: 0.6em;
+}
+.del_cancel_btn {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 15px;
+}
+.delete_btn {
+  border: 1px solid #f12525;
+}
+.delete_btn:before {
+  background: #f12525;
+}
