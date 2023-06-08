@@ -1,0 +1,71 @@
+.new_post {
+  margin-top: 20px;
+  /* display: flex; */
+  /* gap: 20px; */
+  position: relative;
+  /* background-color: red; */
+  padding: 4rem 6rem;
+}
+.post_description {
+  flex: 5;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.post_description .editorContainer {
+  height: 200px;
+  width: 100%;
+  /* direction: rtl; */
+}
+.editorContainer .editor {
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  text-align: left;
+}
+/* file handler */
+.post_file_img {
+  margin-top: 3rem;
+  display: flex;
+}
+.post_file_img .file_handler #input[type="file"] {
+  display: none;
+}
+.post_file_img .file_handler label {
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+.post_file_img .file_handler label p {
+  font-size: 14px;
+}
+.post_file_img .file_handler .image-upload i {
+  color: var(--gen-color-hover);
+  font-size: 23px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.post_file_img .file_handler label:hover i {
+  color: var(--gen-color);
+}
+/* post boxes */
+.post_boxes {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+.post_boxes .post_box select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+  border: 1px solid #e0dcdc;
+  outline: none;
+  transition: border 0.3s ease;
+}
