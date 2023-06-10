@@ -30,78 +30,16 @@ export default items
 
 /*
 <div className="build_box">
-          <label>نام</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>تخلص</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>نام پدر</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>نام پدرکلان</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>سال تولد</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>زبان مادری</label>
-          <input type="text" />
-        </div>
+         
 
         <div className="build_box full_width">
           <h1>تذکره</h1>
         </div>
-        <div className="build_box">
-          <label>جلد تذکره</label>
-          <input type="text" />
-        </div>
+        
 
-        <div className="build_box">
-          <label>صفحه</label>
-          <input type="text" />
-        </div>
+ 
 
-        <div className="build_box">
-          <label>شماره ثبت</label>
-          <input type="text" />
-        </div>
 
-        <div className="build_box">
-          <label>نمبر عمومی</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>حالت مدنی</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>شماره تماس</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            required
-          />
-        </div>
-
-        <div className="build_box">
-          <label>ایمیل</label>
-          <input type="email" />
-        </div>
 
         <div className="build_box">
           <label>لیسه / دارالعلوم</label>

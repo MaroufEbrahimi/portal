@@ -1,12 +1,16 @@
 .app {
-   /* background: radial-gradient(#df1677, #923632, #4371f0); */
-   background: linear-gradient(266deg, #48d9e3, #4bc68a, #2a5647);
+  /* background: radial-gradient(#df1677, #923632, #4371f0); */
+  /* background: linear-gradient(266deg, #48d9e3, #4bc68a, #2a5647); */
   min-height: 100vh;
 }
 
 .app main {
-  padding-top: 50px;
-  margin: 0 260px 0 180px;
-  /* height: 100vh; */
+  padding-top: 15px;
+  margin: 0 260px 0 60px;
   box-sizing: border-box;
+  height: 1000px;
+}
+
+.search__icon {
+  color: gray;
 }
