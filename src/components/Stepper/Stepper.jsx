@@ -1,22 +1,46 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./Stepper.css"
 
-const allSteps = (
-  <div>
-    <div className="display_nums_des">
-      <div className="display_nums">{/* display numbers */}1</div>
-      <div className="display_des">{/* display description */} Description</div>
-    </div>
-
-    <div className="display_line">{/* display line */}line</div>
-  </div>
-)
-
 const Stepper = ({ steps, currentStep }) => {
   const [newStep, setNewStep] = useState([])
   const stepRef = useRef()
 
-  const updateStep = (stepNumber, steps) => {}
+  const updateStep = (stepNumber, steps) => {
+    const newSteps = [...steps]
+    let count = 0
+
+    while (count < newStep.length) {
+      // current step
+      if (count === stepNumber) {
+        newSteps[count] = {
+          ...newSteps[count],
+          highlighted: true,
+          selected: true,
+          completed: true,
+        }
+        count++
+      }
+      // step compeleted
+      else if (count < stepNumber) {
+        newSteps[count] = {
+          ...newSteps[count],
+          highlighted: false,
+          selected: true,
+          completed: true,
+        }
+      }
+      // step pending
+      else {
+        newSteps[count] = {
+          ...newSteps[count],
+          highlighted: false,
+          selected: false,
+          completed: false,
+        }
+      }
+    }
+    return newSteps
+  }
 
   useEffect(() => {
     const stepState = steps.map((step, index) =>
@@ -35,6 +59,35 @@ const Stepper = ({ steps, currentStep }) => {
     const current = updateStep(currentStep - 1, stepRef.current)
     setNewStep(current)
   }, [steps, currentStep])
+
+  const allSteps = newStep.map((step, index) => {
+    return (
+      <div
+        key={index}
+        className={
+          index !== newStep.length - 1
+            ? "full-width display_stepper"
+            : "display_stepper"
+        }
+      >
+        <div className="display_nums_des">
+          <div
+            className={`display_nums ${step.selected ? "line_completed" : ""}`}
+          >
+            {/* Display Numbers  */}
+            {step.completed ? <span>&#10003;</span> : index + 1}
+          </div>
+          <div className={`display_des ${step.highlighted ? "" : ""}`}>
+            {/*  Display Description  */}
+            {step.description}
+          </div>
+        </div>
+        <div className={`display_line ${step.completed ? "line-green" : ""}`}>
+          {/* Display Line */}
+        </div>
+      </div>
+    )
+  })
 
   return <div className="stepper">{allSteps}</div>
 }
