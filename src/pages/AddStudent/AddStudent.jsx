@@ -1,7 +1,8 @@
 import React, { useState } from "react"
+import { StepperContext } from "../../context/StateProvider"
 import "./AddStudent.css"
 import Stepper from "../../components/Stepper/Stepper"
-import FormDetails from "../../components/FormDetails/FormDetails"
+import FormControl from "../../components/FormDetails/FormControl"
 
 import { PersonalInformation } from "../../components/Steps/PersonalInformation"
 import { StudentHabitation } from "../../components/Steps/StudentHabitation"
@@ -10,12 +11,9 @@ import { Complete } from "../../components/Steps/Complete"
 
 const AddStudent = () => {
   const [currentStep, setCurrentStep] = useState(1)
-  const steps = [
-    "Personal Information",
-    "Student Habitation",
-    "Student Relatives",
-    "Complete",
-  ]
+  const [userData, setUserData] = useState("")
+  const [finalData, setFinalData] = useState([])
+  const steps = ["معلومات شخصی", "سکونت محصل", "اقارب محصل", "بخش آخر"]
 
   const displaySteps = (step) => {
     switch (step) {
@@ -35,16 +33,43 @@ const AddStudent = () => {
     }
   }
 
+  const handleNextStep = (direction) => {
+    let newStep = currentStep
+
+    direction === "next" ? newStep++ : newStep--
+    // check if steps are within bounds
+    newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
+  }
+
   return (
     <div className="add_new">
       {/* Stepper */}
-      <Stepper steps={steps} currentStep={currentStep} />
+      <div className="stepper_step">
+        <Stepper steps={steps} currentStep={currentStep} />
+      </div>
 
-      {/* for test */}
-      <PersonalInformation />
+      {/* Display components */}
+      <div className="">
+        <StepperContext.Provider
+          value={{
+            userData,
+            setUserData,
+            finalData,
+            setFinalData,
+          }}
+        >
+          {displaySteps(currentStep)}
+        </StepperContext.Provider>
+      </div>
 
       {/* Navigation control */}
-      <FormDetails />
+      {currentStep !== steps.length && (
+        <FormControl
+          currentStep={currentStep}
+          steps={steps}
+          handleNextStep={handleNextStep}
+        />
+      )}
     </div>
   )
 }
