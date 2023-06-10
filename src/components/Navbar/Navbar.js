@@ -17,29 +17,51 @@ const CustomeLinks = ({ to, children, ...props }) => {
 }
 
 const Navbar = () => {
+  const [activeMenu, setActiveMenu] = useState(true)
+  const menuHandler = () => setActiveMenu(!activeMenu)
+
   return (
     <div className="navbar">
       <div className="logo">
         <img src={LOGO} alt="logo" className="logo_img" />
       </div>
-      <ul className="navbar_menu">
-        <CustomeLinks to="/" title="خانه">
-          <i className="bi bi-house-door"></i>
-          <span>خانه</span>
-        </CustomeLinks>
-        <CustomeLinks to="/search" title="جستجو">
-          <i className="bi bi-search"></i>
-          <span>جستجو</span>
-        </CustomeLinks>
-        <CustomeLinks to="/students" title="محصلین">
-          <i className="bi bi-people"></i>
-          <span>محصلین</span>
-        </CustomeLinks>
-        <CustomeLinks to="/sttings" title="تنظیمات">
-          <i className="bi bi-gear"></i>
-          <span>تنظیمات</span>
-        </CustomeLinks>
-      </ul>
+      <div className="navbar_menu">
+        <ul className="navbar_content">
+          <CustomeLinks to="/" title="خانه">
+            <i className="bi bi-house-door"></i>
+            <span>خانه</span>
+          </CustomeLinks>
+          <CustomeLinks to="/search" title="جستجو">
+            <i className="bi bi-search"></i>
+            <span>جستجو</span>
+          </CustomeLinks>
+          <div className="navbar__title open__navbar" onClick={menuHandler}>
+            <li className="navbar__item">
+              <i className="bi bi-gear"></i>
+              <span>ادمین پنل</span>
+              <i className="bi bi-chevron-down btn_toggle"></i>
+            </li>
+          </div>
+        </ul>
+        <div className="navbar__dropdown">
+          <CustomeLinks to="/admin/addstudent" title="اضافه کردن">
+            <i className="bi bi-person-plus"></i>
+            <span>شاگرد جدید</span>
+          </CustomeLinks>
+          <CustomeLinks to="/students" title="محصلین">
+            <i className="bi bi-people"></i>
+            <span>محصلین</span>
+          </CustomeLinks>
+          <CustomeLinks to="/admin/deletestudent" title="حذف محصل">
+            <i className="bi bi-person-dash"></i>
+            <span>حذف محصل</span>
+          </CustomeLinks>
+          <CustomeLinks to="/admin/newpost" title="محتوا جدید">
+            <i className="bi bi-file-earmark-plus"></i>
+            <span>محتوای جدید</span>
+          </CustomeLinks>
+        </div>
+      </div>
     </div>
   )
 }
