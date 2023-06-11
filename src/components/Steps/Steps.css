@@ -1,44 +1,44 @@
-.personal_info form {
+.form_details_student form {
+  box-sizing: border-box;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1.5rem;
-  margin: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 0.6rem;
+  grid-row-gap: 1rem;
 }
-/* .personal_info .build_box {
-  background: #fff;
-  color: #444;
-  padding: 20px;
-  line-height: 30px;
-  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
-} */
-.personal_info label {
+.form_details_student .full_width {
+  grid-column: 1/5;
+  margin-top: 2rem;
+}
+.form_details_student .median_width {
+  grid-column: 1/3;
+}
+.form_details_student label {
   display: block;
   color: #000;
   font-weight: 500;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   padding-right: 10px;
 }
-.personal_info input,
-.personal_info select {
-  width: 90%;
-  padding: 8px 10px;
-  font-size: 16px;
-  color: #555;
+.form_details_student input,
+.form_details_student select {
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  width: 100%;
+  padding: 4px 8px;
+  font-size: 15px;
   border: 1px solid #e0dcdc;
   outline: none;
   transition: border 0.3s ease;
-  border-radius: 8px;
 }
-.personal_info input::placeholder,
-.personal_info select::placeholder {
+.form_details_student input::placeholder,
+.form_details_student select::placeholder {
   font-size: 14px;
   letter-spacing: 0.02em;
 }
-.personal_info input:focus,
-.personal_info textarea:focus {
+.form_details_student input:focus,
+.form_details_student textarea:focus {
   border-color: var(--gen-color);
 }
-.personal_info .email input {
+.form_details_student .email input {
   text-align: end;
 }
