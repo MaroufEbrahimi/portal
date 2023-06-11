@@ -3,9 +3,9 @@ import "./Steps.css"
 
 export const PersonalInformation = () => {
   return (
-    <div className="personal_info">
+    <div className="form_details_student personal_info">
       <form>
-        <div className="build_box">
+        <div className="build_box median_width">
           <label>نام</label>
           <input type="text" required />
         </div>
@@ -20,7 +20,7 @@ export const PersonalInformation = () => {
           <input type="text" required />
         </div>
 
-        <div className="build_box">
+        <div className="build_box median_width">
           <label>نام پدرکلان</label>
           <input type="text" required />
         </div>
@@ -38,16 +38,19 @@ export const PersonalInformation = () => {
             <option>پشتو</option>
           </select>
         </div>
+        <div className="build_box email median_width">
+          <label>ایمیل</label>
+          <input type="email" required placeholder="e.g famous@gmail.com" />
+        </div>
 
         <div className="build_box">
           <label>حالت مدنی</label>
           <select id="type">
             <option>حالت مدنی</option>
-            <option>متاهل</option>
             <option>مجرد</option>
+            <option>متاهل</option>
           </select>
         </div>
-
         <div className="build_box">
           <label>شماره تماس</label>
           <input
@@ -58,32 +61,11 @@ export const PersonalInformation = () => {
             required
           />
         </div>
-
-        <div className="build_box email">
-          <label>ایمیل</label>
-          <input type="email" required placeholder="e.g famous@gmail.com" />
-        </div>
-
-        <div className="build_box">
-          <label>جلد تذکره</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>صفحه</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>شماره ثبت</label>
-          <input type="text" />
-        </div>
-
-        <div className="build_box">
-          <label>نمبر عمومی</label>
-          <input type="text" />
-        </div>
       </form>
     </div>
   )
 }
+/*
+ *
+ *
+ */
