@@ -9,7 +9,7 @@ const Stepper = ({ steps, currentStep }) => {
     const newSteps = [...steps]
     let count = 0
 
-    while (count < newStep.length) {
+    while (count < newSteps.length) {
       // current step
       if (count === stepNumber) {
         newSteps[count] = {
@@ -28,6 +28,7 @@ const Stepper = ({ steps, currentStep }) => {
           selected: true,
           completed: true,
         }
+        count++
       }
       // step pending
       else {
@@ -37,6 +38,7 @@ const Stepper = ({ steps, currentStep }) => {
           selected: false,
           completed: false,
         }
+        count++
       }
     }
     return newSteps
@@ -54,7 +56,6 @@ const Stepper = ({ steps, currentStep }) => {
         }
       )
     )
-
     stepRef.current = stepState
     const current = updateStep(currentStep - 1, stepRef.current)
     setNewStep(current)
@@ -72,17 +73,37 @@ const Stepper = ({ steps, currentStep }) => {
       >
         <div className="display_nums_des">
           <div
-            className={`display_nums ${step.selected ? "line_completed" : ""}`}
+            className={`display_nums ${
+              step.selected ? "numbers_completed" : ""
+            }`}
           >
             {/* Display Numbers  */}
-            {step.completed ? <span>&#10003;</span> : index + 1}
+            {step.completed ? (
+              <span>
+                <i className="bi bi-check-lg"></i>
+              </span>
+            ) : (
+              index + 1
+            )}
           </div>
-          <div className={`display_des ${step.highlighted ? "" : ""}`}>
+          <div
+            className={`display_des ${
+              step.highlighted
+                ? "description_highlighted"
+                : "description_not_highlighted"
+            }`}
+          >
             {/*  Display Description  */}
             {step.description}
           </div>
         </div>
-        <div className={`display_line ${step.completed ? "line-green" : ""}`}>
+        <div
+          className={`display_line ${
+            step.completed
+              ? "display_line_completed"
+              : "display_line_not_completed"
+          }`}
+        >
           {/* Display Line */}
         </div>
       </div>
