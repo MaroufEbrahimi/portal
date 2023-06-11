@@ -13,7 +13,7 @@ const AddStudent = () => {
   const [currentStep, setCurrentStep] = useState(1)
   const [userData, setUserData] = useState("")
   const [finalData, setFinalData] = useState([])
-  const steps = ["معلومات شخصی", "سکونت محصل", "اقارب محصل", "بخش آخر"]
+  const steps = ["معلومات شخصی", "تذکره و سکونت محصل", "اقارب محصل", "بخش آخر"]
 
   const displaySteps = (step) => {
     switch (step) {
@@ -27,7 +27,7 @@ const AddStudent = () => {
         return <StudentRelatives />
 
       case 4:
-        return <Complete />
+        return <Complete handleNextStep={handleNextStep} />
 
       default:
     }
@@ -65,9 +65,9 @@ const AddStudent = () => {
       {/* Navigation control */}
       {currentStep !== steps.length && (
         <FormControl
+          handleNextStep={handleNextStep}
           currentStep={currentStep}
           steps={steps}
-          handleNextStep={handleNextStep}
         />
       )}
     </div>
