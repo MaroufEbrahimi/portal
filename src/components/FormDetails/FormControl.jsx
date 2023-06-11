@@ -2,20 +2,22 @@ import React from "react"
 
 import "./FormControl.css"
 
-const FormControl = ({ currentStep, steps, handleNextStep }) => {
+const FormControl = ({ handleNextStep, currentStep, steps }) => {
   return (
     <div className="button_control">
       {/* back button */}
       <button
-        onChange={() => handleNextStep()}
-        className={`next_btn btn ${currentStep === 1 ? "" : ""}`}
+        onClick={() => handleNextStep()}
+        className={`back_btn btn ${
+          currentStep === 1 ? "back_btn_step_first" : ""
+        }`}
       >
-        Back
+        بازگشت
       </button>
 
       {/* next button */}
-      <button onChange={() => handleNextStep("next")} className="back_btn btn">
-        {currentStep === steps.length - 1 ? "Confirem" : "Next"}
+      <button onClick={() => handleNextStep("next")} className="back_btn btn">
+        {currentStep === steps.length - 1 ? "تایید" : "بعدی"}
       </button>
     </div>
   )
