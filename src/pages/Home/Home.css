@@ -11,40 +11,188 @@
   padding: 0px 30px;
 }
 .header .input_group {
-  display: flex;
-  border: 1px solid var(--gen-color);
-  border-radius: 20px;
-  padding: 6px 10px;
-  /* box-shadow: 1px 1px 7px 1px var(--gen-color); */
-  width: 50%;
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
 }
-.header .input_group input {
+.header .input_group label {
+  position: relative;
   width: 100%;
-  border: none;
+}
+.header .input_group label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 35px;
   outline: none;
-  border-radius: 10px;
+  font-size: 17px;
+  border: 1px solid var(--gen-color);
   transition: all 0.3s ease-in-out;
-  padding: 0 10px;
 }
-.header .input_group button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
+.header .input_group label input:focus {
+  box-shadow: 1px 1px 7px 1px var(--gen-color);
 }
-.header .input_group button i {
-  font-weight: bold;
-  font-size: 16px;
+.header .input_group label i {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 1rem;
 }
+
 .header img {
   width: 50px;
 }
-.img_slider {
+.showcase {
+  position: relative;
   border-radius: 10px;
+  width: 100%;
+  height: 90vh;
 }
-.img_slider img {
+.showcase img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+}
+.showcase_sldier {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to left,
+    var(--gen-color),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+.showcase_sldier .showcase_slider_details {
+  position: absolute;
+  width: 60%;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+.showcase_slider_details h1 {
+  color: white;
+  font-size: 64px;
+  font-weight: 700;
+  font-family: vazir_l;
+  margin: 0 0 30px 0;
+  line-height: 56px;
+  text-shadow: -1px 0 2px #2f4d5a;
+}
+.showcase_slider_details p {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  text-shadow: -1px 0 2px #2f4d5a;
+}
+
+/* Section title */
+.section_title {
+  text-align: center;
+  padding: 70px 0 30px 0;
+}
+
+section {
+  overflow: hidden;
+}
+
+.section_title h1 {
+  position: relative;
+  font-size: 32px;
+  color: #2f4d5a;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.section_title h1::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 65px;
+  background: url("../../assets/img/section-title-bg.png") no-repeat;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.section_title p {
+  line-height: 25px;
+}
+
+/* faculty_boxes */
+.faculty_boxes {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  grid-gap: 1.5rem;
+  margin: 10px;
+  padding: 0 2rem 2rem 2rem;
+  margin-bottom: 3rem;
+}
+.faculty_boxes::after {
+  position: absolute;
+  content: "";
+  background: var(--gen-bg-color);
+  width: 100%;
+  height: 150px;
+  top: 50%;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+}
+.faculty_boxes .faculty {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+  box-shadow: 0 0 29px rgba(68, 88, 144, 0.12);
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+.faculty_boxes .faculty .faculty_img {
+  position: relative;
+}
+.faculty_boxes .faculty .faculty_img img {
+  width: 100%;
+  height: 100%;
+}
+.faculty_boxes .faculty .faculty_img .img_details {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 96%;
+  background-color: rgba(0, 0, 0, 0.43);
+}
+.faculty_boxes .faculty .faculty_img .img_details p {
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+}
+.faculty .faculty_details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.faculty .faculty_details img {
+  height: 30px;
+  width: 30px;
+}
+.faculty .faculty_details > div {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+}
+.faculty .faculty_details > div p {
+  font-size: 14px;
 }
