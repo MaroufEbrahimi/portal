@@ -28,7 +28,7 @@ const Login = () => {
             </div>
           </div>
           <a href="#">رمز را فراموش کرده اید؟</a>
-          <input type="submit" className="btn" value="ورود به سیستم" />
+          <button className="btn">ورود به سیستم</button>
         </form>
       </div>
     </div>

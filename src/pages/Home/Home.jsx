@@ -2,6 +2,7 @@ import React from "react"
 import { useStateValue } from "../../context/StateProvider"
 import "./Home.css"
 import { eliteStudents } from "../../constants/Data"
+import ShowCaseSlider from "../../components/Slider/ShowCaseSlider/ShowCaseSlider"
 
 import bg1 from "../../assets/img/slide/slide1.jpg"
 import LOGO from "../../assets/img/logo.png"
@@ -22,22 +23,13 @@ const Home = () => {
         </div>
         <img src={LOGO} alt="LOGO" />
       </div>
-      {/* <div className="showcase">
-        <img src={bg1} alt="home img" />
-        <div className="showcase_sldier">
-          <div className="showcase_slider_details">
-            <h1>تعهد امروز تخصص فردا</h1>
-            <p>
-              یکی از وظایف اساسی و مهم معلمان و مربیان گرامی هوشیار ساختن
-              متربیان است، یا متوجه ساختن شاگردان به خودشان است که چگونه به این
-              درجات علمی و سنی رسیده اند.
-            </p>
-          </div>
-        </div>
-      </div> */}
+
+      {/* Main Show Slider */}
+      <ShowCaseSlider />
+      {/* End of Main Show Slider */}
 
       {/* Faculties */}
-      {/* <section className="hariwa_faculties">
+      <section className="hariwa_faculties">
         <div class="section_title">
           <h1>پوهنحی ها</h1>
         </div>
@@ -88,7 +80,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
+      {/* End of Faculties */}
 
       {/* Elite Students */}
       <section className="elite_students">
@@ -110,6 +103,15 @@ const Home = () => {
           ))}
         </div>
       </section>
+      {/* End of Elite Students */}
+
+      {/* Colleague Institute */}
+      <section className="colleague_institute">
+        <div class="section_title">
+          <h1>نهاد های همکار</h1>
+        </div>
+      </section>
+      {/* End of Colleague Institute */}
     </div>
   )
 }
