@@ -1,0 +1,84 @@
+/* Slides */
+.slider_content {
+  width: 100%;
+}
+.slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: 500px;
+}
+.slides .img_slide {
+  position: absolute;
+  background-color: var(--gen-bg-color);
+  width: 100%;
+  object-fit: cover;
+}
+.slides .slide_title,
+.slides .slide_description {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 40px;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+}
+.slides .slide_description {
+  top: 65%;
+  font-size: 2rem;
+}
+
+/* Arrows */
+.arrows .prev_slide,
+.arrows .next_slide {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 13px;
+  margin-top: -3rem;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 5px 0px 0px 5px;
+  cursor: pointer;
+  background: var(--gen-bg-color);
+}
+.arrows .prev_slide i,
+.arrows .next_slide i {
+  color: #fff;
+}
+.arrows .prev_slide:hover,
+.arrows .next_slide:hover {
+  color: #fff;
+  background-color: var(--gen-color);
+  transition: all 0.3s ease-in;
+}
+.arrows .next_slide {
+  left: 0;
+  border-radius: 0px 5px 5px 0px;
+}
+
+/* Dots */
+.all_dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  top: 93%;
+}
+.all_dots .dot {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background: var(--gen-bg-color);
+  display: inline-block;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.3s ease-in;
+}
+.all_dots .active_dot,
+.all_dots .dot:hover {
+  background: var(--gen-color);
+}
