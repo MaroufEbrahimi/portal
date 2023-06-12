@@ -1,6 +1,8 @@
 import React from "react"
 import { useStateValue } from "../../context/StateProvider"
 import "./Home.css"
+import { eliteStudents } from "../../constants/Data"
+
 import bg1 from "../../assets/img/slide/slide1.jpg"
 import LOGO from "../../assets/img/logo.png"
 import faculty from "../../assets/img/imgpost.jpg"
@@ -20,7 +22,7 @@ const Home = () => {
         </div>
         <img src={LOGO} alt="LOGO" />
       </div>
-      <div className="showcase">
+      {/* <div className="showcase">
         <img src={bg1} alt="home img" />
         <div className="showcase_sldier">
           <div className="showcase_slider_details">
@@ -32,9 +34,10 @@ const Home = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <section className="hariwa_faculties">
+      {/* Faculties */}
+      {/* <section className="hariwa_faculties">
         <div class="section_title">
           <h1>پوهنحی ها</h1>
         </div>
@@ -84,6 +87,27 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section> */}
+
+      {/* Elite Students */}
+      <section className="elite_students">
+        <div class="section_title">
+          <h1>محصلان نخبه</h1>
+        </div>
+        <div className="elite_stu">
+          {eliteStudents.map((item) => (
+            <div className="elite_stu_card">
+              <div className="elite_stu_card_text">
+                <p>{item.text}</p>
+              </div>
+              <div className="elite_stu_card_personalInfo">
+                <img src={item.eliteImg} alt="" />
+                <p>{item.eliteName}</p>
+                <p>{item.studentsOf}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
