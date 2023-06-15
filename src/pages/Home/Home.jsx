@@ -1,8 +1,9 @@
 import React from "react"
 import { useStateValue } from "../../context/StateProvider"
 import "./Home.css"
-import { eliteStudents } from "../../constants/Data"
 import ShowCaseSlider from "../../components/Slider/ShowCaseSlider/ShowCaseSlider"
+import { eliteStudents } from "../../constants/Data"
+import { colleagueInstitute } from "../../constants/Data"
 
 import bg1 from "../../assets/img/slide/slide1.jpg"
 import LOGO from "../../assets/img/logo.png"
@@ -29,7 +30,7 @@ const Home = () => {
       {/* End of Main Show Slider */}
 
       {/* Faculties */}
-      <section className="hariwa_faculties">
+      <section className="hariwa_faculties fade_in">
         <div class="section_title">
           <h1>پوهنحی ها</h1>
         </div>
@@ -84,7 +85,7 @@ const Home = () => {
       {/* End of Faculties */}
 
       {/* Elite Students */}
-      <section className="elite_students">
+      <section className="elite_students fade_in">
         <div class="section_title">
           <h1>محصلان نخبه</h1>
         </div>
@@ -106,9 +107,16 @@ const Home = () => {
       {/* End of Elite Students */}
 
       {/* Colleague Institute */}
-      <section className="colleague_institute">
+      <section className="colleague_institute fade_in">
         <div class="section_title">
           <h1>نهاد های همکار</h1>
+        </div>
+        <div className="colleague_institute_boxes">
+          {colleagueInstitute.map((itemImg) => (
+            <div className="colleague_institute_box" title={itemImg.title}>
+              <img src={itemImg.imgInstitute} alt={itemImg.alt} />
+            </div>
+          ))}
         </div>
       </section>
       {/* End of Colleague Institute */}
