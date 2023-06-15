@@ -4,31 +4,25 @@ import LOGO from "../../assets/img/logo.png"
 
 const Login = () => {
   return (
-    <div className="login">
-      <div className="login-container">
-        <form>
-          <img className="avatar" src={LOGO} alt="Profile svg" />
-          <h2>دانشگاه هریوا</h2>
-          <div className="input-div one">
-            <div className="i">
+    <div className="login fade_in">
+      <div className="login_container login_details">
+        <div className="avatart">
+          <i className="bi bi-person"></i>
+        </div>
+        <form action="">
+          <div className="form_container">
+            <div className="login_box">
+              <input type="text" placeholder="Email" />
               <i className="bi bi-person-circle"></i>
             </div>
-            <div>
-              <h5>نام کاربری</h5>
-              <input className="input" type="text" />
-            </div>
-          </div>
-          <div className="input-div two">
-            <div className="i">
+            <div className="login_box">
+              <input type="password" placeholder="Password" />
               <i className="bi bi-lock-fill"></i>
             </div>
-            <div>
-              <h5>رمز کاربری</h5>
-              <input className="input" type="password" />
-            </div>
           </div>
-          <a href="#">رمز را فراموش کرده اید؟</a>
-          <button className="btn">ورود به سیستم</button>
+          <div className="btn_login">
+            <button className="login_button">ورود به سیستم</button>
+          </div>
         </form>
       </div>
     </div>
