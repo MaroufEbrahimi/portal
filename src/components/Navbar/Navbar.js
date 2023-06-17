@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Link, useResolvedPath, useMatch } from "react-router-dom"
+import { AuthContext } from "../../context/authContext"
 import LOGO from "../../assets/img/logo.png"
 import "./Navbar.css"
 
@@ -19,22 +20,26 @@ const CustomeLinks = ({ to, children, ...props }) => {
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(true)
   const menuHandler = () => setActiveMenu(!activeMenu)
+  const authContext = useContext(AuthContext)
 
   return (
     <div className="navbar">
-      <div className="logo">
+      <Link to="/" className="logo">
         <img src={LOGO} alt="logo" className="logo_img" />
-      </div>
+        <h3>هریوا</h3>
+      </Link>
       <div className="navbar_menu">
         <ul className="navbar_content">
           <CustomeLinks to="/" title="خانه">
             <i className="bi bi-house-door"></i>
             <span>خانه</span>
           </CustomeLinks>
-          <CustomeLinks to="/search" title="جستجو">
-            <i className="bi bi-search"></i>
-            <span>جستجو</span>
-          </CustomeLinks>
+          {authContext.isAuth ? (
+            <CustomeLinks to="/search" title="جستجو">
+              <i className="bi bi-search"></i>
+              <span>جستجو</span>
+            </CustomeLinks>
+          ) : null}
           <div className="navbar__title open__navbar" onClick={menuHandler}>
             <li className="navbar__item">
               <i className="bi bi-gear"></i>
