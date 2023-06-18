@@ -6,8 +6,15 @@ import sliderImg4 from "../assets/img/slide/slide4.jpg"
 import eliteImg1 from "../assets/img/user.jpg"
 
 import profile1 from "../assets/img/user.jpg"
+// Institute
+import institute1 from "../assets/img/institutes/institute1.png"
+import institute2 from "../assets/img/institutes/institute2.png"
+import institute3 from "../assets/img/institutes/institute3.png"
+import institute4 from "../assets/img/institutes/institute4.png"
+import institute5 from "../assets/img/institutes/institute5.png"
+import institute6 from "../assets/img/institutes/institute6.png"
 
-// Main Image Slider
+// #______ Main Image Slider ______#
 export const imageSliderData = [
   {
     title: "this is the first text for test",
@@ -30,9 +37,9 @@ export const imageSliderData = [
     sliderImg: sliderImg4,
   },
 ]
-// End of Main Image Slider
+// #______ End of Main Image Slider ______#
 
-// Elite Students
+// #______ Elite Students ______#
 export const eliteStudents = [
   {
     id: 1,
@@ -56,9 +63,21 @@ export const eliteStudents = [
     studentsOf: "کامپیوتر ساینس",
   },
 ]
-// End of Elite Students
+// #______ End of Elite Students ______#
 
-// All Students
+// #______ Hariwa Faculties ______#
+export const hariwaFaculties = [
+  {
+    imgFaculty: "",
+    imgText: "",
+    imgProfile: "",
+    priceFaculty: "",
+    callFaculty: "",
+  },
+]
+// #______ End of Hariwa Faculties ______#
+
+// #______ All Students ______#
 export const allStudents = [
   {
     profileImg: profile1,
@@ -124,4 +143,39 @@ export const allStudents = [
     studentSemester: "8",
   },
 ]
-// End of All Students
+// #______ End of All Students ______#
+
+// #______ Colleague Institute ______#
+export const colleagueInstitute = [
+  {
+    imgInstitute: institute1,
+    title: "title",
+    alt: "alt",
+  },
+  {
+    imgInstitute: institute2,
+    title: "title",
+    alt: "alt",
+  },
+  {
+    imgInstitute: institute3,
+    title: "title",
+    alt: "alt",
+  },
+  {
+    imgInstitute: institute4,
+    title: "title",
+    alt: "alt",
+  },
+  {
+    imgInstitute: institute5,
+    title: "title",
+    alt: "alt",
+  },
+  {
+    imgInstitute: institute6,
+    title: "title",
+    alt: "alt",
+  },
+]
+// #______ End of Colleague Institute ______#

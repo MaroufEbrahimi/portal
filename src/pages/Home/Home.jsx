@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="header">
+      <div className="home_header">
         <div className="input_group">
           <label>
             <h1>{term}</h1>
