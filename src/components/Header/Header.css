@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header_login {
+  padding: 5px 14px;
+  border: 1px solid var(--gen-color);
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: transparent;
+}
+.header .header_left, .header .header_right {
+  display: flex;
+  gap: 10px;
+}
