@@ -76,6 +76,10 @@ form .form_container .login_box i {
   align-items: center;
   justify-content: center;
 }
+form .error {
+  color: red;
+  font-size: 15px;
+}
 .btn_login {
   position: absolute;
   width: 100%;

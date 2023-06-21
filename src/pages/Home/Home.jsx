@@ -31,7 +31,7 @@ const Home = () => {
 
       {/* Faculties */}
       <section className="hariwa_faculties fade_in">
-        <div class="section_title">
+        <div className="section_title">
           <h1>پوهنحی ها</h1>
         </div>
         <div className="faculty_boxes">
@@ -86,12 +86,12 @@ const Home = () => {
 
       {/* Elite Students */}
       <section className="elite_students fade_in">
-        <div class="section_title">
+        <div className="section_title">
           <h1>محصلان نخبه</h1>
         </div>
         <div className="elite_stu">
           {eliteStudents.map((item) => (
-            <div className="elite_stu_card">
+            <div className="elite_stu_card" key={item.id}>
               <div className="elite_stu_card_text">
                 <p>{item.text}</p>
               </div>
@@ -108,12 +108,16 @@ const Home = () => {
 
       {/* Colleague Institute */}
       <section className="colleague_institute fade_in">
-        <div class="section_title">
+        <div className="section_title">
           <h1>نهاد های همکار</h1>
         </div>
         <div className="colleague_institute_boxes">
           {colleagueInstitute.map((itemImg) => (
-            <div className="colleague_institute_box" title={itemImg.title}>
+            <div
+              key={itemImg.id}
+              className="colleague_institute_box"
+              title={itemImg.title}
+            >
               <img src={itemImg.imgInstitute} alt={itemImg.alt} />
             </div>
           ))}

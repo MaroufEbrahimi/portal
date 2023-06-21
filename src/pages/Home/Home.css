@@ -3,7 +3,7 @@
   height: 100%;
   padding: 10px;
 }
-.header {
+.home_header {
   width: 100%;
   display: flex;
   align-items: center;
@@ -11,16 +11,16 @@
   margin-bottom: 15px;
   padding: 0px 30px;
 }
-.header .input_group {
+.home_header .input_group {
   position: relative;
   width: 400px;
   margin: 0 10px;
 }
-.header .input_group label {
+.home_header .input_group label {
   position: relative;
   width: 100%;
 }
-.header .input_group label input {
+.home_header .input_group label input {
   width: 100%;
   height: 40px;
   border-radius: 40px;
@@ -30,17 +30,17 @@
   border: 1px solid var(--gen-color);
   transition: all 0.3s ease-in-out;
 }
-.header .input_group label input:focus {
+.home_header .input_group label input:focus {
   box-shadow: 1px 1px 7px 1px var(--gen-color);
 }
-.header .input_group label i {
+.home_header .input_group label i {
   position: absolute;
   top: 0;
   right: 10px;
   font-size: 1rem;
 }
 
-.header img {
+.home_header img {
   width: 50px;
 }
 .showcase {
@@ -260,3 +260,25 @@ section {
 /* .auto_play_slider div {
   background: red;
 } */
+
+/* colleague institute */
+.colleague_institute_boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  grid-column: 2rem;
+}
+.colleague_institute_boxes .colleague_institute_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.colleague_institute_boxes .colleague_institute_box img {
+  max-width: 50%;
+  padding: 15px 0;
+  transition: all 0.4s ease-in-out;
+  filter: grayscale(100);
+}
+.colleague_institute_boxes .colleague_institute_box img:hover {
+  filter: none;
+  transform: scale(1.15);
+}
