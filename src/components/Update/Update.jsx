@@ -45,7 +45,12 @@ const Update = () => {
             </div>
             <div className="build_box email median_width">
               <label>ایمیل</label>
-              <input type="email" name="email" required placeholder="e.g famous@gmail.com" />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="e.g famous@gmail.com"
+              />
             </div>
 
             <div className="build_box">
@@ -101,15 +106,15 @@ const Update = () => {
 
             <div className="build_box median_width">
               <label>قریه / گذر</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>ولسوالی / ناحیه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>ولایت</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
 
             <div className="full_width">
@@ -118,15 +123,15 @@ const Update = () => {
 
             <div className="build_box median_width">
               <label>قریه / گذر</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>ولسوالی / ناحیه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>ولایت</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
           </form>
         </div>
@@ -139,15 +144,15 @@ const Update = () => {
             </div>
             <div className="build_box">
               <label>نام</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>وظیفه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>محل وظیفه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>شماره تماس</label>
@@ -166,15 +171,15 @@ const Update = () => {
 
             <div className="build_box">
               <label>نام</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>وظیفه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>محل وظیفه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>شماره تماس</label>
@@ -192,15 +197,15 @@ const Update = () => {
             </div>
             <div className="build_box">
               <label>نام</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>وظیفه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>محل وظیفه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>شماره تماس</label>
@@ -218,15 +223,15 @@ const Update = () => {
             </div>
             <div className="build_box">
               <label>نام</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>وظیفه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>محل وظیفه</label>
-              <input type="text" />
+              <input type="text" required />
             </div>
             <div className="build_box">
               <label>شماره تماس</label>
