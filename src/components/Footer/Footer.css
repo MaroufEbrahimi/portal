@@ -89,3 +89,10 @@
 .copyright .credits a:hover {
   color: var(--gen-color);
 }
+
+/* responsive */
+@media (max-width: 860px) {
+  .footer_boxes {
+    grid-template-columns: 100%;
+  }
+}

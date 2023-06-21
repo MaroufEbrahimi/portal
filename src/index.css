@@ -17,6 +17,12 @@
   --gen-bg-color: #67b0d14d;
   --gen-main-bg: #eaf8ff;
 }
+.dark_theme_root {
+  --gen-color: #67b0d1;
+  --gen-color-hover: #8ec4dd;
+  --gen-bg-color: #000106;
+  --gen-main-bg: #eaf8ff;
+}
 
 * {
   padding: 0;
@@ -118,6 +124,11 @@ img {
 /* animations */
 .fade_in {
   animation-name: fade-in;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.55, 0.01, 0.12, 0.97);
+}
+.fade_out {
+  animation-name: fade-out;
   animation-duration: 0.5s;
   animation-timing-function: cubic-bezier(0.55, 0.01, 0.12, 0.97);
 }
@@ -246,6 +257,15 @@ img {
 
   to {
     opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
 @keyframes bottom-to-top {

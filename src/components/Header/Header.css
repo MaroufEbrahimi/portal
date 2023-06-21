@@ -12,7 +12,14 @@
   font-size: 16px;
   background-color: transparent;
 }
-.header .header_left, .header .header_right {
+.header .header_left,
+.header .header_right {
   display: flex;
   gap: 10px;
+}
+
+.header_left .dark_mode_toggle i {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  font-size: 15px;
 }

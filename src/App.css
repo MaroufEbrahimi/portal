@@ -2,13 +2,15 @@
   /* background: radial-gradient(#df1677, #923632, #4371f0); */
   /* background: linear-gradient(266deg, #48d9e3, #4bc68a, #2a5647); */
   min-height: 100vh;
+  background-color: var(--gen-main-bg);
 }
 
 .app main {
-  padding-top: 15px;
+  /* padding-top: 15px; */
   margin: 0 260px 0 60px;
   box-sizing: border-box;
-  height: 1000px;
+  overflow-x: hidden;
+  padding: 10px;
 }
 
 .search__icon {

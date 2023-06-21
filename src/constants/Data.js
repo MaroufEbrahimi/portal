@@ -148,31 +148,37 @@ export const allStudents = [
 // #______ Colleague Institute ______#
 export const colleagueInstitute = [
   {
+    id: 1,
     imgInstitute: institute1,
     title: "title",
     alt: "alt",
   },
   {
+    id: 2,
     imgInstitute: institute2,
     title: "title",
     alt: "alt",
   },
   {
+    id: 3,
     imgInstitute: institute3,
     title: "title",
     alt: "alt",
   },
   {
+    id: 4,
     imgInstitute: institute4,
     title: "title",
     alt: "alt",
   },
   {
+    id: 5,
     imgInstitute: institute5,
     title: "title",
     alt: "alt",
   },
   {
+    id: 6,
     imgInstitute: institute6,
     title: "title",
     alt: "alt",
