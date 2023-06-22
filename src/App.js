@@ -1,4 +1,4 @@
-import React, { Suspense, useContext } from "react"
+import React, { Suspense, useContext, useState } from "react"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { AuthContext } from "./context/authContext"
 
@@ -26,14 +26,16 @@ const NotFound = React.lazy(() => import("./pages/NotFound/NotFound"))
 
 const App = (props) => {
   const authContext = useContext(AuthContext)
-
+  const [activeNav, setActiveNav] = useState(false)
+  const navActiveHandler = () => setActiveNav(!activeNav)
+  // {`navbar ${activeNav && "active_nav_right"}`}
   return (
     <div className="app">
-      <main>
+      <main className={`main ${activeNav && "main_active_nav"}`}>
         <Router>
           <Suspense fallback={<Loading />}>
             <Header />
-            <Navbar />
+            <Navbar activeNav={activeNav} navActiveHandler={navActiveHandler} />
             <Wrapper>
               <Routes>
                 <Route path="/" element={<Home />} />
