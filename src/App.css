@@ -3,14 +3,22 @@
   /* background: linear-gradient(266deg, #48d9e3, #4bc68a, #2a5647); */
   min-height: 100vh;
   background-color: var(--gen-main-bg);
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
-.app main {
+.app .main {
   /* padding-top: 15px; */
-  margin: 0 260px 0 60px;
+  margin: 0 230px 0 30px;
   box-sizing: border-box;
   overflow-x: hidden;
   padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.app .main_active_nav {
+  margin: 0 100px 0 30px;
 }
 
 .search__icon {
