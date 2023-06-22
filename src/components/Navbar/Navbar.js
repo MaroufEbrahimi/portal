@@ -17,17 +17,26 @@ const CustomeLinks = ({ to, children, ...props }) => {
   )
 }
 
-const Navbar = () => {
-  const [activeMenu, setActiveMenu] = useState(true)
-  const menuHandler = () => setActiveMenu(!activeMenu)
+const Navbar = ({ activeNav, navActiveHandler }) => {
   const authContext = useContext(AuthContext)
 
   return (
-    <div className="navbar">
+    <div className={`navbar ${activeNav && "active_nav_right"}`}>
+      <div className="toggle_header_navbar">
+        <div className="toggle_header_icon" onClick={navActiveHandler}>
+          {activeNav ? (
+            <i className="bi bi-chevron-left"></i>
+          ) : (
+            <i className="bi bi-chevron-right"></i>
+          )}
+        </div>
+      </div>
+
       <Link to="/" className="logo">
         <img src={LOGO} alt="logo" className="logo_img" />
         <h3>هریوا</h3>
       </Link>
+
       <div className="navbar_menu">
         <ul className="navbar_content">
           <CustomeLinks to="/" title="خانه">
@@ -40,7 +49,7 @@ const Navbar = () => {
               <span>جستجو</span>
             </CustomeLinks>
           ) : null}
-          <div className="navbar__title open__navbar" onClick={menuHandler}>
+          <div className="navbar__title open__navbar">
             <li className="navbar__item">
               <i className="bi bi-gear"></i>
               <span>ادمین پنل</span>
