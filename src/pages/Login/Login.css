@@ -7,33 +7,32 @@
     ),
     url("../../assets/img/user-bg.jpg");
   background-size: 100%;
-  width: 100%;
-  height: 80vh;
-  border-radius: 8px;
-}
-.login .login_container {
-  position: relative;
-  width: 100%;
-  height: 100%;
   display: flex;
-  text-align: center;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 100vh;
 }
-.login_container .avatart {
+.login_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login .avatart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--gen-bg-color);
   border-radius: 50%;
   width: 85px;
   height: 85px;
   position: absolute;
-  top: 6.4rem;
-  box-shadow: 0.7px 1px 3px rgba(0, 0, 0, 0.5);
+  top: 10rem;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
 }
-.login_container .avatart i {
-  font-size: 65px;
-  color: #fff;
-  font-weight: 100;
+.login .avatart i {
+  font-size: 45px;
+  z-index: 100;
 }
 .login_container form {
   position: relative;
@@ -68,7 +67,6 @@ form .form_container .login_box input::placeholder {
 }
 form .form_container .login_box i {
   background-color: #fff;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   font-size: 16px;
   border-radius: 8px 0 0 8px;
@@ -78,7 +76,7 @@ form .form_container .login_box i {
 }
 form .error {
   color: red;
-  font-size: 15px;
+  font-size: 14px;
 }
 .btn_login {
   position: absolute;
@@ -99,4 +97,11 @@ form .error {
 }
 .btn_login .login_button:hover {
   background-color: rgba(233, 255, 255, 0.596);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login_container form {
+    width: 250px;
+  }
 }
