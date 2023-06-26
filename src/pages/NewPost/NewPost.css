@@ -53,10 +53,13 @@
   color: var(--gen-color);
 }
 /* post boxes */
-.post_boxes {
+.share_post_on {
   margin-top: 1.5rem;
+}
+.post_boxes {
+  margin-top: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
 }
 .post_boxes .post_box select {

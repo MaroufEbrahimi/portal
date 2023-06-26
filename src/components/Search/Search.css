@@ -12,6 +12,7 @@
 }
 .search__input input {
   flex: 1;
+  background-color: transparent;
   padding: 10px 20px;
   border: none;
 }
@@ -37,4 +38,7 @@
 }
 .search__button button:hover {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.search__buttonHidden {
+  display: none !important;
 }
