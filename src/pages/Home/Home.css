@@ -106,7 +106,7 @@ section {
 .section_title h1 {
   position: relative;
   font-size: 32px;
-  color: #2f4d5a;
+  color: var(--gen-color);
   font-weight: bold;
   z-index: 2;
 }
@@ -137,21 +137,10 @@ section {
   padding: 0 2rem 2rem 2rem;
   margin-bottom: 3rem;
 }
-.faculty_boxes::after {
-  position: absolute;
-  content: "";
-  background: var(--gen-bg-color);
-  width: 100%;
-  height: 150px;
-  top: 50%;
-  border-radius: 20px;
-  display: flex;
-  align-items: flex-end;
-}
 .faculty_boxes .faculty {
   position: relative;
   overflow: hidden;
-  background: #fff;
+  background: var(--gen-bg-color);
   color: #000;
   border-radius: 8px;
   z-index: 1;
@@ -170,10 +159,9 @@ section {
   right: 0;
   width: 100%;
   height: 96%;
-  background-color: rgba(0, 0, 0, 0.43);
 }
 .faculty_boxes .faculty .faculty_img .img_details p {
-  color: white;
+  color: var(--text-color);
   padding: 10px;
   font-size: 12px;
 }
@@ -194,6 +182,7 @@ section {
 }
 .faculty .faculty_details > div p {
   font-size: 14px;
+  color: var(--text-color);
 }
 /* Elite Students */
 .elite_students .elite_stu {
@@ -203,7 +192,7 @@ section {
 }
 .elite_students .elite_stu_card_text {
   position: relative;
-  background-color: #fff;
+  background-color: var(--gen-bg-color);
   padding: 20px 15px 30px;
   border-radius: 6px;
   box-sizing: content-box;
@@ -213,7 +202,7 @@ section {
   content: "";
   width: 0;
   height: 0;
-  border-top: 18px solid #fff;
+  border-top: 18px solid var(--gen-bg-color);
   border-right: 18px solid transparent;
   border-left: 18px solid transparent;
   position: absolute;
@@ -221,6 +210,7 @@ section {
   left: calc(50% - 18px);
 }
 .elite_students .elite_stu_card_text p {
+  color: var(--text-color);
   text-align: center;
   font-size: 16px;
   line-height: 1.4em;
@@ -237,12 +227,12 @@ section {
 .elite_stu_card .elite_stu_card_personalInfo p {
   font-size: 15px;
   font-weight: 800;
-  color: black;
+  color: var(--text-color);
 }
 .elite_stu_card .elite_stu_card_personalInfo p:last-child {
   font-size: 13px;
   font-weight: 500;
-  color: gray;
+  color: var(--text-color);
 }
 
 /* auto_play_slider */

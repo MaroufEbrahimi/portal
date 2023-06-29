@@ -9,8 +9,8 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--gen-color);
-  border-right: 10px solid var(--gen-color);
+  background-color: var(--gen-bg-color);
+  border-right: 10px solid var(--gen-bg-color);
   transition: 0.3s;
   z-index: 1000;
 }
@@ -32,13 +32,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 3px 10px rgba(189, 243, 247, 0.4);
-  background-color: rgb(194, 234, 252);
+  box-shadow: 2px 2px 8px rgba(189, 243, 247, 0.4);
+  background-color: var(--gen-bg-color);
   transition: 0.3s;
 }
 .toggle_header_navbar i {
   font-size: 16px;
-  color: #000;
+  color: var(--text-color);
   cursor: pointer;
   transition: all 1s ease-in-out;
 }
@@ -66,7 +66,7 @@
 .navbar_menu li {
   position: relative;
   width: 100%;
-  font-size: 20px;
+  font-size: 16px;
   text-align: left;
   border: none;
   outline: none;
@@ -82,20 +82,22 @@
 }
 
 .navbar_menu li a {
+  color: var(--text-color);
   display: flex;
   align-items: center;
   padding: 7px 10px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .navbar_menu li span {
   font-weight: 300;
-  padding: 0 10px;
+  color: var(--text-color);
 }
 
 .navbar_menu li i {
+  color: var(--text-color);
   font-weight: 300;
-  padding: 0 10px;
+  padding: 0 8px;
 }
 .navbar_menu li:hover a::before,
 .navbar_menu .active a::before {
@@ -132,7 +134,7 @@
   align-items: center;
   justify-content: center;
   padding: 7px 10px;
-  font-size: 18px;
+  font-size: 16px;
 }
 .navbar__title .navbar__item:hover {
   background: none;
@@ -150,7 +152,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
+  color: var(--text-color);
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.3s;
@@ -161,10 +163,9 @@
 /* dropdown */
 .navbar__dropdown {
   padding-right: 20px;
-  margin-top: 5px;
+  margin-top: 10px;
   width: 100%;
   list-style: none;
-  position: absolute;
 }
 
 .navbar__title.open__navbar .navbar__dropdown {
@@ -174,7 +175,7 @@
   display: flex;
   align-items: center;
   font-size: 15px;
-  margin: -7px 0;
+  margin: -8px 0;
 }
 
 .navbar__dropdown li span {
