@@ -14,6 +14,7 @@ import Wrapper from "./components/HOC/Wrapper"
 import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import BackToTop from "./components/UI/BackToTop/BackToTop"
+import { DarkModeContext } from "./context/darkMode"
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
@@ -27,15 +28,21 @@ const DeleteStudent = React.lazy(() =>
   import("./pages/DeleteStudent/DeleteStudent")
 )
 const NotFound = React.lazy(() => import("./pages/NotFound/NotFound"))
+const UniversityInfo = React.lazy(() =>
+  import("./pages/UniversityInfo/UniversityInfo")
+)
 
 const App = (props) => {
   const authContext = useContext(AuthContext)
   const [activeNav, setActiveNav] = useState(false)
+  // handle tab header
   const navActiveHandler = () => setActiveNav(!activeNav)
+  // using dark mode
+  const { darkMode } = useContext(DarkModeContext)
 
   const Layout = () => {
     return (
-      <div className="app">
+      <div className={`app ${darkMode ? "theme-dark" : "theme-light"}`}>
         <main className={`main ${activeNav && "main_active_nav"}`}>
           <Suspense fallback={<Loading />}>
             <Header />
@@ -83,6 +90,10 @@ const App = (props) => {
         {
           path: "/admin/deletestudent",
           element: <DeleteStudent />,
+        },
+        {
+          path: "/admin/universityinfo",
+          element: <UniversityInfo />,
         },
       ],
     },
