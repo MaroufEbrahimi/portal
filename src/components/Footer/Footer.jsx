@@ -15,22 +15,22 @@ const Footer = () => {
           </p>
         </div>
         <div className="footer_box second_footer_box">
-          <div class="box_info">
-            <i class="bi bi-geo-alt"></i>
+          <div className="box_info">
+            <i className="bi bi-geo-alt"></i>
             <div>
               <h1>مکان</h1>
               <p>آب بخش بادمرغان، فردوسی 15، جاده شرقی بادمرغان</p>
             </div>
           </div>
-          <div class="box_info">
-            <i class="bi bi-envelope"></i>
+          <div className="box_info">
+            <i className="bi bi-envelope"></i>
             <div>
               <h1>ایمیل</h1>
               <p>info@hariwa.edu.af</p>
             </div>
           </div>
-          <div class="box_info">
-            <i class="bi bi-phone"></i>
+          <div className="box_info">
+            <i className="bi bi-phone"></i>
             <div>
               <h1>تماس</h1>
               <p className="call_number">0799 600 344</p>
@@ -45,12 +45,12 @@ const Footer = () => {
         </div>
       </div>
       {/* !CopyRight */}
-      <div class="copyright">
-        <div class="credits">
+      <div className="copyright">
+        <div className="credits">
           <p>حق کاپی محفوظ است &copy; 2023 هریوا</p>
           <p>
             ارایه شده توسط
-            <a href="https://github.com/maroufebrahimi" title="_blank">
+            <a href="https://github.com/maroufebrahimi" target="_blank">
               <span> </span>MaroufEbrahimi
             </a>
           </p>

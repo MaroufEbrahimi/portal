@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
   font-family: vazir_b;
   src: url(assets/fonts/vazir-font-v16.1.0/Vazir-Bold.woff);
@@ -10,20 +11,26 @@
   font-family: vazir_m;
   src: url(assets/fonts/vazir-font-v16.1.0/Vazir-Medium.woff);
 }
+/* End of Fonts */
 
-:root {
+/* Dark or Light Themes */
+.theme-light {
   --gen-color: #67b0d1;
   --gen-color-hover: #8ec4dd;
   --gen-bg-color: #67b0d14d;
   --gen-main-bg: #eaf8ff;
+  --text-color: #000;
 }
-.dark_theme_root {
+.theme-dark {
   --gen-color: #67b0d1;
   --gen-color-hover: #8ec4dd;
   --gen-bg-color: #000106;
-  --gen-main-bg: #eaf8ff;
+  --gen-main-bg: #222;
+  --text-color: #f5f5f5;
 }
+/* End of Dark or Light Themes */
 
+/* General Style */
 * {
   padding: 0;
   margin: 0;
@@ -52,15 +59,6 @@ ul {
   list-style: none;
 }
 
-*::-webkit-scrollbar {
-  width: 6px;
-}
-
-*::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: var(--gen-color);
-}
-
 img {
   -webkit-user-drag: none;
 }
@@ -69,7 +67,22 @@ img {
   background-color: var(--gen-bg-color);
 }
 
-/* start of button */
+.box_shadow {
+  box-shadow: 0px 7px 25px rgba(0, 0, 0, 0.08);
+}
+/* End of General Style */
+
+/* Scrollbar */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--gen-bg-color);
+}
+
+/* Button */
 .btn {
   font-family: inherit;
   display: inline-block;
@@ -119,9 +132,9 @@ img {
   background: var(--gen-bg-color);
   transition: background 0s;
 }
-/* end button */
+/* End Button */
 
-/* animations */
+/* Animations */
 .fade_in {
   animation-name: fade-in;
   animation-duration: 0.5s;
@@ -277,4 +290,4 @@ img {
     transform: translateY(0);
   }
 }
-/* End of animations */
+/* End of Animations */

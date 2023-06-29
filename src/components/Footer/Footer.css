@@ -9,8 +9,10 @@
 /* first_footer_box */
 .footer_boxes .first_footer_box h1 {
   font-size: 25px;
+  color: var(--text-color);
 }
 .footer_boxes .first_footer_box p {
+  color: var(--text-color);
   text-align: justify;
   margin-top: 1rem;
 }
@@ -31,7 +33,7 @@
 }
 .second_footer_box .box_info i {
   background: var(--gen-bg-color);
-  color: #151515;
+  color: var(--text-color);
   margin-top: 6px;
   font-size: 20px;
   border-radius: 4px;
@@ -48,11 +50,11 @@
 }
 .second_footer_box .box_info h1 {
   font-size: 22px;
-  color: #000;
+  color: var(--text-color);
   font-weight: 600;
 }
 .second_footer_box .box_info p {
-  color: #151515;
+  color: var(--text-color);
   font-size: 15px;
   margin-bottom: 0;
 }
@@ -69,6 +71,7 @@
 .third_footer_box a {
   line-height: 2em;
   transition: all 0.3s ease-in-out;
+  color: var(--text-color);
 }
 .third_footer_box a:hover {
   color: var(--gen-color);
@@ -81,10 +84,16 @@
   padding-top: 1rem;
   text-align: center;
 }
+.copyright .credits p {
+  color: var(--text-color);
+}
 .copyright .credits p:last-child {
   font-size: 14px;
   padding-top: 6px;
   transition: all 0.3s ease-in-out;
+}
+.copyright .credits a {
+  color: var(--text-color);
 }
 .copyright .credits a:hover {
   color: var(--gen-color);
