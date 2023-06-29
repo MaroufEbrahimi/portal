@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import USER from "../../assets/img/user.jpg"
 import "./Profile.css"
 
+import { profileTabHeader } from "../../constants/Data"
 import Post from "../../components/Post/Post"
 
 const Profile = () => {
@@ -19,23 +20,19 @@ const Profile = () => {
           <h1>معروف ابراهیمی</h1>
         </div>
       </div>
-      <div className="tab_header">
-        <ul>
-          <li
-            className={showTab === 1 ? "active_tab" : ""}
-            onClick={() => handleTabs(1)}
-          >
-            <span>معلومات شخصی</span>
-          </li>
-          <li
-            className={showTab === 2 ? "active_tab" : ""}
-            onClick={() => handleTabs(2)}
-          >
-            <span>معلومات دانشگاه</span>
-          </li>
-        </ul>
-      </div>
 
+      <div className="tab_header">
+        {profileTabHeader.map((item) => (
+          <ul>
+            <li
+              className={showTab === item.counter ? "active_tab" : ""}
+              onClick={() => handleTabs(item.counter)}
+            >
+              <span>{item.text}</span>
+            </li>
+          </ul>
+        ))}
+      </div>
       <div className="content_of_profile">
         <div className={showTab === 1 ? "content active_content" : "content"}>
           <div className="content_boxes">
