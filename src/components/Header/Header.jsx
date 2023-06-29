@@ -1,9 +1,11 @@
 import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom"
+import { DarkModeContext } from "../../context/darkMode"
 import "./Header.css"
 
 const Header = () => {
   const navigate = useNavigate()
+  const { toggle, darkMode } = useContext(DarkModeContext)
 
   return (
     <div className="header">
@@ -13,7 +15,13 @@ const Header = () => {
         </button>
       </div>
       <div className="header_left">
-        <p>dark mode</p>
+        <div className="dark_mode_toggle">
+          {darkMode ? (
+            <i onClick={toggle} className="bi bi-brightness-high"></i>
+          ) : (
+            <i onClick={toggle} className="bi bi-moon"></i>
+          )}
+        </div>
       </div>
     </div>
   )
