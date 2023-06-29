@@ -185,3 +185,53 @@ export const colleagueInstitute = [
   },
 ]
 // #______ End of Colleague Institute ______#
+
+// #______ Profile Tab Header ______#
+export const profileTabHeader = [
+  {
+    text: "معلومات شخصی",
+    counter: 1,
+  },
+  {
+    text: "معلومات دانشگاه",
+    counter: 2,
+  },
+]
+// #______ End of Profile Tab Header ______#
+
+// #______ University Information Tab Header ______#
+export const universityInfoTabHeader = [
+  {
+    text: "سمستر 1",
+    counter: 1,
+  },
+  {
+    text: "سمستر 2",
+    counter: 2,
+  },
+  {
+    text: "سمستر 3",
+    counter: 3,
+  },
+  {
+    text: "سمستر 4",
+    counter: 4,
+  },
+  {
+    text: "سمستر 5",
+    counter: 5,
+  },
+  {
+    text: "سمستر 6",
+    counter: 6,
+  },
+  {
+    text: "سمستر 7",
+    counter: 7,
+  },
+  {
+    text: "سمستر 8",
+    counter: 8,
+  },
+]
+// #______ End of University Information Tab Header ______#
