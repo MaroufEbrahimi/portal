@@ -10,17 +10,32 @@
 }
 
 .app .main {
-  /* padding-top: 15px; */
-  margin: 0 230px 0 30px;
+  margin: 0px 230px 0px 25px;
   box-sizing: border-box;
   overflow-x: hidden;
-  padding: 10px;
   transition: all 0.3s ease-in-out;
 }
 .app .main_active_nav {
-  margin: 0 100px 0 30px;
+  margin: 0 100px 0 25px;
 }
 
 .search__icon {
   color: gray;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .app .main {
+    margin: 0 100px 0 20px;
+  }
+}
+@media (max-width: 768px) {
+  .app .main {
+    margin: 0 85px 0 10px;
+  }
+}
+@media (max-width: 480px) {
+  .app .main {
+    margin: 0 78px 0 0px;
+  }
 }
