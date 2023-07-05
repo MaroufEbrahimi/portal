@@ -18,7 +18,7 @@ import { DarkModeContext } from "./context/darkMode"
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
-const SearchPage = React.lazy(() => import("./pages/SearchPage/SearchPage"))
+const Posts = React.lazy(() => import("./pages/Posts/Posts"))
 const Students = React.lazy(() => import("./pages/Students/Students"))
 const AddStudent = React.lazy(() => import("./pages/AddStudent/AddStudent"))
 const Profile = React.lazy(() => import("./pages/Profile/Profile"))
@@ -50,7 +50,6 @@ const App = (props) => {
             <Wrapper>
               <Outlet />
             </Wrapper>
-            <Footer />
             <BackToTop />
           </Suspense>
         </main>
@@ -72,8 +71,8 @@ const App = (props) => {
           element: <AddStudent />,
         },
         {
-          path: "/search",
-          element: <SearchPage />,
+          path: "/posts",
+          element: <Posts />,
         },
         {
           path: "/students",
