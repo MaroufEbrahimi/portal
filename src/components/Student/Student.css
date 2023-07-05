@@ -47,7 +47,7 @@
   text-align: center;
 }
 .student_personal_info p {
-  color: #000;
+  color: var(--text-color);
   font-size: 15px;
   font-weight: bold;
   margin: 2px 0;
@@ -55,7 +55,7 @@
 .student_personal_info p:last-child {
   line-height: 1.3em;
   font-weight: normal;
-  color: #888;
+  color: var(--text-color);
 }
 .student_university_info {
   background: var(--gen-bg-color);
