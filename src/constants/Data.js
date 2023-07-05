@@ -235,3 +235,24 @@ export const universityInfoTabHeader = [
   },
 ]
 // #______ End of University Information Tab Header ______#
+
+// #______ Students Filtering Buttons ______#
+export const StuFilterButtons = [
+  {
+    text: "همه",
+    counter: 1,
+  },
+  {
+    text: "کامپیوتر ساینس",
+    counter: 2,
+  },
+  {
+    text: "ستوماتالوژی",
+    counter: 3,
+  },
+  {
+    text: "حقوق",
+    counter: 4,
+  },
+]
+// #______ End of Students Filtering Buttons ______#
