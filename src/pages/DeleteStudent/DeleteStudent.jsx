@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "./DeleteStudent.css"
 import ModalDelete from "../../components/UI/ModalDelete/ModalDelete"
+import Update from "../../components/Update/Update"
 
 const DeleteStudent = (props) => {
   const [showModal, setShowModal] = useState(false)
@@ -11,7 +12,7 @@ const DeleteStudent = (props) => {
     setShowModal(false)
   }
   return (
-    <div className="delete_student">
+    <div className="delete_student fade_in">
       <div className="delete_lock_buttons">
         <button className="btn" onClick={showModalHandler}>
           پاک کردن
@@ -31,6 +32,9 @@ const DeleteStudent = (props) => {
           </div>
         </ModalDelete>
       </div>
+
+      {/* info */}
+      <Update />
     </div>
   )
 }

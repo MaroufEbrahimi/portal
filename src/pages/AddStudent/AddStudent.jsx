@@ -42,7 +42,7 @@ const AddStudent = () => {
   }
 
   return (
-    <div className="add_new">
+    <div className="add_new fade_in">
       {/* Stepper */}
       <div className="stepper_step">
         <Stepper steps={steps} currentStep={currentStep} />

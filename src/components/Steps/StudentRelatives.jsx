@@ -2,7 +2,7 @@ import React from "react"
 
 export const StudentRelatives = () => {
   return (
-    <div className="form_details_student student_relatives">
+    <div className="form_details_student student_relatives left-to-right">
       <form>
         <div className="full_width">
           <h3>پدر محصل</h3>

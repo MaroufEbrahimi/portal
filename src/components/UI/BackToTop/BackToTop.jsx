@@ -8,9 +8,9 @@ const BackToTop = () => {
     window.addEventListener("scroll", () => {
       window.scrollY > 90 ? setBackToTop(true) : setBackToTop(false)
     })
-    return () => {
-      window.removeEventListener("scroll")
-    }
+    // return () => {
+    //   window.removeEventListener("scroll")
+    // }
   }, [])
 
   const backTopFun = () => {

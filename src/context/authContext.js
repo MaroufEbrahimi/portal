@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 
 export const AuthContext = React.createContext({
-  isAuth: false,
+  isAuth: true,
   login: () => {},
 })
 
 const AuthContextProvider = (props) => {
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(true)
+  // useState(JSON.parse(localStorage.getItem("user")) || null)
 
   const loginHandler = () => {
     setIsLogin(true)
