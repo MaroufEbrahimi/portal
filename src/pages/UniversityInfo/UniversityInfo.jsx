@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "./UniversityInfo.css"
 import { universityInfoTabHeader } from "../../constants/Data"
+import Post from "../../components/Post/Post"
 
 const UniversityInfo = () => {
   const [showTab, setShowTab] = useState(1)
@@ -32,35 +33,37 @@ const UniversityInfo = () => {
 
       <div className="content_of_universityInfo">
         <div className={showTab === 1 ? "content active_content" : "content"}>
-          <h2>content 1</h2>
+          <Post />
+          <Post />
+          <Post />
         </div>
 
         <div className={showTab === 2 ? "content active_content" : "content"}>
-          <h2>content 2</h2>
+          <Post />
         </div>
 
         <div className={showTab === 3 ? "content active_content" : "content"}>
-          <h2>content 3</h2>
+          <Post />
         </div>
 
         <div className={showTab === 4 ? "content active_content" : "content"}>
-          <h2>content 4</h2>
+          <Post />
         </div>
 
         <div className={showTab === 5 ? "content active_content" : "content"}>
-          <h2>content 5</h2>
+          <Post />
         </div>
 
         <div className={showTab === 6 ? "content active_content" : "content"}>
-          <h2>content 6</h2>
+          <Post />
         </div>
 
         <div className={showTab === 7 ? "content active_content" : "content"}>
-          <h2>content 7</h2>
+          <Post />
         </div>
 
         <div className={showTab === 8 ? "content active_content" : "content"}>
-          <h2>content 8</h2>
+          <Post />
         </div>
       </div>
     </div>

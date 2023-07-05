@@ -5,7 +5,6 @@ import ShowCaseSlider from "../../components/Slider/ShowCaseSlider/ShowCaseSlide
 import { eliteStudents } from "../../constants/Data"
 import { colleagueInstitute } from "../../constants/Data"
 
-import bg1 from "../../assets/img/slide/slide1.jpg"
 import LOGO from "../../assets/img/logo.png"
 import faculty from "../../assets/img/imgpost.jpg"
 
@@ -35,7 +34,7 @@ const Home = () => {
           <h1>پوهنحی ها</h1>
         </div>
         <div className="faculty_boxes">
-          <div className="faculty">
+          <div className="faculty box_shadow">
             <div className="faculty_img">
               <img src={faculty} alt="img faculty" />
               <div className="img_details">
@@ -92,11 +91,11 @@ const Home = () => {
         <div className="elite_stu">
           {eliteStudents.map((item) => (
             <div className="elite_stu_card" key={item.id}>
-              <div className="elite_stu_card_text">
+              <div className="elite_stu_card_text box_shadow">
                 <p>{item.text}</p>
               </div>
               <div className="elite_stu_card_personalInfo">
-                <img src={item.eliteImg} alt="" />
+                <img className="box_shadow" src={item.eliteImg} alt="" />
                 <p>{item.eliteName}</p>
                 <p>{item.studentsOf}</p>
               </div>
