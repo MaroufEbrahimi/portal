@@ -11,7 +11,6 @@
 .slides .img_slide {
   position: absolute;
   background-color: var(--gen-bg-color);
-  width: 100%;
   object-fit: cover;
 }
 .slides .slide_title,
@@ -37,7 +36,7 @@
   width: auto;
   padding: 13px;
   margin-top: -3rem;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   border-radius: 5px 0px 0px 5px;
   cursor: pointer;
@@ -81,4 +80,19 @@
 .all_dots .active_dot,
 .all_dots .dot:hover {
   background: var(--gen-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .arrows .prev_slide,
+  .arrows .next_slide {
+    padding: 8px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .navbar {
+    width: 65px;
+    border-right: 5px solid var(--gen-color);
+  }
 }
