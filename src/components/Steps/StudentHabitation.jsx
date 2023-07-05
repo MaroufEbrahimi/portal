@@ -10,7 +10,7 @@ export const StudentHabitation = () => {
     setUserData({ ...userData, [name]: value })
   }
   return (
-    <div className="form_details_student student_habitation">
+    <div className="form_details_student student_habitation left-to-right">
       <form>
         <div className="full_width">
           <h3>معلومات تذکره</h3>

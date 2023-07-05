@@ -67,8 +67,8 @@ const Stepper = ({ steps, currentStep }) => {
         key={index}
         className={
           index !== newStep.length - 1
-            ? "full-width display_stepper"
-            : "display_stepper"
+            ? "full-width display_stepper fade_in"
+            : "display_stepper fade_in"
         }
       >
         <div className="display_nums_des">

@@ -3,7 +3,7 @@ import "./Steps.css"
 
 export const PersonalInformation = () => {
   return (
-    <div className="form_details_student personal_info">
+    <div className="form_details_student personal_info right-to-left">
       <form>
         <div className="build_box median_width">
           <label>نام</label>

@@ -74,6 +74,10 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             <i className="bi bi-file-earmark-plus"></i>
             <span>محتوای جدید</span>
           </CustomeLinks>
+          <CustomeLinks to="/admin/universityinfo" title="محتوا جدید">
+            <i className="bi bi-files"></i>
+            <span>معلومات دانشگاه</span>
+          </CustomeLinks>
         </div>
       </div>
     </div>
