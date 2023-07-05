@@ -2,3 +2,47 @@
   overflow-y: scroll;
   overflow-x: scroll;
 }
+
+/* students_add_new_student */
+.students_add_new_student {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.students_add_new_student button {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid var(--gen-color);
+  padding: 5px 10px;
+  outline: none;
+}
+.students_add_new_student button a {
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+/* Filtering Buttons */
+.students_filter_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+.students_filter_btn button {
+  cursor: pointer;
+  border-radius: 9px;
+  background-color: transparent;
+  border: 1px solid var(--gen-color);
+  outline: none;
+  padding: 4px 15px;
+  color: var(--text-color);
+  transition: all 0.3s ease-in-out;
+}
+.students_filter_btn .active_tab {
+  background-color: var(--gen-color);
+  color: #fff;
+}
