@@ -73,36 +73,33 @@ const Stepper = ({ steps, currentStep }) => {
       >
         <div className="display_nums_des">
           <div
-            className={`display_nums ${
-              step.selected ? "numbers_completed" : ""
-            }`}
+            className={`display_nums ${step.selected ? "numbers_completed" : ""
+              }`}
           >
             {/* Display Numbers  */}
             {step.completed ? (
-              <span>
+              <span style={{ "marginTop": "6px", "marginRight": "2px" }}>
                 <i className="bi bi-check-lg"></i>
               </span>
             ) : (
-              index + 1
+              <span style={{ "marginTop": "4px" }}>{index + 1}</span>
             )}
           </div>
           <div
-            className={`display_des ${
-              step.highlighted
+            className={`display_des ${step.highlighted
                 ? "description_highlighted"
                 : "description_not_highlighted"
-            }`}
+              }`}
           >
             {/*  Display Description  */}
             {step.description}
           </div>
         </div>
         <div
-          className={`display_line ${
-            step.completed
+          className={`display_line ${step.completed
               ? "display_line_completed"
               : "display_line_not_completed"
-          }`}
+            }`}
         >
           {/* Display Line */}
         </div>
