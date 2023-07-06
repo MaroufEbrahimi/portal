@@ -4,10 +4,13 @@
   justify-content: space-around;
   margin-top: 2rem;
 }
+.button_control>button {
+  padding: 4px 20px;
+}
 .button_control .next_btn {
   border: 1px solid var(--gen-color);
   background-color: transparent;
-  color: #000;
+  color: var(--text-color);
 }
 
 .button_control .next_btn:hover {
@@ -15,13 +18,3 @@
   background-color: var(--gen-color);
 }
 
-/* when on step first */
-.button_control .btn.back_btn_step_first {
-  cursor: not-allowed;
-  opacity: 0.5;
-  color: var(--gen-color);
-}
-.button_control .btn.back_btn_step_first:hover:before {
-  top: 50px;
-  left: 50px;
-}
