@@ -44,9 +44,9 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             <span>خانه</span>
           </CustomeLinks>
           {authContext.isAuth ? (
-            <CustomeLinks to="/search" title="جستجو">
-              <i className="bi bi-search"></i>
-              <span>جستجو</span>
+            <CustomeLinks to="/posts" title="پست ها">
+              <i className="bi bi-collection"></i>
+              <span>پست ها</span>
             </CustomeLinks>
           ) : null}
           <div className="navbar__title open__navbar">
