@@ -52,10 +52,6 @@ const App = (props) => {
             <Wrapper>
               <Outlet />
             </Wrapper>
-<<<<<<< HEAD
-            {/* <Footer /> */}
-=======
->>>>>>> d811ab5a351353d38eb02a6095d158e40d21b2de
             <BackToTop />
           </Suspense>
         </main>
