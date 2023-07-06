@@ -4,6 +4,8 @@ import Post from '../../components/Post/Post'
 
 function Posts() {
     const [posts, setposts] = useState([])
+
+    // th e auth token must be read from somewhere in the frontend
     useEffect(() => {
         fetch("http://localhost:1000/api/v1/posts/?offset=0&pageSize=10", {
             method: "GET",

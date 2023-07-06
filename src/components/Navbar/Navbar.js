@@ -58,17 +58,13 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           </div>
         </ul>
         <div className="navbar__dropdown">
-          <CustomeLinks to="/admin/addstudent" title="اضافه کردن">
-            <i className="bi bi-person-plus"></i>
-            <span>شاگرد جدید</span>
-          </CustomeLinks>
           <CustomeLinks to="/students" title="محصلین">
             <i className="bi bi-people"></i>
             <span>محصلین</span>
           </CustomeLinks>
           <CustomeLinks to="/admin/deletestudent" title="حذف محصل">
             <i className="bi bi-person-dash"></i>
-            <span>حذف محصل</span>
+            <span> مدیریت پوست ها</span>
           </CustomeLinks>
           <CustomeLinks to="/admin/newpost" title="محتوا جدید">
             <i className="bi bi-file-earmark-plus"></i>

@@ -79,7 +79,7 @@ const App = (props) => {
           element: <Students />,
         },
         {
-          path: "/profile",
+          path: "/profile/:id",
           element: <Profile />,
         },
         {

@@ -90,6 +90,8 @@
   max-width: 100%;
   word-break: break-word;
   font-size: 14px;
+  display: flex;
+  align-items: center;
 }
 
 .file_post_title {

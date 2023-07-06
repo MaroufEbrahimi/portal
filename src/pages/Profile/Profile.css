@@ -1,6 +1,7 @@
 .profile {
   margin: 0 50px;
 }
+
 .profile_title {
   position: relative;
   width: 100%;
@@ -10,6 +11,7 @@
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+
 .user_profile_img {
   position: absolute;
   bottom: -25px;
@@ -17,7 +19,9 @@
   display: flex;
   align-items: center;
   z-index: 1;
+
 }
+
 .user_profile_img img {
   border: 4px solid var(--gen-color-hover);
   border-radius: 50%;
@@ -25,7 +29,10 @@
   height: 100px;
   border-radius: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  object-fit: cover;
+  object-position: top;
 }
+
 .user_profile_img h1 {
   color: rgb(56, 57, 57);
   font-size: 27px;
@@ -35,6 +42,7 @@
   line-height: 56px;
   text-shadow: 1px 1px 1px #2f4d5a;
 }
+
 .tab_header {
   position: relative;
   width: 100%;
@@ -46,12 +54,14 @@
   align-items: center;
   justify-content: center;
 }
+
 .tab_header ul {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .tab_header ul li {
   padding: 8px 0;
   margin: 0 2px;
@@ -59,10 +69,12 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
+
 .tab_header ul li:hover,
 .tab_header ul .active_tab {
   border-bottom: 2px solid var(--gen-color);
 }
+
 .tab_header ul li span {
   font-size: 16px;
   padding: 0 10px;
@@ -75,12 +87,15 @@
   border-radius: 10px;
   padding: 30px;
 }
+
 .content_of_profile .content {
   display: none;
 }
+
 .content_of_profile .active_content {
   display: block;
 }
+
 .content_of_profile .content_boxes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

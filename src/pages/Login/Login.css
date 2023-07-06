@@ -1,23 +1,22 @@
 .login {
   direction: ltr;
-  background-image: linear-gradient(
-      to bottom,
-      var(--gen-color),
-      var(--gen-bg-color)
-    ),
-    url("../../assets/img/user-bg.jpg");
+  background-image: url("/public/img/user-bg.jpg");
   background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   height: 100vh;
 }
+
 .login_container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .login .avatart {
   display: flex;
   align-items: center;
@@ -30,10 +29,12 @@
   top: 10rem;
   box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
 }
+
 .login .avatart i {
   font-size: 45px;
   z-index: 100;
 }
+
 .login_container form {
   position: relative;
   padding: 3rem 0 1rem 0;
@@ -45,15 +46,18 @@
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
+
 .login_container form .form_container {
   width: 100%;
   padding: 10px;
 }
+
 form .form_container .login_box {
   margin: 15px 0;
   display: grid;
   grid-template-columns: 90% 10%;
 }
+
 form .form_container .login_box input {
   border: none;
   outline: none;
@@ -62,9 +66,11 @@ form .form_container .login_box input {
   direction: ltr;
   font-size: 17px;
 }
+
 form .form_container .login_box input::placeholder {
   font-size: 15px;
 }
+
 form .form_container .login_box i {
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -74,16 +80,19 @@ form .form_container .login_box i {
   align-items: center;
   justify-content: center;
 }
+
 form .error {
   color: red;
   font-size: 14px;
 }
+
 .btn_login {
   position: absolute;
   width: 100%;
   display: flex;
   bottom: -47px;
 }
+
 .btn_login .login_button {
   width: 100%;
   background-color: rgba(230, 243, 243, 0.4);
@@ -95,6 +104,7 @@ form .error {
   padding: 10px;
   transition: all 0.2s ease-in-out;
 }
+
 .btn_login .login_button:hover {
   background-color: rgba(233, 255, 255, 0.596);
 }

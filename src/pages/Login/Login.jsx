@@ -3,12 +3,18 @@ import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/authContext"
 import "./Login.css"
 import axios from "axios"
+import { actionTypes } from "../../context/reducer"
+import { setCookie } from "../../Utils/Cookie"
+import { useStateValue } from "../../context/StateProvider"
 
 const Login = () => {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   })
+
+  const [, dispatch] = useStateValue()
+
   const [error, setError] = useState(null)
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -16,14 +22,43 @@ const Login = () => {
   const { login } = useContext(AuthContext)
   const navigate = useNavigate()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    try {
-      await axios.post("/auth/login", inputs)
-      navigate("/")
-    } catch (err) {
-      setError(err.response.data)
-    }
+    fetch("http://localhost:1000/api/v1/auth/authenticate", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: inputs
+    })
+      .then(res => {
+        console.log(res)
+        if (res.ok) {
+
+          return res.json();
+
+        } else {
+          // do some error handling
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+        // if successfully authenticated
+        setCookie("token", data?.token);
+        setCookie("name", data?.name);
+        setCookie("lastName", data.lastName)
+        setCookie("email", data?.email)
+        setCookie("profileImage", data?.profilePictureUrl)
+        localStorage.setItem("roles", data?.roles.toString())
+        dispatch({
+          type: actionTypes.SET_AUTHENTICATION,
+          payload: data
+        })
+        navigate("/")
+
+      })
+
   }
 
   return (
