@@ -5,7 +5,7 @@ import ShowCaseSlider from "../../components/Slider/ShowCaseSlider/ShowCaseSlide
 import Footer from "../../components/Footer/Footer"
 import { eliteStudents } from "../../constants/Data"
 import { colleagueInstitute } from "../../constants/Data"
-import Footer from "../../components/Footer/Footer"
+
 import LOGO from "../../assets/img/logo.png"
 import faculty from "../../assets/img/imgpost.jpg"
 
