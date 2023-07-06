@@ -7,13 +7,13 @@ export const StudentRelatives = () => {
   const [{ studentRelations }, dispatch] = useStateValue();
   const handleInputChangeValue = (e, inputName) => {
     switch (inputName) {
-      case "father": {
+      case "father.name": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
             ...studentRelations,
             father: {
-              ...studentRelations.father,
+              ...studentRelations?.father,
               name: e.target.value
             }
           }
@@ -26,7 +26,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             father: {
-              ...studentRelations.father,
+              ...studentRelations?.father,
               job: e.target.value
             }
           }
@@ -39,7 +39,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             father: {
-              ...studentRelations.father,
+              ...studentRelations?.father,
               jobLocation: e.target.value
             }
           }
@@ -52,7 +52,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             father: {
-              ...studentRelations.father,
+              ...studentRelations?.father,
               phoneNumber: e.target.value
             }
 
@@ -66,7 +66,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             uncle: {
-              ...studentRelations.uncle,
+              ...studentRelations?.uncle,
               name: e.target.value
             }
           }
@@ -79,7 +79,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             uncle: {
-              ...studentRelations.uncle,
+              ...studentRelations?.uncle,
               job: e.target.value
             }
           }
@@ -92,7 +92,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             uncle: {
-              ...studentRelations.uncle,
+              ...studentRelations?.uncle,
               jobLocation: e.target.value
             }
           }
@@ -105,7 +105,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             uncle: {
-              ...studentRelations.uncle,
+              ...studentRelations?.uncle,
               phoneNumber: e.target.value
             }
           }
@@ -118,7 +118,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             aunt: {
-              ...studentRelations.aunt,
+              ...studentRelations?.aunt,
               name: e.target.value
             }
           }
@@ -131,7 +131,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             aunt: {
-              ...studentRelations.aunt,
+              ...studentRelations?.aunt,
               job: e.target.value
             }
           }
@@ -144,7 +144,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             aunt: {
-              ...studentRelations.aunt,
+              ...studentRelations?.aunt,
               jobLocation: e.target.value
             }
           }
@@ -157,7 +157,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             aunt: {
-              ...studentRelations.aunt,
+              ...studentRelations?.aunt,
               phoneNumber: e.target.value
             }
           }
@@ -170,7 +170,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             brother: {
-              ...studentRelations.brother,
+              ...studentRelations?.brother,
               name: e.target.value
             }
           }
@@ -183,7 +183,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             brother: {
-              ...studentRelations.brother,
+              ...studentRelations?.brother,
               job: e.target.value
             }
           }
@@ -196,7 +196,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             brother: {
-              ...studentRelations.brother,
+              ...studentRelations?.brother,
               jobLocation: e.target.value
             }
           }
@@ -209,7 +209,7 @@ export const StudentRelatives = () => {
           payload: {
             ...studentRelations,
             brother: {
-              ...studentRelations.brother,
+              ...studentRelations?.brother,
               phoneNumber: e.target.value
             }
           }

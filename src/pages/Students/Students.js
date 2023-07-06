@@ -30,26 +30,6 @@ const Students = () => {
         console.log(data)
       })
 
-    fetch("http://localhost:1000/api/v1/auth/authenticate", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: "aliherawi7@gmail.com",
-        password: "12345"
-      })
-    })
-      .then(res => {
-        console.log(res)
-        if (res.ok) {
-          return res.json();
-        } else {
-          // do some error handling
-          throw new Error(res.statusText)
-        }
-      })
-
   }, [])
   let t = ["d", "fg"];
   console.log(t.toString())
