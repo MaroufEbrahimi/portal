@@ -17,9 +17,13 @@ const Header = () => {
       <div className="header_left">
         <div className="dark_mode_toggle">
           {darkMode ? (
-            <i onClick={toggle} className="bi bi-brightness-high"></i>
+            <i
+              onClick={toggle}
+              className="bi bi-brightness-high"
+              title="تغییر تم"
+            ></i>
           ) : (
-            <i onClick={toggle} className="bi bi-moon"></i>
+            <i onClick={toggle} className="bi bi-moon" title="تغییر تم"></i>
           )}
         </div>
       </div>

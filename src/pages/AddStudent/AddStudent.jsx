@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StepperContext } from "../../context/StateProvider"
+import { StepperContext, useStateValue } from "../../context/StateProvider"
 import "./AddStudent.css"
 import Stepper from "../../components/Stepper/Stepper"
 import FormControl from "../../components/FormDetails/FormControl"
@@ -14,7 +14,8 @@ const AddStudent = () => {
   const [userData, setUserData] = useState("")
   const [finalData, setFinalData] = useState([])
   const steps = ["معلومات شخصی", "تذکره و سکونت محصل", "اقارب محصل", "بخش آخر"]
-
+  const [globalState, dispatch] = useStateValue();
+  console.log(globalState)
   const displaySteps = (step) => {
     switch (step) {
       case 1:
@@ -40,7 +41,6 @@ const AddStudent = () => {
     // check if steps are within bounds
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
   }
-
   return (
     <div className="add_new fade_in">
       {/* Stepper */}

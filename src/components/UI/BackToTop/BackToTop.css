@@ -2,6 +2,7 @@
   position: fixed;
   bottom: 2.5%;
   left: 1.3%;
+  z-index: 100;
 }
 .back_to_top button {
   background: var(--gen-bg-color);

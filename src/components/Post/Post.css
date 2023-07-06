@@ -21,7 +21,6 @@
   height: 80px;
   border-radius: 8px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
-
 }
 
 .post_header {
@@ -70,12 +69,10 @@
   border-radius: 10px;
 }
 
-
-
 .post_file {
   display: flex;
   border-radius: 5px;
-  background: linear-gradient(to right, #b46565, #c0394d, #cf2b44cc);
+  background: linear-gradient(to right, var(--gen-color) #39c09e, #2bc4cfcc);
   padding: 6px;
   width: max-content;
   margin: 5px;
@@ -104,7 +101,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 
 .file_post_title .file_post_details p {
   padding: 5px 0;
@@ -156,7 +152,7 @@
   color: #fff;
 }
 
-.btn_download .button_download_icon>i {
+.btn_download .button_download_icon > i {
   color: #fff;
   font-size: 18px;
 }

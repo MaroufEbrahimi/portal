@@ -1,13 +1,138 @@
 import { useContext } from "react"
-import { StepperContext } from "../../context/StateProvider"
+import { StepperContext, useStateValue } from "../../context/StateProvider"
 import "./Steps.css"
+import { actionTypes } from "../../context/reducer"
 
 export const StudentHabitation = () => {
   const { userData, setUserData } = useContext(StepperContext)
+  const [{ studentIdenfication, studentLocations, studentRelations }, dispatch] = useStateValue();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setUserData({ ...userData, [name]: value })
+  const handleInputChangeValue = (e, inputName) => {
+    switch (inputName) {
+      case "caseNumber": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_IDENTIFICATION,
+          payload: {
+            ...studentIdenfication,
+            caseNumber: e.target.value
+          }
+        })
+        break;
+      }
+      case "pageNumber": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_IDENTIFICATION,
+          payload: {
+            ...studentIdenfication,
+            pageNumber: e.target.value
+          }
+        })
+        break;
+      }
+      case "registrationNumber": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_IDENTIFICATION,
+          payload: {
+            ...studentIdenfication,
+            registrationNumber: e.target.value
+          }
+        })
+        break;
+      }
+      case "nationalId": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_IDENTIFICATION,
+          payload: {
+            ...studentIdenfication,
+            nationalId: e.target.value
+          }
+        })
+        break;
+      }
+      case "previous.villageOrQuarter": {
+        dispatch({
+          type: actionTypes.ADD_STIUDENT_LOCATIONS,
+          payload: {
+            ...studentLocations,
+            previous: {
+              ...studentLocations?.previous,
+              villageOrQuarter: e.target.value,
+              current: false
+            }
+          }
+        })
+        break;
+      }
+      case "previous.district": {
+        dispatch({
+          type: actionTypes.ADD_STIUDENT_LOCATIONS,
+          payload: {
+            ...studentLocations,
+            previous: {
+              ...studentLocations?.previous,
+              district: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "previous.city": {
+        dispatch({
+          type: actionTypes.ADD_STIUDENT_LOCATIONS,
+          payload: {
+            ...studentLocations,
+            previous: {
+              ...studentLocations?.previous,
+              city: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "current.villageOrQuarter": {
+        dispatch({
+          type: actionTypes.ADD_STIUDENT_LOCATIONS,
+          payload: {
+            ...studentLocations,
+            current: {
+              ...studentLocations?.current,
+              villageOrQuarter: e.target.value,
+              current: true
+            }
+          }
+        })
+        break;
+      }
+      case "current.district": {
+        dispatch({
+          type: actionTypes.ADD_STIUDENT_LOCATIONS,
+          payload: {
+            ...studentLocations,
+            current: {
+              ...studentLocations?.current,
+              district: e.target.value,
+              current: true
+            }
+          }
+        })
+        break;
+      }
+      case "current.city": {
+        dispatch({
+          type: actionTypes.ADD_STIUDENT_LOCATIONS,
+          payload: {
+            ...studentLocations,
+            current: {
+              ...studentLocations?.current,
+              city: e.target.value,
+              current: true
+            }
+          }
+        })
+        break;
+      }
+    }
+
   }
   return (
     <div className="form_details_student student_habitation left-to-right">
@@ -17,22 +142,22 @@ export const StudentHabitation = () => {
         </div>
         <div className="build_box">
           <label>جلد</label>
-          <input type="text" />
+          <input type="text" value={studentIdenfication?.caseNumber} onChange={(e) => handleInputChangeValue(e, "caseNumber")} />
         </div>
 
         <div className="build_box">
           <label>صفحه</label>
-          <input type="text" />
+          <input type="text" value={studentIdenfication?.pageNumber} onChange={(e) => handleInputChangeValue(e, "pageNumber")} />
         </div>
 
         <div className="build_box">
           <label>شماره ثبت</label>
-          <input type="text" />
+          <input type="text" value={studentIdenfication?.registrationNumber} onChange={(e) => handleInputChangeValue(e, "registrationNumber")} />
         </div>
 
         <div className="build_box">
           <label>نمبر عمومی</label>
-          <input type="text" />
+          <input type="text" value={studentIdenfication?.nationalId} onChange={(e) => handleInputChangeValue(e, "nationalId")} />
         </div>
 
         <div className="full_width">
@@ -41,55 +166,34 @@ export const StudentHabitation = () => {
 
         <div className="build_box median_width">
           <label>قریه / گذر</label>
-          <input type="text" />
+          <input type="text" value={studentLocations?.previous?.villageOrQuarter} onChange={(e) => handleInputChangeValue(e, "previous.villageOrQuarter")} />
         </div>
         <div className="build_box">
           <label>ولسوالی / ناحیه</label>
-          <input type="text" />
+          <input type="text" value={studentLocations?.previous?.district} onChange={(e) => handleInputChangeValue(e, "previous.district")} />
         </div>
         <div className="build_box">
           <label>ولایت</label>
-          <input type="text" />
+          <input type="text" value={studentLocations?.previous?.city} onChange={(e) => handleInputChangeValue(e, "previous.city")} />
         </div>
 
         <div className="full_width">
           <h3>سکونت فعلی</h3>
         </div>
-
         <div className="build_box median_width">
           <label>قریه / گذر</label>
-          <input type="text" />
+          <input type="text" value={studentLocations?.current?.villageOrQuarter} onChange={(e) => handleInputChangeValue(e, "current.villageOrQuarter")} />
         </div>
         <div className="build_box">
           <label>ولسوالی / ناحیه</label>
-          <input type="text" />
+          <input type="text" value={studentLocations?.current?.district} onChange={(e) => handleInputChangeValue(e, "current.district")} />
         </div>
         <div className="build_box">
           <label>ولایت</label>
-          <input type="text" />
+          <input type="text" value={studentLocations?.current?.city} onChange={(e) => handleInputChangeValue(e, "current.city")} />
         </div>
       </form>
     </div>
   )
 }
-/*
-<div className="username">
-        <input
-          onChange={handleChange}
-          value={userData["username"] || ""}
-          name="username"
-          className=""
-          type="text"
-        />
-      </div>
 
-      <div className="password">
-        <input
-          onChange={handleChange}
-          value={userData["password"] || ""}
-          name="password"
-          type="password"
-          className=""
-        />
-      </div>
-*/

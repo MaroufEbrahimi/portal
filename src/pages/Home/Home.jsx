@@ -2,9 +2,10 @@ import React from "react"
 import { useStateValue } from "../../context/StateProvider"
 import "./Home.css"
 import ShowCaseSlider from "../../components/Slider/ShowCaseSlider/ShowCaseSlider"
+import Footer from "../../components/Footer/Footer"
 import { eliteStudents } from "../../constants/Data"
 import { colleagueInstitute } from "../../constants/Data"
-import Footer from "../../components/Footer/Footer"
+
 import LOGO from "../../assets/img/logo.png"
 import faculty from "../../assets/img/imgpost.jpg"
 
@@ -123,6 +124,8 @@ const Home = () => {
         </div>
       </section>
       {/* End of Colleague Institute */}
+
+      {/* Footer */}
       <Footer />
     </div>
   )

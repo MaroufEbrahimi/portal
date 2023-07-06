@@ -131,10 +131,12 @@ section {
 .faculty_boxes {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-  grid-gap: 1.5rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  grid-gap: 1rem;
   margin: 10px;
-  padding: 0 2rem 2rem 2rem;
   margin-bottom: 3rem;
 }
 .faculty_boxes .faculty {

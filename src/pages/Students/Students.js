@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import "./Students.css"
-import Student from "../../components/Student/Student"
 import Search from "../../components/Search/Search"
-import { StuFilterButtons } from "../../constants/Data"
+import { StuFilterButtons } from "../../constants/Data";
 import { useStateValue } from "../../context/StateProvider"
+import Student from "../../components/Student/Student"
+
 
 const Students = () => {
   const [{ authentication }, dispatch] = useStateValue()
@@ -82,6 +83,7 @@ const Students = () => {
       </div>
 
       {/* All Students Here */}
+
       <div className="all_students">
         {students.map(student => {
           return <Student

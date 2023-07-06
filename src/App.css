@@ -3,14 +3,11 @@
   /* background: linear-gradient(266deg, #48d9e3, #4bc68a, #2a5647); */
   min-height: 100vh;
   background-color: var(--gen-main-bg);
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
 
 .app .main {
-  margin: 0px 230px 0px 25px;
+  margin: 0px 260px 0px 25px;
   box-sizing: border-box;
   overflow-x: hidden;
   transition: all 0.3s ease-in-out;
@@ -36,6 +33,6 @@
 }
 @media (max-width: 480px) {
   .app .main {
-    margin: 0 78px 0 0px;
+    margin: 0px 78px 0px 0px;
   }
 }
