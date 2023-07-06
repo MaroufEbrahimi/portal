@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import "./Students.css"
-import Student from "../../components/Student/Student"
 import Search from "../../components/Search/Search"
 import { StuFilterButtons } from "../../constants/Data"
+import { allStudents } from "../../constants/Data"
 
 const Students = () => {
   const [showTab, setShowTab] = useState(1)
@@ -37,7 +37,35 @@ const Students = () => {
 
       {/* All Students Here */}
       <div className="all__students">
-        <Student />
+        <div className="student">
+          {allStudents.map((item, index) => (
+            <Link to="/" className="students_details">
+              <div className="student_title_profile">
+                <div className="student_profile_header"></div>
+                <div className="student_profile_img">
+                  <img src={item.profileImg} />
+                </div>
+              </div>
+
+              <div className="student_descriptions">
+                <div className="student_personal_info">
+                  <p>{item.studentName}</p>
+                  <p>{item.studentEmail}</p>
+                </div>
+                <div className="student_university_info">
+                  <p>
+                    <span>{item.studentDepartement}</span>
+                    <span>دیپارتمنت</span>
+                  </p>
+                  <p>
+                    <span>{item.studentSemester}</span>
+                    <span>سمستر</span>
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   )
