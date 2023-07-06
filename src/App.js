@@ -28,8 +28,8 @@ const DeleteStudent = React.lazy(() =>
   import("./pages/DeleteStudent/DeleteStudent")
 )
 const NotFound = React.lazy(() => import("./pages/NotFound/NotFound"))
-const UniversityInfo = React.lazy(() =>
-  import("./pages/UniversityInfo/UniversityInfo")
+const PostManagement = React.lazy(() =>
+  import("./pages/PostManagement/PostManagement")
 )
 
 const App = (props) => {
@@ -93,18 +93,18 @@ const App = (props) => {
           element: <DeleteStudent />,
         },
         {
-          path: "/admin/universityinfo",
-          element: <UniversityInfo />,
+          path: "/admin/postmanagement",
+          element: <PostManagement />,
+        },
+        {
+          path: "*",
+          element: <NotFound />,
         },
       ],
     },
     {
       path: "/login",
       element: <Login />,
-    },
-    {
-      path: "*",
-      element: <NotFound />,
     },
   ])
 
