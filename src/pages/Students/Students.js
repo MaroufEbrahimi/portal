@@ -39,7 +39,7 @@ const Students = () => {
       <div className="all__students">
         <div className="student">
           {allStudents.map((item, index) => (
-            <Link to="/" className="students_details">
+            <Link to="/profile" className="students_details">
               <div className="student_title_profile">
                 <div className="student_profile_header"></div>
                 <div className="student_profile_img">

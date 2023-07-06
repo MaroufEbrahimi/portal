@@ -114,34 +114,9 @@ export const allStudents = [
     studentDepartement: "سافت ویر",
     studentSemester: "8",
   },
-  {
-    profileImg: profile1,
-    studentName: "معروف ابراهیمی",
-    studentEmail: "famous@gmail.com",
-    studentDepartement: "سافت ویر",
-    studentSemester: "8",
-  },
-  {
-    profileImg: profile1,
-    studentName: "معروف ابراهیمی",
-    studentEmail: "famous@gmail.com",
-    studentDepartement: "سافت ویر",
-    studentSemester: "8",
-  },
-  {
-    profileImg: profile1,
-    studentName: "معروف ابراهیمی",
-    studentEmail: "famous@gmail.com",
-    studentDepartement: "سافت ویر",
-    studentSemester: "8",
-  },
-  {
-    profileImg: profile1,
-    studentName: "معروف ابراهیمی",
-    studentEmail: "famous@gmail.com",
-    studentDepartement: "سافت ویر",
-    studentSemester: "8",
-  },
+  
+
+  
 ]
 // #______ End of All Students ______#
 
@@ -200,7 +175,7 @@ export const profileTabHeader = [
 // #______ End of Profile Tab Header ______#
 
 // #______ University Information Tab Header ______#
-export const universityInfoTabHeader = [
+export const PostManagementTabHeader = [
   {
     text: "سمستر 1",
     counter: 1,
