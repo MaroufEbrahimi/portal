@@ -45,12 +45,14 @@ const App = (props) => {
       <div className={`app ${darkMode ? "theme-dark" : "theme-light"}`}>
         <main className={`main ${activeNav && "main_active_nav"}`}>
           <Suspense fallback={<Loading />}>
-            <Header />
+            <div className="app_header">
+              <Header />
+            </div>
             <Navbar activeNav={activeNav} navActiveHandler={navActiveHandler} />
             <Wrapper>
               <Outlet />
             </Wrapper>
-            <Footer />
+            {/* <Footer /> */}
             <BackToTop />
           </Suspense>
         </main>
