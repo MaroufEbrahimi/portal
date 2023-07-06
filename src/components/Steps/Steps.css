@@ -42,3 +42,32 @@
 .form_details_student .email input {
   text-align: end;
 }
+
+/* image handler */
+.form_details_student .add_img_profile {
+  display: flex;
+}
+.form_details_student .add_img_profile #input[type="file"] {
+  display: none;
+}
+.form_details_student .add_img_profile label {
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+.form_details_student .add_img_profile label p {
+  font-size: 14px;
+}
+.form_details_student .add_img_profile .image-upload i {
+  color: var(--gen-color-hover);
+  font-size: 23px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.form_details_student .add_img_profile label:hover i {
+  color: var(--gen-color);
+}
