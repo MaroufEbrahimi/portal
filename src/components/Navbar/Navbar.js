@@ -76,7 +76,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           </CustomeLinks>
           <CustomeLinks to="/admin/universityinfo" title="محتوا جدید">
             <i className="bi bi-files"></i>
-            <span>معلومات دانشگاه</span>
+            <span>مدیریت پست ها</span>
           </CustomeLinks>
         </div>
       </div>
