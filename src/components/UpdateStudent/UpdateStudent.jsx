@@ -1,10 +1,10 @@
 import React from "react"
-import "./Update.css"
+import "./UpdateStudent.css"
 import "../Steps/Steps.css"
 
-const Update = () => {
+const UpdateStudent = () => {
   return (
-    <div className="update">
+    <div className="pdateStudent">
       <div className="update_detail">
         <h1>update this profile</h1>
         {/* Personal Information */}
@@ -250,4 +250,4 @@ const Update = () => {
   )
 }
 
-export default Update
+export default UpdateStudent

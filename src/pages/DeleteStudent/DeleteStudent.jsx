@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "./DeleteStudent.css"
 import ModalDelete from "../../components/UI/ModalDelete/ModalDelete"
-import Update from "../../components/Update/Update"
+import UpdateStudent from "../../components/UpdateStudent/UpdateStudent"
 
 const DeleteStudent = (props) => {
   const [showModal, setShowModal] = useState(false)
@@ -34,7 +34,7 @@ const DeleteStudent = (props) => {
       </div>
 
       {/* info */}
-      <Update />
+      <UpdateStudent />
     </div>
   )
 }

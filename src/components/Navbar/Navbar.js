@@ -70,7 +70,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             <i className="bi bi-file-earmark-plus"></i>
             <span>محتوای جدید</span>
           </CustomeLinks>
-          <CustomeLinks to="/admin/universityinfo" title="محتوا جدید">
+          <CustomeLinks to="/admin/postmanagement" title="مدیریت پست ها">
             <i className="bi bi-files"></i>
             <span>مدیریت پست ها</span>
           </CustomeLinks>

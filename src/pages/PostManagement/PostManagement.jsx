@@ -1,25 +1,32 @@
 import React, { useState } from "react"
-import "./UniversityInfo.css"
-import { universityInfoTabHeader } from "../../constants/Data"
+import "./PostManagement.css"
+import { PostManagementTabHeader } from "../../constants/Data"
 import Post from "../../components/Post/Post"
+import Search from "../../components/Search/Search"
 
-const UniversityInfo = () => {
+const PostManagement = () => {
   const [showTab, setShowTab] = useState(1)
   const handleTabs = (index) => setShowTab(index)
 
   return (
-    <div className="university_info">
-      <div className="title_info">
-        <h1>تمامی سلاید ها و منابع خود را در این جا بیابید!</h1>
-        <p>
-          این یک متن تستی برای شما است شما می توانید در تمامی عرصه های زندگی از
-          موارد زیادی برای تست استفاده نماید
-        </p>
+    <div className="posts_management">
+      <div className="title_posts_management">
+        <div className="title_posts_title">
+          <h2>تمامی پست ها درین جا موجود است</h2>
+        </div>
+        <div className="title_posts_divs">
+          <div>کامپیوتر ساینس</div>
+          <div>ستوماتالوژی</div>
+          <div>حقوق</div>
+        </div>
       </div>
 
-      <h2>تمامی سمستر ها</h2>
-      <div className="university_navbar">
-        {universityInfoTabHeader.map((item) => (
+      <div className="posts_management_search">
+        <Search hiddenButton />
+      </div>
+
+      <div className="posts_management_tabHeader">
+        {PostManagementTabHeader.map((item) => (
           <ul>
             <li
               className={showTab === item.counter ? "active_tab" : ""}
@@ -31,8 +38,11 @@ const UniversityInfo = () => {
         ))}
       </div>
 
-      <div className="content_of_universityInfo">
+      <div className="content_of_PostManagement">
         <div className={showTab === 1 ? "content active_content" : "content"}>
+          <Post />
+          <Post />
+          <Post />
           <Post />
           <Post />
           <Post />
@@ -40,9 +50,19 @@ const UniversityInfo = () => {
 
         <div className={showTab === 2 ? "content active_content" : "content"}>
           <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
+          <Post />
         </div>
 
         <div className={showTab === 3 ? "content active_content" : "content"}>
+          <Post />
+          <Post />
+          <Post />
+          <Post />
           <Post />
         </div>
 
@@ -70,4 +90,4 @@ const UniversityInfo = () => {
   )
 }
 
-export default UniversityInfo
+export default PostManagement
