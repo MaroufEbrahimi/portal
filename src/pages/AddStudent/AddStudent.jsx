@@ -8,8 +8,10 @@ import { PersonalInformation } from "../../components/Steps/PersonalInformation"
 import { StudentHabitation } from "../../components/Steps/StudentHabitation"
 import { StudentRelatives } from "../../components/Steps/StudentRelatives"
 import { Complete } from "../../components/Steps/Complete"
+import { useNavigate } from "react-router-dom"
 
 const AddStudent = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1)
   const [userData, setUserData] = useState("")
   const [finalData, setFinalData] = useState([])
@@ -35,8 +37,13 @@ const AddStudent = () => {
   }
 
   const handleNextStep = (direction) => {
+    console.log(direction, currentStep)
+    if (direction == "back" && currentStep == 1) {
+      console.log(direction, currentStep)
+      navigate("/students")
+      return
+    }
     let newStep = currentStep
-
     direction === "next" ? newStep++ : newStep--
     // check if steps are within bounds
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)

@@ -7,10 +7,8 @@ const FormControl = ({ handleNextStep, currentStep, steps }) => {
     <div className="button_control">
       {/* back button */}
       <button
-        onClick={() => handleNextStep()}
-        className={`back_btn btn ${
-          currentStep === 1 ? "back_btn_step_first" : ""
-        }`}
+        onClick={() => handleNextStep("back")}
+        className="back_btn btn"
       >
         بازگشت
       </button>
