@@ -5,7 +5,7 @@ import ShowCaseSlider from "../../components/Slider/ShowCaseSlider/ShowCaseSlide
 import Footer from '../../components/Footer/Footer'
 import { eliteStudents } from "../../constants/Data"
 import { colleagueInstitute } from "../../constants/Data"
-
+import Footer from "../../components/Footer/Footer"
 import LOGO from "../../assets/img/logo.png"
 import faculty from "../../assets/img/imgpost.jpg"
 
@@ -124,8 +124,11 @@ const Home = () => {
         </div>
       </section>
       {/* End of Colleague Institute */}
+<<<<<<< HEAD
 
       {/* Footer */}
+=======
+>>>>>>> d811ab5a351353d38eb02a6095d158e40d21b2de
       <Footer />
     </div>
   )
