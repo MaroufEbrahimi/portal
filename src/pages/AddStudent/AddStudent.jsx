@@ -2,13 +2,12 @@ import React, { useState } from "react"
 import { StepperContext, useStateValue } from "../../context/StateProvider"
 import "./AddStudent.css"
 import Stepper from "../../components/Stepper/Stepper"
-import FormControl from "../../components/FormDetails/FormControl"
-
 import { PersonalInformation } from "../../components/Steps/PersonalInformation"
 import { StudentHabitation } from "../../components/Steps/StudentHabitation"
 import { StudentRelatives } from "../../components/Steps/StudentRelatives"
 import { Complete } from "../../components/Steps/Complete"
 import { useNavigate } from "react-router-dom"
+import FormControl from "../../components/FormControl/FormControl"
 
 const AddStudent = () => {
   const navigate = useNavigate();

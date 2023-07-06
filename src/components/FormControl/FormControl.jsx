@@ -1,5 +1,4 @@
 import React from "react"
-
 import "./FormControl.css"
 
 const FormControl = ({ handleNextStep, currentStep, steps }) => {

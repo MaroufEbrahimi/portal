@@ -1,9 +1,9 @@
 import React from "react"
 import "./Post.css"
-import imgpost from "../../assets/img/imgpost.jpg"
+
 
 const Post = ({ images, docs, author, date, text }) => {
-  console.log(images)
+
   return (
     <div className="post">
       <div className="image_header_container">
@@ -13,7 +13,7 @@ const Post = ({ images, docs, author, date, text }) => {
             <p>{author?.lastname} {author?.name}</p>
           </div>
           <div className="post_date">
-            <p>{date}</p>
+            <p>{new Date(date).toDateString()}</p>
           </div>
         </div>
       </div>

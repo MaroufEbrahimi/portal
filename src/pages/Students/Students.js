@@ -17,7 +17,7 @@ const Students = () => {
     fetch("http://localhost:1000/api/v1/students/find?name= &offset=0&pageSize=5", {
       method: "GET",
       headers: {
-        "Authorization": authentication.token
+        "Authorization": "Bearer " + authentication.token
       }
     })
       .then(res => {

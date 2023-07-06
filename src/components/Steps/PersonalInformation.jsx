@@ -5,17 +5,24 @@ import { actionTypes } from "../../context/reducer"
 import avatar from "../../assets/img/profile_avatar.png"
 
 export const PersonalInformation = () => {
-  const [{ studentPersonalInfo }, dispatch] = useStateValue()
+  const [{ studentImage, studentPersonalInfo }, dispatch] = useStateValue()
   const [profileImg, setProfileImg] = useState({
-    imgUrl: "",
+    imgUrl: studentImage ? studentImage.url : null,
     file: "",
-    isOk: false,
+    isOk: studentImage ? true : false,
   })
 
   // handle input change of profile image
   const setProfileImgInput = (e) => {
     const url = URL.createObjectURL(e.target.files[0])
     setProfileImg({ imgUrl: url, file: e.target.files[0], isOk: true })
+    dispatch({
+      type: actionTypes.ADD_STUDENT_IMAGE,
+      payload: {
+        file: e.target.files[0],
+        url: url
+      },
+    })
   }
 
   const handleInputChangeValue = (e, inputName) => {
