@@ -1,14 +1,25 @@
 .login {
+  position: relative;
   direction: ltr;
-  background-image: url("/public/img/user-bg.jpg");
-  background-size: 100%;
+  background-image: url("/public/img/login-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-size: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding-top: 12rem;
   flex-direction: column;
   height: 100vh;
+  width: 100%;
+}
+.login::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .login_container {
@@ -21,13 +32,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--gen-bg-color);
+  background-color: #fff;
   border-radius: 50%;
   width: 85px;
   height: 85px;
   position: absolute;
-  top: 10rem;
-  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
+  border-bottom-color: #eed43f;
+  border-right-color: #eed43f;
+  border-top-color: rgba(30, 235, 224, 0.4);
+  border-left-color: rgba(30, 235, 224, 0.4);
+  top: 9rem;
+  z-index: 100;
 }
 
 .login .avatart i {
@@ -41,7 +57,7 @@
   width: 300px;
   background-color: rgba(230, 243, 243, 0.4);
   border-radius: 8px;
-  z-index: 100;
+  z-index: 90;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0px 32px 16px;
@@ -65,6 +81,7 @@ form .form_container .login_box input {
   padding: 5px 12px;
   direction: ltr;
   font-size: 17px;
+  color: var(--text-color);
 }
 
 form .form_container .login_box input::placeholder {
@@ -110,8 +127,19 @@ form .error {
 }
 
 /* Responsive */
+@media (max-width: 1075px) {
+  .login .avatart {
+    width: 75px;
+    height: 75px;
+  }
+}
+
 @media (max-width: 480px) {
+  .login .avatart {
+    width: 70px;
+    height: 70px;
+  }
   .login_container form {
-    width: 250px;
+    width: 220px;
   }
 }
