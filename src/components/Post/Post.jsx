@@ -19,7 +19,7 @@ const Post = ({ images, docs, author, date, text }) => {
       </div>
       <div className="file_post_body">
         <div className="post_text">
-          <p>{text}</p>
+          <p dangerouslySetInnerHTML={{ __html: text }}></p>
         </div>
         <div className="post_images">
           {/* for each item of image array render a post_file */}

@@ -1,12 +1,33 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./PostManagement.css"
 import { PostManagementTabHeader } from "../../constants/Data"
 import Post from "../../components/Post/Post"
 import Search from "../../components/Search/Search"
+import { useStateValue } from "../../context/StateProvider"
 
 const PostManagement = () => {
+  const [{ authentication }, dispatch] = useStateValue();
   const [showTab, setShowTab] = useState(1)
   const handleTabs = (index) => setShowTab(index)
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:1000/api/v1/posts/?offset=0&pageSize=4", {
+      method: "GET",
+      headers: {
+        authorization: "Bearer " + authentication.token
+      }
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setPosts(data.content)
+      })
+  }, [])
 
   return (
     <div className="posts_management">
@@ -40,12 +61,16 @@ const PostManagement = () => {
 
       <div className="content_of_PostManagement">
         <div className={showTab === 1 ? "content active_content" : "content"}>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          {posts?.map(item => {
+            return <Post
+              key={item.id}
+              author={item.author}
+              date={item.dateTime}
+              images={item.images}
+              docs={item.docs}
+              text={item.message}
+            />
+          })}
         </div>
 
         <div className={showTab === 2 ? "content active_content" : "content"}>

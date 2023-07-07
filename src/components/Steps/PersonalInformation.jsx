@@ -197,7 +197,7 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.motherTongue}
             onChange={(e) => handleInputChangeValue(e, "motherTongue")}
           >
-            <option disabled>زبان مادری</option>
+            <option disabled selected>زبان مادری</option>
             <option>دری</option>
             <option>پشتو</option>
           </select>
@@ -220,7 +220,7 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.maritalState}
             onChange={(e) => handleInputChangeValue(e, "maritalState")}
           >
-            <option disabled>حالت مدنی</option>
+            <option disabled selected>حالت مدنی</option>
             <option>مجرد</option>
             <option>متاهل</option>
           </select>

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 import "./NewPost.css"
@@ -9,22 +9,39 @@ const NewPost = () => {
   const [description, setDescription] = useState("")
   const [semester, setsemester] = useState('')
   const [department, setdepartment] = useState('')
-  const [feildOfStudy, setfeildOfStudy] = useState('')
+  const [fieldOfStudy, setfeildOfStudy] = useState('')
   const [isPublic, setisPublic] = useState('')
   const [files, setfiles] = useState([])
+  const [fields, setFields] = useState([]);
+  const [departments, setDepartments] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:1000/api/v1/field-of-studies")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setFields(data.content)
+      })
+  }, [])
   const sendInfo = () => {
     const body = {
-      fieldOfStudy: feildOfStudy,
+      fieldOfStudy: fieldOfStudy,
       department: department,
       message: description,
-      authorId: 1,
+      authorId: authentication.userId,
       semester: semester,
       isPublic: isPublic == "صفحه اصلی" ? true : false
     }
     fetch("http://localhost:1000/api/v1/posts", {
       method: "POST",
       headers: {
-        "Auhtorization": "Bearer " + authentication?.token
+        "Authorization": "Bearer " + authentication.token,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(body)
     })
@@ -36,9 +53,45 @@ const NewPost = () => {
         }
       })
       .then(data => {
-        console.log(data)
+        // now send the file
+        const formData = new FormData();
+        console.log(files)
+        for (let f in files) {
+          formData.append(f, files[f])
+        }
+        fetch(data.filesUrl, {
+          method: "POST",
+          headers: {
+            "Authorization": "Bearer " + authentication.token,
+            'Content-Type': 'application/form-data',
+          },
+          body: JSON.stringify({
+            files: formData
+          })
+        })
+          .then(res => console.log(res))
       })
   }
+  const fieldOfStudeyInputHandling = (e) => {
+    setfeildOfStudy(e.target.value)
+    const f = fields.find((item) => {
+      return item.fieldName == e.target.value
+    })
+    console.log(f)
+    fetch("http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setDepartments(data)
+      })
+  }
+
   return (
     <div className="new_post fade_in">
       <div className="post_description">
@@ -74,9 +127,26 @@ const NewPost = () => {
       <div className="share_post_on">
         <h3>اشتراک گذاری در کجا</h3>
         <div className="post_boxes">
+
           <div className="post_box">
-            <select id="type" value={semester} onChange={(e) => setsemester(e.target.value)}>
-              <option>سمستر</option>
+            <select id="type" onChange={(e) => fieldOfStudeyInputHandling(e)}>
+              <option disabled selected>پوهنحی</option>
+              {fields.map(item => {
+                return <option key={item.id}>{item.fieldName}</option>
+              })}
+            </select>
+          </div>
+          <div className="post_box">
+            <select id="type" onChange={(e) => setdepartment(e.target.value)}>
+              <option selected disabled>دیپارتمنت</option>
+              {departments.map(item => {
+                return <option key={item.id}>{item.departmentName}</option>
+              })}
+            </select>
+          </div>
+          <div className="post_box">
+            <select id="type" onChange={(e) => setsemester(e.target.value)}>
+              <option selected disabled>سمستر</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -88,23 +158,8 @@ const NewPost = () => {
             </select>
           </div>
           <div className="post_box">
-            <select id="type" value={department} onChange={(e) => setdepartment(e.target.value)}>
-              <option disabled>دیپارتمنت</option>
-              <option>سافت ویر</option>
-              <option>دیتابیس</option>
-              <option>نتورک</option>
-            </select>
-          </div>
-          <div className="post_box">
-            <select id="type" value={feildOfStudy} onChange={(e) => setfeildOfStudy(e.target.value)}>
-              <option disabled>پوهنحی</option>
-              <option>کامپیوتر ساینس</option>
-              <option>حقوق</option>
-              <option>ستوماتالوژی</option>
-            </select>
-          </div>
-          <div className="post_box">
             <select id="type">
+              <option selected disabled>موقعیت</option>
               <option>صفحه محصل</option>
               <option>صفحه اصلی</option>
             </select>

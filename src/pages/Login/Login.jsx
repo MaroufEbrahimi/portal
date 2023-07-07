@@ -36,7 +36,7 @@ const Login = () => {
         }
         setCookie("token", data?.token);
         setCookie("name", data?.name);
-        setCookie("lastName", data?.lastName)
+        setCookie("lastName", data?.lastname)
         setCookie("email", data?.email)
         setCookie("userId", data?.userId)
         setCookie("imageUrl", data?.imageUrl)
