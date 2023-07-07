@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { StepperContext, useStateValue } from "../../context/StateProvider"
 import "./AddStudent.css"
 import Stepper from "../../components/Stepper/Stepper"
-import FormControl from "../../components/FormDetails/FormControl"
+import FormControl from "../../components/FormControl/FormControl"
 
 import { PersonalInformation } from "../../components/Steps/PersonalInformation"
 import { StudentHabitation } from "../../components/Steps/StudentHabitation"
