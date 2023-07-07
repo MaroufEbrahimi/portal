@@ -7,7 +7,7 @@ function getAuthInfoFromCookie() {
     return {
       isAuthenticated: data.get("token") ? true : false,
       name: data.get("name"),
-      lastName: data.get("lastName"),
+      lastname: data.get("lastname"),
       email: data.get("email"),
       token: data.get("token"),
       userId: data.get("userId"),

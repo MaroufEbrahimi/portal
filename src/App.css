@@ -12,6 +12,7 @@
   overflow-x: hidden;
   transition: all 0.3s ease-in-out;
 }
+
 .app .main_active_nav {
   margin: 0 100px 0 25px;
 }
@@ -26,11 +27,13 @@
     margin: 0 100px 0 20px;
   }
 }
+
 @media (max-width: 768px) {
   .app .main {
     margin: 0 85px 0 10px;
   }
 }
+
 @media (max-width: 480px) {
   .app .main {
     margin: 0px 78px 0px 0px;

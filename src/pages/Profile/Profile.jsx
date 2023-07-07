@@ -1,12 +1,36 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import USER from "../../assets/img/user.jpg"
 import "./Profile.css"
-
 import { profileTabHeader } from "../../constants/Data"
 import Post from "../../components/Post/Post"
+import { useParams } from "react-router-dom"
+import { useStateValue } from "../../context/StateProvider"
 
 const Profile = () => {
+  const { id } = useParams()
   const [showTab, setShowTab] = useState(1)
+  const [{ authentication }, dispatch] = useStateValue()
+  const [student, setstudent] = useState({})
+
+  console.log(authentication)
+  useEffect(() => {
+    fetch("http://localhost:1000/api/v1/students/" + id, {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + authentication.token
+      }
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setstudent(data)
+      })
+
+  }, [])
 
   const handleTabs = (index) => {
     setShowTab(index)
@@ -16,8 +40,8 @@ const Profile = () => {
     <div className="profile fade_in">
       <div className="profile_title">
         <div className="user_profile_img">
-          <img src={USER} alt="user img" />
-          <h1>معروف ابراهیمی</h1>
+          <img src={student?.imageUrl} alt="user img" />
+          <h1>{student?.studentPersonalInfo?.name} {student?.studentPersonalInfo?.lastName}</h1>
         </div>
       </div>
 
@@ -38,39 +62,39 @@ const Profile = () => {
           <div className="content_boxes">
             <div className="content_box">
               <label>نام</label>
-              <p>معروف</p>
+              <p>{student?.studentPersonalInfo?.name}</p>
             </div>
             <div className="content_box">
               <label>تخلص</label>
-              <p>ابراهیمی</p>
+              <p>{student?.studentPersonalInfo?.lastName}</p>
             </div>
             <div className="content_box">
               <label>نام پدر</label>
-              <p>ابراهیمی</p>
+              <p>{student?.studentPersonalInfo?.fatherName}</p>
             </div>
             <div className="content_box">
               <label>شماره تماس</label>
-              <p>0799503350</p>
+              <p>{student?.studentPersonalInfo?.phoneNumber}</p>
             </div>
             <div className="content_box">
               <label>ایمیل</label>
-              <p>famous@gmail.com</p>
+              <p>{student?.studentPersonalInfo?.phoneNumber}</p>
             </div>
             <div className="content_box">
               <label>سال شمولیت</label>
-              <p>1398</p>
+              <p>{student?.studentPersonalInfo?.phoneNumber}</p>
             </div>
             <div className="content_box">
               <label>دیپارتمنت</label>
-              <p>سافت ویر</p>
+              <p>{student?.studentPersonalInfo?.department}</p>
             </div>
             <div className="content_box">
               <label>سال</label>
-              <p>4</p>
+              <p>{student?.studentPersonalInfo?.year}</p>
             </div>
             <div className="content_box">
               <label>سمستر</label>
-              <p>8</p>
+              <p>{student?.studentPersonalInfo?.semester}</p>
             </div>
           </div>
         </div>

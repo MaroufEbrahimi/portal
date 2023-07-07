@@ -14,7 +14,7 @@ const Students = () => {
   const [students, setstudents] = useState([])
   console.log(authentication)
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/students/find?name= &offset=0&pageSize=5", {
+    fetch("http://localhost:1000/api/v1/students/?&offset=0&pageSize=5", {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + authentication.token
@@ -66,7 +66,7 @@ const Students = () => {
 
 
       <div className="all_students">
-        {students.map(student => {
+        {students?.map(student => {
           return <Student
             key={student.id}
             studentInfo={student

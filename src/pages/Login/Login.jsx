@@ -26,7 +26,7 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: inputs,
+      body: JSON.stringify(inputs),
     })
       .then((res) => {
         console.log(res)
@@ -42,7 +42,7 @@ const Login = () => {
         // if successfully authenticated
         setCookie("token", data?.token)
         setCookie("name", data?.name)
-        setCookie("lastName", data.lastName)
+        setCookie("lastname", data.lastname)
         setCookie("email", data?.email)
         setCookie("userId", data?.userId)
         setCookie("imageUrl", data?.imageUrl)
@@ -68,7 +68,8 @@ const Login = () => {
                 type="text"
                 placeholder="Email"
                 name="email"
-                onChange={handleChange}
+                value={inputs?.email}
+                onChange={(e) => handleChange(e)}
               />
               <i className="bi bi-person-circle"></i>
             </div>
@@ -77,7 +78,8 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 name="password"
-                onChange={handleChange}
+                value={inputs.password}
+                onChange={(e) => handleChange(e)}
               />
               <i className="bi bi-lock-fill"></i>
             </div>
