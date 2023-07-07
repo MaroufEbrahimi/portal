@@ -9,7 +9,6 @@ import { StudentHabitation } from "../../components/Steps/StudentHabitation"
 import { StudentRelatives } from "../../components/Steps/StudentRelatives"
 import { Complete } from "../../components/Steps/Complete"
 import { useNavigate } from "react-router-dom"
-import FormControl from "../../components/FormControl/FormControl"
 
 const AddStudent = () => {
   const navigate = useNavigate()
