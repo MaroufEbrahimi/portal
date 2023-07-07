@@ -2,8 +2,21 @@ import React, { useState } from "react"
 import "./Steps.css"
 import { useStateValue } from "../../context/StateProvider"
 import { actionTypes } from "../../context/reducer"
+import avatar from "../../assets/img/profile_avatar.png"
+
 export const PersonalInformation = () => {
   const [{ studentPersonalInfo }, dispatch] = useStateValue()
+  const [profileImg, setProfileImg] = useState({
+    imgUrl: "",
+    file: "",
+    isOk: false,
+  })
+
+  // handle input change of profile image
+  const setProfileImgInput = (e) => {
+    const url = URL.createObjectURL(e.target.files[0])
+    setProfileImg({ imgUrl: url, file: e.target.files[0], isOk: true })
+  }
 
   const handleInputChangeValue = (e, inputName) => {
     switch (inputName) {
@@ -104,20 +117,20 @@ export const PersonalInformation = () => {
     <div className="form_details_student personal_info right-to-left">
       <form>
         <div className="add_img_profile">
-          <input
-            type="file"
-            name="image-upload"
-            id="input"
-            // onChange={this.imageHandler}
-            accept="image/*"
+          <img
+            src={profileImg.isOk ? profileImg.imgUrl : avatar}
+            className="input_profile_img"
+            alt="user_image"
           />
-          <label htmlFor="input" className="image-upload">
-            <i
-              className="bi bi-person-bounding-box"
-              title="choose your photo"
-            ></i>
-            <p>یک دانه عکس 3X4</p>
-          </label>
+          <span className="upload_icon display_flex align_items_center justify_content_center">
+            <i className="bi bi-camera"></i>
+          </span>
+          <input
+            type={"file"}
+            accept="image/*"
+            id="input"
+            onChange={(e) => setProfileImgInput(e)}
+          />
         </div>
 
         <div className="build_box median_width">
