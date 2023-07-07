@@ -2,9 +2,43 @@ import React, { useState } from "react"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 import "./NewPost.css"
+import { useStateValue } from "../../context/StateProvider"
 
 const NewPost = () => {
+  const [{ authentication }, dispatch] = useStateValue()
   const [description, setDescription] = useState("")
+  const [semester, setsemester] = useState('')
+  const [department, setdepartment] = useState('')
+  const [feildOfStudy, setfeildOfStudy] = useState('')
+  const [isPublic, setisPublic] = useState('')
+  const [files, setfiles] = useState([])
+  const sendInfo = () => {
+    const body = {
+      fieldOfStudy: feildOfStudy,
+      department: department,
+      message: description,
+      authorId: 1,
+      semester: semester,
+      isPublic: isPublic == "صفحه اصلی" ? true : false
+    }
+    fetch("http://localhost:1000/api/v1/posts", {
+      method: "POST",
+      headers: {
+        "Auhtorization": "Bearer " + authentication?.token
+      },
+      body: JSON.stringify(body)
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+      })
+  }
   return (
     <div className="new_post fade_in">
       <div className="post_description">
@@ -23,7 +57,8 @@ const NewPost = () => {
             type="file"
             name="image-upload"
             id="input"
-            // onChange={this.imageHandler}
+            multiple
+            onChange={(e) => setfiles(e.target.files)}
             accept="image/*"
           />
           <label htmlFor="input" className="image-upload">
@@ -40,7 +75,7 @@ const NewPost = () => {
         <h3>اشتراک گذاری در کجا</h3>
         <div className="post_boxes">
           <div className="post_box">
-            <select id="type">
+            <select id="type" value={semester} onChange={(e) => setsemester(e.target.value)}>
               <option>سمستر</option>
               <option>1</option>
               <option>2</option>
@@ -53,16 +88,16 @@ const NewPost = () => {
             </select>
           </div>
           <div className="post_box">
-            <select id="type">
-              <option>دیپارتمنت</option>
+            <select id="type" value={department} onChange={(e) => setdepartment(e.target.value)}>
+              <option disabled>دیپارتمنت</option>
               <option>سافت ویر</option>
               <option>دیتابیس</option>
               <option>نتورک</option>
             </select>
           </div>
           <div className="post_box">
-            <select id="type">
-              <option>پوهنحی</option>
+            <select id="type" value={feildOfStudy} onChange={(e) => setfeildOfStudy(e.target.value)}>
+              <option disabled>پوهنحی</option>
               <option>کامپیوتر ساینس</option>
               <option>حقوق</option>
               <option>ستوماتالوژی</option>
@@ -75,6 +110,9 @@ const NewPost = () => {
             </select>
           </div>
         </div>
+        <button onClick={() => sendInfo("next")} className=" btn">
+          ارسال
+        </button>
       </div>
     </div>
   )

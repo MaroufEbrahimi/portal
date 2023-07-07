@@ -30,7 +30,7 @@ function Posts() {
                 return <Post
                     key={item.id}
                     author={item.author}
-                    date={item.date}
+                    date={item.dateTime}
                     images={item.images}
                     docs={item.docs}
                     text={item.message}

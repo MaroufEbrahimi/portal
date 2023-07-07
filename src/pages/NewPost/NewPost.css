@@ -4,33 +4,39 @@
   /* gap: 20px; */
   position: relative;
   /* background-color: red; */
-  padding: 4rem 6rem;
+  padding: 4rem 4rem;
 }
+
 .post_description {
   flex: 5;
   display: flex;
   gap: 20px;
   flex-direction: column;
 }
+
 .post_description .editorContainer {
   height: 200px;
   width: 100%;
   /* direction: rtl; */
 }
+
 .editorContainer .editor {
   height: 100%;
   border: none;
   border-radius: 10px;
   text-align: left;
 }
+
 /* file handler */
 .post_file_img {
   margin-top: 3rem;
   display: flex;
 }
+
 .post_file_img .file_handler #input[type="file"] {
   display: none;
 }
+
 .post_file_img .file_handler label {
   cursor: pointer;
   display: flex;
@@ -40,28 +46,34 @@
   justify-content: center;
   font-size: 15px;
 }
+
 .post_file_img .file_handler label p {
   font-size: 14px;
 }
+
 .post_file_img .file_handler .image-upload i {
   color: var(--gen-color-hover);
   font-size: 23px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
+
 .post_file_img .file_handler label:hover i {
   color: var(--gen-color);
 }
+
 /* post boxes */
 .share_post_on {
   margin-top: 1.5rem;
 }
+
 .post_boxes {
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
 }
+
 .post_boxes .post_box select {
   box-sizing: border-box;
   width: 100%;

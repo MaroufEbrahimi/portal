@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { AuthContext } from "../../context/authContext"
+
 import "./Login.css"
-import axios from "axios"
 import { actionTypes } from "../../context/reducer"
 import { setCookie } from "../../Utils/Cookie"
 import { useStateValue } from "../../context/StateProvider"
@@ -12,14 +11,12 @@ const Login = () => {
     email: "",
     password: "",
   })
-
   const [, dispatch] = useStateValue()
-
   const [error, setError] = useState(null)
+
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-  const { login } = useContext(AuthContext)
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
@@ -47,7 +44,8 @@ const Login = () => {
         setCookie("name", data?.name)
         setCookie("lastName", data.lastName)
         setCookie("email", data?.email)
-        setCookie("profileImage", data?.profilePictureUrl)
+        setCookie("userId", data?.userId)
+        setCookie("imageUrl", data?.imageUrl)
         localStorage.setItem("roles", data?.roles.toString())
         dispatch({
           type: actionTypes.SET_AUTHENTICATION,

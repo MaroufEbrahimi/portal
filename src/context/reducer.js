@@ -10,7 +10,8 @@ function getAuthInfoFromCookie() {
       lastName: data.get("lastName"),
       email: data.get("email"),
       token: data.get("token"),
-      profileImage: data.get("profileImage"),
+      userId: data.get("userId"),
+      imageUrl: data.get("imageUrl"),
       roles: localStorage.getItem("roles").split(",")
     }
   }
@@ -21,12 +22,13 @@ export const initialState = {
   term: null,
   authentication: getAuthInfoFromCookie() ? getAuthInfoFromCookie() : {
     isAuthenticated: true,
-    name: "فرهاد ",
-    lastName: "رضایی",
-    email: "farhad@gmail.com",
-    token: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGloZXJhd2k3QGdtYWlsLmNvbSIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6MTAwMC9hcGkvdjEvYXV0aC9hdXRoZW50aWNhdGUiLCJleHAiOjE2OTExNzQ4MjB9.uubf1kNwlw3mNVvqI1PMR_L862CSYILr57gq7Nmayw8",
-    profileImage: "http://localhost:1000/api/v1/files/student-profiles/1",
-    roles: ["admin"]
+    name: null,
+    lastName: null,
+    email: null,
+    token: null,
+    userId: null,
+    profileImage: null,
+    roles: []
   },
 
 }

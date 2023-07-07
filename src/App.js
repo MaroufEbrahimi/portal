@@ -11,7 +11,6 @@ import "./App.css"
 
 import Loading from "./components/UI/Loading/Loading"
 import Wrapper from "./components/HOC/Wrapper"
-import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import BackToTop from "./components/UI/BackToTop/BackToTop"
 import { DarkModeContext } from "./context/darkMode"
@@ -42,9 +41,10 @@ const App = (props) => {
 
   const Layout = () => {
     return (
-      <div className={`app ${darkMode ? "theme-dark" : "theme-light"}`}>
-        <main className={`main ${activeNav && "main_active_nav"}`}>
-          <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
+        <div className={`app ${darkMode ? "theme-dark" : "theme-light"}`}>
+          <main className={`main ${activeNav && "main_active_nav"}`}>
+
             <div className="app_header">
               <Header />
             </div>
@@ -53,9 +53,9 @@ const App = (props) => {
               <Outlet />
             </Wrapper>
             <BackToTop />
-          </Suspense>
-        </main>
-      </div>
+          </main>
+        </div>
+      </Suspense >
     )
   }
 

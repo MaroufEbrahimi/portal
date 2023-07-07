@@ -9,14 +9,15 @@ import { StudentHabitation } from "../../components/Steps/StudentHabitation"
 import { StudentRelatives } from "../../components/Steps/StudentRelatives"
 import { Complete } from "../../components/Steps/Complete"
 import { useNavigate } from "react-router-dom"
+import FormControl from "../../components/FormControl/FormControl"
 
 const AddStudent = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [currentStep, setCurrentStep] = useState(1)
   const [userData, setUserData] = useState("")
   const [finalData, setFinalData] = useState([])
   const steps = ["معلومات شخصی", "تذکره و سکونت محصل", "اقارب محصل", "بخش آخر"]
-  const [globalState, dispatch] = useStateValue();
+  const [globalState, dispatch] = useStateValue()
   console.log(globalState)
   const displaySteps = (step) => {
     switch (step) {
