@@ -15,7 +15,7 @@
 }
 .form_details_student label {
   display: block;
-  color: #000;
+  color: var(--text-color);
   font-weight: 500;
   padding-bottom: 5px;
   padding-right: 10px;
@@ -45,29 +45,53 @@
 
 /* image handler */
 .form_details_student .add_img_profile {
-  display: flex;
+  position: relative;
+  margin-right: 10px;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 10px;
 }
-.form_details_student .add_img_profile #input[type="file"] {
-  display: none;
+.form_details_student .add_img_profile:hover .upload_icon {
+  height: 130px;
 }
-.form_details_student .add_img_profile label {
+.add_img_profile .input_profile_img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid;
+  border-right-color: var(--gen-color);
+  border-left-color: var(--gen-color);
+  border-top-color: #da892c;
+  border-bottom-color: #da892c;
+}
+
+.add_img_profile #input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
   cursor: pointer;
+  opacity: 0;
+  z-index: 10;
+}
+.add_img_profile .upload_icon {
   display: flex;
-  gap: 6px;
-  text-align: center;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-}
-.form_details_student .add_img_profile label p {
-  font-size: 14px;
-}
-.form_details_student .add_img_profile .image-upload i {
-  color: var(--gen-color-hover);
-  font-size: 23px;
-  transition: all 0.3s ease-in-out;
   cursor: pointer;
+  position: absolute;
+  height: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #00000042;
+  transition: height 0.3s;
+  font-size: 21px;
 }
-.form_details_student .add_img_profile label:hover i {
-  color: var(--gen-color);
+.add_img_profile .upload_icon i {
+  color: #fff;
 }
