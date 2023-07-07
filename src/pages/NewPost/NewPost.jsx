@@ -7,10 +7,10 @@ import { useStateValue } from "../../context/StateProvider"
 const NewPost = () => {
   const [{ authentication }, dispatch] = useStateValue()
   const [description, setDescription] = useState("")
-  const [semester, setsemester] = useState('')
-  const [department, setdepartment] = useState('')
-  const [feildOfStudy, setfeildOfStudy] = useState('')
-  const [isPublic, setisPublic] = useState('')
+  const [semester, setsemester] = useState("")
+  const [department, setdepartment] = useState("")
+  const [feildOfStudy, setfeildOfStudy] = useState("")
+  const [isPublic, setisPublic] = useState("")
   const [files, setfiles] = useState([])
   const sendInfo = () => {
     const body = {
@@ -19,23 +19,23 @@ const NewPost = () => {
       message: description,
       authorId: 1,
       semester: semester,
-      isPublic: isPublic == "صفحه اصلی" ? true : false
+      isPublic: isPublic == "صفحه اصلی" ? true : false,
     }
     fetch("http://localhost:1000/api/v1/posts", {
       method: "POST",
       headers: {
-        "Auhtorization": "Bearer " + authentication?.token
+        Auhtorization: "Bearer " + authentication?.token,
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
           throw new Error(res.statusText)
         }
       })
-      .then(data => {
+      .then((data) => {
         console.log(data)
       })
   }
@@ -75,7 +75,11 @@ const NewPost = () => {
         <h3>اشتراک گذاری در کجا</h3>
         <div className="post_boxes">
           <div className="post_box">
-            <select id="type" value={semester} onChange={(e) => setsemester(e.target.value)}>
+            <select
+              id="type"
+              value={semester}
+              onChange={(e) => setsemester(e.target.value)}
+            >
               <option>سمستر</option>
               <option>1</option>
               <option>2</option>
@@ -88,7 +92,11 @@ const NewPost = () => {
             </select>
           </div>
           <div className="post_box">
-            <select id="type" value={department} onChange={(e) => setdepartment(e.target.value)}>
+            <select
+              id="type"
+              value={department}
+              onChange={(e) => setdepartment(e.target.value)}
+            >
               <option disabled>دیپارتمنت</option>
               <option>سافت ویر</option>
               <option>دیتابیس</option>
@@ -96,7 +104,11 @@ const NewPost = () => {
             </select>
           </div>
           <div className="post_box">
-            <select id="type" value={feildOfStudy} onChange={(e) => setfeildOfStudy(e.target.value)}>
+            <select
+              id="type"
+              value={feildOfStudy}
+              onChange={(e) => setfeildOfStudy(e.target.value)}
+            >
               <option disabled>پوهنحی</option>
               <option>کامپیوتر ساینس</option>
               <option>حقوق</option>
@@ -110,9 +122,11 @@ const NewPost = () => {
             </select>
           </div>
         </div>
-        <button onClick={() => sendInfo("next")} className=" btn">
-          ارسال
-        </button>
+        <div className="send_post">
+          <button onClick={() => sendInfo("next")} className=" btn">
+            ارسال
+          </button>
+        </div>
       </div>
     </div>
   )
