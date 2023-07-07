@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react"
 import { Link, useResolvedPath, useMatch } from "react-router-dom"
 import { AuthContext } from "../../context/authContext"
-import LOGO from "../../assets/img/logo.png"
+import profile from "../../assets/img/profile_avatar.png"
 import "./Navbar.css"
 
 const CustomeLinks = ({ to, children, ...props }) => {
@@ -32,9 +32,9 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
         </div>
       </div>
 
-      <Link to="/" className="logo">
-        <img src={LOGO} alt="logo" className="logo_img" />
-        <h3>هریوا</h3>
+      <Link to="/profile/1" className="nav_profile">
+        <img src={profile} alt="logo" className="logo_img" />
+        <h4>معروف ابراهیمی</h4>
       </Link>
 
       <div className="navbar_menu">
@@ -61,10 +61,6 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           <CustomeLinks to="/students" title="محصلین">
             <i className="bi bi-people"></i>
             <span>محصلین</span>
-          </CustomeLinks>
-          <CustomeLinks to="/admin/deletestudent" title="حذف محصل">
-            <i className="bi bi-person-dash"></i>
-            <span> مدیریت پوست ها</span>
           </CustomeLinks>
           <CustomeLinks to="/admin/newpost" title="محتوا جدید">
             <i className="bi bi-file-earmark-plus"></i>

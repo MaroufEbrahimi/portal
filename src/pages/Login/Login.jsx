@@ -24,30 +24,35 @@ const Login = () => {
     fetch("http://localhost:1000/api/v1/auth/authenticate", {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(inputs)
+      body: inputs,
     })
-      .then(res => res.json())
-      .then(data => {
-        if (data?.statusCode) {
-          setError(data.message)
-          return
+      .then((res) => {
+        console.log(res)
+        if (res.ok) {
+          return res.json()
+        } else {
+          // do some error handling
+          throw new Error(res.statusText)
         }
-        setCookie("token", data?.token);
-        setCookie("name", data?.name);
-        setCookie("lastName", data?.lastname)
+      })
+      .then((data) => {
+        console.log(data)
+        // if successfully authenticated
+        setCookie("token", data?.token)
+        setCookie("name", data?.name)
+        setCookie("lastName", data.lastName)
         setCookie("email", data?.email)
         setCookie("userId", data?.userId)
         setCookie("imageUrl", data?.imageUrl)
         localStorage.setItem("roles", data?.roles.toString())
         dispatch({
           type: actionTypes.SET_AUTHENTICATION,
-          payload: data
+          payload: data,
         })
         navigate("/")
       })
-
   }
 
   return (

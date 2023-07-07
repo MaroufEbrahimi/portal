@@ -97,6 +97,16 @@ export const PersonalInformation = () => {
         })
         break
       }
+      case "gender": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_PERONAL_INFO,
+          payload: {
+            ...studentPersonalInfo,
+            gender: e.target.value,
+          },
+        })
+        break
+      }
       case "email": {
         dispatch({
           type: actionTypes.ADD_STUDENT_PERONAL_INFO,
@@ -117,13 +127,53 @@ export const PersonalInformation = () => {
         })
         break
       }
+      case "school": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_PERONAL_INFO,
+          payload: {
+            ...studentPersonalInfo,
+            school: e.target.value,
+          },
+        })
+        break
+      }
+      case "graduation": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_PERONAL_INFO,
+          payload: {
+            ...studentPersonalInfo,
+            graduation: e.target.value,
+          },
+        })
+        break
+      }
+      case "fieldOfStudy": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_PERONAL_INFO,
+          payload: {
+            ...studentPersonalInfo,
+            fieldOfStudy: e.target.value,
+          },
+        })
+        break
+      }
+      case "department": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_PERONAL_INFO,
+          payload: {
+            ...studentPersonalInfo,
+            department: e.target.value,
+          },
+        })
+        break
+      }
     }
   }
 
   return (
     <div className="form_details_student personal_info right-to-left">
       <form>
-        <div className="add_img_profile">
+        <div className="add_img_profile full_width">
           <img
             src={profileImg.isOk ? profileImg.imgUrl : avatar}
             className="input_profile_img"
@@ -140,7 +190,7 @@ export const PersonalInformation = () => {
           />
         </div>
 
-        <div className="build_box median_width">
+        <div className="build_box">
           <label>نام</label>
           <input
             type="text"
@@ -170,13 +220,37 @@ export const PersonalInformation = () => {
           />
         </div>
 
-        <div className="build_box median_width">
+        <div className="build_box">
           <label>نام پدرکلان</label>
           <input
             type="text"
             value={studentPersonalInfo?.grandFatherName}
             onChange={(e) => handleInputChangeValue(e, "grandfathername")}
             required
+          />
+        </div>
+
+        <div className="build_box">
+          <label>شماره تماس</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required
+            value={studentPersonalInfo?.phoneNumber}
+            onChange={(e) => handleInputChangeValue(e, "phoneNumber")}
+          />
+        </div>
+
+        <div className="build_box email">
+          <label>ایمیل</label>
+          <input
+            type="email"
+            value={studentPersonalInfo?.email}
+            onChange={(e) => handleInputChangeValue(e, "email")}
+            required
+            placeholder="e.g famous@gmail.com"
           />
         </div>
 
@@ -202,15 +276,18 @@ export const PersonalInformation = () => {
             <option>پشتو</option>
           </select>
         </div>
-        <div className="build_box email median_width">
-          <label>ایمیل</label>
-          <input
-            type="email"
-            value={studentPersonalInfo?.email}
-            onChange={(e) => handleInputChangeValue(e, "email")}
-            required
-            placeholder="e.g famous@gmail.com"
-          />
+
+        <div className="build_box">
+          <label>جنسیت</label>
+          <select
+            id="type"
+            value={studentPersonalInfo?.gender}
+            onChange={(e) => handleInputChangeValue(e, "gender")}
+          >
+            <option disabled>جنسیت</option>
+            <option>مرد</option>
+            <option>زن</option>
+          </select>
         </div>
 
         <div className="build_box">
@@ -225,16 +302,47 @@ export const PersonalInformation = () => {
             <option>متاهل</option>
           </select>
         </div>
+
         <div className="build_box">
-          <label>شماره تماس</label>
+          <label>مکتب / دارالعلوم</label>
           <input
-            type="tel"
-            id="phone"
-            name="phone"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            type="text"
+            value={studentPersonalInfo?.school}
+            onChange={(e) => handleInputChangeValue(e, "school")}
             required
-            value={studentPersonalInfo?.phoneNumber}
-            onChange={(e) => handleInputChangeValue(e, "phoneNumber")}
+          />
+        </div>
+
+        <div className="build_box">
+          <label>سال فراغت</label>
+          <input
+            type=""
+            value={studentPersonalInfo?.graduation}
+            onChange={(e) => handleInputChangeValue(e, "graduation")}
+            required
+          />
+        </div>
+
+        <div className="build_box">
+          <label>رشته تحصیلی</label>
+          <select
+            id="type"
+            value={studentPersonalInfo?.fieldOfStudy}
+            onChange={(e) => handleInputChangeValue(e, "fieldOfStudy")}
+          >
+            <option>کامپیوتر ساینس</option>
+            <option>حقوق</option>
+            <option>ستوماتالوژی</option>
+          </select>
+        </div>
+
+        <div className="build_box">
+          <label>دیپارتمنت</label>
+          <input
+            type="text"
+            value={studentPersonalInfo?.department}
+            onChange={(e) => handleInputChangeValue(e, "department")}
+            required
           />
         </div>
       </form>
