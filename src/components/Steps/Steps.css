@@ -95,3 +95,12 @@
 .add_img_profile .upload_icon i {
   color: #fff;
 }
+/* End of PersonalInformation */
+
+/* Complete Section */
+.complete_step .complete_buttons {
+  padding: 2rem 0 1rem 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
