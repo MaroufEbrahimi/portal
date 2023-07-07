@@ -3,14 +3,18 @@ import { Link } from "react-router-dom"
 
 export const Complete = ({ handleNextStep }) => {
   return (
-    <div className="bottom-to-top">
-      <h1>your stepper is compeleted successfly</h1>
-      <Link to="/students">
-        <button className="btn">بستن</button>
-      </Link>
-      <button onClick={() => handleNextStep()} className="btn">
-        بازگشت
-      </button>
+    <div className="complete_step">
+      <div className="complete_details">
+        <h2>فرم موفقانه خانه پوری شد</h2>
+      </div>
+      <div className="complete_buttons">
+        <button onClick={() => handleNextStep()} className="btn right-to-left">
+          بازگشت
+        </button>
+        <Link to="/students">
+          <button className="btn left-to-right">بستن</button>
+        </Link>
+      </div>
     </div>
   )
 }
