@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import "./Posts.css"
 import Post from '../../components/Post/Post'
 import Spinner from "../../components/UI/Loading/Spinner"
+import { useStateValue } from '../../context/StateProvider'
 
 function Posts() {
     const [posts, setposts] = useState([])
@@ -9,6 +10,7 @@ function Posts() {
     const lastNode = useRef();
     const [pagination, setPagination] = useState({ offset: 0, pageSize: 1 })
     const [loading, setLoading] = useState(true);
+    const [{authentication}, dispatch] = useStateValue()
 
     const lastNodeReference = node => {
         if (loading) return;
@@ -28,7 +30,7 @@ function Posts() {
         setLoading(true)
         fetch(`http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
             method: "GET",
-            headers: { "Authorization": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGloZXJhd2k3QGdtYWlsLmNvbSIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6MTAwMC9hcGkvdjEvYXV0aC9hdXRoZW50aWNhdGUiLCJleHAiOjE2OTExNDI0NzF9.WX7Xex9TNWok9BBHBdnagoI5afIKAnhsS8htg6Q1al8" }
+            headers: { "Authorization": "bearer " + authentication.token }
         })
             .then(res => {
                 if (res.ok) {
@@ -73,7 +75,7 @@ function Posts() {
                     text={item.message}
                 />
             })}
-            <section style={{ position: "relative" }}>
+            <section style={{ position: "relative", height: "60px" }}>
                 {hasMore && <Spinner />}
                 {!hasMore && <h5 style={{ textAlign: "center" }}>end of the the posts</h5>}
             </section>
