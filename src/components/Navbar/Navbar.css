@@ -138,7 +138,10 @@
   pointer-events: none;
 }
 
+
 /* admin panel */
+
+
 .navbar__title {
   display: flex;
 }
@@ -181,11 +184,34 @@
 }
 
 /* dropdown */
+
+.drop_menu_button {
+  position: absolute;
+  background: no-repeat;
+  outline: none;
+  top: 45px;
+  height: 25px;
+  cursor: pointer;
+  left: 0;
+  right: 0;
+  opacity: 0;
+}
+
+.drop_menu_button:checked+.navbar__dropdown {
+  height: 100px;
+}
+
+
+
 .navbar__dropdown {
+  transition: height 0.3s cubic-bezier(0.85, 0.02, 0.19, 1.04);
+  transform-origin: top;
   padding-right: 20px;
-  margin-top: 10px;
   width: 100%;
   list-style: none;
+  overflow: hidden;
+  height: 0;
+  box-sizing: border-box;
 }
 
 .navbar__title.open__navbar .navbar__dropdown {
