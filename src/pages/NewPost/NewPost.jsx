@@ -3,14 +3,16 @@ import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
 import "./NewPost.css"
 import { useStateValue } from "../../context/StateProvider"
+import { useNavigate } from "react-router-dom"
 
 const NewPost = () => {
+  const navigate =useNavigate();
   const [{ authentication }, dispatch] = useStateValue()
   const [description, setDescription] = useState("")
   const [semester, setsemester] = useState('')
   const [department, setdepartment] = useState('')
   const [fieldOfStudy, setfeildOfStudy] = useState('')
-  const [isPublic, setisPublic] = useState('')
+  const [isPublic, setIsPublic] = useState(true)
   const [files, setfiles] = useState([])
   const [fields, setFields] = useState([]);
   const [departments, setDepartments] = useState([]);
@@ -28,6 +30,9 @@ const NewPost = () => {
         setFields(data.content)
       })
   }, [])
+
+
+  // sends information to the api
   const sendInfo = () => {
     const body = {
       fieldOfStudy: fieldOfStudy,
@@ -37,6 +42,7 @@ const NewPost = () => {
       semester: semester,
       isPublic: isPublic == "صفحه اصلی" ? true : false
     }
+    console.log(files)
     fetch("http://localhost:1000/api/v1/posts", {
       method: "POST",
       headers: {
@@ -55,23 +61,25 @@ const NewPost = () => {
       .then(data => {
         // now send the file
         const formData = new FormData();
-        console.log(files)
         for (let f in files) {
-          formData.append(f, files[f])
+          formData.append('files', files[f]);
         }
         fetch(data.filesUrl, {
           method: "POST",
           headers: {
             "Authorization": "Bearer " + authentication.token,
-            'Content-Type': 'application/form-data',
+            
           },
-          body: JSON.stringify({
-            files: formData
-          })
+          body: formData
         })
-          .then(res => console.log(res))
+          .then(res => {
+            if(res.ok){
+              navigate("/admin/postmanagement")
+            }
+          })
       })
   }
+
   const fieldOfStudeyInputHandling = (e) => {
     setfeildOfStudy(e.target.value)
     const f = fields.find((item) => {
@@ -127,45 +135,50 @@ const NewPost = () => {
       <div className="share_post_on">
         <h3>اشتراک گذاری در کجا</h3>
         <div className="post_boxes">
-
           <div className="post_box">
-            <select id="type" onChange={(e) => fieldOfStudeyInputHandling(e)}>
-              <option disabled selected>پوهنحی</option>
-              {fields.map(item => {
-                return <option key={item.id}>{item.fieldName}</option>
-              })}
-            </select>
-          </div>
-          <div className="post_box">
-            <select id="type" onChange={(e) => setdepartment(e.target.value)}>
-              <option selected disabled>دیپارتمنت</option>
-              {departments.map(item => {
-                return <option key={item.id}>{item.departmentName}</option>
-              })}
-            </select>
-          </div>
-          <div className="post_box">
-            <select id="type" onChange={(e) => setsemester(e.target.value)}>
-              <option selected disabled>سمستر</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-            </select>
-          </div>
-          <div className="post_box">
-            <select id="type">
-              <option selected disabled>موقعیت</option>
+            <select id="type" onChange={e => setIsPublic(e.target.value == "صفحه اصلی" ? true: false)}>
+              <option selected disabled >موقعیت</option>
               <option>صفحه محصل</option>
               <option>صفحه اصلی</option>
             </select>
           </div>
+          {!isPublic ?
+            <>
+              <div className="post_box">
+                <select id="type" onChange={(e) => fieldOfStudeyInputHandling(e)}>
+                  <option disabled selected>پوهنحی</option>
+                  {fields.map(item => {
+                    return <option key={item.id}>{item.fieldName}</option>
+                  })}
+                </select>
+              </div>
+              <div className="post_box">
+                <select id="type" onChange={(e) => setdepartment(e.target.value)}>
+                  <option selected disabled>دیپارتمنت</option>
+                  {departments.map(item => {
+                    return <option key={item.id}>{item.departmentName}</option>
+                  })}
+                </select>
+              </div>
+              <div className="post_box">
+                <select id="type" onChange={(e) => setsemester(e.target.value)}>
+                  <option selected disabled>سمستر</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                </select>
+              </div>
+            </> : ""}
+          
         </div>
-        <button onClick={() => sendInfo("next")} className=" btn">
+        <button 
+        style={{width:"160px", marginTop:"20px",    float: "left"}}
+        onClick={() => sendInfo("next")} className=" btn">
           ارسال
         </button>
       </div>

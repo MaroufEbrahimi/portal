@@ -12,7 +12,7 @@ const PostManagement = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/posts/?offset=0&pageSize=4", {
+    fetch("http://localhost:1000/api/v1/posts/?offset=0&pageSize=4&semester="+1, {
       method: "GET",
       headers: {
         authorization: "Bearer " + authentication.token
