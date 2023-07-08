@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState, useEffect} from "react"
 import { useStateValue } from "../../context/StateProvider"
 import "./Home.css"
 import ShowCaseSlider from "../../components/Slider/ShowCaseSlider/ShowCaseSlider"
@@ -11,6 +11,23 @@ import faculty from "../../assets/img/imgpost.jpg"
 
 const Home = () => {
   const [{ term }, dispatch] = useStateValue()
+
+  const [fields, setFields] = useState([]);
+  const [departments, setDepartments] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:1000/api/v1/field-of-studies")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setFields(data.content)
+      })
+  }, [])
 
   return (
     <div className="home">
@@ -35,51 +52,26 @@ const Home = () => {
           <h1>پوهنحی ها</h1>
         </div>
         <div className="faculty_boxes">
-          <div className="faculty box_shadow">
-            <div className="faculty_img">
-              <img src={faculty} alt="img faculty" />
-              <div className="img_details">
-                <p>این یک متن تستی است</p>
+          {fields.map(f => {
+            console.log(f)
+            return (
+              <div className="faculty box_shadow">
+                <div className="faculty_img">
+                  <img src={faculty} alt="img faculty" />
+                  <div className="img_details">
+                    <p style={{color:"#fff", fontSize:"1.5rem"}}>{f.fieldName}</p>
+                  </div>
+                </div>
+                <div className="faculty_details">
+                  <img src={LOGO} alt="" />
+                  <div>
+                    <p>120$</p>
+                    <p>0799999999</p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="faculty_details">
-              <img src={LOGO} alt="" />
-              <div>
-                <p>120$</p>
-                <p>0799999999</p>
-              </div>
-            </div>
-          </div>
-          <div className="faculty">
-            <div className="faculty_img">
-              <img src={faculty} alt="img faculty" />
-              <div className="img_details">
-                <p>این یک متن تستی است</p>
-              </div>
-            </div>
-            <div className="faculty_details">
-              <img src={LOGO} alt="" />
-              <div>
-                <p>120$</p>
-                <p>0799999999</p>
-              </div>
-            </div>
-          </div>
-          <div className="faculty">
-            <div className="faculty_img">
-              <img src={faculty} alt="img faculty" />
-              <div className="img_details">
-                <p>این یک متن تستی است</p>
-              </div>
-            </div>
-            <div className="faculty_details">
-              <img src={LOGO} alt="" />
-              <div>
-                <p>120$</p>
-                <p>0799999999</p>
-              </div>
-            </div>
-          </div>
+            )
+          })}
         </div>
       </section>
       {/* End of Faculties */}
