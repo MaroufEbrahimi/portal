@@ -78,11 +78,11 @@ const Profile = () => {
             </div>
             <div className="content_box">
               <label>ایمیل</label>
-              <p>{student?.studentPersonalInfo?.phoneNumber}</p>
+              <p>{student?.studentPersonalInfo?.email}</p>
             </div>
             <div className="content_box">
               <label>سال شمولیت</label>
-              <p>{student?.studentPersonalInfo?.phoneNumber}</p>
+              <p>{student?.studentPersonalInfo?.joinedDate}</p>
             </div>
             <div className="content_box">
               <label>دیپارتمنت</label>
