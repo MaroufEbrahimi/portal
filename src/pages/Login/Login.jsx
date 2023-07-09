@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
 import "./Login.css"
 import { actionTypes } from "../../context/reducer"
 import { setCookie } from "../../Utils/Cookie"
@@ -58,7 +57,6 @@ const Login = () => {
   return (
     <div className="login fade_in">
       <div className="avatart">
-        <i className="bi bi-person"></i>
       </div>
       <div className="login_container login_details">
         <form action="">
