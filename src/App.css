@@ -11,6 +11,7 @@
   box-sizing: border-box;
   overflow-x: hidden;
   transition: all 0.3s ease-in-out;
+  color: var(--gen-color) !important;
 }
 
 .app .main_active_nav {
@@ -45,6 +46,7 @@
   padding: 6px 10px;
   font-size: 14px;
   color: var(--text-color);
+  background-color: var(--gen-bg-color);
   border: 1px solid #e0dcdc;
   border-left-color: var(--gen-color);
   border-left-width: 3px;
