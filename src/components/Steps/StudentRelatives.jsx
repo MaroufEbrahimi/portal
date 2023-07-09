@@ -14,7 +14,8 @@ export const StudentRelatives = () => {
             ...studentRelations,
             father: {
               ...studentRelations?.father,
-              name: e.target.value
+              name: e.target.value,
+              relationship: "پدر"
             }
           }
         })
@@ -46,6 +47,7 @@ export const StudentRelatives = () => {
         })
         break;
       }
+
       case "father.phoneNumber": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
@@ -67,7 +69,8 @@ export const StudentRelatives = () => {
             ...studentRelations,
             uncle: {
               ...studentRelations?.uncle,
-              name: e.target.value
+              name: e.target.value,
+              relationship: "کاکا"
             }
           }
         })
@@ -119,7 +122,8 @@ export const StudentRelatives = () => {
             ...studentRelations,
             aunt: {
               ...studentRelations?.aunt,
-              name: e.target.value
+              name: e.target.value,
+              relationship: "ماما"
             }
           }
         })
@@ -171,7 +175,8 @@ export const StudentRelatives = () => {
             ...studentRelations,
             brother: {
               ...studentRelations?.brother,
-              name: e.target.value
+              name: e.target.value,
+              relationship: "برادر"
             }
           }
         })
@@ -299,7 +304,7 @@ export const StudentRelatives = () => {
             name="phone"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             required
-            value={studentRelations?.aunt?.pageNumber} onChange={(e) => handleInputChangeValue(e, "aunt.pageNumber")}
+            value={studentRelations?.aunt?.phoneNumber} onChange={(e) => handleInputChangeValue(e, "aunt.phoneNumber")}
           />
         </div>
 

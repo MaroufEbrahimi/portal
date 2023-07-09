@@ -41,7 +41,7 @@ const App = (props) => {
 
   const Layout = () => {
     return (
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />} >
         <div className={`app ${darkMode ? "theme-dark" : "theme-light"}`}>
           <main className={`main ${activeNav && "main_active_nav"}`}>
 

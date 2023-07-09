@@ -2,15 +2,15 @@ import React from "react"
 import "./Post.css"
 
 
-const Post = ({ images, docs, author, date, text }) => {
+const Post = ({ images, docs, author, date, text, customRef = null }) => {
 
   return (
-    <div className="post">
+    <div className="post" ref={customRef}>
       <div className="image_header_container">
         <div className="post_header">
           <div className="post_share_with">
             <img src={author?.imageUrl} alt={author?.name} />
-            <p>{author?.lastname} {author?.name}</p>
+            <p>{author?.name} {author?.lastname}</p>
           </div>
           <div className="post_date">
             <p>{new Date(date).toDateString()}</p>
@@ -19,7 +19,7 @@ const Post = ({ images, docs, author, date, text }) => {
       </div>
       <div className="file_post_body">
         <div className="post_text">
-          <p>{text}</p>
+          <p dangerouslySetInnerHTML={{ __html: text }}></p>
         </div>
         <div className="post_images">
           {/* for each item of image array render a post_file */}

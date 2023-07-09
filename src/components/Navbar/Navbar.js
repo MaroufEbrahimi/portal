@@ -3,6 +3,7 @@ import { Link, useResolvedPath, useMatch } from "react-router-dom"
 import { AuthContext } from "../../context/authContext"
 import profile from "../../assets/img/profile_avatar.png"
 import "./Navbar.css"
+import { useStateValue } from "../../context/StateProvider"
 
 const CustomeLinks = ({ to, children, ...props }) => {
   const resolvedPath = useResolvedPath(to)
@@ -19,7 +20,8 @@ const CustomeLinks = ({ to, children, ...props }) => {
 
 const Navbar = ({ activeNav, navActiveHandler }) => {
   const authContext = useContext(AuthContext)
-
+  const [{ authentication }, dispatch] = useStateValue();
+  console.log(authentication)
   return (
     <div className={`navbar ${activeNav && "active_nav_right"}`}>
       <div className="toggle_header_navbar">
@@ -32,9 +34,15 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
         </div>
       </div>
 
-      <Link to="/profile/1" className="nav_profile">
-        <img src={profile} alt="logo" className="logo_img" />
-        <h4>معروف ابراهیمی</h4>
+      <Link to={"/profile/" + authentication.userId} className="nav_profile">
+        <div className="add_img_profile full_width">
+          <img
+            src={authentication.imageUrl || profile}
+            className="input_profile_img"
+            alt="user_image"
+          />
+        </div>
+        <h4>{authentication.name} {authentication.lastname}</h4>
       </Link>
 
       <div className="navbar_menu">
@@ -43,36 +51,50 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             <i className="bi bi-house-door"></i>
             <span>خانه</span>
           </CustomeLinks>
-          {authContext.isAuth ? (
+          {authentication?.roles?.includes("STUDENT") ? (
             <CustomeLinks to="/posts" title="پست ها">
               <i className="bi bi-collection"></i>
               <span>پست ها</span>
             </CustomeLinks>
           ) : null}
-          <div className="navbar__title open__navbar">
-            <li className="navbar__item">
-              <i className="bi bi-gear"></i>
-              <span>ادمین پنل</span>
-              <i className="bi bi-chevron-down btn_toggle"></i>
-            </li>
-          </div>
+
+
+          {authentication?.roles?.includes("ADMIN") ?
+            <div>
+              <div className="navbar__title open__navbar">
+                <li className="navbar__item">
+                  <i className="bi bi-gear"></i>
+                  <span>ادمین پنل</span>
+                  <i className="bi bi-chevron-down btn_toggle"></i>
+                </li>
+              </div>
+              <input type="checkbox" className="drop_menu_button" />
+              <div className="navbar__dropdown">
+                <CustomeLinks to="/students" title="محصلین">
+                  <i className="bi bi-people"></i>
+                  <span>محصلین</span>
+                </CustomeLinks>
+                <CustomeLinks to="/admin/newpost" title="محتوا جدید">
+                  <i className="bi bi-file-earmark-plus"></i>
+                  <span>محتوای جدید</span>
+                </CustomeLinks>
+                <CustomeLinks to="/admin/postmanagement" title="مدیریت پست ها">
+                  <i className="bi bi-files"></i>
+                  <span>مدیریت پست ها</span>
+                </CustomeLinks>
+              </div>
+            </div>
+            : ""}
+
+          <CustomeLinks to="/about" title="درباره">
+            <i className="bi bi-house-door"></i>
+            <span>درباره</span>
+          </CustomeLinks>
+
         </ul>
-        <div className="navbar__dropdown">
-          <CustomeLinks to="/students" title="محصلین">
-            <i className="bi bi-people"></i>
-            <span>محصلین</span>
-          </CustomeLinks>
-          <CustomeLinks to="/admin/newpost" title="محتوا جدید">
-            <i className="bi bi-file-earmark-plus"></i>
-            <span>محتوای جدید</span>
-          </CustomeLinks>
-          <CustomeLinks to="/admin/postmanagement" title="مدیریت پست ها">
-            <i className="bi bi-files"></i>
-            <span>مدیریت پست ها</span>
-          </CustomeLinks>
-        </div>
-      </div>
-    </div>
+
+      </div >
+    </div >
   )
 }
 

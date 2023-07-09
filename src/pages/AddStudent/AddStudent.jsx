@@ -43,10 +43,47 @@ const AddStudent = () => {
       navigate("/students")
       return
     }
+    if (direction == "next" && currentStep == steps.length - 1) {
+      console.log(direction, currentStep)
+      sendInformation()
+    }
     let newStep = currentStep
     direction === "next" ? newStep++ : newStep--
     // check if steps are within bounds
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
+  }
+
+
+  const sendInformation = () => {
+    const relations = [];
+    for (let r in globalState.studentRelations) {
+      relations.push(globalState.studentRelations[r]);
+    }
+    const info = {
+      studentPersonalInfo: globalState.studentPersonalInfo,
+      relatives: relations,
+      locations: globalState.studentLocations,
+      identification: globalState.studentIdenfication
+    }
+
+    fetch("http://localhost:1000/api/v1/students", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + globalState.authentication.token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(info)
+    })
+      .then(res => {
+        console.log(res)
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then(data => {
+
+        console.log(data)
+      })
   }
   return (
     <div className="add_new fade_in">

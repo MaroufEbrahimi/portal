@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./Steps.css"
 import { useStateValue } from "../../context/StateProvider"
 import { actionTypes } from "../../context/reducer"
@@ -11,6 +11,23 @@ export const PersonalInformation = () => {
     file: "",
     isOk: studentImage ? true : false,
   })
+  const [fields, setFields] = useState([]);
+  const [departments, setDepartments] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:1000/api/v1/field-of-studies")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setFields(data.content)
+      })
+  }, [])
+
 
   // handle input change of profile image
   const setProfileImgInput = (e) => {
@@ -87,12 +104,12 @@ export const PersonalInformation = () => {
         })
         break
       }
-      case "maritalState": {
+      case "maritalStatus": {
         dispatch({
           type: actionTypes.ADD_STUDENT_PERONAL_INFO,
           payload: {
             ...studentPersonalInfo,
-            maritalState: e.target.value,
+            maritalStatus: e.target.value,
           },
         })
         break
@@ -127,22 +144,22 @@ export const PersonalInformation = () => {
         })
         break
       }
-      case "school": {
+      case "highSchool": {
         dispatch({
           type: actionTypes.ADD_STUDENT_PERONAL_INFO,
           payload: {
             ...studentPersonalInfo,
-            school: e.target.value,
+            highSchool: e.target.value,
           },
         })
         break
       }
-      case "graduation": {
+      case "schoolGraduationDate": {
         dispatch({
           type: actionTypes.ADD_STUDENT_PERONAL_INFO,
           payload: {
             ...studentPersonalInfo,
-            graduation: e.target.value,
+            schoolGraduationDate: e.target.value,
           },
         })
         break
@@ -155,6 +172,22 @@ export const PersonalInformation = () => {
             fieldOfStudy: e.target.value,
           },
         })
+        const f = fields.find((item) => {
+          return item.fieldName == e.target.value
+        })
+        console.log(f)
+        fetch("http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments")
+          .then(res => {
+            if (res.ok) {
+              return res.json();
+            } else {
+              throw new Error(res.statusText)
+            }
+          })
+          .then(data => {
+            console.log(data)
+            setDepartments(data)
+          })
         break
       }
       case "department": {
@@ -163,6 +196,26 @@ export const PersonalInformation = () => {
           payload: {
             ...studentPersonalInfo,
             department: e.target.value,
+          },
+        })
+        break
+      }
+      case "semester": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_PERONAL_INFO,
+          payload: {
+            ...studentPersonalInfo,
+            semester: e.target.value,
+          },
+        })
+        break
+      }
+      case "password": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_PERONAL_INFO,
+          payload: {
+            ...studentPersonalInfo,
+            password: e.target.value,
           },
         })
         break
@@ -271,7 +324,7 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.motherTongue}
             onChange={(e) => handleInputChangeValue(e, "motherTongue")}
           >
-            <option disabled>زبان مادری</option>
+            <option disabled selected>زبان مادری</option>
             <option>دری</option>
             <option>پشتو</option>
           </select>
@@ -294,10 +347,10 @@ export const PersonalInformation = () => {
           <label>حالت مدنی</label>
           <select
             id="type"
-            value={studentPersonalInfo?.maritalState}
-            onChange={(e) => handleInputChangeValue(e, "maritalState")}
+            value={studentPersonalInfo?.maritalStatus}
+            onChange={(e) => handleInputChangeValue(e, "maritalStatus")}
           >
-            <option disabled>حالت مدنی</option>
+            <option disabled selected>حالت مدنی</option>
             <option>مجرد</option>
             <option>متاهل</option>
           </select>
@@ -307,8 +360,8 @@ export const PersonalInformation = () => {
           <label>مکتب / دارالعلوم</label>
           <input
             type="text"
-            value={studentPersonalInfo?.school}
-            onChange={(e) => handleInputChangeValue(e, "school")}
+            value={studentPersonalInfo?.highSchool}
+            onChange={(e) => handleInputChangeValue(e, "highSchool")}
             required
           />
         </div>
@@ -317,8 +370,8 @@ export const PersonalInformation = () => {
           <label>سال فراغت</label>
           <input
             type=""
-            value={studentPersonalInfo?.graduation}
-            onChange={(e) => handleInputChangeValue(e, "graduation")}
+            value={studentPersonalInfo?.schoolGraduationDate}
+            onChange={(e) => handleInputChangeValue(e, "schoolGraduationDate")}
             required
           />
         </div>
@@ -330,18 +383,49 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.fieldOfStudy}
             onChange={(e) => handleInputChangeValue(e, "fieldOfStudy")}
           >
-            <option>کامپیوتر ساینس</option>
-            <option>حقوق</option>
-            <option>ستوماتالوژی</option>
+            <option disabled selected>رشته تحصیلی</option>
+            {fields.map(item => {
+              return <option key={item.id}>{item.fieldName}</option>
+            })}
           </select>
         </div>
 
         <div className="build_box">
           <label>دیپارتمنت</label>
-          <input
-            type="text"
+          <select
+            id="type"
             value={studentPersonalInfo?.department}
             onChange={(e) => handleInputChangeValue(e, "department")}
+          >
+            <option selected disabled>دیپارتمنت</option>
+            {departments.map(item => {
+              return <option key={item.id}>{item.departmentName}</option>
+            })}
+          </select>
+        </div>
+        <div className="post_box">
+          <label>سمستر</label>
+          <select id="type"
+            value={studentPersonalInfo?.semester}
+            onChange={(e) => handleInputChangeValue(e, "semester")}
+          >
+            <option selected disabled>سمستر</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+          </select>
+        </div>
+        <div className="build_box">
+          <label>رمز حساب کاربری</label>
+          <input
+            type=""
+            value={studentPersonalInfo?.password}
+            onChange={(e) => handleInputChangeValue(e, "password")}
             required
           />
         </div>

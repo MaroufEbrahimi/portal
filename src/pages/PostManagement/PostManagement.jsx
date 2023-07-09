@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./PostManagement.css"
 import { PostManagementTabHeader } from "../../constants/Data"
 import Post from "../../components/Post/Post"
