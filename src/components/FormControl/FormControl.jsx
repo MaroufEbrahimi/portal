@@ -14,7 +14,7 @@ const FormControl = ({ handleNextStep, currentStep, steps }) => {
 
       {/* next button */}
       <button onClick={() => handleNextStep("next")} className="back_btn btn">
-        {currentStep === steps.length - 1 ? "تایید و ارسال" : "بعدی"}
+        {currentStep === steps.length -2 ? "تایید و ارسال" : "بعدی"}
       </button>
     </div>
   )

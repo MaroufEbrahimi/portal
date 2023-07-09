@@ -6,7 +6,6 @@ import { StuFilterButtons } from "../../constants/Data";
 import { useStateValue } from "../../context/StateProvider"
 import Student from "../../components/Student/Student"
 
-
 const Students = () => {
   const [{ authentication }, dispatch] = useStateValue()
   const [showTab, setShowTab] = useState(1)
@@ -14,7 +13,7 @@ const Students = () => {
   const [students, setstudents] = useState([])
   console.log(authentication)
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/students/?&offset=0&pageSize=5", {
+    fetch("http://localhost:1000/api/v1/students/?&offset=0&pageSize=20", {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + authentication.token
@@ -63,8 +62,6 @@ const Students = () => {
       </div>
 
       {/* All Students Here */}
-
-
       <div className="all_students">
         {students?.map(student => {
           return <Student

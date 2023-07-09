@@ -1,12 +1,10 @@
-import React, { useContext } from "react"
+import React from "react"
 import { useNavigate } from "react-router-dom"
-import { DarkModeContext } from "../../context/darkMode"
 import "./Header.css"
 
-const Header = () => {
-  const navigate = useNavigate()
-  const { toggle, darkMode } = useContext(DarkModeContext)
 
+const Header = ({isDark, darkModeHandler}) => {
+  const navigate = useNavigate()
   return (
     <div className="header">
       <div className="header_right">
@@ -16,14 +14,14 @@ const Header = () => {
       </div>
       <div className="header_left">
         <div className="dark_mode_toggle">
-          {darkMode ? (
+          {isDark ? (
             <i
-              onClick={toggle}
+              onClick={darkModeHandler}
               className="bi bi-brightness-high"
               title="تغییر تم"
             ></i>
           ) : (
-            <i onClick={toggle} className="bi bi-moon" title="تغییر تم"></i>
+            <i onClick={darkModeHandler} className="bi bi-moon" title="تغییر تم"></i>
           )}
         </div>
       </div>

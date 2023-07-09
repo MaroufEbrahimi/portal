@@ -20,13 +20,14 @@ const Student = ({ studentInfo }) => {
           </div>
           <div className="student_university_info">
             <p>
+              <span>{studentInfo?.fieldStudy}</span>
+              <span>پوهنحی</span>
+            </p>
+            <p>
               <span>{studentInfo?.department}</span>
               <span>دیپارتمنت</span>
             </p>
-            <p>
-              <span>{studentInfo?.semester}</span>
-              <span>سمستر</span>
-            </p>
+
           </div>
         </div>
       </Link>

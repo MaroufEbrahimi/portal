@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react"
+import React from "react"
 import { Link, useResolvedPath, useMatch } from "react-router-dom"
-import { AuthContext } from "../../context/authContext"
 import profile from "../../assets/img/profile_avatar.png"
 import "./Navbar.css"
 import { useStateValue } from "../../context/StateProvider"
@@ -19,7 +18,6 @@ const CustomeLinks = ({ to, children, ...props }) => {
 }
 
 const Navbar = ({ activeNav, navActiveHandler }) => {
-  const authContext = useContext(AuthContext)
   const [{ authentication }, dispatch] = useStateValue();
   console.log(authentication)
   return (
@@ -87,7 +85,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             : ""}
 
           <CustomeLinks to="/about" title="درباره">
-            <i className="bi bi-house-door"></i>
+            <i className="bi bi-building"></i>
             <span>درباره</span>
           </CustomeLinks>
 

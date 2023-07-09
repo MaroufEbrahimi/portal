@@ -148,6 +148,7 @@
 
 .student_university_info p span:first-child {
   font-weight: bold;
+  font-size: 14px;
 }
 
 .student_university_info button {
