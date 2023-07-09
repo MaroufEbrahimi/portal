@@ -1,4 +1,4 @@
-import React, { useEffect,useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import "./PostManagement.css"
 import Post from "../../components/Post/Post"
 import { useStateValue } from "../../context/StateProvider"
@@ -7,12 +7,12 @@ import Spinner from "../../components/UI/Loading/Spinner"
 const PostManagement = () => {
   const [{ authentication }, dispatch] = useStateValue()
   const [posts, setPosts] = useState([]);
-  const [semester, setsemester] = useState(1)
-  const [department, setdepartment] = useState("")
-  const [feildOfStudy, setfeildOfStudy] = useState("")
+  const [semester, setsemester] = useState()
+  const [department, setdepartment] = useState()
+  const [feildOfStudy, setfeildOfStudy] = useState()
   const [hasMore, setHasMore] = useState(true);
   const lastNode = useRef();
-  const [pagination, setPagination] = useState({ offset: 0, pageSize: 10 })
+  const [pagination, setPagination] = useState({ offset: 0, pageSize: 3 })
   const [loading, setLoading] = useState(true);
 
   const lastNodeReference = node => {
@@ -54,19 +54,58 @@ const PostManagement = () => {
       })
   }, [pagination])
 
+  const handleFilterButton =() => {
+    setPosts([])
+    let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+   
+    if(semester){
+      console.log("semester", semester)
+      endpoint = endpoint.concat(`&semester=${semester}`)
+    }
+    if(department){
+      console.log("dep", department)
+      endpoint = endpoint.concat(`&department=${department}`)
+    }
+    if(feildOfStudy){
+      console.log("feildOfStudy", feildOfStudy)
+      endpoint = endpoint.concat(`&feildOfStudy=${feildOfStudy}`)
+    }
+    
+    fetch(endpoint, {
+      method: "GET",
+      headers: { "Authorization": "bearer " + authentication.token }
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText);
+        }
+      })
+      .then(data => {
+        console.log(data)
+        if (data.totalPages - 1 > pagination.offset) {
+          setHasMore(true)
+        } else {
+          setHasMore(false)
+        }
+        setPosts([...posts, ...data.content])
+        setLoading(false)
+      })
+  }
 
   return (
     <div className="posts_management">
       <div className="posts_management_tabHeader">
         <div className="posts_management_boxes">
           <div className="post_mana_box">
-          <label>سمستر</label>
+            <label>سمستر</label>
             <select
               id="type"
               value={semester}
               onChange={(e) => setsemester(e.target.value)}
             >
-              <option selected disabled>سمستر</option>
+              <option disabled selected>سمستر</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -78,7 +117,7 @@ const PostManagement = () => {
             </select>
           </div>
           <div className="post_mana_box">
-          <label>پوهنحی</label>
+            <label>پوهنحی</label>
             <select
               id="type"
               value={feildOfStudy}
@@ -91,7 +130,7 @@ const PostManagement = () => {
             </select>
           </div>
           <div className="post_mana_box">
-          <label>دیپارتمنت</label>
+            <label>دیپارتمنت</label>
             <select
               id="type"
               value={department}
@@ -105,7 +144,7 @@ const PostManagement = () => {
           </div>
         </div>
         <div className="posts_management_filter_btn">
-          <button className="btn">فیلتر</button>
+          <button className="btn" onClick={handleFilterButton}>فیلتر</button>
         </div>
       </div>
 

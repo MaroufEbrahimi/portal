@@ -7,7 +7,7 @@
 .all_students {
   display: flex;
   flex-flow: wrap;
-
+  justify-content: center;
 }
 
 /* students_add_new_student */
@@ -64,7 +64,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   grid-gap: 0.8rem;
-  overflow-y: scroll;
   overflow-x: scroll;
   padding: 10px;
 }
