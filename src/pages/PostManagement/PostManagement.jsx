@@ -17,6 +17,8 @@ const PostManagement = () => {
   const lastNode = useRef();
   const [pagination, setPagination] = useState({ offset: 0, pageSize: 3 })
   const [loading, setLoading] = useState(true);
+  const [fields, setFields] = useState([])
+  const [departments, setDepartments] = useState([]);
 
   const lastNodeReference = node => {
     if (loading) return;
@@ -33,6 +35,18 @@ const PostManagement = () => {
 
   // th e auth token must be read from somewhere in the frontend
   useEffect(() => {
+    fetch("http://localhost:1000/api/v1/field-of-studies")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setFields(data.content)
+      })
     setLoading(true)
     fetch(`http://localhost:1000/api/v1/posts/?semester=${semester}&offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
       method: "GET",
@@ -58,7 +72,6 @@ const PostManagement = () => {
   }, [pagination])
 
   const handleFilterButton = () => {
-    setPosts([])
     let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
 
     if (semester) {
@@ -71,9 +84,9 @@ const PostManagement = () => {
     }
     if (feildOfStudy) {
       console.log("feildOfStudy", feildOfStudy)
-      endpoint = endpoint.concat(`&feildOfStudy=${feildOfStudy}`)
+      endpoint = endpoint.concat(`&fieldOfStudy=${feildOfStudy}`)
     }
-
+    console.log(endpoint)
     fetch(endpoint, {
       method: "GET",
       headers: { "Authorization": "bearer " + authentication.token }
@@ -92,11 +105,28 @@ const PostManagement = () => {
         } else {
           setHasMore(false)
         }
-        setPosts([...posts, ...data.content])
+        setPosts(data.content)
         setLoading(false)
       })
   }
-
+  const setfield = (e) => {
+    setfeildOfStudy(e.target.value)
+    const f = fields.find((item) => {
+      return item.fieldName == e.target.value
+    })
+    fetch("http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        setDepartments(data)
+      })
+  }
+  console.log(posts)
   return (
     <div className="posts_management">
       <div className="posts_management_tabHeader">
@@ -124,12 +154,12 @@ const PostManagement = () => {
             <select
               id="type"
               value={feildOfStudy}
-              onChange={(e) => setfeildOfStudy(e.target.value)}
+              onChange={(e) => setfield(e)}
             >
               <option disabled selected>پوهنحی</option>
-              <option>کامپیوتر ساینس</option>
-              <option>حقوق</option>
-              <option>ستوماتالوژی</option>
+              {fields.map(item => {
+                return <option key={item.id}>{item.fieldName}</option>
+              })}
             </select>
           </div>
           <div className="post_mana_box">
@@ -140,9 +170,9 @@ const PostManagement = () => {
               onChange={(e) => setdepartment(e.target.value)}
             >
               <option disabled selected>دیپارتمنت</option>
-              <option>سافت ویر</option>
-              <option>دیتابیس</option>
-              <option>نتورک</option>
+              {departments.map(item => {
+                return <option key={item.id}>{item.departmentName}</option>
+              })}
             </select>
           </div>
         </div>
