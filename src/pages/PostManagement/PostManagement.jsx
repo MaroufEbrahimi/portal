@@ -3,8 +3,11 @@ import "./PostManagement.css"
 import Post from "../../components/Post/Post"
 import { useStateValue } from "../../context/StateProvider"
 import Spinner from "../../components/UI/Loading/Spinner"
+import useProtect from "../../Hooks/useProtect"
+import Roles from "../../constants/Roles"
 
 const PostManagement = () => {
+  useProtect(Roles.ADMIN)
   const [{ authentication }, dispatch] = useStateValue()
   const [posts, setPosts] = useState([]);
   const [semester, setsemester] = useState()

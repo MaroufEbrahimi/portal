@@ -4,8 +4,11 @@ import "./Students.css"
 import Search from "../../components/Search/Search"
 import { useStateValue } from "../../context/StateProvider"
 import Student from "../../components/Student/Student"
+import useProtect from "../../Hooks/useProtect"
+import Roles from "../../constants/Roles"
 
 const Students = () => {
+  useProtect(Roles.ADMIN)
   const [{ authentication }, dispatch] = useStateValue()
   const [semester, setsemester] = useState(1)
   const [department, setdepartment] = useState()

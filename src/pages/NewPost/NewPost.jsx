@@ -4,9 +4,13 @@ import "react-quill/dist/quill.snow.css"
 import "./NewPost.css"
 import { useStateValue } from "../../context/StateProvider"
 import { useNavigate } from "react-router-dom"
+import useProtect from "../../Hooks/useProtect"
+import Roles from "../../constants/Roles"
 
 const NewPost = () => {
-  const navigate =useNavigate();
+  // this is for security purpose
+  useProtect(Roles.ADMIN)
+  const navigate = useNavigate();
   const [{ authentication }, dispatch] = useStateValue()
   const [description, setDescription] = useState("")
   const [semester, setsemester] = useState('')
@@ -68,12 +72,12 @@ const NewPost = () => {
           method: "POST",
           headers: {
             "Authorization": "Bearer " + authentication.token,
-            
+
           },
           body: formData
         })
           .then(res => {
-            if(res.ok){
+            if (res.ok) {
               navigate("/admin/postmanagement")
             }
           })
@@ -136,7 +140,7 @@ const NewPost = () => {
         <h3>اشتراک گذاری در کجا</h3>
         <div className="post_boxes">
           <div className="post_box">
-            <select id="type" onChange={e => setIsPublic(e.target.value == "صفحه اصلی" ? true: false)}>
+            <select id="type" onChange={e => setIsPublic(e.target.value == "صفحه اصلی" ? true : false)}>
               <option selected disabled >موقعیت</option>
               <option>صفحه محصل</option>
               <option>صفحه اصلی</option>
@@ -174,11 +178,11 @@ const NewPost = () => {
                 </select>
               </div>
             </> : ""}
-          
+
         </div>
-        <button 
-        style={{width:"160px", marginTop:"20px",    float: "left"}}
-        onClick={() => sendInfo("next")} className=" btn">
+        <button
+          style={{ width: "160px", marginTop: "20px", float: "left" }}
+          onClick={() => sendInfo("next")} className=" btn">
           ارسال
         </button>
       </div>

@@ -9,9 +9,12 @@ import { StudentHabitation } from "../../components/Steps/StudentHabitation"
 import { StudentRelatives } from "../../components/Steps/StudentRelatives"
 import { Complete } from "../../components/Steps/Complete"
 import { useNavigate } from "react-router-dom"
+import useProtect from "../../Hooks/useProtect"
+import Roles from "../../constants/Roles"
 const components = [PersonalInformation, StudentHabitation, StudentRelatives, Complete]
 let counter = 0;
 const AddStudent = () => {
+  useProtect(Roles.ADMIN);
   const navigate = useNavigate()
   const steps = ["معلومات شخصی", "تذکره و سکونت محصل", "اقارب محصل", "بخش آخر"]
   const [globalState, dispatch] = useStateValue()
@@ -61,9 +64,9 @@ const AddStudent = () => {
           console.log("in if", apiResponse)
           return
         }
-        console.log("after if ",data)
+        console.log("after if ", data)
         sendStudentImage(data.imageUrl, globalState.studentImage.file)
-        
+
       }).catch(error => setApiResponse(error))
   }
   const sendStudentImage = (imageUrl, image) => {
