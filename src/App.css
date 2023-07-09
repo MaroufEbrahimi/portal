@@ -21,6 +21,58 @@
   color: gray;
 }
 
+
+
+/* Post Management Tab Header */
+.posts_management_boxes {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.posts_management_boxes .post_mana_box {
+  width: 180px;
+}
+
+.posts_management_boxes .post_mana_box select,
+.posts_management_boxes .post_mana_box button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: var(--text-color);
+  border: 1px solid #e0dcdc;
+  border-left-color: var(--gen-color);
+  border-left-width: 3px;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.posts_management_tabHeader .posts_management_filter_btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.posts_management_tabHeader .posts_management_filter_btn button {
+  width: 130px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* Responsive */
 @media (max-width: 991px) {
   .app .main {
