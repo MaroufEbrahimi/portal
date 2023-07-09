@@ -2,9 +2,9 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./Student.css"
 
-const Student = ({ studentInfo }) => {
+const Student = ({ studentInfo, customRef }) => {
   return (
-    <div className="student">
+    <div className="student" ref={customRef}>
       <Link to={"/profile/" + studentInfo?.id} className="students_details">
         <div className="student_title_profile">
           <div className="student_profile_header"></div>

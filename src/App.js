@@ -31,7 +31,7 @@ const PostManagement = React.lazy(() =>
 )
 
 const App = () => {
- const [isDark, setIsDark] = useState(localStorage.getItem("isDark") == null ? false : localStorage.getItem("isDark") == "true" ? true:false);
+  const [isDark, setIsDark] = useState(localStorage.getItem("isDark") == null ? false : localStorage.getItem("isDark") == "true" ? true : false);
   const [activeNav, setActiveNav] = useState(false)
   // handle tab header
   const navActiveHandler = () => setActiveNav(!activeNav)
@@ -47,7 +47,7 @@ const App = () => {
         <div className={`app ${isDark ? "theme-dark" : "theme-light"}`}>
           <main className={`main ${activeNav && "main_active_nav"}`}>
             <div className="app_header">
-              <Header isDark = {isDark} darkModeHandler={darkModeHandler}/>
+              <Header isDark={isDark} darkModeHandler={darkModeHandler} />
             </div>
             <Navbar activeNav={activeNav} navActiveHandler={navActiveHandler} />
             <Wrapper>
@@ -107,7 +107,7 @@ const App = () => {
         },
       ],
     },
-    
+
   ])
 
   return (

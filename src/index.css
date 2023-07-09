@@ -14,6 +14,10 @@
   src: url(assets/fonts/vazir-font-v16.1.0/Vazir-Medium.woff);
 }
 
+:root {
+  --main-color: #67b0d1
+}
+
 /* End of Fonts */
 
 /* Dark or Light Themes */

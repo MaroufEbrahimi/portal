@@ -54,23 +54,23 @@ const PostManagement = () => {
       })
   }, [pagination])
 
-  const handleFilterButton =() => {
+  const handleFilterButton = () => {
     setPosts([])
     let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
-   
-    if(semester){
+
+    if (semester) {
       console.log("semester", semester)
       endpoint = endpoint.concat(`&semester=${semester}`)
     }
-    if(department){
+    if (department) {
       console.log("dep", department)
       endpoint = endpoint.concat(`&department=${department}`)
     }
-    if(feildOfStudy){
+    if (feildOfStudy) {
       console.log("feildOfStudy", feildOfStudy)
       endpoint = endpoint.concat(`&feildOfStudy=${feildOfStudy}`)
     }
-    
+
     fetch(endpoint, {
       method: "GET",
       headers: { "Authorization": "bearer " + authentication.token }

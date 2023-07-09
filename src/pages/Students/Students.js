@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import "./Students.css"
 import Search from "../../components/Search/Search"
-import { StuFilterButtons } from "../../constants/Data";
 import { useStateValue } from "../../context/StateProvider"
 import Student from "../../components/Student/Student"
 
@@ -16,8 +15,22 @@ const Students = () => {
   const [pagination, setPagination] = useState({ offset: 0, pageSize: 3 })
   const [loading, setLoading] = useState(true);
   const [students, setstudents] = useState([])
+  const [fields, setFields] = useState([])
+  const [departments, setDepartments] = useState([]);
   console.log(authentication)
   useEffect(() => {
+    fetch("http://localhost:1000/api/v1/field-of-studies")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setFields(data.content)
+      })
     fetch("http://localhost:1000/api/v1/students/?&offset=0&pageSize=20", {
       method: "GET",
       headers: {
@@ -35,6 +48,20 @@ const Students = () => {
       })
 
   }, [])
+
+  const lastNodeReference = node => {
+    if (loading) return;
+    if (lastNode.current) lastNode.current.disconnect();
+    lastNode.current = new IntersectionObserver(enteries => {
+      if (enteries[0].isIntersecting) {
+        if (hasMore) {
+          setPagination({ offset: pagination.offset + 1, pageSize: pagination.pageSize })
+        }
+      }
+    })
+    if (node) lastNode.current.observe(node);
+  }
+
 
   return (
     <div className="students_page fade_in">
@@ -79,9 +106,9 @@ const Students = () => {
               onChange={(e) => setfeildOfStudy(e.target.value)}
             >
               <option disabled selected>پوهنحی</option>
-              <option>کامپیوتر ساینس</option>
-              <option>حقوق</option>
-              <option>ستوماتالوژی</option>
+              {fields.map(item => {
+                return <option key={item.id}>{item.fieldName}</option>
+              })}
             </select>
           </div>
           <div className="post_mana_box">
@@ -92,9 +119,9 @@ const Students = () => {
               onChange={(e) => setdepartment(e.target.value)}
             >
               <option disabled selected>دیپارتمنت</option>
-              <option>سافت ویر</option>
-              <option>دیتابیس</option>
-              <option>نتورک</option>
+              {departments.map(item => {
+                return <option key={item.id}>{item.departmentName}</option>
+              })}
             </select>
           </div>
         </div>
@@ -102,7 +129,14 @@ const Students = () => {
 
       {/* All Students Here */}
       <div className="all_students">
-        {students?.map(student => {
+        {students?.map((student, index) => {
+          if (students.length === index + 1) {
+            return <Student
+              key={student.id}
+              studentInfo={student}
+              customRef={lastNodeReference}
+            />
+          }
           return <Student
             key={student.id}
             studentInfo={student
