@@ -1,6 +1,9 @@
-.form_details_student form {
-  box-sizing: border-box;
+.form_details_student {
+  margin-top: 4rem;
   position: relative;
+  box-sizing: border-box;
+}
+.form_details_student form {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 0.6rem;
@@ -8,10 +11,12 @@
 }
 .form_details_student .full_width {
   grid-column: 1/5;
-  margin-top: 2rem;
 }
 .form_details_student .median_width {
   grid-column: 1/3;
+}
+.form_details_student form .build_box {
+  width: 100%;
 }
 .form_details_student label {
   display: block;
@@ -103,4 +108,15 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+}
+@media (max-width: 768px) {
+  .form_details_student form {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
 }
