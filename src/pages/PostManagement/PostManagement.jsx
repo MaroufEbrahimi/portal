@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import "./PostManagement.css"
-import { PostManagementTabHeader } from "../../constants/Data"
 import Post from "../../components/Post/Post"
 import Search from "../../components/Search/Search"
 import { useStateValue } from "../../context/StateProvider"
