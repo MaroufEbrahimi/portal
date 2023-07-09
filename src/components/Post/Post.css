@@ -3,7 +3,6 @@
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 var(--gen-bg-color);
   border-radius: 6px;
   padding: 10px;
-  margin: 30px 0;
 }
 
 .file_post_body {
@@ -45,6 +44,7 @@
 
 .post_header .post_share_with p {
   font-size: 14px;
+  color: var(--text-color);
 }
 
 .img_post_body {
@@ -54,6 +54,7 @@
 .img_post_body p {
   font-size: 15px;
   line-height: 1.5em;
+  color: var(--text-color);
 }
 
 /* file post */
@@ -88,6 +89,7 @@
 }
 
 .files_icon_container p {
+  color: var(--text-color);
   max-width: 100%;
   word-break: break-word;
   font-size: 14px;
@@ -108,6 +110,7 @@
 
 .file_post_title .file_post_details p {
   padding: 5px 0;
+  color: var(--text-color);
   font-size: 16px;
 }
 
@@ -156,7 +159,7 @@
   color: #fff;
 }
 
-.btn_download .button_download_icon>i {
+.btn_download .button_download_icon > i {
   color: #fff;
   font-size: 18px;
 }
@@ -181,5 +184,16 @@
 .btn_download:active {
   border: 1px solid var(--gen-color);
 }
-
 /* End of download button */
+
+/* Responsive */
+@media (max-width: 991px) {
+}
+@media (max-width: 768px) {
+  .post_header .post_share_with img {
+    width: 45px;
+    height: 45px;
+  }
+}
+@media (max-width: 480px) {
+}
