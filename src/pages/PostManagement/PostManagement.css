@@ -34,37 +34,38 @@
 }
 
 /* Post Management Tab Header */
-.posts_management_tabHeader {
+.posts_management_boxes {
   position: relative;
   width: 100%;
-  /* background: var(--gen-bg-color); */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
 }
-.posts_management_tabHeader ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.posts_management_boxes .post_mana_box {
+  width: 180px;
 }
-.posts_management_tabHeader ul li {
-  padding: 10px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  background-image: linear-gradient(to top, #757a7a, var(--gen-bg-color));
-}
-.posts_management_tabHeader ul li:hover,
-.posts_management_tabHeader ul .active_tab {
-  background-image: linear-gradient(to bottom, #329b92, #00ddff);
-}
-.posts_management_tabHeader ul li span {
-  font-size: 16px;
-  padding: 0 10px;
+.posts_management_boxes .post_mana_box select,
+.posts_management_boxes .post_mana_box button {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 14px;
   color: var(--text-color);
+  border: 1px solid #e0dcdc;
+  border-left-color: var(--gen-color);
+  border-left-width: 3px;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+.posts_management_tabHeader .posts_management_filter_btn {
+  text-align: center;
+  margin-top: 20px;
+}
+.posts_management_tabHeader .posts_management_filter_btn button {
+  width: 130px;
 }
 
 /* Posts Management Content */
@@ -73,17 +74,14 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 var(--gen-bg-color);
   padding: 10px;
 }
-.content_of_PostManagement .content {
-  display: none;
-}
-.content_of_PostManagement .active_content {
+.content_of_PostManagement .content_of_posts_details {
   display: block;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0.8rem;
   overflow-y: scroll;
   overflow-x: scroll;
-  padding: 5px;
+  padding: 10px;
 }
 
 /* Responsive */
@@ -94,7 +92,7 @@
   .title_posts_management .title_posts_title {
     flex: 100%;
   }
-  .content_of_PostManagement .active_content {
+  .content_of_PostManagement .content_of_posts_details {
     grid-template-columns: 1fr;
   }
 }
