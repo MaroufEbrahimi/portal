@@ -1,7 +1,14 @@
 /* #_____ Introduction of Faculty _____# */
-.introduction_of_faculty h2 {
+.faculties_sections_title h2 {
   color: var(--text-color);
-  font-size: 25px;
+  font-size: 30px;
+  /* text-shadow: 0 0.1px 4.896px var(--gen-color);
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
+    0px -4px 10px rgba(255, 255, 255, 0.3); */
+  /* text-shadow: 0 2px 2px #dfdfdf, -2px 5px 1px #b8b8b8;
+  text-shadow: 3px 0px 7px rgba(21, 81, 71, 0.8);
+  text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8); */
+  text-shadow: 3px 3px 20px #99ffe9, -2px 1px 30px #77d5f1;
 }
 .introduction_of_faculty p {
   color: var(--text-color);
@@ -15,6 +22,86 @@
 
 /* #_____ Introduction of Dean of Faculty _____# */
 .intro_of_dean_of_faculty {
-   margin-top: 3rem;
+  margin: 4rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.intro_of_dean_of_faculty .dean_of_faculty_info {
+  flex: 1.5;
+}
+.dean_of_faculty_info .dean_of_img {
+  position: relative;
+  width: 330px;
+  height: 330px;
+  background-image: url("../../assets/img/deans/back_img.png");
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.dean_of_faculty_info .dean_of_img img {
+  width: 290px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.dean_of_faculty_details {
+  padding-top: 1rem;
+}
+.dean_of_faculty_details ul li {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  border: 2px solid transparent;
+  border-right-color: var(--gen-color);
+  border-radius: 50px;
+  padding: 5px 10px;
+}
+.dean_of_faculty_details ul li strong,
+.dean_of_faculty_details ul li span {
+  color: var(--text-color);
+  font-size: 16px;
+}
+/* text */
+.intro_of_dean_of_faculty .dean_of_faculty_text {
+  flex: 3;
+  margin-top: 2rem;
+}
+.intro_of_dean_of_faculty .dean_of_faculty_text p {
+  text-align: justify;
+  margin: 30px;
+  color: var(--text-color);
 }
 /* #_____ End of Introduction of Dean of Faculty _____# */
+
+/* Responsive */
+@media (max-width: 991px) {
+  .intro_of_dean_of_faculty {
+    flex-wrap: wrap;
+  }
+  .intro_of_dean_of_faculty .dean_of_faculty_text {
+    margin-top: 0rem;
+  }
+  .intro_of_dean_of_faculty .dean_of_faculty_text p {
+    margin: 30px;
+  }
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 480px) {
+  .dean_of_faculty_info .dean_of_img {
+    width: 220px;
+    height: 220px;
+  }
+  .dean_of_faculty_info .dean_of_img img {
+    width: 200px;
+    height: 250px;
+  }
+  .dean_of_faculty_details ul li {
+    /* justify-content: space-between; */
+    flex-direction: column;
+  }
+}
