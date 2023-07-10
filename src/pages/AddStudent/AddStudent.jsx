@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StepperContext, useStateValue } from "../../context/StateProvider"
+import { useStateValue } from "../../context/StateProvider"
 import "./AddStudent.css"
 import Stepper from "../../components/Stepper/Stepper"
 import FormControl from "../../components/FormControl/FormControl"
@@ -9,50 +9,33 @@ import { StudentHabitation } from "../../components/Steps/StudentHabitation"
 import { StudentRelatives } from "../../components/Steps/StudentRelatives"
 import { Complete } from "../../components/Steps/Complete"
 import { useNavigate } from "react-router-dom"
-
+import useProtect from "../../Hooks/useProtect"
+import Roles from "../../constants/Roles"
+const components = [PersonalInformation, StudentHabitation, StudentRelatives, Complete]
+let counter = 0;
 const AddStudent = () => {
+  useProtect(Roles.ADMIN);
   const navigate = useNavigate()
-  const [currentStep, setCurrentStep] = useState(1)
-  const [userData, setUserData] = useState("")
-  const [finalData, setFinalData] = useState([])
   const steps = ["معلومات شخصی", "تذکره و سکونت محصل", "اقارب محصل", "بخش آخر"]
   const [globalState, dispatch] = useStateValue()
-  console.log(globalState)
-  const displaySteps = (step) => {
-    switch (step) {
-      case 1:
-        return <PersonalInformation />
+  const [stepComponent, setStepComponent] = useState({ component: components[counter] })
+  const [apiResponse, setApiResponse] = useState({});
 
-      case 2:
-        return <StudentHabitation />
-
-      case 3:
-        return <StudentRelatives />
-
-      case 4:
-        return <Complete handleNextStep={handleNextStep} />
-
-      default:
-    }
-  }
-
+  console.log(counter)
   const handleNextStep = (direction) => {
-    console.log(direction, currentStep)
-    if (direction == "back" && currentStep == 1) {
-      console.log(direction, currentStep)
+    if (direction == "back" && counter == 0) {
       navigate("/students")
       return
     }
-    if (direction == "next" && currentStep == steps.length - 1) {
-      console.log(direction, currentStep)
+    if (direction == "next" && counter == steps.length - 2) {
+      setApiResponse({})
       sendInformation()
     }
-    let newStep = currentStep
-    direction === "next" ? newStep++ : newStep--
+    direction === "next" && counter >= 0 && counter < steps.length ? counter++ : counter--
     // check if steps are within bounds
-    newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
+    setStepComponent({ component: components[counter] })
   }
-
+  console.log(globalState)
 
   const sendInformation = () => {
     const relations = [];
@@ -74,46 +57,55 @@ const AddStudent = () => {
       },
       body: JSON.stringify(info)
     })
-      .then(res => {
-        console.log(res)
-        if (res.ok) {
-          return res.json();
-        }
-      })
+      .then(res => res.json())
       .then(data => {
+        if (data?.statusCode && data.statusCode != 201) {
+          setApiResponse(data)
+          console.log("in if", apiResponse)
+          return
+        }
+        console.log("after if ", data)
+        sendStudentImage(data.imageUrl, globalState.studentImage.file)
 
+      }).catch(error => setApiResponse(error))
+  }
+  const sendStudentImage = (imageUrl, image) => {
+    console.log(imageUrl, image)
+    const formDate = new FormData();
+    formDate.append("file", image)
+    fetch(imageUrl, {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + globalState.authentication.token,
+      },
+      body: formDate
+    })
+      .then(res => res.json())
+      .then(data => {
+        setApiResponse(data)
         console.log(data)
       })
   }
+  console.log(apiResponse)
   return (
     <div className="add_new fade_in">
       {/* Stepper */}
       <div className="stepper_step">
-        <Stepper steps={steps} currentStep={currentStep} />
+        <Stepper steps={steps} currentStep={counter} />
       </div>
 
       {/* Display components */}
       <div className="">
-        <StepperContext.Provider
-          value={{
-            userData,
-            setUserData,
-            finalData,
-            setFinalData,
-          }}
-        >
-          {displaySteps(currentStep)}
-        </StepperContext.Provider>
+        {counter < components.length - 1 ? <stepComponent.component /> : <stepComponent.component apiResponse={apiResponse} />}
       </div>
 
       {/* Navigation control */}
-      {currentStep !== steps.length && (
-        <FormControl
-          handleNextStep={handleNextStep}
-          currentStep={currentStep}
-          steps={steps}
-        />
-      )}
+      {<FormControl
+        handleNextStep={handleNextStep}
+        currentStep={counter}
+        steps={steps}
+      />
+      }
     </div>
   )
 }

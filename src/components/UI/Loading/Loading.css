@@ -1,7 +1,14 @@
 .spinner__wrapper {
-  display: block;
-  text-align: center;
-  min-height: 100px;
+  display: flex;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .spinner {
@@ -17,8 +24,8 @@
   height: 40px;
   margin: 4px;
   border-radius: 50%;
-  border: 5px solid var(--main_color);
-  border-color: var(--main_color) transparent var(--main_color) transparent;
+  border: 5px solid var(--main-color);
+  border-color: var(--main-color) transparent var(--main-color) transparent;
   animation: spinner 1.2s linear infinite;
 }
 

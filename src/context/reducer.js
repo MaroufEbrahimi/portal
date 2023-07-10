@@ -17,7 +17,7 @@ function getAuthInfoFromCookie() {
   }
 }
 
-
+console.log(localStorage.getItem("isDkark"))
 export const initialState = {
   term: null,
   authentication: getAuthInfoFromCookie() ? getAuthInfoFromCookie() : {
@@ -41,7 +41,6 @@ export const actionTypes = {
   ADD_STIUDENT_LOCATIONS: "ADD_STIUDENT_LOCATIONS",
   ADD_STUDENT_RELATIONS: "ADD_STUDENT_RELATIONS",
   ADD_STUDENT_IMAGE: "ADD_STUDENT_IMAGE",
-
 }
 
 const reducer = (state, action) => {

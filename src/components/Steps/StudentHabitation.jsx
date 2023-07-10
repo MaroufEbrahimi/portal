@@ -1,10 +1,9 @@
-import { useContext } from "react"
-import { StepperContext, useStateValue } from "../../context/StateProvider"
+import React from "react"
+import { useStateValue } from "../../context/StateProvider"
 import "./Steps.css"
 import { actionTypes } from "../../context/reducer"
 
 export const StudentHabitation = () => {
-  const { userData, setUserData } = useContext(StepperContext)
   const [{ studentIdenfication, studentLocations, studentRelations }, dispatch] = useStateValue();
 
   const handleInputChangeValue = (e, inputName) => {

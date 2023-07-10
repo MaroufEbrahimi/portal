@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react"
+import React, { useContext } from "react"
 import { Link, useResolvedPath, useMatch } from "react-router-dom"
-import { AuthContext } from "../../context/authContext"
 import profile from "../../assets/img/profile_avatar.png"
 import lowIcon from "../../assets/img/low-icon.png"
 import dentistryIcon from "../../assets/img/dentistry-icon.png"
@@ -21,7 +20,7 @@ const CustomeLinks = ({ to, children, ...props }) => {
 }
 
 const Navbar = ({ activeNav, navActiveHandler }) => {
-  const authContext = useContext(AuthContext)
+  const authContext = useContext(authContext)
   const [{ authentication }, dispatch] = useStateValue()
   console.log(authentication)
   return (

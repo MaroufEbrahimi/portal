@@ -337,7 +337,7 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.gender}
             onChange={(e) => handleInputChangeValue(e, "gender")}
           >
-            <option disabled>جنسیت</option>
+            <option disabled selected>جنسیت</option>
             <option>مرد</option>
             <option>زن</option>
           </select>

@@ -8,7 +8,6 @@ import Loading from "./components/UI/Loading/Loading"
 import Wrapper from "./components/HOC/Wrapper"
 import Header from "./components/Header/Header"
 import BackToTop from "./components/UI/BackToTop/BackToTop"
-import { DarkModeContext } from "./context/darkMode"
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
@@ -31,13 +30,22 @@ const PostManagement = React.lazy(() =>
   import("./pages/PostManagement/PostManagement")
 )
 
-const App = (props) => {
-  const authContext = useContext(AuthContext)
+const App = () => {
+  const [isDark, setIsDark] = useState(
+    localStorage.getItem("isDark") == null
+      ? false
+      : localStorage.getItem("isDark") == "true"
+      ? true
+      : false
+  )
   const [activeNav, setActiveNav] = useState(false)
   // handle tab header
   const navActiveHandler = () => setActiveNav(!activeNav)
-  // using dark mode
-  const { darkMode } = useContext(DarkModeContext)
+  const darkModeHandler = () => {
+    console.log(isDark)
+    localStorage.setItem("isDark", !isDark)
+    setIsDark(!isDark)
+  }
 
   const Layout = () => {
     return (
@@ -45,7 +53,7 @@ const App = (props) => {
         <div className={`app ${darkMode ? "theme-dark" : "theme-light"}`}>
           <main className={`main ${activeNav && "main_active_nav"}`}>
             <div className="app_header">
-              <Header />
+              <Header isDark={isDark} darkModeHandler={darkModeHandler} />
             </div>
             <Navbar activeNav={activeNav} navActiveHandler={navActiveHandler} />
             <Wrapper>
@@ -108,14 +116,14 @@ const App = (props) => {
           element: <PostManagement />,
         },
         {
+          path: "/login",
+          element: <Login />,
+        },
+        {
           path: "*",
           element: <NotFound />,
         },
       ],
-    },
-    {
-      path: "/login",
-      element: <Login />,
     },
   ])
 
