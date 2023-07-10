@@ -1,0 +1,20 @@
+/* #_____ Introduction of Faculty _____# */
+.introduction_of_faculty h2 {
+  color: var(--text-color);
+  font-size: 25px;
+}
+.introduction_of_faculty p {
+  color: var(--text-color);
+  line-height: 1.8em;
+  margin-bottom: 1rem;
+  margin-top: 10px;
+  text-align: justify;
+  text-shadow: 1px 2px rgba(0, 0, 0, 0.05);
+}
+/* #_____ End of Introduction of Faculty _____# */
+
+/* #_____ Introduction of Dean of Faculty _____# */
+.intro_of_dean_of_faculty {
+   margin-top: 3rem;
+}
+/* #_____ End of Introduction of Dean of Faculty _____# */
