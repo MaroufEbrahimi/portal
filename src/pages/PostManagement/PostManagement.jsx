@@ -10,7 +10,7 @@ const PostManagement = () => {
   useProtect(Roles.ADMIN)
   const [{ authentication }, dispatch] = useStateValue()
   const [posts, setPosts] = useState([]);
-  const [semester, setsemester] = useState()
+  const [semester, setsemester] = useState(1)
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
   const [hasMore, setHasMore] = useState(true);
@@ -76,6 +76,7 @@ const PostManagement = () => {
   }, [pagination])
 
   const handleFilterButton = () => {
+    setPosts([])
     // let currentEndpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
     console.log(authentication)
     let requestParam = ""
@@ -213,7 +214,7 @@ const PostManagement = () => {
           })}
           <section style={{ position: "relative", height: "60px" }}>
             {hasMore && <Spinner />}
-            {!hasMore && <h5 style={{ textAlign: "center" }}>end of the the posts</h5>}
+            {!hasMore && <h5 style={{ textAlign: "center" }}>{posts.length > 0 ? "آخرین پست" : "پست های مورد نظر یافت نشد"} </h5>}
           </section>
         </div>
       </div>
