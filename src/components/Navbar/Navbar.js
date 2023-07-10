@@ -1,8 +1,8 @@
 import React from "react"
 import { Link, useResolvedPath, useMatch } from "react-router-dom"
-import profile from "../../assets/img/profile_avatar.png"
 import "./Navbar.css"
 import { useStateValue } from "../../context/StateProvider"
+import logo from "../../assets/img/logo.png"
 
 const CustomeLinks = ({ to, children, ...props }) => {
   const resolvedPath = useResolvedPath(to)
@@ -20,6 +20,7 @@ const CustomeLinks = ({ to, children, ...props }) => {
 const Navbar = ({ activeNav, navActiveHandler }) => {
   const [{ authentication }, dispatch] = useStateValue();
   console.log(authentication)
+
   return (
     <div className={`navbar ${activeNav && "active_nav_right"}`}>
       <div className="toggle_header_navbar">
@@ -32,16 +33,28 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
         </div>
       </div>
 
-      <Link to={"/profile/" + authentication.userId} className="nav_profile">
-        <div className="add_img_profile full_width">
-          <img
-            src={authentication.imageUrl || profile}
-            className="input_profile_img"
-            alt="user_image"
-          />
-        </div>
-        <h4>{authentication.name} {authentication.lastname}</h4>
-      </Link>
+      {
+        authentication.isAuthenticated ?
+          <Link to={"/profile/" + authentication.userId} className="nav_profile">
+            <div className="add_img_profile full_width">
+              <img
+                src={authentication.imageUrl || "/public/img/favicon.png"}
+                className="input_profile_img"
+                alt="user_image"
+              />
+            </div>
+            <h4>{authentication.name} {authentication.lastname}</h4>
+          </Link>
+          : <Link to="/" className="nav_profile">
+            <div className="add_img_profile full_width">
+              <img
+                src={logo}
+                className="input_profile_img"
+                alt="user_image"
+              />
+            </div>
+          </Link>
+      }
 
       <div className="navbar_menu">
         <ul className="navbar_content">

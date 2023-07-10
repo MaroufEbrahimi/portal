@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react"
 import "./Profile.css"
 import { profileTabHeader } from "../../constants/Data"
 import Post from "../../components/Post/Post"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { useStateValue } from "../../context/StateProvider"
 import ModalDelete from "../../components/UI/ModalDelete/ModalDelete"
+import { actionTypes } from "../../context/reducer"
+import { removeAllCookies } from "../../Utils/Cookie"
 
 const Profile = () => {
   const { id } = useParams()
   const [showTab, setShowTab] = useState(1)
   const [{ authentication }, dispatch] = useStateValue()
   const [student, setstudent] = useState({})
+  const navigate = useNavigate()
 
   const [showModal, setShowModal] = useState(false)
   const showModalHandler = () => {
@@ -42,6 +45,15 @@ const Profile = () => {
   const handleTabs = (index) => {
     setShowTab(index)
   }
+  const logout = () => {
+    navigate("/")
+    removeAllCookies();
+    dispatch({
+      type: actionTypes.LOGOUT,
+      payload: {}
+    })
+
+  }
 
   return (
     <div className="profile fade_in">
@@ -70,7 +82,7 @@ const Profile = () => {
             <i className="bi bi-exclamation-triangle-fill"></i>
             <p>برای بیرون شدن از سیستم مطمین هستید؟</p>
             <div className="logout_buttons">
-              <button className="btn logout_btn">بلی</button>
+              <button className="btn logout_btn" onClick={logout}>بلی</button>
               <button className="btn" onClick={modalCloseHandler}>
                 نخیر
               </button>

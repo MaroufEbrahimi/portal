@@ -21,7 +21,7 @@ console.log(localStorage.getItem("isDkark"))
 export const initialState = {
   term: null,
   authentication: getAuthInfoFromCookie() ? getAuthInfoFromCookie() : {
-    isAuthenticated: true,
+    isAuthenticated: false,
     name: null,
     lastName: null,
     email: null,
@@ -41,6 +41,7 @@ export const actionTypes = {
   ADD_STIUDENT_LOCATIONS: "ADD_STIUDENT_LOCATIONS",
   ADD_STUDENT_RELATIONS: "ADD_STUDENT_RELATIONS",
   ADD_STUDENT_IMAGE: "ADD_STUDENT_IMAGE",
+  LOGOUT: "LOGOUT"
 }
 
 const reducer = (state, action) => {
@@ -53,7 +54,10 @@ const reducer = (state, action) => {
     case actionTypes.SET_AUTHENTICATION:
       return {
         ...state,
-        authentication: action.payload
+        authentication: {
+          ...action.payload,
+          isAuthenticated: true
+        }
       }
     case actionTypes.ADD_STUDENT_PERONAL_INFO:
       return {
@@ -79,6 +83,20 @@ const reducer = (state, action) => {
       return {
         ...state,
         studentImage: action.payload
+      }
+    case actionTypes.LOGOUT:
+      return {
+        ...state,
+        authentication: {
+          isAuthenticated: false,
+          name: null,
+          lastName: null,
+          email: null,
+          token: null,
+          userId: null,
+          profileImage: null,
+          roles: []
+        }
       }
     default:
       return state
