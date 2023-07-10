@@ -47,7 +47,7 @@ const PostManagement = () => {
         </div>
         <div className="title_posts_divs">
           <div>کامپیوتر ساینس</div>
-          <div>ستوماتالوژی</div>
+          <div>طب دندان</div>
           <div>حقوق</div>
         </div>
       </div>
@@ -84,7 +84,7 @@ const PostManagement = () => {
               <option disabled>پوهنحی</option>
               <option>کامپیوتر ساینس</option>
               <option>حقوق</option>
-              <option>ستوماتالوژی</option>
+              <option>طب دندان</option>
             </select>
           </div>
           <div className="post_mana_box">

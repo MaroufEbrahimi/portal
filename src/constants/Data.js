@@ -182,7 +182,7 @@ export const StuFilterButtons = [
     counter: 2,
   },
   {
-    text: "ستوماتالوژی",
+    text: "طب دندان",
     counter: 3,
   },
   {
