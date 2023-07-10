@@ -56,15 +56,14 @@ const Login = () => {
 
   return (
     <div className="login fade_in">
-      <div className="avatart">
-      </div>
+      <div className="avatart"></div>
       <div className="login_container login_details">
         <form action="">
           <div className="form_container">
             <div className="login_box">
               <input
                 type="text"
-                placeholder="Email"
+                placeholder="ایمیل"
                 name="email"
                 value={inputs?.email}
                 onChange={(e) => handleChange(e)}
@@ -74,7 +73,7 @@ const Login = () => {
             <div className="login_box">
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="رمز عبور"
                 name="password"
                 value={inputs.password}
                 onChange={(e) => handleChange(e)}
