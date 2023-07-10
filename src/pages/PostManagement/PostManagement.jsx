@@ -35,6 +35,21 @@ const PostManagement = () => {
     if (node) lastNode.current.observe(node)
   }
 
+  useEffect(() => {
+    fetch("http://localhost:1000/api/v1/field-of-studies")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setFields(data.content)
+      })
+  }, [])
+
   // th e auth token must be read from somewhere in the frontend
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/field-of-studies")
@@ -81,11 +96,11 @@ const PostManagement = () => {
 
     if (semester) {
       console.log("semester", semester)
-      endpoint = endpoint.concat(`&semester=${semester}`)
+      requestParam += `&semester=${semester}`
     }
     if (department) {
       console.log("dep", department)
-      endpoint = endpoint.concat(`&department=${department}`)
+      requestParam += `&department=${department}`
     }
     if (feildOfStudy) {
       console.log("feildOfStudy", feildOfStudy)
@@ -211,7 +226,7 @@ const PostManagement = () => {
 
       <div className="content_of_PostManagement">
         <div className="content_of_posts_details">
-          {posts.map((item, index) => {
+          {Array.from(new Set(posts)).map((item, index) => {
             if (posts.length === index + 1) {
               return (
                 <Post
