@@ -5,9 +5,11 @@ import IntroOfDeanOfFaculty from "../../components/FacultiesSections/IntroOfDean
 import Goals from "../../components/FacultiesSections/Goals"
 import { goalsOf_Dentistry } from "../../constants/Data"
 import { valuesOf_Dentistry } from "../../constants/Data"
+import ViewPoint from "../../components/FacultiesSections/ViewPoint"
+import OrganizationChart from "../../components/FacultiesSections/OrganizationChart"
 
 import deanImg from "../../assets/img/deans/Ali-Reza-Shojayee.jpeg"
-import ViewPoint from "../../components/FacultiesSections/ViewPoint"
+import chartImg from "../../assets/img/organization_charts/چارت-تشکیلاتی-پوهنحی-ستوماتالوژی-1024x853.jpg"
 
 const Dentistry = () => {
   return (
@@ -39,6 +41,9 @@ const Dentistry = () => {
 
       {/* Goals */}
       <Goals goals={goalsOf_Dentistry} values={valuesOf_Dentistry} />
+
+      {/* origanization charts */}
+      <OrganizationChart chartImg={chartImg} />
     </div>
   )
 }

@@ -10,6 +10,7 @@ import { goalsOf_CS } from "../../constants/Data"
 import { valuesOf_CS } from "../../constants/Data"
 
 import deanImg from "../../assets/img/deans/Omid-Khairandish.jpeg"
+import chartImg from "../../assets/img/organization_charts/Organizational-Structure-CS.jpg"
 
 const ComputerScience = () => {
   return (
@@ -71,7 +72,7 @@ const ComputerScience = () => {
       <Goals goals={goalsOf_CS} values={valuesOf_CS} />
 
       {/* origanization charts */}
-      <OrganizationChart />
+      <OrganizationChart chartImg={chartImg} />
     </div>
   )
 }

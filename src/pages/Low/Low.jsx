@@ -5,9 +5,11 @@ import IntroOfDeanOfFaculty from "../../components/FacultiesSections/IntroOfDean
 import Goals from "../../components/FacultiesSections/Goals"
 import { goalsOf_LOW } from "../../constants/Data"
 import { valuesOf_LOW } from "../../constants/Data"
+import ViewPoint from "../../components/FacultiesSections/ViewPoint"
+import OrganizationChart from "../../components/FacultiesSections/OrganizationChart"
 
 import deanImg from "../../assets/img/deans/عبدالمتین-منیب-768x960.jpeg"
-import ViewPoint from "../../components/FacultiesSections/ViewPoint"
+import chartImg from "../../assets/img/organization_charts/چارت-تشکیلاتی-پوهنحی-حقوق-1024x853.jpg"
 
 const Low = () => {
   return (
@@ -39,6 +41,9 @@ const Low = () => {
 
       {/* Goals */}
       <Goals goals={goalsOf_LOW} values={valuesOf_LOW} />
+
+      {/* origanization charts */}
+      <OrganizationChart chartImg={chartImg} />
     </div>
   )
 }
