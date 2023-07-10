@@ -132,6 +132,17 @@
 }
 /* #_____ End of Goals and Mission of the Faculties _____# */
 
+/* #_____ Organization Chart of the Faculties _____# */
+.organization_chart_img {
+  margin: 0 2rem;
+  margin-top: 1.8rem;
+}
+.organization_chart_img img {
+  width: 100%;
+  border-radius: 10px;
+}
+/* #_____ End of Organization Chart of the Faculties _____# */
+
 /* Responsive */
 @media (max-width: 991px) {
   .intro_of_dean_of_faculty {
