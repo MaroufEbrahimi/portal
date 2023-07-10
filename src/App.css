@@ -9,7 +9,7 @@
 .app .main {
   margin: 0px 260px 0px 25px;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
   transition: all 0.3s ease-in-out;
   color: var(--text-color) !important;
   height: 100vh;
