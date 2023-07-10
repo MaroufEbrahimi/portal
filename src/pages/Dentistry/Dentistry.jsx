@@ -2,6 +2,9 @@ import React from "react"
 import "./Dentistry.css"
 import IntroductionOfFaculty from "../../components/FacultiesSections/IntroductionOfFaculty"
 import IntroOfDeanOfFaculty from "../../components/FacultiesSections/IntroOfDeanOfFaculty"
+import Goals from "../../components/FacultiesSections/Goals"
+import { goalsOf_Dentistry } from "../../constants/Data"
+import { valuesOf_Dentistry } from "../../constants/Data"
 
 import deanImg from "../../assets/img/deans/Ali-Reza-Shojayee.jpeg"
 import ViewPoint from "../../components/FacultiesSections/ViewPoint"
@@ -33,6 +36,9 @@ const Dentistry = () => {
         viewPoint="پوهنحی طب دندان موسسه تحصیلات عالی هریوا تلاش دارد تا در قسمت آموزش وپرورش کادر علمی و تحقیقات علمی یک پوهنحی مفید وتوانمند دربخش طبابت وسلامت دهان ودندان برای جامعه بوده و با بکار گیری تکنولوژی های پیشرفته معاصر به یک پوهنحی موفق در سطح کشور تبدیل گردد و در رسیدن به اهداف موسسه تحصیلات عالی هریوا که همانا کسب نمودن جایگاه یک پوهنتون معتبر، باکیفیت و معیاری در سطح کشور و منطقه است، یک سهم فعال داشته باشد."
         mission="پوهنحی طب دندان موسسه تحصیلات عالی هریوا متعهد است تا با استفاده از تکنولوژی های جدید معاصر در راستای رشد جامعه در زمینه تدریس، تحقیق و درمان بیماری­های دهان و دندان سهم فعال خویش را ایفأ نموده و با تأکید بر معیارهای آموزشی ومتناسب با فرهنگ جامعه در چارچوب قوانین وزارت محترم تحصیلات عالی، عدالت اجتماعی و ایجاد فرصت­های مساویانه تحصیلی برای تمام اتباع کشور در جهت ارتقای سطح دانش علمی و مسلکی، بهبود فرایند یادگیری محصلان، افزایش سطح کمی وکیفی فعالیت های تحقیقاتی، تولید اندیشه در بازار کار و تداوی امراض دهان و دندان  به یک نام معتبر در جامعه تبدیل گردد."
       />
+
+      {/* Goals */}
+      <Goals goals={goalsOf_Dentistry} values={valuesOf_Dentistry} />
     </div>
   )
 }

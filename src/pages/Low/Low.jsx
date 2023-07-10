@@ -2,6 +2,9 @@ import React from "react"
 import "./Low.css"
 import IntroductionOfFaculty from "../../components/FacultiesSections/IntroductionOfFaculty"
 import IntroOfDeanOfFaculty from "../../components/FacultiesSections/IntroOfDeanOfFaculty"
+import Goals from "../../components/FacultiesSections/Goals"
+import { goalsOf_LOW } from "../../constants/Data"
+import { valuesOf_LOW } from "../../constants/Data"
 
 import deanImg from "../../assets/img/deans/عبدالمتین-منیب-768x960.jpeg"
 import ViewPoint from "../../components/FacultiesSections/ViewPoint"
@@ -33,6 +36,9 @@ const Low = () => {
         viewPoint="پوهنحی حقوق و علوم سیاسی مؤسسه تحصیلات عالی هریوا متعهد است که با ارائه آموزش های حقوقی تئوری و عملی منطبق با معیارات وزارت تحصیلات عالی و نیازهای جامعه، جایگاه خویش را تثبیت نموده و به ارائه خدمات مسلکی و تخصصی در دیپارتمنت های قضایی حارنوالی و اداری دیپلماسی برای رهپویان دانش بپردازد."
         mission="پوهنحی حقوق و علوم سیاسی مأموریت دارد تا زمینه آموزش معیاری و ایجاد ظرفیت ها و تربیت کادرهای علمی و مسلکی ( حقوقدانان، حارنوالان، وکلای مدافع، دیپلمات ها، و تحلیل گران سیاسی) را از طریق تدریس، تحقیق، برگزاری محاکم تمثیلی، مناظره های پارلمانی، شبیه سازی ها و تدویر سیمینارهای علمی و تلاش در جهت کاربردی ساختن دانش حقوق و علوم سیاسی به منظور شناسایی و رفع چالش های موجود جامعه اقدام نماید."
       />
+
+      {/* Goals */}
+      <Goals goals={goalsOf_LOW} values={valuesOf_LOW} />
     </div>
   )
 }

@@ -6,6 +6,8 @@ import Departements from "../../components/FacultiesSections/Departements"
 import ViewPoint from "../../components/FacultiesSections/ViewPoint"
 import Goals from "../../components/FacultiesSections/Goals"
 import OrganizationChart from "../../components/FacultiesSections/OrganizationChart"
+import { goalsOf_CS } from "../../constants/Data"
+import { valuesOf_CS } from "../../constants/Data"
 
 import deanImg from "../../assets/img/deans/Omid-Khairandish.jpeg"
 
@@ -66,7 +68,7 @@ const ComputerScience = () => {
       />
 
       {/* Goals */}
-      <Goals />
+      <Goals goals={goalsOf_CS} values={valuesOf_CS} />
 
       {/* origanization charts */}
       <OrganizationChart />
