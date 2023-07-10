@@ -1,11 +1,6 @@
 import React, { Suspense, useContext, useState } from "react"
 import { AuthContext } from "./context/authContext"
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet,
-  Navigate,
-} from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
 import "./App.css"
 
@@ -17,6 +12,11 @@ import { DarkModeContext } from "./context/darkMode"
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
+const ComputerScience = React.lazy(() =>
+  import("./pages/ComputerScience/ComputerScience")
+)
+const Low = React.lazy(() => import("./pages/Low/Low"))
+const Dentistry = React.lazy(() => import("./pages/Dentistry/Dentistry"))
 const Posts = React.lazy(() => import("./pages/Posts/Posts"))
 const Students = React.lazy(() => import("./pages/Students/Students"))
 const AddStudent = React.lazy(() => import("./pages/AddStudent/AddStudent"))
@@ -41,10 +41,9 @@ const App = (props) => {
 
   const Layout = () => {
     return (
-      <Suspense fallback={<Loading />} >
+      <Suspense fallback={<Loading />}>
         <div className={`app ${darkMode ? "theme-dark" : "theme-light"}`}>
           <main className={`main ${activeNav && "main_active_nav"}`}>
-
             <div className="app_header">
               <Header />
             </div>
@@ -55,7 +54,7 @@ const App = (props) => {
             <BackToTop />
           </main>
         </div>
-      </Suspense >
+      </Suspense>
     )
   }
 
@@ -67,6 +66,18 @@ const App = (props) => {
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/cs",
+          element: <ComputerScience />,
+        },
+        {
+          path: "/low",
+          element: <Low />,
+        },
+        {
+          path: "/dentistry",
+          element: <Dentistry />,
         },
         {
           path: "/admin/addstudent",

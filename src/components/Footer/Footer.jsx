@@ -41,7 +41,7 @@ const Footer = () => {
           <Link to="/">خانه</Link>
           <Link to="/">کامپیوتر ساینس</Link>
           <Link to="/">حقوق و علوم سیاسی</Link>
-          <Link to="/">ستوماتالوژی</Link>
+          <Link to="/">طب دندان</Link>
         </div>
       </div>
       {/* !CopyRight */}
