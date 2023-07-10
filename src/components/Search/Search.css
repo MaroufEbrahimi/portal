@@ -2,31 +2,36 @@
   display: flex;
   align-items: center;
   border: 1px solid lightgray;
-  height: 50px;
+  height: 40px;
   padding: 10px 20px;
-  border-radius: 999px;
-  width: 75vw;
+  border-radius: 139px;
+  width: 70vw;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 50px;
   max-width: 560px;
 }
+
 .search__input input {
   flex: 1;
   background-color: transparent;
   padding: 10px 20px;
   border: none;
 }
+
 .search__input input:focus {
   outline-width: 0;
 }
+
 .search_input_icon i {
   color: gray;
 }
+
 .search__button {
   display: flex;
   justify-content: center;
   margin-top: 30px;
 }
+
 .search__button button {
   padding: 8px 20px;
   border: 1px solid white;
@@ -36,9 +41,11 @@
   cursor: pointer;
   color: #5f6268;
 }
+
 .search__button button:hover {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
+
 .search__buttonHidden {
   display: none !important;
 }

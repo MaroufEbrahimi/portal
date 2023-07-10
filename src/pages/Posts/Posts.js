@@ -8,9 +8,9 @@ function Posts() {
     const [posts, setposts] = useState([])
     const [hasMore, setHasMore] = useState(true);
     const lastNode = useRef();
-    const [pagination, setPagination] = useState({ offset: 0, pageSize: 1 })
+    const [pagination, setPagination] = useState({ offset: 0, pageSize: 5 })
     const [loading, setLoading] = useState(true);
-    const [{authentication}, dispatch] = useStateValue()
+    const [{ authentication }, dispatch] = useStateValue()
 
     const lastNodeReference = node => {
         if (loading) return;
@@ -28,9 +28,9 @@ function Posts() {
     // th e auth token must be read from somewhere in the frontend
     useEffect(() => {
         setLoading(true)
-        fetch(`http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
+        fetch(`http://localhost:1000/api/v1/posts/student?offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
             method: "GET",
-            headers: { "Authorization": "bearer " + authentication.token }
+            headers: { "Authorization": "Bearer " + authentication.token }
         })
             .then(res => {
                 if (res.ok) {
@@ -50,11 +50,10 @@ function Posts() {
                 setLoading(false)
             })
     }, [pagination])
-
     console.log(posts)
     return (
         <div className='post_page'>
-            {posts.map((item, index) => {
+            {Array.from(new Set(posts)).map((item, index) => {
                 if (posts.length === index + 1) {
                     return <Post
                         key={item.id}
