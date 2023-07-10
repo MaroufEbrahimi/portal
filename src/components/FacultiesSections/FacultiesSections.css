@@ -81,14 +81,14 @@
 /* #_____ End of Introduction of Dean of Faculties _____# */
 
 /* #_____ View Point of the Faculties _____# */
-.view_point_tabHeader {
+.faculties_tabHeader {
   position: relative;
   background: var(--gen-bg-color);
   z-index: 0;
   border-radius: 10px;
   margin-top: 1rem;
 }
-.view_point_tabHeader ul {
+.faculties_tabHeader ul {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,31 +96,41 @@
   display: flex;
   text-align: center;
 }
-.view_point_tabHeader ul li {
+.faculties_tabHeader ul li {
   padding: 8px 20px;
   cursor: pointer;
   border: 2px solid transparent;
 }
-.view_point_tabHeader ul li:hover,
-.view_point_tabHeader ul .active_tab {
+.faculties_tabHeader ul li:hover,
+.faculties_tabHeader ul .active_tab {
   border-top-color: var(--gen-color);
 }
-.view_point_contents .view_point_content {
+.faculties_tabHeader_contents .faculties_tabHeader_content {
   display: none;
   margin: 1rem;
   padding: 1rem;
   border: 1px solid var(--gen-color);
   border-radius: 3px;
 }
-.view_point_contents .view_point_content p {
+.faculties_tabHeader_contents .faculties_tabHeader_content p {
   text-align: justify;
   line-height: 2.5em;
 }
-.view_point_contents .active_content {
+.faculties_tabHeader_contents .active_content {
   display: block;
 }
-
 /* #_____ End of View Point of the Faculties _____# */
+
+/* #_____ Goals and Mission of the Faculties _____# */
+.goals_contents ul {
+  padding: 10px 1.5rem;
+  list-style-type: disc;
+  list-style-type: square;
+}
+.goals_contents ul li span {
+  color: var(--text-color);
+}
+/* #_____ End of Goals and Mission of the Faculties _____# */
 
 /* Responsive */
 @media (max-width: 991px) {
