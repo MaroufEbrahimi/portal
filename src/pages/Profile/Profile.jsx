@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import USER from "../../assets/img/user.jpg"
 import "./Profile.css"
 import { profileTabHeader } from "../../constants/Data"
 import Post from "../../components/Post/Post"
