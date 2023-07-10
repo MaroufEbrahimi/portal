@@ -37,6 +37,18 @@ const PostManagement = () => {
 
   // th e auth token must be read from somewhere in the frontend
   useEffect(() => {
+    fetch("http://localhost:1000/api/v1/field-of-studies")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        console.log(data)
+        setFields(data.content)
+      })
     setLoading(true)
     fetch(
       `http://localhost:1000/api/v1/posts/?semester=${semester}&offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
@@ -65,7 +77,6 @@ const PostManagement = () => {
   }, [pagination])
 
   const handleFilterButton = () => {
-    setPosts([])
     let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
 
     if (semester) {
@@ -78,9 +89,9 @@ const PostManagement = () => {
     }
     if (feildOfStudy) {
       console.log("feildOfStudy", feildOfStudy)
-      endpoint = endpoint.concat(`&feildOfStudy=${feildOfStudy}`)
+      endpoint = endpoint.concat(`&fieldOfStudy=${feildOfStudy}`)
     }
-
+    console.log(endpoint)
     fetch(endpoint, {
       method: "GET",
       headers: { Authorization: "bearer " + authentication.token },
@@ -99,11 +110,28 @@ const PostManagement = () => {
         } else {
           setHasMore(false)
         }
-        setPosts([...posts, ...data.content])
+        setPosts(data.content)
         setLoading(false)
       })
   }
-
+  const setfield = (e) => {
+    setfeildOfStudy(e.target.value)
+    const f = fields.find((item) => {
+      return item.fieldName == e.target.value
+    })
+    fetch("http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        setDepartments(data)
+      })
+  }
+  console.log(posts)
   return (
     <div className="posts_management">
       <div className="title_posts_management">
@@ -148,7 +176,7 @@ const PostManagement = () => {
             <select
               id="type"
               value={feildOfStudy}
-              onChange={(e) => setfeildOfStudy(e.target.value)}
+              onChange={(e) => setfield(e)}
             >
               <option disabled selected>
                 پوهنحی

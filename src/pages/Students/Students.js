@@ -20,7 +20,7 @@ const Students = () => {
   const [students, setstudents] = useState([])
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([]);
-  console.log(authentication)
+
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/field-of-studies")
       .then(res => {
@@ -65,6 +65,24 @@ const Students = () => {
     if (node) lastNode.current.observe(node);
   }
 
+  const setfield = (e) => {
+    setfeildOfStudy(e.target.value)
+    const f = fields.find((item) => {
+      return item.fieldName == e.target.value
+    })
+    fetch("http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments")
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        setDepartments(data)
+      })
+  }
+
 
   return (
     <div className="students_page fade_in">
@@ -106,7 +124,7 @@ const Students = () => {
             <select
               id="type"
               value={feildOfStudy}
-              onChange={(e) => setfeildOfStudy(e.target.value)}
+              onChange={(e) => setfield(e)}
             >
               <option disabled selected>پوهنحی</option>
               {fields.map(item => {
