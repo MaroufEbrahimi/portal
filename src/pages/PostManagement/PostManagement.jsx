@@ -19,7 +19,8 @@ const PostManagement = () => {
   const [loading, setLoading] = useState(true);
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([]);
-
+  const [requestParams, setRequestParams] = useState(``)
+  let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
   const lastNodeReference = node => {
     if (loading) return;
     if (lastNode.current) lastNode.current.disconnect();
@@ -33,7 +34,6 @@ const PostManagement = () => {
     if (node) lastNode.current.observe(node);
   }
 
-  // th e auth token must be read from somewhere in the frontend
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/field-of-studies")
       .then(res => {
@@ -47,10 +47,14 @@ const PostManagement = () => {
         console.log(data)
         setFields(data.content)
       })
+  }, [])
+
+  // th e auth token must be read from somewhere in the frontend
+  useEffect(() => {
     setLoading(true)
-    fetch(`http://localhost:1000/api/v1/posts/?semester=${semester}&offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
+    fetch(endpoint + requestParams, {
       method: "GET",
-      headers: { "Authorization": "bearer " + authentication.token }
+      headers: { "Authorization": "Bearer " + authentication.token }
     })
       .then(res => {
         if (res.ok) {
@@ -72,26 +76,29 @@ const PostManagement = () => {
   }, [pagination])
 
   const handleFilterButton = () => {
-    let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
-
+    // let currentEndpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+    console.log(authentication)
+    let requestParam = ""
     if (semester) {
       console.log("semester", semester)
-      endpoint = endpoint.concat(`&semester=${semester}`)
+      requestParam += `&semester=${semester}`
     }
     if (department) {
       console.log("dep", department)
-      endpoint = endpoint.concat(`&department=${department}`)
+      requestParam += `&department=${department}`
     }
     if (feildOfStudy) {
       console.log("feildOfStudy", feildOfStudy)
-      endpoint = endpoint.concat(`&fieldOfStudy=${feildOfStudy}`)
+      requestParam += `&fieldOfStudy=${feildOfStudy}`
     }
+    setRequestParams(requestParam)
     console.log(endpoint)
-    fetch(endpoint, {
+    fetch(endpoint + requestParam, {
       method: "GET",
-      headers: { "Authorization": "bearer " + authentication.token }
+      headers: { "Authorization": "Bearer " + authentication.token }
     })
       .then(res => {
+        console.log(res)
         if (res.ok) {
           return res.json();
         } else {
@@ -183,7 +190,7 @@ const PostManagement = () => {
 
       <div className="content_of_PostManagement">
         <div className="content_of_posts_details">
-          {posts.map((item, index) => {
+          {Array.from(new Set(posts)).map((item, index) => {
             if (posts.length === index + 1) {
               return <Post
                 key={item.id}
