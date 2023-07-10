@@ -1,8 +1,6 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Link, useResolvedPath, useMatch } from "react-router-dom"
 import profile from "../../assets/img/profile_avatar.png"
-import lowIcon from "../../assets/img/low-icon.png"
-import dentistryIcon from "../../assets/img/dentistry-icon.png"
 import "./Navbar.css"
 import { useStateValue } from "../../context/StateProvider"
 
@@ -20,8 +18,7 @@ const CustomeLinks = ({ to, children, ...props }) => {
 }
 
 const Navbar = ({ activeNav, navActiveHandler }) => {
-  const authContext = useContext(authContext)
-  const [{ authentication }, dispatch] = useStateValue()
+  const [{ authentication }, dispatch] = useStateValue();
   console.log(authentication)
   return (
     <div className={`navbar ${activeNav && "active_nav_right"}`}>
@@ -43,9 +40,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             alt="user_image"
           />
         </div>
-        <h4>
-          {authentication.name} {authentication.lastname}
-        </h4>
+        <h4>{authentication.name} {authentication.lastname}</h4>
       </Link>
 
       <div className="navbar_menu">
@@ -61,7 +56,8 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             </CustomeLinks>
           ) : null}
 
-          {authentication?.roles?.includes("ADMIN") ? (
+
+          {authentication?.roles?.includes("ADMIN") ?
             <div>
               <div className="navbar__title open__navbar">
                 <li className="navbar__item">
@@ -86,29 +82,17 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 </CustomeLinks>
               </div>
             </div>
-          ) : (
-            ""
-          )}
+            : ""}
 
-          <CustomeLinks to="/cs" title="کامپیوتر ساینس">
-            <i className="bi bi-window-desktop"></i>
-            <span>کامپیوتر ساینس</span>
+          <CustomeLinks to="/about" title="درباره">
+            <i className="bi bi-building"></i>
+            <span>درباره</span>
           </CustomeLinks>
-          <CustomeLinks to="/low" title="حقوق">
-            <i className="nav_bar_icon">
-              <img src={lowIcon} />
-            </i>
-            <span>حقوق</span>
-          </CustomeLinks>
-          <CustomeLinks to="/dentistry" title="طب دندان">
-            <i className="nav_bar_icon dentistry">
-              <img src={dentistryIcon} />
-            </i>
-            <span>طب دندان</span>
-          </CustomeLinks>
+
         </ul>
-      </div>
-    </div>
+
+      </div >
+    </div >
   )
 }
 
