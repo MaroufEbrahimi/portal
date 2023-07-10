@@ -1,4 +1,7 @@
-/* #_____ Introduction of Faculty _____# */
+/* #_____ Introduction of Faculties _____# */
+.faculties_sections_title {
+  margin-top: 6rem;
+}
 .faculties_sections_title h2 {
   color: var(--text-color);
   font-size: 30px;
@@ -18,9 +21,9 @@
   text-align: justify;
   text-shadow: 1px 2px rgba(0, 0, 0, 0.05);
 }
-/* #_____ End of Introduction of Faculty _____# */
+/* #_____ End of Introduction of Faculties _____# */
 
-/* #_____ Introduction of Dean of Faculty _____# */
+/* #_____ Introduction of Dean of Faculties _____# */
 .intro_of_dean_of_faculty {
   margin: 4rem 0;
   display: flex;
@@ -75,7 +78,49 @@
   margin: 30px;
   color: var(--text-color);
 }
-/* #_____ End of Introduction of Dean of Faculty _____# */
+/* #_____ End of Introduction of Dean of Faculties _____# */
+
+/* #_____ View Point of the Faculties _____# */
+.view_point_tabHeader {
+  position: relative;
+  background: var(--gen-bg-color);
+  z-index: 0;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+.view_point_tabHeader ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  display: flex;
+  text-align: center;
+}
+.view_point_tabHeader ul li {
+  padding: 8px 20px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.view_point_tabHeader ul li:hover,
+.view_point_tabHeader ul .active_tab {
+  border-top-color: var(--gen-color);
+}
+.view_point_contents .view_point_content {
+  display: none;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--gen-color);
+  border-radius: 3px;
+}
+.view_point_contents .view_point_content p {
+  text-align: justify;
+  line-height: 2.5em;
+}
+.view_point_contents .active_content {
+  display: block;
+}
+
+/* #_____ End of View Point of the Faculties _____# */
 
 /* Responsive */
 @media (max-width: 991px) {
