@@ -13,6 +13,7 @@ import Loading from "./components/UI/Loading/Loading"
 import Wrapper from "./components/HOC/Wrapper"
 import Header from "./components/Header/Header"
 import BackToTop from "./components/UI/BackToTop/BackToTop"
+import About from "./pages/About/About"
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
@@ -94,6 +95,10 @@ const App = () => {
         {
           path: "/low",
           element: <Low />,
+        },
+        {
+          path: "/about",
+          element: <About />,
         },
         {
           path: "/admin/addstudent",
