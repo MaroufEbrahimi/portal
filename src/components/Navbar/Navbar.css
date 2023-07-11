@@ -11,8 +11,9 @@
   bottom: 0;
   background-color: var(--gen-bg-color);
   border-right: 10px solid var(--gen-bg-color);
-  transition: 0.3s;
+  transition: width 0.3s ease-in-out;
   z-index: 1000;
+
 }
 
 /* toggle_header_navbar */
@@ -56,8 +57,10 @@
 
 .navbar .add_img_profile,
 .navbar .input_profile_img {
+  display: flex;
   width: 90px;
   height: 90px;
+  background: var(--gen-bg-color);
 }
 
 .navbar .nav_profile h4 {
@@ -234,7 +237,6 @@
   .navbar .input_profile_img {
     width: 40px;
     height: 40px;
-    margin-left: 20px;
   }
 
   .navbar .nav_profile h4 {
@@ -289,6 +291,9 @@
 .active_nav_right .input_profile_img {
   width: 40px;
   height: 40px;
+}
+
+.active_nav_right .add_img_profile {
   margin-left: 20px;
 }
 
@@ -299,6 +304,7 @@
 .active_nav_right {
   width: 70px;
   border-right: 6px solid var(--gen-color);
+  transition: width 0.3s ease-in-out;
 }
 
 .active_nav_right .navbar_menu span {
