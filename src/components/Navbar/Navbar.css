@@ -110,6 +110,12 @@
   padding: 0 8px;
 }
 
+.faculties_menu li i img {
+  width: 22px;
+  margin-right: -4px;
+  filter: var(--icon-faculties-color);
+}
+
 .navbar_menu li:hover a::before,
 .navbar_menu .active a::before {
   content: "";
@@ -138,9 +144,7 @@
   pointer-events: none;
 }
 
-
 /* admin panel */
-
 
 .navbar__title {
   display: flex;
@@ -157,7 +161,6 @@
   background: none;
 }
 
-
 .navbar__title .btn_toggle {
   font-size: 14px;
   display: flex;
@@ -169,12 +172,7 @@
   transition: transform 0.3s;
 }
 
-.navbar__title.open__navbar .btn_toggle {
-  transform: rotate(180deg);
-}
-
 /* dropdown */
-
 .drop_menu_button {
   position: absolute;
   background: no-repeat;
@@ -187,13 +185,14 @@
   opacity: 0;
 }
 
-.drop_menu_button:checked+.navbar__dropdown {
+.drop_menu_button:checked + .navbar__dropdown {
   transform: scaleY(1);
   height: 100px;
 }
 
 .navbar__dropdown {
-  transition: transform 0.3s cubic-bezier(0.85, 0.02, 0.19, 1.04), height 0.3s cubic-bezier(0.85, 0.02, 0.19, 1.04);
+  transition: transform 0.3s cubic-bezier(0.85, 0.02, 0.19, 1.04),
+    height 0.3s cubic-bezier(0.85, 0.02, 0.19, 1.04);
   transform-origin: top;
   padding-right: 20px;
   width: 100%;
@@ -265,7 +264,8 @@
   }
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+}
 
 @media (max-width: 480px) {
   .navbar {
