@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, useResolvedPath, useMatch } from "react-router-dom"
 import "./Navbar.css"
 import { useStateValue } from "../../context/StateProvider"
 import logo from "../../assets/img/logo.png"
+import lowIcon from "../../assets/img/low-icon.png"
+import dentistryIcon from "../../assets/img/dentistry-icon.png"
 
 const CustomeLinks = ({ to, children, ...props }) => {
   const resolvedPath = useResolvedPath(to)
@@ -18,8 +20,11 @@ const CustomeLinks = ({ to, children, ...props }) => {
 }
 
 const Navbar = ({ activeNav, navActiveHandler }) => {
-  const [{ authentication }, dispatch] = useStateValue();
+  const [{ authentication }, dispatch] = useStateValue()
   console.log(authentication)
+  const [activeFaculties, setActiveFaculties] = useState(false)
+
+  const facultiesHandler = () => setActiveFaculties(!activeFaculties)
 
   return (
     <div className={`navbar ${activeNav && "active_nav_right"}`}>
@@ -33,28 +38,26 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
         </div>
       </div>
 
-      {
-        authentication.isAuthenticated ?
-          <Link to={"/profile/" + authentication.userId} className="nav_profile">
-            <div className="add_img_profile full_width">
-              <img
-                src={authentication.imageUrl || "/public/img/favicon.png"}
-                className="input_profile_img"
-                alt="user_image"
-              />
-            </div>
-            <h4>{authentication.name} {authentication.lastname}</h4>
-          </Link>
-          : <Link to="/" className="nav_profile">
-            <div className="add_img_profile full_width">
-              <img
-                src={logo}
-                className="input_profile_img"
-                alt="user_image"
-              />
-            </div>
-          </Link>
-      }
+      {authentication.isAuthenticated ? (
+        <Link to={"/profile/" + authentication.userId} className="nav_profile">
+          <div className="add_img_profile full_width">
+            <img
+              src={authentication.imageUrl || "/public/img/favicon.png"}
+              className="input_profile_img"
+              alt="user_image"
+            />
+          </div>
+          <h4>
+            {authentication.name} {authentication.lastname}
+          </h4>
+        </Link>
+      ) : (
+        <Link to="/" className="nav_profile">
+          <div className="add_img_profile full_width">
+            <img src={logo} className="input_profile_img" alt="user_image" />
+          </div>
+        </Link>
+      )}
 
       <div className="navbar_menu">
         <ul className="navbar_content">
@@ -69,8 +72,46 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             </CustomeLinks>
           ) : null}
 
+          {/* Links of Faculties */}
+          <div className="faculties_menu">
+            <div>
+              <div
+                className="navbar__title open__navbar"
+                onClick={facultiesHandler}
+              >
+                <li className="navbar__item">
+                  <i className="bi bi-mortarboard"></i>
+                  <span>پوهنــځی‌ها</span>
+                  {activeFaculties ? (
+                    <i className="bi bi-chevron-down btn_toggle"></i>
+                  ) : (
+                    <i className="bi bi-chevron-up btn_toggle"></i>
+                  )}
+                </li>
+              </div>
+              <input type="checkbox" className="drop_menu_button" />
+              <div className="navbar__dropdown">
+                <CustomeLinks to="/cs" title="کامپیوتر ساینس">
+                  <i className="bi bi-window"></i>
+                  <span>کامپیوتر ساینس</span>
+                </CustomeLinks>
+                <CustomeLinks to="/dentistry" title="طب دندان">
+                  <i>
+                    <img src={dentistryIcon} />
+                  </i>
+                  <span>طب دندان</span>
+                </CustomeLinks>
+                <CustomeLinks to="/low" title="حقوق وعلوم سیاسی">
+                  <i>
+                    <img src={lowIcon} />
+                  </i>
+                  <span>حقوق</span>
+                </CustomeLinks>
+              </div>
+            </div>
+          </div>
 
-          {authentication?.roles?.includes("ADMIN") ?
+          {authentication?.roles?.includes("ADMIN") ? (
             <div>
               <div className="navbar__title open__navbar">
                 <li className="navbar__item">
@@ -95,17 +136,17 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 </CustomeLinks>
               </div>
             </div>
-            : ""}
+          ) : (
+            ""
+          )}
 
           <CustomeLinks to="/about" title="درباره">
             <i className="bi bi-building"></i>
             <span>درباره</span>
           </CustomeLinks>
-
         </ul>
-
-      </div >
-    </div >
+      </div>
+    </div>
   )
 }
 

@@ -1,15 +1,15 @@
 import React from "react"
 import "./Low.css"
-import IntroductionOfFaculty from "../../components/FacultiesSections/IntroductionOfFaculty"
-import IntroOfDeanOfFaculty from "../../components/FacultiesSections/IntroOfDeanOfFaculty"
-import Goals from "../../components/FacultiesSections/Goals"
-import { goalsOf_LOW } from "../../constants/Data"
-import { valuesOf_LOW } from "../../constants/Data"
-import ViewPoint from "../../components/FacultiesSections/ViewPoint"
-import OrganizationChart from "../../components/FacultiesSections/OrganizationChart"
+import IntroductionOfFaculty from "../../../components/FacultiesSections/IntroductionOfFaculty"
+import IntroOfDeanOfFaculty from "../../../components/FacultiesSections/IntroOfDeanOfFaculty"
+import Goals from "../../../components/FacultiesSections/Goals"
+import { goalsOf_LOW } from "../../../constants/Data"
+import { valuesOf_LOW } from "../../../constants/Data"
+import ViewPoint from "../../../components/FacultiesSections/ViewPoint"
+import OrganizationChart from "../../../components/FacultiesSections/OrganizationChart"
 
-import deanImg from "../../assets/img/deans/عبدالمتین-منیب-768x960.jpeg"
-import chartImg from "../../assets/img/organization_charts/چارت-تشکیلاتی-پوهنحی-حقوق-1024x853.jpg"
+import deanImg from "../../../assets/img/deans/عبدالمتین-منیب-768x960.jpeg"
+import chartImg from "../../../assets/img/organization_charts/چارت-تشکیلاتی-پوهنحی-حقوق-1024x853.jpg"
 
 const Low = () => {
   return (

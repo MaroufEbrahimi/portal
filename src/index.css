@@ -15,7 +15,7 @@
 }
 
 :root {
-  --main-color: #67b0d1
+  --main-color: #67b0d1;
 }
 
 /* End of Fonts */
@@ -27,6 +27,7 @@
   --gen-bg-color: #67b0d14d;
   --gen-main-bg: #eaf8ff;
   --text-color: #000;
+  --icon-faculties-color: #fff;
 }
 
 .theme-dark {
@@ -35,8 +36,9 @@
   --gen-bg-color: #000106;
   --gen-main-bg: #222;
   --text-color: #f5f5f5;
+  --icon-faculties-color: saturate(450%) contrast(410%) brightness(150%) invert(120%)
+    sepia(420%) hue-rotate(120deg);
 }
-
 
 /* End of Dark or Light Themes */
 
@@ -165,10 +167,6 @@ img {
   object-position: top;
 }
 
-
-
-
-
 /* Animations */
 .fade_in {
   animation-name: fade-in;
@@ -199,7 +197,6 @@ img {
 }
 
 @media (max-width: 768px) {
-
   .bottom-to-top,
   .right-to-left,
   .left-to-right {
