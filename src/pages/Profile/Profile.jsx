@@ -67,7 +67,7 @@ const Profile = () => {
         </div>
         <div className="logout_changePass">
           <button onClick={showModalHandler}>
-            <span>بیرون شدن</span>
+            <span> خروج از حساب کاربری</span>
             <i className="bi bi-reply-all-fill"></i>
           </button>
           <button>
