@@ -12,6 +12,7 @@
   overflow-x: hidden;
   transition: all 0.3s ease-in-out;
   color: var(--text-color) !important;
+  height: 100vh;
 }
 
 .app .main_active_nav {
