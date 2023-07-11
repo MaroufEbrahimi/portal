@@ -16,6 +16,10 @@
 
 }
 
+.menu_container {
+  position: relative;
+}
+
 /* toggle_header_navbar */
 .toggle_header_navbar {
   position: fixed;
@@ -180,7 +184,7 @@
   position: absolute;
   background: no-repeat;
   outline: none;
-  top: 45px;
+  top: 6px;
   height: 25px;
   cursor: pointer;
   left: 0;
@@ -188,7 +192,7 @@
   opacity: 0;
 }
 
-.drop_menu_button:checked + .navbar__dropdown {
+.drop_menu_button:checked+.navbar__dropdown {
   transform: scaleY(1);
   height: 100px;
 }
@@ -266,8 +270,7 @@
   }
 }
 
-@media (max-width: 768px) {
-}
+@media (max-width: 768px) {}
 
 @media (max-width: 480px) {
   .navbar {

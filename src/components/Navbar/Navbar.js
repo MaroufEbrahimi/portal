@@ -74,7 +74,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
 
           {/* Links of Faculties */}
           <div className="faculties_menu">
-            <div>
+            <div className="menu_container">
               <div
                 className="navbar__title open__navbar"
                 onClick={facultiesHandler}
@@ -112,7 +112,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           </div>
 
           {authentication?.roles?.includes("ADMIN") ? (
-            <div>
+            <div className="admin_menu menu_container">
               <div className="navbar__title open__navbar">
                 <li className="navbar__item">
                   <i className="bi bi-gear"></i>
