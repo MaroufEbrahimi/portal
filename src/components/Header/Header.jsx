@@ -12,7 +12,7 @@ const Header = ({ isDark, darkModeHandler }) => {
       <div className="header_right">
         {
           !authentication?.isAuthenticated ? <button className="header_login" onClick={() => navigate("/login")}>
-            لاگین
+            ورود به سیستم
           </button> : null
         }
       </div>
