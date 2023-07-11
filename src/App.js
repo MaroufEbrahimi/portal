@@ -30,6 +30,13 @@ const PostManagement = React.lazy(() =>
   import("./pages/PostManagement/PostManagement")
 )
 const ResetPassword = React.lazy(() => import("./pages/Login/ResetPassword"))
+const ComputerScience = React.lazy(() =>
+  import("./pages/Faculties/ComputerScience/ComputerScience")
+)
+const Low = React.lazy(() => import("./pages/Faculties/Low/Low"))
+const Dentistry = React.lazy(() =>
+  import("./pages/Faculties/Dentistry/Dentistry")
+)
 
 const App = () => {
   const [isDark, setIsDark] = useState(
@@ -75,6 +82,18 @@ const App = () => {
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/cs",
+          element: <ComputerScience />,
+        },
+        {
+          path: "/dentistry",
+          element: <Dentistry />,
+        },
+        {
+          path: "/low",
+          element: <Low />,
         },
         {
           path: "/admin/addstudent",
