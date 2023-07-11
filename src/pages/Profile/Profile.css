@@ -6,10 +6,58 @@
   position: relative;
   width: 100%;
   height: 180px;
-  background: linear-gradient(rgba(55, 142, 181, 0.5), rgba(55, 142, 181, 0.2)),
-    url("../../assets/img/user-bg.jpg") top center;
+  background: linear-gradient(
+    to top,
+    rgba(86, 189, 236, 0.5),
+    rgba(55, 181, 171, 0.2)
+  );
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+}
+
+.profile_title .logout_changePass {
+  position: absolute;
+  left: 2%;
+  bottom: 10%;
+  z-index: 1;
+  display: flex;
+  gap: 15px;
+}
+.profile_title .logout_changePass button {
+  background-color: transparent;
+  border: 1px solid var(--gen-color);
+  color: var(--text-color);
+  outline: none;
+  border-radius: 8px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+}
+.profile_title .logout_changePass button i {
+  padding-right: 6px;
+}
+
+.profile_title .logout > i {
+  color: var(--gen-color);
+  font-size: 60px;
+}
+.profile_title .logout > p {
+  font-size: 15px;
+  color: var(--text-color);
+}
+.profile_title .logout .logout_buttons {
+  background-color: var(--gen-bg-color);
+  padding: 15px 0px;
+  margin: 0 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.profile_title .logout .logout_buttons button {
+  padding: 2px 30px;
 }
 
 .user_profile_img {
@@ -19,7 +67,6 @@
   display: flex;
   align-items: center;
   z-index: 1;
-
 }
 
 .user_profile_img img {
@@ -109,7 +156,7 @@
 
 .content_of_profile .content_box label {
   display: block;
-  color: #000;
+  color: var(--text-color);
   font-weight: 500;
   padding: 0 10px 10px 0;
 }
@@ -118,7 +165,7 @@
   width: 100%;
   padding: 10px 15px;
   font-size: 18px;
-  color: #000;
+  color: var(--text-color);
   background: var(--gen-bg-color);
   outline: none;
   border-radius: 8px;

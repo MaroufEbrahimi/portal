@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react"
 import "./Profile.css"
 import { profileTabHeader } from "../../constants/Data"
 import Post from "../../components/Post/Post"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useStateValue } from "../../context/StateProvider"
+import ModalDelete from "../../components/UI/ModalDelete/ModalDelete"
 
 const Profile = () => {
   const { id } = useParams()
@@ -11,24 +12,31 @@ const Profile = () => {
   const [{ authentication }, dispatch] = useStateValue()
   const [student, setstudent] = useState({})
 
+  const [showModal, setShowModal] = useState(false)
+  const showModalHandler = () => {
+    setShowModal(true)
+  }
+  const modalCloseHandler = () => {
+    setShowModal(false)
+  }
+
   console.log(authentication)
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/students/" + id, {
       method: "GET",
       headers: {
-        "Authorization": "Bearer " + authentication.token
-      }
+        Authorization: "Bearer " + authentication.token,
+      },
     })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         }
       })
-      .then(data => {
+      .then((data) => {
         console.log(data)
         setstudent(data)
       })
-
   }, [])
 
   const handleTabs = (index) => {
@@ -40,8 +48,35 @@ const Profile = () => {
       <div className="profile_title">
         <div className="user_profile_img">
           <img src={student?.imageUrl} alt="user img" />
-          <h1>{student?.studentPersonalInfo?.name} {student?.studentPersonalInfo?.lastName}</h1>
+          <h1>
+            {student?.studentPersonalInfo?.name}{" "}
+            {student?.studentPersonalInfo?.lastName}
+          </h1>
         </div>
+        <div className="logout_changePass">
+          <button onClick={showModalHandler}>
+            <span>بیرون شدن</span>
+            <i className="bi bi-reply-all-fill"></i>
+          </button>
+          <button>
+            <Link to="/reset-password">
+              <span>تغییر رمز یا ایمیل</span>
+              <i className="bi bi-check2-square"></i>
+            </Link>
+          </button>
+        </div>
+        <ModalDelete show={showModal} modalClose={modalCloseHandler}>
+          <div className="logout">
+            <i className="bi bi-exclamation-triangle-fill"></i>
+            <p>برای بیرون شدن از سیستم مطمین هستید؟</p>
+            <div className="logout_buttons">
+              <button className="btn logout_btn">بلی</button>
+              <button className="btn" onClick={modalCloseHandler}>
+                نخیر
+              </button>
+            </div>
+          </div>
+        </ModalDelete>
       </div>
 
       <div className="tab_header">
