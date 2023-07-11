@@ -2,8 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1rem;
+  padding: 0.8rem 0;
 }
+
 .header_login {
   padding: 5px 14px;
   border: 1px solid var(--gen-color);
@@ -14,11 +15,13 @@
   color: var(--text-color);
   background-color: transparent;
 }
+
 .header .header_left,
 .header .header_right {
   display: flex;
   gap: 10px;
 }
+
 /* dark mode icon */
 .header_left .dark_mode_toggle i {
   transition: all 0.3s ease-in-out;
