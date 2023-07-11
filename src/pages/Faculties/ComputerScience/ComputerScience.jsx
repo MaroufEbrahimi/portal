@@ -1,16 +1,16 @@
 import React from "react"
 import "./ComputerScience.css"
-import IntroductionOfFaculty from "../../components/FacultiesSections/IntroductionOfFaculty"
-import IntroOfDeanOfFaculty from "../../components/FacultiesSections/IntroOfDeanOfFaculty"
-import Departements from "../../components/FacultiesSections/Departements"
-import ViewPoint from "../../components/FacultiesSections/ViewPoint"
-import Goals from "../../components/FacultiesSections/Goals"
-import OrganizationChart from "../../components/FacultiesSections/OrganizationChart"
-import { goalsOf_CS } from "../../constants/Data"
-import { valuesOf_CS } from "../../constants/Data"
+import IntroductionOfFaculty from "../../../components/FacultiesSections/IntroductionOfFaculty"
+import IntroOfDeanOfFaculty from "../../../components/FacultiesSections/IntroOfDeanOfFaculty"
+import Departements from "../../../components/FacultiesSections/Departements"
+import ViewPoint from "../../../components/FacultiesSections/ViewPoint"
+import Goals from "../../../components/FacultiesSections/Goals"
+import OrganizationChart from "../../../components/FacultiesSections/OrganizationChart"
+import { goalsOf_CS } from "../../../constants/Data"
+import { valuesOf_CS } from "../../../constants/Data"
 
-import deanImg from "../../assets/img/deans/Omid-Khairandish.jpeg"
-import chartImg from "../../assets/img/organization_charts/Organizational-Structure-CS.jpg"
+import deanImg from "../../../assets/img/deans/Omid-Khairandish.jpeg"
+import chartImg from "../../../assets/img/organization_charts/Organizational-Structure-CS.jpg"
 
 const ComputerScience = () => {
   return (
