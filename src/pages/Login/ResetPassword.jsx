@@ -15,6 +15,10 @@ const ResetPassword = () => {
             <i className="bi bi-person-circle"></i>
           </div>
           <div className="login_box">
+            <input type="password" placeholder="رمز قبلی" name="password" />
+            <i className="bi bi-lock"></i>
+          </div>
+          <div className="login_box">
             <input type="password" placeholder="رمز جدید" name="password" />
             <i className="bi bi-lock-fill"></i>
           </div>
