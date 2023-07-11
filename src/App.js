@@ -29,9 +29,16 @@ const NotFound = React.lazy(() => import("./pages/NotFound/NotFound"))
 const PostManagement = React.lazy(() =>
   import("./pages/PostManagement/PostManagement")
 )
+const ResetPassword = React.lazy(() => import("./pages/Login/ResetPassword"))
 
 const App = () => {
-  const [isDark, setIsDark] = useState(localStorage.getItem("isDark") == null ? false : localStorage.getItem("isDark") == "true" ? true : false);
+  const [isDark, setIsDark] = useState(
+    localStorage.getItem("isDark") == null
+      ? false
+      : localStorage.getItem("isDark") == "true"
+      ? true
+      : false
+  )
   const [activeNav, setActiveNav] = useState(false)
   // handle tab header
   const navActiveHandler = () => setActiveNav(!activeNav)
@@ -43,7 +50,7 @@ const App = () => {
 
   const Layout = () => {
     return (
-      <Suspense fallback={<Loading />} >
+      <Suspense fallback={<Loading />}>
         <div className={`app ${isDark ? "theme-dark" : "theme-light"}`}>
           <main className={`main ${activeNav && "main_active_nav"}`}>
             <div className="app_header">
@@ -56,7 +63,7 @@ const App = () => {
             <BackToTop />
           </main>
         </div>
-      </Suspense >
+      </Suspense>
     )
   }
 
@@ -102,12 +109,15 @@ const App = () => {
           element: <Login />,
         },
         {
+          path: "/reset-password",
+          element: <ResetPassword />,
+        },
+        {
           path: "*",
           element: <NotFound />,
         },
       ],
     },
-
   ])
 
   return (
