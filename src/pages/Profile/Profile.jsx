@@ -49,12 +49,13 @@ const Profile = () => {
     setShowTab(index)
   }
   const logout = () => {
-    navigate("/")
     removeAllCookies();
     dispatch({
       type: actionTypes.LOGOUT,
       payload: {}
     })
+    navigate("/")
+    console.log(authentication)
 
   }
 
