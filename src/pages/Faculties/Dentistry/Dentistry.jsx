@@ -57,7 +57,7 @@ const Dentistry = () => {
           <h2>مفردات درسی</h2>
         </div>
 
-        <div className="view_point_tabHeader faculties_tabHeader semester_refs">
+        <div className="dentistry_tabHeaders">
           {dentistry_references_tabHeader.map((item) => (
             <ul>
               <li

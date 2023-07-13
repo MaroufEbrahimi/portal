@@ -54,7 +54,7 @@ const Low = () => {
       {/* این بخش شامل تمامی دیپارتمنت های پوهنحی مربوطه می شود */}
       <div className="departements">
         <div className="faculties_sections_title">
-          <h2>مفردات درسی</h2>
+          <h2>دیپارتمنت ها</h2>
         </div>
 
         <div className="view_point_tabHeader faculties_tabHeader">
@@ -82,7 +82,10 @@ const Low = () => {
               : "low_tabHeaderDep"
           }
         >
-          <div className="view_point_tabHeader faculties_tabHeader semester_refs">
+          <div className="low_references_title">
+            <h2>مفردات درسی</h2>
+          </div>
+          <div className="low_tabHeaders">
             {semester_tabHeader.map((item) => (
               <ul>
                 <li
@@ -321,7 +324,10 @@ const Low = () => {
               : "low_tabHeaderDep"
           }
         >
-          <div className="view_point_tabHeader faculties_tabHeader semester_refs">
+          <div className="low_references_title">
+            <h2>مفردات درسی</h2>
+          </div>
+          <div className="low_tabHeaders">
             {semester_tabHeader.map((item) => (
               <ul>
                 <li
@@ -335,7 +341,6 @@ const Low = () => {
               </ul>
             ))}
           </div>
-
           <div
             className={
               showTabSemester === 1

@@ -4,19 +4,33 @@
   list-style-type: square;
 }
 
-.semester_refs {
+.dentistry_tabHeaders {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--gen-bg-color);
+  z-index: 0;
+  border-radius: 10px;
+  margin-top: 1rem;
 }
-.semester_refs ul {
-  padding: 0;
-  margin: 0;
+.dentistry_tabHeaders ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   list-style: none;
+  text-align: center;
 }
-.semester_refs ul li {
-  padding: 0;
-  margin: 0;
+.dentistry_tabHeaders ul li {
+  padding: 8px 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
-.semester_refs ul li span {
+.dentistry_tabHeaders ul li:hover,
+.dentistry_tabHeaders ul .active_tab {
+  border-top-color: var(--gen-color);
+}
+.dentistry_tabHeaders ul li span {
   font-size: 15px;
   line-height: 1em;
   color: var(--text-color);
@@ -60,4 +74,10 @@
 .dentistry_ref ul li span {
   color: var(--text-color);
   font-size: 16px;
+}
+
+@media (max-width: 991px) {
+  .dentistry_tabHeaders {
+    flex-wrap: wrap;
+  }
 }

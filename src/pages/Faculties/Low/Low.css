@@ -1,12 +1,37 @@
-.semester_refs {
+.low_references_title {
+  text-align: center;
+}
+.low_references_title > h2 {
+  font-size: 20px;
+  color: var(--text-color);
+}
+.low_tabHeaders {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--gen-bg-color);
+  z-index: 0;
+  border-radius: 10px;
+  margin-top: 1rem;
 }
-.semester_refs ul {
-  padding: 0;
-  margin: 0;
+.low_tabHeaders ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   list-style: none;
+  text-align: center;
 }
-.semester_refs ul li span {
+.low_tabHeaders ul li {
+  padding: 8px 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.low_tabHeaders ul li:hover,
+.low_tabHeaders ul .active_tab {
+  border-top-color: var(--gen-color);
+}
+.low_tabHeaders ul li span {
   font-size: 15px;
   line-height: 1em;
   color: var(--text-color);
@@ -61,4 +86,10 @@
 }
 .low_tabHeader.active_content {
   display: block;
+}
+
+@media (max-width: 991px) {
+  .low_tabHeaders {
+    flex-wrap: wrap;
+  }
 }
