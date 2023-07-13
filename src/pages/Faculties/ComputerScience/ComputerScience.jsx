@@ -13,6 +13,22 @@ import {
   cs_software_goals,
   cs_network_intro,
   cs_network_goals,
+  cs_software_references1,
+  cs_software_references2,
+  cs_software_references3,
+  cs_software_references4,
+  cs_software_references5,
+  cs_software_references6,
+  cs_software_references7,
+  cs_software_references8,
+  cs_network_references1,
+  cs_network_references2,
+  cs_network_references3,
+  cs_network_references4,
+  cs_network_references5,
+  cs_network_references6,
+  cs_network_references7,
+  cs_network_references8,
 } from "../../../constants/Data"
 
 import deanImg from "../../../assets/img/deans/Omid-Khairandish.jpeg"
@@ -73,7 +89,7 @@ const ComputerScience = () => {
           <h2>دیپارتمنت ها</h2>
         </div>
 
-        <div className="view_point_tabHeader faculties_tabHeader">
+        <div className="departement_tabHeader faculties_tabHeader">
           <ul>
             <li
               className={showTab === 1 ? "active_tab" : ""}
@@ -90,17 +106,19 @@ const ComputerScience = () => {
           </ul>
         </div>
 
-        <div className="view_point_contents faculties_tabHeader_contents">
+        <div className=" faculties_tabHeader_contents">
           {/* نرم افزار */}
           <div
             className={
               showTab === 1
-                ? "faculties_tabHeader_content active_content box_shadow"
-                : "faculties_tabHeader_content"
+                ? "computer_science_tabHeader active_content box_shadow"
+                : "computer_science_tabHeader"
             }
           >
-            <div>{/* <h1>این یک متن تستی از انجینری نرم افزار است</h1> */}</div>
-            <div className="view_point_tabHeader faculties_tabHeader">
+            <div>
+              <p>معرفی، اهداف و مفردات درسی دیپارتمنت انجینری نرم افزار.</p>
+            </div>
+            <div className="departement_tabHeader faculties_tabHeader">
               <ul>
                 <li
                   className={showTabِDep === 1 ? "active_tab" : ""}
@@ -126,8 +144,8 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 1
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
+                  ? "computer_science_tabHeader active_content box_shadow"
+                  : "computer_science_tabHeader"
               }
             >
               <p>{cs_software_intro}</p>
@@ -136,8 +154,8 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 2
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
+                  ? "computer_science_tabHeader active_content box_shadow"
+                  : "computer_science_tabHeader"
               }
             >
               {cs_software_goals.map((item) => (
@@ -151,11 +169,11 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 3
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
+                  ? "computer_science_tabHeader active_content box_shadow"
+                  : "computer_science_tabHeader"
               }
             >
-              <div className="view_point_tabHeader faculties_tabHeader semester_refs">
+              <div className="semester_tabHeader">
                 {semester_tabHeader.map((item) => (
                   <ul>
                     <li
@@ -169,86 +187,221 @@ const ComputerScience = () => {
                   </ul>
                 ))}
               </div>
-            </div>
+              <div
+                className={
+                  showTabSemester === 1
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_software_references1.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
 
-            <div
-              className={
-                showTabSemester === 1
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
-              }
-            >
-              <p>semester 1</p>
-            </div>
+              <div
+                className={
+                  showTabSemester === 2
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_software_references2.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
 
-            <div
-              className={
-                showTabSemester === 2
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
-              }
-            >
-              <p>semester 2</p>
-            </div>
+              <div
+                className={
+                  showTabSemester === 3
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_software_references3.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
 
-            <div
-              className={
-                showTabSemester === 3
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
-              }
-            >
-              <p>semester 3</p>
-            </div>
+              <div
+                className={
+                  showTabSemester === 4
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_software_references4.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
 
-            <div
-              className={
-                showTabSemester === 4
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
-              }
-            >
-              <p>semester 4</p>
-            </div>
+              <div
+                className={
+                  showTabSemester === 5
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_software_references5.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
 
-            <div
-              className={
-                showTabSemester === 5
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
-              }
-            >
-              <p>semester 5</p>
-            </div>
+              <div
+                className={
+                  showTabSemester === 6
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_software_references6.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
 
-            <div
-              className={
-                showTabSemester === 6
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
-              }
-            >
-              <p>semester 6</p>
-            </div>
+              <div
+                className={
+                  showTabSemester === 7
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_software_references7.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
 
-            <div
-              className={
-                showTabSemester === 7
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
-              }
-            >
-              <p>semester 7</p>
-            </div>
-
-            <div
-              className={
-                showTabSemester === 8
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
-              }
-            >
-              <p>semester 8</p>
+              <div
+                className={
+                  showTabSemester === 8
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_software_references8.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -256,12 +409,14 @@ const ComputerScience = () => {
           <div
             className={
               showTab === 2
-                ? "faculties_tabHeader_content active_content box_shadow"
-                : "faculties_tabHeader_content"
+                ? "computer_science_tabHeader active_content box_shadow"
+                : "computer_science_tabHeader"
             }
           >
             <div>
-              <h1>این یک متن تستی از انجینری نرم افزار است</h1>
+              <p>
+                معرفی، اهداف و مفردات درسی دیپارتمنت سیستم های عامل و ارتباطات.
+              </p>
             </div>
             <div className="view_point_tabHeader faculties_tabHeader">
               <ul>
@@ -289,8 +444,8 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 1
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
+                  ? "computer_science_tabHeader active_content box_shadow"
+                  : "computer_science_tabHeader"
               }
             >
               <p>{cs_network_intro}</p>
@@ -298,8 +453,8 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 2
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
+                  ? "computer_science_tabHeader active_content box_shadow"
+                  : "computer_science_tabHeader"
               }
             >
               {cs_network_goals.map((item) => (
@@ -313,20 +468,240 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 3
-                  ? "faculties_tabHeader_content active_content box_shadow"
-                  : "faculties_tabHeader_content"
+                  ? "computer_science_tabHeader active_content box_shadow"
+                  : "computer_science_tabHeader"
               }
             >
-              {semester_tabHeader.map((item) => (
-                <ul>
-                  <li
-                    className={showTabِDep === item.counter ? "active_tab" : ""}
-                    onClick={() => handleTabsDep(item.counter)}
-                  >
-                    <span>{item.semester}</span>
-                  </li>
-                </ul>
-              ))}
+              <div className="semester_tabHeader">
+                {semester_tabHeader.map((item) => (
+                  <ul>
+                    <li
+                      className={
+                        showTabSemester === item.counter ? "active_tab" : ""
+                      }
+                      onClick={() => handleTabsSemester(item.counter)}
+                    >
+                      <span>{item.semester}</span>
+                    </li>
+                  </ul>
+                ))}
+              </div>
+
+              <div
+                className={
+                  showTabSemester === 1
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_network_references1.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className={
+                  showTabSemester === 2
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_network_references2.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className={
+                  showTabSemester === 3
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_network_references3.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className={
+                  showTabSemester === 4
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_network_references4.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className={
+                  showTabSemester === 5
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_network_references5.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className={
+                  showTabSemester === 6
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_network_references6.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className={
+                  showTabSemester === 7
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_network_references7.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className={
+                  showTabSemester === 8
+                    ? "computer_science_tabHeader active_content box_shadow"
+                    : "computer_science_tabHeader"
+                }
+              >
+                <div className="computer_science_ref_title">
+                  <ul>
+                    <li>ماژول</li>
+                    <li>تعداد کردیت</li>
+                  </ul>
+                </div>
+                <div className="computer_science_ref">
+                  {cs_network_references8.map((item) => (
+                    <ul>
+                      <li>
+                        <span>{item.moudle}</span>
+                      </li>
+                      <li>
+                        <span>{item.credit}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
