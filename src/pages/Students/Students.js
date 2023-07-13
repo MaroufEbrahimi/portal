@@ -6,6 +6,7 @@ import { useStateValue } from "../../context/StateProvider"
 import Student from "../../components/Student/Student"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
+import APIEndpoints from "../../constants/APIEndpoints"
 
 const Students = () => {
   useProtect(Roles.ADMIN)
@@ -20,6 +21,7 @@ const Students = () => {
   const [students, setstudents] = useState([])
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState('')
 
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/field-of-studies")
@@ -83,6 +85,32 @@ const Students = () => {
       })
   }
 
+  const handleSearchButton = () => {
+    let url = APIEndpoints.root + APIEndpoints.students.getAll + `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+    console.log("url: ", url)
+    if (searchKeyword) {
+      url += "&keyword=" + searchKeyword;
+    }
+    if (feildOfStudy) {
+      url += "&fieldOfStudy=" + feildOfStudy
+    }
+    if (semester) {
+      url += "&semester=" + semester
+    }
+    if (department) {
+      url += "&department=" + department
+    }
+    console.log(url)
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + authentication.token
+      }
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
+  }
+
 
   return (
     <div className="students_page fade_in">
@@ -96,7 +124,7 @@ const Students = () => {
         </button>
       </div>
 
-      <Search hiddenButton />
+
 
       {/* some button for filtering */}
       <div className="students_filter_btn">
@@ -127,7 +155,7 @@ const Students = () => {
               onChange={(e) => setfield(e)}
             >
               <option disabled selected>پوهنحی</option>
-              {fields.map(item => {
+              {fields?.map(item => {
                 return <option key={item.id}>{item.fieldName}</option>
               })}
             </select>
@@ -140,18 +168,24 @@ const Students = () => {
               onChange={(e) => setdepartment(e.target.value)}
             >
               <option disabled selected>دیپارتمنت</option>
-              {departments.map(item => {
+              {departments?.map(item => {
                 return <option key={item.id}>{item.departmentName}</option>
               })}
             </select>
           </div>
+
         </div>
+        <Search
+          value={searchKeyword}
+          onChange={(e) => setSearchKeyword(e.target.value)}
+          handleSearchButton={handleSearchButton}
+          placeHolder="جستجوی محصل..." />
       </div>
 
       {/* All Students Here */}
       <div className="all_students">
         {students?.map((student, index) => {
-          if (students.length === index + 1) {
+          if (students?.length === index + 1) {
             return <Student
               key={student.id}
               studentInfo={student}

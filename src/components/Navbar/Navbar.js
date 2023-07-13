@@ -21,7 +21,6 @@ const CustomeLinks = ({ to, children, ...props }) => {
 
 const Navbar = ({ activeNav, navActiveHandler }) => {
   const [{ authentication }, dispatch] = useStateValue()
-  console.log(authentication)
   const [activeFaculties, setActiveFaculties] = useState(false)
 
   const facultiesHandler = () => setActiveFaculties(!activeFaculties)

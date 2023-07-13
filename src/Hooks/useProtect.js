@@ -6,10 +6,7 @@ function useProtect(role) {
     const [{ authentication }, dispatch] = useStateValue()
     const navigate = useNavigate();
     useEffect(() => {
-        console.log("in hook", authentication.isAuthenticated)
-        console.log("in hook", role)
         if (!authentication.isAuthenticated) {
-            console.log("in ")
             navigate("/login")
             return;
         }

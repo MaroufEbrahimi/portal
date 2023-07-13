@@ -36,8 +36,7 @@
   --gen-bg-color: #000106;
   --gen-main-bg: #222;
   --text-color: #f5f5f5;
-  --icon-faculties-color: saturate(450%) contrast(410%) brightness(150%) invert(120%)
-    sepia(420%) hue-rotate(120deg);
+  --icon-faculties-color: saturate(450%) contrast(410%) brightness(150%) invert(120%) sepia(420%) hue-rotate(120deg);
 }
 
 /* End of Dark or Light Themes */
@@ -54,6 +53,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   direction: rtl;
+  text-align: right;
 }
 
 body {
@@ -110,6 +110,7 @@ img {
   color: var(--text-color);
   cursor: pointer;
   background: transparent;
+  text-align: center;
 }
 
 .btn:before {
@@ -197,6 +198,7 @@ img {
 }
 
 @media (max-width: 768px) {
+
   .bottom-to-top,
   .right-to-left,
   .left-to-right {

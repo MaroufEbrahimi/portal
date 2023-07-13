@@ -7,8 +7,11 @@ import { useStateValue } from "../../context/StateProvider"
 import ModalDelete from "../../components/UI/ModalDelete/ModalDelete"
 import { actionTypes } from "../../context/reducer"
 import { removeAllCookies } from "../../Utils/Cookie"
+import useProtect from "../../Hooks/useProtect"
+import Roles from "../../constants/Roles"
 
 const Profile = () => {
+  useProtect(Roles.ADMIN)
   const { id } = useParams()
   const [showTab, setShowTab] = useState(1)
   const [{ authentication }, dispatch] = useStateValue()

@@ -5,12 +5,13 @@ import { useStateValue } from "../../context/StateProvider"
 import Spinner from "../../components/UI/Loading/Spinner"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
+import { Link } from "react-router-dom"
 
 const PostManagement = () => {
   useProtect(Roles.ADMIN)
   const [{ authentication }, dispatch] = useStateValue()
   const [posts, setPosts] = useState([]);
-  const [semester, setsemester] = useState(1)
+  const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
   const [hasMore, setHasMore] = useState(true);
@@ -57,6 +58,7 @@ const PostManagement = () => {
       headers: { "Authorization": "Bearer " + authentication.token }
     })
       .then(res => {
+        console.log("posts,  r, ", res)
         if (res.ok) {
           return res.json();
         } else {
@@ -64,7 +66,7 @@ const PostManagement = () => {
         }
       })
       .then(data => {
-        console.log(data)
+        console.log("posts, ", data)
         if (data.totalPages - 1 > pagination.offset) {
           setHasMore(true)
         } else {
@@ -76,6 +78,7 @@ const PostManagement = () => {
   }, [pagination])
 
   const handleFilterButton = () => {
+    setPagination({ offset: 0, pageSize: 3 })
     setPosts([])
     // let currentEndpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
     console.log(authentication)
@@ -193,24 +196,29 @@ const PostManagement = () => {
         <div className="content_of_posts_details">
           {Array.from(new Set(posts)).map((item, index) => {
             if (posts.length === index + 1) {
-              return <Post
+              return (
+                <Link to={"edit/" + item.id}> <Post
+                  key={item.id}
+                  author={item.author}
+                  date={item.dateTime}
+                  images={item.images}
+                  docs={item.docs}
+                  text={item.message}
+                  customRef={lastNodeReference}
+                />
+                </Link>
+              )
+            }
+            return (<Link to={"edit/" + item.id}>
+              <Post
                 key={item.id}
                 author={item.author}
                 date={item.dateTime}
                 images={item.images}
                 docs={item.docs}
                 text={item.message}
-                customRef={lastNodeReference}
               />
-            }
-            return <Post
-              key={item.id}
-              author={item.author}
-              date={item.dateTime}
-              images={item.images}
-              docs={item.docs}
-              text={item.message}
-            />
+            </Link>)
           })}
           <section style={{ position: "relative", height: "60px" }}>
             {hasMore && <Spinner />}
@@ -218,7 +226,7 @@ const PostManagement = () => {
           </section>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

@@ -14,6 +14,7 @@ import Wrapper from "./components/HOC/Wrapper"
 import Header from "./components/Header/Header"
 import BackToTop from "./components/UI/BackToTop/BackToTop"
 import About from "./pages/About/About"
+import UpdatePost from "./components/UpdatePost/UpdatePost"
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
@@ -44,15 +45,14 @@ const App = () => {
     localStorage.getItem("isDark") == null
       ? false
       : localStorage.getItem("isDark") == "true"
-      ? true
-      : false
+        ? true
+        : false
   )
   const [activeNav, setActiveNav] = useState(false)
   // handle tab header
   const navActiveHandler = () => setActiveNav(!activeNav)
+
   const darkModeHandler = () => {
-    console.log(isDark)
-    localStorage.setItem("isDark", !isDark)
     setIsDark(!isDark)
   }
 
@@ -107,6 +107,10 @@ const App = () => {
         {
           path: "/posts",
           element: <Posts />,
+        },
+        {
+          path: "/admin/postmanagement/edit/:id",
+          element: <UpdatePost />,
         },
         {
           path: "/students",
