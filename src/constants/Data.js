@@ -193,6 +193,41 @@ export const StuFilterButtons = [
 // #______ End of Students Filtering Buttons ______#
 
 // #______ Faculties ______#
+// General
+export const semester_tabHeader = [
+  {
+    semester: "سمستر اول",
+    counter: 1,
+  },
+  {
+    semester: "سمستر دوم",
+    counter: 2,
+  },
+  {
+    semester: "سمستر سوم",
+    counter: 3,
+  },
+  {
+    semester: "سمستر چهارم",
+    counter: 4,
+  },
+  {
+    semester: "سمستر پنجم",
+    counter: 5,
+  },
+  {
+    semester: "سمستر ششم",
+    counter: 6,
+  },
+  {
+    semester: "سمستر هفتم",
+    counter: 7,
+  },
+  {
+    semester: "سمستر هشتم",
+    counter: 8,
+  },
+]
 // Computer Science
 export const goalsOf_CS = [
   "تمرکز و استفاده بیشتر از ظرفیت‌های مدیریت الکترونیک و کاهش پروسه‌های پیچیده اداری و بروکراسی",
@@ -227,40 +262,6 @@ export const cs_software_goals = [
   "ارتباط مؤثر و سازنده میان پوهنحی، دیپارتمنت، محصلین دیپارتمنت و بازار و نیازمندی‌های آن؛",
   "آماده کردن آثار تحقیقی به شکل گروهی از استادان و محصلان برای برای رفع نیاز مندی‌های علمی و فرهنگی جامعه ؛",
   "کامپیوتری ساختن نیازهای مؤسسه تحصیلات هریوا مانند: کتابخانه، مالی و غیره.",
-]
-export const cs_software_references_tabHeader = [
-  {
-    semester: "سمستر اول",
-    counter: 1,
-  },
-  {
-    semester: "سمستر دوم",
-    counter: 2,
-  },
-  {
-    semester: "سمستر سوم",
-    counter: 3,
-  },
-  {
-    semester: "سمستر چهارم",
-    counter: 4,
-  },
-  {
-    semester: "سمستر پنجم",
-    counter: 5,
-  },
-  {
-    semester: "سمستر ششم",
-    counter: 6,
-  },
-  {
-    semester: "سمستر هفتم",
-    counter: 7,
-  },
-  {
-    semester: "سمستر هشتم",
-    counter: 8,
-  },
 ]
 export const cs_software_references1 = [
   {
@@ -459,40 +460,6 @@ export const cs_network_goals = [
   "بررسی ضعف‌های شبکه؛",
   "بالا بردن امنیت شبکه‌ها؛",
   "ساختن پالیسی امنیتی برای شبکه.",
-]
-export const cs_network_references_tabHeader = [
-  {
-    semester: "سمستر اول",
-    counter: 1,
-  },
-  {
-    semester: "سمستر دوم",
-    counter: 2,
-  },
-  {
-    semester: "سمستر سوم",
-    counter: 3,
-  },
-  {
-    semester: "سمستر چهارم",
-    counter: 4,
-  },
-  {
-    semester: "سمستر پنجم",
-    counter: 5,
-  },
-  {
-    semester: "سمستر ششم",
-    counter: 6,
-  },
-  {
-    semester: "سمستر هفتم",
-    counter: 7,
-  },
-  {
-    semester: "سمستر هشتم",
-    counter: 8,
-  },
 ]
 export const cs_network_references1 = [
   {
@@ -706,39 +673,39 @@ export const low_reference1 = [
     credit: 2,
   },
   {
-    module: "سازمان های بین المللی 1",
+    moudle: "سازمان های بین المللی 1",
     credit: 2,
   },
   {
-    module: "تاریخ روابط بین الملل 1",
+    moudle: "تاریخ روابط بین الملل 1",
     credit: 2,
   },
   {
-    module: "مبانی جامع شناسی",
+    moudle: "مبانی جامع شناسی",
     credit: 2,
   },
   {
-    module: "مبادی حقوق",
+    moudle: "مبادی حقوق",
     credit: 2,
   },
   {
-    module: "مبادی اقتصاد",
+    moudle: "مبادی اقتصاد",
     credit: 2,
   },
   {
-    module: "ثقافت اسلامی 1",
+    moudle: "ثقافت اسلامی 1",
     credit: 1,
   },
   {
-    module: "انگلیسی",
+    moudle: "انگلیسی",
     credit: 2,
   },
   {
-    module: "محیط زیست",
+    moudle: "محیط زیست",
     credit: 2,
   },
   {
-    module: "تاریخ معاصر افغانستان ",
+    moudle: "تاریخ معاصر افغانستان ",
     credit: 2,
   },
 ]
@@ -748,39 +715,39 @@ export const low_reference2 = [
     credit: 2,
   },
   {
-    module: "سازمان های بین المللی (منظقوی) 2",
+    moudle: "سازمان های بین المللی (منظقوی) 2",
     credit: 2,
   },
   {
-    module: "تاریخ روابط بین المللی 2",
+    moudle: "تاریخ روابط بین المللی 2",
     credit: 2,
   },
   {
-    module: "تاریخ اندیشه های سیاسی غرب 1",
+    moudle: "تاریخ اندیشه های سیاسی غرب 1",
     credit: 2,
   },
   {
-    module: "ترمینولوژی سیاسی",
+    moudle: "ترمینولوژی سیاسی",
     credit: 2,
   },
   {
-    module: "اصول و مبانی دیموکراسی",
+    moudle: "اصول و مبانی دیموکراسی",
     credit: 2,
   },
   {
-    module: "اداره و مدیریت",
+    moudle: "اداره و مدیریت",
     credit: 2,
   },
   {
-    module: "حقوق اساسی عمومی",
+    moudle: "حقوق اساسی عمومی",
     credit: 2,
   },
   {
-    module: "ثقافت اسلامی 2",
+    moudle: "ثقافت اسلامی 2",
     credit: 1,
   },
   {
-    module: "انگلیسی",
+    moudle: "انگلیسی",
     credit: 2,
   },
 ]
@@ -790,43 +757,43 @@ export const low_reference3 = [
     credit: 3,
   },
   {
-    module: "روش تحقیق",
+    moudle: "روش تحقیق",
     credit: 2,
   },
   {
-    module: "انگلیسی تخصصی",
+    moudle: "انگلیسی تخصصی",
     credit: 2,
   },
   {
-    module: "حقوق اساسی افغانستان",
+    moudle: "حقوق اساسی افغانستان",
     credit: 2,
   },
   {
-    module: "اندیشه های سیاسی در اسلام",
+    moudle: "اندیشه های سیاسی در اسلام",
     credit: 2,
   },
   {
-    module: "سیاست و حکومت در جنوب آسیا",
+    moudle: "سیاست و حکومت در جنوب آسیا",
     credit: 2,
   },
   {
-    module: "تاریخ روابط خارجی افغانستان",
+    moudle: "تاریخ روابط خارجی افغانستان",
     credit: 2,
   },
   {
-    module: "جنبش ها و جریان های سیاسی اسلامی",
+    moudle: "جنبش ها و جریان های سیاسی اسلامی",
     credit: 2,
   },
   {
-    module: "ثقافت اسلامی 3",
+    moudle: "ثقافت اسلامی 3",
     credit: 1,
   },
   {
-    module: "کمپیوتر",
+    moudle: "کمپیوتر",
     credit: 1,
   },
   {
-    module: "مضمون اختیاری",
+    moudle: "مضمون اختیاری",
     credit: 1,
   },
 ]
@@ -836,39 +803,39 @@ export const low_reference4 = [
     credit: 2,
   },
   {
-    module: "اصول روابط بین الملل 1",
+    moudle: "اصول روابط بین الملل 1",
     credit: 2,
   },
   {
-    module: "اندیشه سیاسی قرن بیست ",
+    moudle: "اندیشه سیاسی قرن بیست ",
     credit: 2,
   },
   {
-    module: "جغرافیای سیاسی",
+    moudle: "جغرافیای سیاسی",
     credit: 2,
   },
   {
-    module: "نوسازی و توسعه سیاسی",
+    moudle: "نوسازی و توسعه سیاسی",
     credit: 2,
   },
   {
-    module: "انگلیسی تخصصی",
+    moudle: "انگلیسی تخصصی",
     credit: 2,
   },
   {
-    module: "سیاست و حکومت در آسیای مرکزی",
+    moudle: "سیاست و حکومت در آسیای مرکزی",
     credit: 2,
   },
   {
-    module: "اصول رهبری",
+    moudle: "اصول رهبری",
     credit: 2,
   },
   {
-    module: "نظام های انتخاباتی",
+    moudle: "نظام های انتخاباتی",
     credit: 2,
   },
   {
-    module: "ثقافت اسلامی 4",
+    moudle: "ثقافت اسلامی 4",
     credit: 1,
   },
 ]
@@ -878,39 +845,39 @@ export const low_reference5 = [
     credit: 2,
   },
   {
-    module: "حقوق بین الملل عمومی (۱)",
+    moudle: "حقوق بین الملل عمومی (۱)",
     credit: 2,
   },
   {
-    module: "جامعه شناسی سیاسی (۱)",
+    moudle: "جامعه شناسی سیاسی (۱)",
     credit: 2,
   },
   {
-    module: "مسایل سیاسی-اقتصادی کشور های کم توسعه",
+    moudle: "مسایل سیاسی-اقتصادی کشور های کم توسعه",
     credit: 2,
   },
   {
-    module: "حقوق اساسی مقایسوی",
+    moudle: "حقوق اساسی مقایسوی",
     credit: 2,
   },
   {
-    module: "صلح و حل منازغات",
+    moudle: "صلح و حل منازغات",
     credit: 2,
   },
   {
-    module: "مبانی دیپلوماسی",
+    moudle: "مبانی دیپلوماسی",
     credit: 2,
   },
   {
-    module: "جهانی شدن",
+    moudle: "جهانی شدن",
     credit: 2,
   },
   {
-    module: "ثقافت اسلامی (5)",
+    moudle: "ثقافت اسلامی (5)",
     credit: 2,
   },
   {
-    module: "مضمون اختیاری",
+    moudle: "مضمون اختیاری",
     credit: 1,
   },
 ]
@@ -920,39 +887,39 @@ export const low_reference6 = [
     credit: 2,
   },
   {
-    module: "جامعه شناسی سیاسی (2)",
+    moudle: "جامعه شناسی سیاسی (2)",
     credit: 2,
   },
   {
-    module: "حقوق اداری ",
+    moudle: "حقوق اداری ",
     credit: 2,
   },
   {
-    module: "مبانی تحلیلی سیاست خارجی",
+    moudle: "مبانی تحلیلی سیاست خارجی",
     credit: 2,
   },
   {
-    module: "حقوق دیپلوماتیک و قنسلی",
+    moudle: "حقوق دیپلوماتیک و قنسلی",
     credit: 2,
   },
   {
-    module: "آداب و تشریفات دیپلوماتیک ",
+    moudle: "آداب و تشریفات دیپلوماتیک ",
     credit: 2,
   },
   {
-    module: "سیاست و حکومت در ایالات متحده آمریکا",
+    moudle: "سیاست و حکومت در ایالات متحده آمریکا",
     credit: 2,
   },
   {
-    module: "نظام سیاسی افغانستان ",
+    moudle: "نظام سیاسی افغانستان ",
     credit: 2,
   },
   {
-    module: "ثقافت اسلامی(6)",
+    moudle: "ثقافت اسلامی(6)",
     credit: 2,
   },
   {
-    module: "مضمون اختیاری",
+    moudle: "مضمون اختیاری",
     credit: 1,
   },
 ]
@@ -962,39 +929,39 @@ export const low_reference7 = [
     credit: 2,
   },
   {
-    module: "سیاست خارجی قدرتهای بزرگ (1)",
+    moudle: "سیاست خارجی قدرتهای بزرگ (1)",
     credit: 2,
   },
   {
-    module: "امنیت بین الملل",
+    moudle: "امنیت بین الملل",
     credit: 2,
   },
   {
-    module: "تجارت بین الملل",
+    moudle: "تجارت بین الملل",
     credit: 2,
   },
   {
-    module: "حقوق بشر",
+    moudle: "حقوق بشر",
     credit: 2,
   },
   {
-    module: "سیاست مقایسوی",
+    moudle: "سیاست مقایسوی",
     credit: 2,
   },
   {
-    module: "ثقافت اسلامی(7)",
+    moudle: "ثقافت اسلامی(7)",
     credit: 2,
   },
   {
-    module: "برنامه عملی(شبیه سازی)",
+    moudle: "برنامه عملی(شبیه سازی)",
     credit: 2,
   },
   {
-    module: "پایان نامه",
+    moudle: "پایان نامه",
     credit: 2,
   },
   {
-    module: "مضمون اختیاری",
+    moudle: "مضمون اختیاری",
     credit: 1,
   },
 ]
@@ -1004,31 +971,31 @@ export const low_reference8 = [
     credit: 2,
   },
   {
-    module: "سیاست خارجی قدرت های بزرگ (2)",
+    moudle: "سیاست خارجی قدرت های بزرگ (2)",
     credit: 2,
   },
   {
-    module: "اقتصاد سیاسی بین المللی",
+    moudle: "اقتصاد سیاسی بین المللی",
     credit: 2,
   },
   {
-    module: "روانشناسی سیاسی",
+    moudle: "روانشناسی سیاسی",
     credit: 2,
   },
   {
-    module: "مسائل سیاسی جهان",
+    moudle: "مسائل سیاسی جهان",
     credit: 2,
   },
   {
-    module: "پایان نامه",
+    moudle: "پایان نامه",
     credit: 4,
   },
   {
-    module: "کارآموزی",
+    moudle: "کارآموزی",
     credit: 2,
   },
   {
-    module: "ثقافت اسلامی (8)",
+    moudle: "ثقافت اسلامی (8)",
     credit: 1,
   },
 ]
