@@ -81,7 +81,7 @@
 .copyright {
   border-top: 1px solid var(--gen-bg-color);
   margin: 2rem 0 1rem 0;
-  padding-top: 1rem;
+  padding: 1rem 0;
   text-align: center;
 }
 .copyright .credits p {

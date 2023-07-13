@@ -21,6 +21,7 @@ import OrganizationChart from "../../../components/FacultiesSections/Organizatio
 
 import deanImg from "../../../assets/img/deans/عبدالمتین-منیب-768x960.jpeg"
 import chartImg from "../../../assets/img/organization_charts/چارت-تشکیلاتی-پوهنحی-حقوق-1024x853.jpg"
+import Footer from "../../../components/Footer/Footer"
 
 const Low = () => {
   const [showTabDep, setShowTabDep] = useState(1)
@@ -564,6 +565,9 @@ const Low = () => {
 
       {/* origanization charts */}
       <OrganizationChart chartImg={chartImg} />
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

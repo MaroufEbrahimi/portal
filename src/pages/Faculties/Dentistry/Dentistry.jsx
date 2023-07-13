@@ -23,6 +23,7 @@ import OrganizationChart from "../../../components/FacultiesSections/Organizatio
 
 import deanImg from "../../../assets/img/deans/Ali-Reza-Shojayee.jpeg"
 import chartImg from "../../../assets/img/organization_charts/چارت-تشکیلاتی-پوهنحی-ستوماتالوژی-1024x853.jpg"
+import Footer from "../../../components/Footer/Footer"
 
 const Dentistry = () => {
   const [showTabSemester, setShowTabSemester] = useState(1)
@@ -351,6 +352,9 @@ const Dentistry = () => {
 
       {/* origanization charts */}
       <OrganizationChart chartImg={chartImg} />
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

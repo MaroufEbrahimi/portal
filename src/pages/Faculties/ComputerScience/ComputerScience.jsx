@@ -17,6 +17,7 @@ import {
 
 import deanImg from "../../../assets/img/deans/Omid-Khairandish.jpeg"
 import chartImg from "../../../assets/img/organization_charts/Organizational-Structure-CS.jpg"
+import Footer from "../../../components/Footer/Footer"
 
 const ComputerScience = () => {
   const [showTab, setShowTab] = useState(1)
@@ -346,6 +347,9 @@ const ComputerScience = () => {
       <Goals goals={goalsOf_CS} values={valuesOf_CS} />
       {/* origanization charts */}
       <OrganizationChart chartImg={chartImg} />
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }
