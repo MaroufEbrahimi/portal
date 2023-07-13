@@ -1,0 +1,33 @@
+.faculties_tabHeader_content ul {
+  padding: 10px 1.5rem;
+  list-style-type: disc;
+  list-style-type: square;
+}
+
+.semester_refs {
+  display: flex;
+}
+.semester_refs ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.semester_refs ul li span {
+  font-size: 15px;
+  line-height: 1em;
+  color: var(--text-color);
+}
+.faculties_tabHeader_contents .faculties_tabHeader_content {
+  display: none;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--gen-color);
+  border-radius: 3px;
+}
+.faculties_tabHeader_contents .faculties_tabHeader_content p {
+  text-align: justify;
+  line-height: 2.5em;
+}
+.faculties_tabHeader_contents .active_content {
+  display: block;
+}
