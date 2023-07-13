@@ -9,16 +9,16 @@ import Roles from "../../constants/Roles"
 import APIEndpoints from "../../constants/APIEndpoints"
 
 const Students = () => {
-  useProtect(Roles.ADMIN)
+  useProtect({ roles: [Roles.ADMIN] })
   const [{ authentication }, dispatch] = useStateValue()
-  const [semester, setsemester] = useState(1)
+  const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
   const [hasMore, setHasMore] = useState(true);
   const lastNode = useRef();
-  const [pagination, setPagination] = useState({ offset: 0, pageSize: 3 })
+  const [pagination, setPagination] = useState({ offset: 0, pageSize: 5 })
   const [loading, setLoading] = useState(true);
-  const [students, setstudents] = useState([])
+  const [students, setStudents] = useState([])
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState('')
@@ -48,7 +48,7 @@ const Students = () => {
         }
       })
       .then(data => {
-        setstudents(data.content)
+        setStudents(data.content)
         console.log(data)
       })
 
@@ -108,7 +108,10 @@ const Students = () => {
       }
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        setStudents(data.content)
+      })
   }
 
 

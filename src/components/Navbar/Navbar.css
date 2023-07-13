@@ -18,6 +18,7 @@
 
 .menu_container {
   position: relative;
+  margin-bottom: 10px;
 }
 
 /* toggle_header_navbar */

@@ -26,7 +26,6 @@ const Profile = () => {
     setShowModal(false)
   }
 
-  console.log(authentication)
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/students/" + id, {
       method: "GET",
@@ -55,8 +54,6 @@ const Profile = () => {
       payload: {}
     })
     navigate("/")
-    console.log(authentication)
-
   }
 
   return (
