@@ -1,0 +1,63 @@
+.faculties_tabHeader_content ul {
+  padding: 10px 1.5rem;
+  list-style-type: disc;
+  list-style-type: square;
+}
+
+.semester_refs {
+  display: flex;
+}
+.semester_refs ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.semester_refs ul li {
+  padding: 0;
+  margin: 0;
+}
+.semester_refs ul li span {
+  font-size: 15px;
+  line-height: 1em;
+  color: var(--text-color);
+}
+
+.dentistry_tabHeader {
+  display: none;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--gen-color);
+  border-radius: 3px;
+}
+.dentistry_tabHeader.active_content {
+  display: block;
+}
+.dentistry_ref_title ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.dentistry_ref_title ul li {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: bold;
+}
+.dentistry_ref {
+  margin: 1rem 0;
+}
+.dentistry_ref ul {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid var(--gen-color);
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  padding: 8px 0;
+}
+.dentistry_ref ul li {
+  margin-top: 10px;
+}
+.dentistry_ref ul li span {
+  color: var(--text-color);
+  font-size: 16px;
+}
