@@ -8,7 +8,7 @@ import Roles from "../../constants/Roles"
 import { Link } from "react-router-dom"
 
 const PostManagement = () => {
-  useProtect(Roles.ADMIN)
+  useProtect({ roles: [Roles.ADMIN] })
   const [{ authentication }, dispatch] = useStateValue()
   const [posts, setPosts] = useState([]);
   const [semester, setsemester] = useState()

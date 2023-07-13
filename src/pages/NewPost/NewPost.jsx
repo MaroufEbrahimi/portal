@@ -9,7 +9,7 @@ import Roles from "../../constants/Roles"
 
 const NewPost = () => {
   // this is for security purpose
-  useProtect(Roles.ADMIN)
+  useProtect({ roles: [Roles.ADMIN] })
   const navigate = useNavigate();
   const [{ authentication }, dispatch] = useStateValue()
   const [description, setDescription] = useState("")

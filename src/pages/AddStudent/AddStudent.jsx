@@ -14,7 +14,7 @@ import Roles from "../../constants/Roles"
 const components = [PersonalInformation, StudentHabitation, StudentRelatives, Complete]
 let counter = 0;
 const AddStudent = () => {
-  useProtect(Roles.ADMIN);
+  useProtect({ roles: [Roles.ADMIN] })
   const navigate = useNavigate()
   const steps = ["معلومات شخصی", "تذکره و سکونت محصل", "اقارب محصل", "بخش آخر"]
   const [globalState, dispatch] = useStateValue()
