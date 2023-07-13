@@ -11,8 +11,8 @@ import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
 
 const Profile = () => {
-  useProtect(Roles.ADMIN)
   const { id } = useParams()
+  useProtect({ roles: [Roles.ADMIN, Roles.STUDENT], id: id })
   const [showTab, setShowTab] = useState(1)
   const [{ authentication }, dispatch] = useStateValue()
   const [student, setstudent] = useState({})

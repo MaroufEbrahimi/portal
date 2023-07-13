@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
+import Roles from "../constants/Roles";
 
-function useProtect(role) {
+function useProtect({ roles, id }) {
     const [{ authentication }, dispatch] = useStateValue()
     const navigate = useNavigate();
     useEffect(() => {
@@ -10,10 +11,15 @@ function useProtect(role) {
             navigate("/login")
             return;
         }
-        if (authentication.isAuthenticated && !authentication.roles.includes(role)) {
+        if (authentication.isAuthenticated && !authentication.roles.some(item => roles.includes(item))) {
             navigate("/")
             return
         }
+        if (authentication.roles.includes(Roles.STUDENT) && id && id != authentication?.userId) {
+            navigate("/")
+            return
+        }
+
     }, [])
 }
 
