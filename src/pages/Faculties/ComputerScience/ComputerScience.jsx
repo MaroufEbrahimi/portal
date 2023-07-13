@@ -5,14 +5,15 @@ import IntroOfDeanOfFaculty from "../../../components/FacultiesSections/IntroOfD
 import ViewPoint from "../../../components/FacultiesSections/ViewPoint"
 import Goals from "../../../components/FacultiesSections/Goals"
 import OrganizationChart from "../../../components/FacultiesSections/OrganizationChart"
-import { goalsOf_CS } from "../../../constants/Data"
-import { valuesOf_CS } from "../../../constants/Data"
-import { cs_software_intro } from "../../../constants/Data"
-import { cs_software_goals } from "../../../constants/Data"
-import { cs_network_intro } from "../../../constants/Data"
-import { cs_network_goals } from "../../../constants/Data"
-import { cs_software_references_tabHeader } from "../../../constants/Data"
-import { cs_network_references_tabHeader } from "../../../constants/Data"
+import {
+  goalsOf_CS,
+  semester_tabHeader,
+  valuesOf_CS,
+  cs_software_intro,
+  cs_software_goals,
+  cs_network_intro,
+  cs_network_goals,
+} from "../../../constants/Data"
 
 import deanImg from "../../../assets/img/deans/Omid-Khairandish.jpeg"
 import chartImg from "../../../assets/img/organization_charts/Organizational-Structure-CS.jpg"
@@ -97,9 +98,7 @@ const ComputerScience = () => {
                 : "faculties_tabHeader_content"
             }
           >
-            <div>
-              {/* <h1>این یک متن تستی از انجینری نرم افزار است</h1> */}
-            </div>
+            <div>{/* <h1>این یک متن تستی از انجینری نرم افزار است</h1> */}</div>
             <div className="view_point_tabHeader faculties_tabHeader">
               <ul>
                 <li
@@ -156,7 +155,7 @@ const ComputerScience = () => {
               }
             >
               <div className="view_point_tabHeader faculties_tabHeader semester_refs">
-                {cs_software_references_tabHeader.map((item) => (
+                {semester_tabHeader.map((item) => (
                   <ul>
                     <li
                       className={
@@ -317,7 +316,7 @@ const ComputerScience = () => {
                   : "faculties_tabHeader_content"
               }
             >
-              {cs_network_references_tabHeader.map((item) => (
+              {semester_tabHeader.map((item) => (
                 <ul>
                   <li
                     className={showTabِDep === item.counter ? "active_tab" : ""}
