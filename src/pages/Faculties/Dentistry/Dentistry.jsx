@@ -1,17 +1,35 @@
-import React from "react"
+import React, { useState } from "react"
 import "./Dentistry.css"
 import IntroductionOfFaculty from "../../../components/FacultiesSections/IntroductionOfFaculty"
 import IntroOfDeanOfFaculty from "../../../components/FacultiesSections/IntroOfDeanOfFaculty"
 import Goals from "../../../components/FacultiesSections/Goals"
-import { goalsOf_Dentistry } from "../../../constants/Data"
-import { valuesOf_Dentistry } from "../../../constants/Data"
+import {
+  valuesOf_Dentistry,
+  dentistry_references_tabHeader,
+  goalsOf_Dentistry,
+  dentistry_reference1,
+  dentistry_reference2,
+  dentistry_reference3,
+  dentistry_reference4,
+  dentistry_reference5,
+  dentistry_reference6,
+  dentistry_reference7,
+  dentistry_reference8,
+  dentistry_reference9,
+  dentistry_reference10,
+} from "../../../constants/Data"
 import ViewPoint from "../../../components/FacultiesSections/ViewPoint"
 import OrganizationChart from "../../../components/FacultiesSections/OrganizationChart"
 
 import deanImg from "../../../assets/img/deans/Ali-Reza-Shojayee.jpeg"
 import chartImg from "../../../assets/img/organization_charts/چارت-تشکیلاتی-پوهنحی-ستوماتالوژی-1024x853.jpg"
+import Footer from "../../../components/Footer/Footer"
 
 const Dentistry = () => {
+  const [showTabSemester, setShowTabSemester] = useState(1)
+
+  const handleTabsSemester = (index) => setShowTabSemester(index)
+
   return (
     <div className="dentistry">
       {/* introduction of faculty */}
@@ -33,6 +51,296 @@ const Dentistry = () => {
         deanTxt2="من افتخار دارم که منحیث رئیس دانشکده ستوماتولوژی این موسسه در خدمت جامعه علمی و اکادمیک خویش قراردارم وصادقانه تعهد می سپارم که با استفاده ازامکانات وتسهیلات موجود، وهمچنان با فراهم آوری سایر نیازمندی های مورد ضرورت در زمینه فراگیری دانش بیشتروکسب مهارت های مفید ومدرن چی به شکل تیوری وچی به شکل عملی آن برای محصلان باعزت این دانشکده مهیا سازم تا بتوانیم به توکل خداوند جبار(ج) درآینده دکتوران ورزیده وکاردان را تقدیم جامعه نماییم. ومن الله توفیق"
       />
 
+      {/* این بخش شامل تمامی دیپارتمنت های پوهنحی مربوطه می شود */}
+      <div className="departements">
+        <div className="faculties_sections_title">
+          <h2>مفردات درسی</h2>
+        </div>
+
+        <div className="dentistry_tabHeaders">
+          {dentistry_references_tabHeader.map((item) => (
+            <ul>
+              <li
+                className={showTabSemester === item.counter ? "active_tab" : ""}
+                onClick={() => handleTabsSemester(item.counter)}
+              >
+                <span>{item.semester}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 1
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference1.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 2
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference2.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 3
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference3.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 4
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference4.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 5
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference5.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 6
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference6.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 7
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference7.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 8
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference8.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 9
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference9.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      <div
+        className={
+          showTabSemester === 10
+            ? "dentistry_tabHeader active_content box_shadow"
+            : "dentistry_tabHeader"
+        }
+      >
+        <div className="dentistry_ref_title">
+          <ul>
+            <li>ماژول</li>
+            <li>تعداد کردیت</li>
+          </ul>
+        </div>
+        <div className="dentistry_ref">
+          {dentistry_reference10.map((item) => (
+            <ul>
+              <li>
+                <span>{item.moudle}</span>
+              </li>
+              <li>
+                <span>{item.credit}</span>
+              </li>
+            </ul>
+          ))}
+        </div>
+      </div>
+
       {/* View Point */}
       <ViewPoint
         viewPoint="پوهنحی طب دندان موسسه تحصیلات عالی هریوا تلاش دارد تا در قسمت آموزش وپرورش کادر علمی و تحقیقات علمی یک پوهنحی مفید وتوانمند دربخش طبابت وسلامت دهان ودندان برای جامعه بوده و با بکار گیری تکنولوژی های پیشرفته معاصر به یک پوهنحی موفق در سطح کشور تبدیل گردد و در رسیدن به اهداف موسسه تحصیلات عالی هریوا که همانا کسب نمودن جایگاه یک پوهنتون معتبر، باکیفیت و معیاری در سطح کشور و منطقه است، یک سهم فعال داشته باشد."
@@ -44,6 +352,9 @@ const Dentistry = () => {
 
       {/* origanization charts */}
       <OrganizationChart chartImg={chartImg} />
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

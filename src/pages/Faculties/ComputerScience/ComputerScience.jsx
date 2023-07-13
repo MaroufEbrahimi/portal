@@ -1,18 +1,33 @@
-import React from "react"
+import React, { useState } from "react"
 import "./ComputerScience.css"
 import IntroductionOfFaculty from "../../../components/FacultiesSections/IntroductionOfFaculty"
 import IntroOfDeanOfFaculty from "../../../components/FacultiesSections/IntroOfDeanOfFaculty"
-import Departements from "../../../components/FacultiesSections/Departements"
 import ViewPoint from "../../../components/FacultiesSections/ViewPoint"
 import Goals from "../../../components/FacultiesSections/Goals"
 import OrganizationChart from "../../../components/FacultiesSections/OrganizationChart"
-import { goalsOf_CS } from "../../../constants/Data"
-import { valuesOf_CS } from "../../../constants/Data"
+import {
+  goalsOf_CS,
+  semester_tabHeader,
+  valuesOf_CS,
+  cs_software_intro,
+  cs_software_goals,
+  cs_network_intro,
+  cs_network_goals,
+} from "../../../constants/Data"
 
 import deanImg from "../../../assets/img/deans/Omid-Khairandish.jpeg"
 import chartImg from "../../../assets/img/organization_charts/Organizational-Structure-CS.jpg"
+import Footer from "../../../components/Footer/Footer"
 
 const ComputerScience = () => {
+  const [showTab, setShowTab] = useState(1)
+  const [showTabِDep, setShowTabDep] = useState(1)
+  const [showTabSemester, setShowTabSemester] = useState(1)
+
+  const handleTabs = (index) => setShowTab(index)
+  const handleTabsDep = (index) => setShowTabDep(index)
+  const handleTabsSemester = (index) => setShowTabSemester(index)
+
   return (
     <div className="computerScience">
       {/* introduction of faculty */}
@@ -20,7 +35,6 @@ const ComputerScience = () => {
         facultyText1="پوهنحی کمپیوترساینس مؤسسه تحصیلات عالی هریوا در سال 1393 هجری شمسی به هدف تربیه کدر ها و اشخاص متخصص و مسلکی و ارائه آموزش های کمپیوتری معیاری و با کیفیت مطابق نیاز جامعه در بخش تولید نرم افزارهای کامپیوتر، مدیریت و امنیت شبکه های کامپیوتری، مدیریت سیستمهای معلوماتی و دیتابیس تأسیس گردیده است. در پوهنحی کمپیوترساینس تدریس تمام دروس عملی و نظری با استفاده از تکنالوژی عصری ارائه میگردد و نصاب درسی این پوهنحَی مطابق با نصاب تعیین شده وزارت تحصیلات عالی کشور می باشد."
         facultyText2="در رأس پوهنحی کمپیوتر ساینس رئیس آن پوهنحی قرار دارد که به ریاست مؤسسه گزارش ده می باشد. تحت ریاست پوهنحی کمپیوترساینس بخش های مدیریت تدریس، مدیریت اجرائی، آمریت دیپارتمنت انجینری نرم افزار و آمریت دیپارتمنت دیتابیس قرار دارد. در حال حاضر پوهنحی کمپیوتر ساینس مؤسسه تحصیلات عالی هریوا 16 تن استاد دارد که از جمله یک تن آنها دوکتورا، 8 تن آنها ماستر و 7 تن آنها لیسانس می باشند. تعداد محصلین پوهنحی کمپیوترساینس مؤسسه در حال حاضر (1397 ه. ش) به 150 محصل میرسد."
       />
-
       {/* introduction of the Dean of the faculty */}
       <IntroOfDeanOfFaculty
         deanImg={deanImg}
@@ -53,8 +67,270 @@ const ComputerScience = () => {
           نظر به نیاز بازار کار افزایش دهند."
       />
 
-      {/* departements */}
-      <Departements />
+      {/* این بخش شامل تمامی دیپارتمنت های پوهنحی مربوطه می شود */}
+      <div className="departements">
+        <div className="faculties_sections_title">
+          <h2>دیپارتمنت ها</h2>
+        </div>
+
+        <div className="view_point_tabHeader faculties_tabHeader">
+          <ul>
+            <li
+              className={showTab === 1 ? "active_tab" : ""}
+              onClick={() => handleTabs(1)}
+            >
+              <span>انجینری نرم افزار</span>
+            </li>
+            <li
+              className={showTab === 2 ? "active_tab" : ""}
+              onClick={() => handleTabs(2)}
+            >
+              <span>سیستم‌های عامل و ارتباطات</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="view_point_contents faculties_tabHeader_contents">
+          {/* نرم افزار */}
+          <div
+            className={
+              showTab === 1
+                ? "faculties_tabHeader_content active_content box_shadow"
+                : "faculties_tabHeader_content"
+            }
+          >
+            <div>{/* <h1>این یک متن تستی از انجینری نرم افزار است</h1> */}</div>
+            <div className="view_point_tabHeader faculties_tabHeader">
+              <ul>
+                <li
+                  className={showTabِDep === 1 ? "active_tab" : ""}
+                  onClick={() => handleTabsDep(1)}
+                >
+                  <span>معرفی</span>
+                </li>
+                <li
+                  className={showTabِDep === 2 ? "active_tab" : ""}
+                  onClick={() => handleTabsDep(2)}
+                >
+                  <span>اهداف</span>
+                </li>
+                <li
+                  className={showTabِDep === 3 ? "active_tab" : ""}
+                  onClick={() => handleTabsDep(3)}
+                >
+                  <span>مفردات درسی</span>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              className={
+                showTabِDep === 1
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>{cs_software_intro}</p>
+            </div>
+
+            <div
+              className={
+                showTabِDep === 2
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              {cs_software_goals.map((item) => (
+                <ul>
+                  <li>
+                    <span>{item}</span>
+                  </li>
+                </ul>
+              ))}
+            </div>
+            <div
+              className={
+                showTabِDep === 3
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <div className="view_point_tabHeader faculties_tabHeader semester_refs">
+                {semester_tabHeader.map((item) => (
+                  <ul>
+                    <li
+                      className={
+                        showTabSemester === item.counter ? "active_tab" : ""
+                      }
+                      onClick={() => handleTabsSemester(item.counter)}
+                    >
+                      <span>{item.semester}</span>
+                    </li>
+                  </ul>
+                ))}
+              </div>
+            </div>
+
+            <div
+              className={
+                showTabSemester === 1
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>semester 1</p>
+            </div>
+
+            <div
+              className={
+                showTabSemester === 2
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>semester 2</p>
+            </div>
+
+            <div
+              className={
+                showTabSemester === 3
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>semester 3</p>
+            </div>
+
+            <div
+              className={
+                showTabSemester === 4
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>semester 4</p>
+            </div>
+
+            <div
+              className={
+                showTabSemester === 5
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>semester 5</p>
+            </div>
+
+            <div
+              className={
+                showTabSemester === 6
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>semester 6</p>
+            </div>
+
+            <div
+              className={
+                showTabSemester === 7
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>semester 7</p>
+            </div>
+
+            <div
+              className={
+                showTabSemester === 8
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>semester 8</p>
+            </div>
+          </div>
+
+          {/*  سیستم های عامل و ارتباطات */}
+          <div
+            className={
+              showTab === 2
+                ? "faculties_tabHeader_content active_content box_shadow"
+                : "faculties_tabHeader_content"
+            }
+          >
+            <div>
+              <h1>این یک متن تستی از انجینری نرم افزار است</h1>
+            </div>
+            <div className="view_point_tabHeader faculties_tabHeader">
+              <ul>
+                <li
+                  className={showTabِDep === 1 ? "active_tab" : ""}
+                  onClick={() => handleTabsDep(1)}
+                >
+                  <span>معرفی</span>
+                </li>
+                <li
+                  className={showTabِDep === 2 ? "active_tab" : ""}
+                  onClick={() => handleTabsDep(2)}
+                >
+                  <span>اهداف</span>
+                </li>
+                <li
+                  className={showTabِDep === 3 ? "active_tab" : ""}
+                  onClick={() => handleTabsDep(3)}
+                >
+                  <span>مفردات درسی</span>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              className={
+                showTabِDep === 1
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              <p>{cs_network_intro}</p>
+            </div>
+            <div
+              className={
+                showTabِDep === 2
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              {cs_network_goals.map((item) => (
+                <ul>
+                  <li>
+                    <span>{item}</span>
+                  </li>
+                </ul>
+              ))}
+            </div>
+            <div
+              className={
+                showTabِDep === 3
+                  ? "faculties_tabHeader_content active_content box_shadow"
+                  : "faculties_tabHeader_content"
+              }
+            >
+              {semester_tabHeader.map((item) => (
+                <ul>
+                  <li
+                    className={showTabِDep === item.counter ? "active_tab" : ""}
+                    onClick={() => handleTabsDep(item.counter)}
+                  >
+                    <span>{item.semester}</span>
+                  </li>
+                </ul>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* View Point */}
       <ViewPoint
@@ -67,12 +343,13 @@ const ComputerScience = () => {
             اجتماعی و به روز ساختن جامعه با استفاده از روش‌های نوین آموزشی،
             فعالیت‌های تحقیقاتی و تدویر سمینارهای علمی فراهم نماید."
       />
-
       {/* Goals */}
       <Goals goals={goalsOf_CS} values={valuesOf_CS} />
-
       {/* origanization charts */}
       <OrganizationChart chartImg={chartImg} />
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

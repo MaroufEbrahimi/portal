@@ -193,6 +193,41 @@ export const StuFilterButtons = [
 // #______ End of Students Filtering Buttons ______#
 
 // #______ Faculties ______#
+// General
+export const semester_tabHeader = [
+  {
+    semester: "سمستر اول",
+    counter: 1,
+  },
+  {
+    semester: "سمستر دوم",
+    counter: 2,
+  },
+  {
+    semester: "سمستر سوم",
+    counter: 3,
+  },
+  {
+    semester: "سمستر چهارم",
+    counter: 4,
+  },
+  {
+    semester: "سمستر پنجم",
+    counter: 5,
+  },
+  {
+    semester: "سمستر ششم",
+    counter: 6,
+  },
+  {
+    semester: "سمستر هفتم",
+    counter: 7,
+  },
+  {
+    semester: "سمستر هشتم",
+    counter: 8,
+  },
+]
 // Computer Science
 export const goalsOf_CS = [
   "تمرکز و استفاده بیشتر از ظرفیت‌های مدیریت الکترونیک و کاهش پروسه‌های پیچیده اداری و بروکراسی",
@@ -213,6 +248,401 @@ export const valuesOf_CS = [
   "مشارکت در تصمیم‌گیری؛",
   "خرد، خلق دانش، خود باوری، نوآوری و رقابت‌پذیری.",
 ]
+// Departement Software
+export const cs_software_intro = [
+  "دیپارتمنت انجنیری نرم افزار یکی از دیپارتمنت‌های فعال پوهنحی کامپیوتر ساینس مؤسسه تحصیلات عالی هریوا می‌باشد که متمرکز بر ساختن و تولید نرم افزارهای است که بر روی سیستم‌های کامیپوتری قابل اجرا بوده و به کاربران تسهیلات فراوانی را به جود آورد. وظایفی که توسط انجینران نرم افزار اجرا می‌شوند به سرعت در حال رشد و نمو هستند. انجینران نرم افزار با استفاده از اصول و روش‌های علم کامپیوترساینس، انجینری و تجزیه و تحلیل‌های ریاضی به طراحی، توسعه و ارزیابی نرم‌افزارها و سیستم‌های کامپیوتری می پردازند. با کمک این نرم افزارها، کامپیوترها قادر به انجام بسیاری از کارها می‌شوند. تحلیل نیازهای استفاده کنندگان و توسعه ی نرم افزارهای مناسب برای آن‌ها، ساخت، تست و اصلاح نمونه‌ی موجود،کار با مدل‌های با شبیه‌سازی توسط کامپیوتر، تحلیل نیازهای کلی سیستم، طراحی و توسعه نرم افزارهای کامپیوتری و پشتیبانی از آن‌ها از اصلی‌ترین مهارت‌های یک انجنیر نرم افزار است.",
+]
+export const cs_software_goals = [
+  "آموزش زبان‌های برنامه نویسی به حیث وسیله کار، و آموزش روش‌ها و تخنیک‌هایی که برای تهیه نرم افزارهای پچیده نیاز است؛",
+  "استفاده از تکنالوژی‌های پیشرفته برای ساختن برنامه‌های نرم افزاری؛",
+  "آشنایی با مفاهیم اساسی وب به منظور ساختن برنامه‌های تحت وب و یا وب سایت؛",
+  "زبان برنامه نویسی جاوا به صورت پیشرفته به منظور ساختن برنامه‌های گرافیکی؛",
+  "تمرکز روی ساختار برنامه‌های نرم افزاری؛",
+  "شناسایی، تحلیل و حل مشکل با تعریف کردن پیش نیازهای محاسبوی مشکل ؛",
+  "ارتباط مؤثر و سازنده میان پوهنحی، دیپارتمنت، محصلین دیپارتمنت و بازار و نیازمندی‌های آن؛",
+  "آماده کردن آثار تحقیقی به شکل گروهی از استادان و محصلان برای برای رفع نیاز مندی‌های علمی و فرهنگی جامعه ؛",
+  "کامپیوتری ساختن نیازهای مؤسسه تحصیلات هریوا مانند: کتابخانه، مالی و غیره.",
+]
+export const cs_software_references1 = [
+  {
+    moudle: "Programming 1",
+    credit: 5,
+  },
+  {
+    moudle: "Computer Engineering 1",
+    credit: 5,
+  },
+  {
+    moudle: "Math 1",
+    credit: 5,
+  },
+  {
+    moudle: "Islamic",
+    credit: 3,
+  },
+  {
+    moudle: "English",
+    credit: 2,
+  },
+]
+export const cs_software_references2 = [
+  {
+    moudle: "Computer Engineering 2",
+    credit: 5,
+  },
+  {
+    moudle: "Programming 2",
+    credit: 5,
+  },
+  {
+    moudle: "Math 2",
+    credit: 5,
+  },
+  {
+    moudle: "Islamic",
+    credit: 4,
+  },
+  {
+    moudle: "English",
+    credit: 2,
+  },
+]
+export const cs_software_references3 = [
+  {
+    moudle: "Fundamental Database System",
+    credit: 4,
+  },
+  {
+    moudle: "Islamic",
+    credit: 4,
+  },
+  {
+    moudle: "Operating System",
+    credit: 3,
+  },
+  {
+    moudle: "English",
+    credit: 2,
+  },
+  {
+    moudle: "Algorithm",
+    credit: 4,
+  },
+  {
+    moudle: "Analysis 1",
+    credit: 4,
+  },
+]
+export const cs_software_references4 = [
+  {
+    moudle: "Analysis 2",
+    credit: 4,
+  },
+  {
+    moudle: "Computer Network",
+    credit: 4,
+  },
+  {
+    moudle: "Islamic",
+    credit: 3,
+  },
+  {
+    moudle: "System Programming	",
+    credit: 4,
+  },
+  {
+    moudle: "Data Structure",
+    credit: 4,
+  },
+  {
+    moudle: "English",
+    credit: 2,
+  },
+]
+export const cs_software_references5 = [
+  {
+    moudle: "Islamic",
+    credit: 1,
+  },
+  {
+    moudle: "Software Engineering 1",
+    credit: 5,
+  },
+  {
+    moudle: "Web Engineering 1",
+    credit: 5,
+  },
+
+  {
+    moudle: "Probability and Discrete mathematics",
+    credit: 5,
+  },
+  {
+    moudle: "IT Project Management",
+    credit: 2,
+  },
+  {
+    moudle: "Scientific Writing 1",
+    credit: 3,
+  },
+]
+export const cs_software_references6 = [
+  {
+    moudle: "Software Engineering 2",
+    credit: 5,
+  },
+  {
+    moudle: "Advanced Java Programming",
+    credit: 5,
+  },
+  {
+    moudle: "Scientific Writing 2",
+    credit: 3,
+  },
+  {
+    moudle: "Islamic",
+    credit: 2,
+  },
+  {
+    moudle: "Web Engineering 2",
+    credit: 5,
+  },
+]
+export const cs_software_references7 = [
+  {
+    moudle: "SDLC",
+    credit: 5,
+  },
+  {
+    moudle: "HCI",
+    credit: 5,
+  },
+  {
+    moudle: "System Architecture",
+    credit: 5,
+  },
+  {
+    moudle: "Information and Society",
+    credit: 3,
+  },
+  {
+    moudle: "Islamic",
+    credit: 2,
+  },
+]
+export const cs_software_references8 = [
+  {
+    moudle: "Mobile Application",
+    credit: 5,
+  },
+  {
+    moudle: "Software Engineering 3",
+    credit: 5,
+  },
+  {
+    moudle: "Islamic",
+    credit: 2,
+  },
+]
+
+// Departement Network
+export const cs_network_intro = [
+  "دیپارتمنت سیستم‌های عامل و ارتباطات که بیشتر به نام نتورک مشهور است یکی از جمله دیپارتمنت‌های فعال پوهنحی کامپیوتر ساینس مؤسسه تحصیلات عالی هریوا می‌باشد. امروزه ارتباطات از نقطه نظر فناوری تبدیل به یک پدیده خیلی مهم برای بشریت شده بخاطریکه سهولت‌های فراوانی را ایجاد نموده  و برای بشریت حایز اهمیت می‌باشد، ایجاد شبکه‌های کامپیوتری، مطالعه اساسات شبکه و حفظ امینت شبکه به اهمیت این به دیپارتمنت افزوده است. محصلین این رشته با یادگیری و مطالعه ساختار کامپیوتر، طرز کار کامپیوتر، مبانی شبکه، شبکه های کامپیوتری، سیستم های توزیعی، ضعف‌های شبکه و بالا بردن امنیت شبکه  تبدیل به متخصصین شبکه می‌شوند و همچنان این دیپارتمنت شامل زبان های برنامه نویسی می‌باشد که می‌تواند در اتومات‌سازی کارهای دشوار و تکراری شبکه کمک کند. این دیپارتمنت اهداف ذیل را دنبال می‌کند.",
+]
+export const cs_network_goals = [
+  "آشنای با مبانی شبکه‌های کامپیوتری در سطح علمی و عملی؛",
+  "نصب و راندازی سیستم عامل‌ها به خصوص سیستم عامل‌های منبع باز مانند: لینوکس؛",
+  "ساختن شبکه های متفاوت از جمله LAN ؛",
+  "آشنای با روش‌ها و تکنالوژی‌ها، جهت مدیریت شبکه از جمله مدیریت پهنای باند؛",
+  "شبیه سازی در شبکه به منظور جلوگیری بیش از حد برق، محیط فزیکی و دیگر منابع؛",
+  "پشتیبانی اطلاعات و بازگردانی اطلاعات در صورت اتفاق کدام فاجعه",
+  "اسکرپت نویسی جهت اتومات سازی کارهای دشوار و تکراری شبکه؛",
+  "بررسی ضعف‌های شبکه؛",
+  "بالا بردن امنیت شبکه‌ها؛",
+  "ساختن پالیسی امنیتی برای شبکه.",
+]
+export const cs_network_references1 = [
+  {
+    moudle: "Programming 1",
+    credit: 5,
+  },
+  {
+    moudle: "Computer Engineering 1",
+    credit: 5,
+  },
+  {
+    moudle: "Math 1",
+    credit: 5,
+  },
+  {
+    moudle: "Islamic",
+    credit: 3,
+  },
+  {
+    moudle: "English",
+    credit: 2,
+  },
+]
+export const cs_network_references2 = [
+  {
+    moudle: "Computer Engineering 2",
+    credit: 5,
+  },
+  {
+    moudle: "Programming 2",
+    credit: 5,
+  },
+  {
+    moudle: "Math 2",
+    credit: 5,
+  },
+  {
+    moudle: "Islamic",
+    credit: 4,
+  },
+  {
+    moudle: "English",
+    credit: 2,
+  },
+]
+export const cs_network_references3 = [
+  {
+    moudle: "Fundamental Database System",
+    credit: 4,
+  },
+  {
+    moudle: "Islamic",
+    credit: 4,
+  },
+  {
+    moudle: "Operating System",
+    credit: 3,
+  },
+  {
+    moudle: "English",
+    credit: 2,
+  },
+  {
+    moudle: "Algorithm",
+    credit: 4,
+  },
+  {
+    moudle: "Analysis 1",
+    credit: 4,
+  },
+]
+export const cs_network_references4 = [
+  {
+    moudle: "Analysis 2",
+    credit: 4,
+  },
+  {
+    moudle: "Computer Network",
+    credit: 4,
+  },
+  {
+    moudle: "Islamic",
+    credit: 3,
+  },
+  {
+    moudle: "System Programming	",
+    credit: 4,
+  },
+  {
+    moudle: "Data Structure",
+    credit: 4,
+  },
+  {
+    moudle: "English",
+    credit: 2,
+  },
+]
+export const cs_network_references5 = [
+  {
+    moudle: "Islamic",
+    credit: 1,
+  },
+  {
+    moudle: "Network Programming 1",
+    credit: 5,
+  },
+  {
+    moudle: "Computer Network and Distributed System",
+    credit: 5,
+  },
+
+  {
+    moudle: "Probability and Discrete Mathematics",
+    credit: 5,
+  },
+  {
+    moudle: "Scientific Writing 1",
+    credit: 3,
+  },
+  {
+    moudle: "IT Project Management",
+    credit: 2,
+  },
+]
+export const cs_network_references6 = [
+  {
+    moudle: "Network and Wirelesscommunication",
+    credit: 5,
+  },
+  {
+    moudle: "Scientific Writing 2",
+    credit: 3,
+  },
+  {
+    moudle: "Computer and Network security",
+    credit: 5,
+  },
+  {
+    moudle: "Network Protocols and Architecture",
+    credit: 2,
+  },
+  {
+    moudle: "Islamic",
+    credit: 2,
+  },
+]
+export const cs_network_references7 = [
+  {
+    moudle: "Network Programming 2",
+    credit: 5,
+  },
+  {
+    moudle: "Computer Network Security 2",
+    credit: 5,
+  },
+  {
+    moudle: "Resource Management",
+    credit: 5,
+  },
+  {
+    moudle: "Information and Society",
+    credit: 3,
+  },
+  {
+    moudle: "Islamic",
+    credit: 2,
+  },
+]
+export const cs_network_references8 = [
+  {
+    moudle: "Routing",
+    credit: 5,
+  },
+  {
+    moudle: "Virtualization",
+    credit: 5,
+  },
+  {
+    moudle: "Islamic",
+    credit: 2,
+  },
+]
+// End of Computer  Science
 // Low
 export const goalsOf_LOW = [
   "حفظ و نهادینه ساختن اصول اخلاقی و توجه به کرامت انسانی؛",
@@ -237,6 +667,339 @@ export const valuesOf_LOW = [
   "تلاش در نوآوری های علمی وتحقیقی؛",
   "رعایت نظم کاری وحفظ موقف اعضای هیئت علمی ، کارمندان ومحصلان؛",
 ]
+export const low_reference1 = [
+  {
+    moudle: "مبانی علم سیاست 1",
+    credit: 2,
+  },
+  {
+    moudle: "سازمان های بین المللی 1",
+    credit: 2,
+  },
+  {
+    moudle: "تاریخ روابط بین الملل 1",
+    credit: 2,
+  },
+  {
+    moudle: "مبانی جامع شناسی",
+    credit: 2,
+  },
+  {
+    moudle: "مبادی حقوق",
+    credit: 2,
+  },
+  {
+    moudle: "مبادی اقتصاد",
+    credit: 2,
+  },
+  {
+    moudle: "ثقافت اسلامی 1",
+    credit: 1,
+  },
+  {
+    moudle: "انگلیسی",
+    credit: 2,
+  },
+  {
+    moudle: "محیط زیست",
+    credit: 2,
+  },
+  {
+    moudle: "تاریخ معاصر افغانستان ",
+    credit: 2,
+  },
+]
+export const low_reference2 = [
+  {
+    moudle: "مبانی علم سیاست",
+    credit: 2,
+  },
+  {
+    moudle: "سازمان های بین المللی (منظقوی) 2",
+    credit: 2,
+  },
+  {
+    moudle: "تاریخ روابط بین المللی 2",
+    credit: 2,
+  },
+  {
+    moudle: "تاریخ اندیشه های سیاسی غرب 1",
+    credit: 2,
+  },
+  {
+    moudle: "ترمینولوژی سیاسی",
+    credit: 2,
+  },
+  {
+    moudle: "اصول و مبانی دیموکراسی",
+    credit: 2,
+  },
+  {
+    moudle: "اداره و مدیریت",
+    credit: 2,
+  },
+  {
+    moudle: "حقوق اساسی عمومی",
+    credit: 2,
+  },
+  {
+    moudle: "ثقافت اسلامی 2",
+    credit: 1,
+  },
+  {
+    moudle: "انگلیسی",
+    credit: 2,
+  },
+]
+export const low_reference3 = [
+  {
+    moudle: "تاریخ اندیشه های سیاسی غرب 2",
+    credit: 3,
+  },
+  {
+    moudle: "روش تحقیق",
+    credit: 2,
+  },
+  {
+    moudle: "انگلیسی تخصصی",
+    credit: 2,
+  },
+  {
+    moudle: "حقوق اساسی افغانستان",
+    credit: 2,
+  },
+  {
+    moudle: "اندیشه های سیاسی در اسلام",
+    credit: 2,
+  },
+  {
+    moudle: "سیاست و حکومت در جنوب آسیا",
+    credit: 2,
+  },
+  {
+    moudle: "تاریخ روابط خارجی افغانستان",
+    credit: 2,
+  },
+  {
+    moudle: "جنبش ها و جریان های سیاسی اسلامی",
+    credit: 2,
+  },
+  {
+    moudle: "ثقافت اسلامی 3",
+    credit: 1,
+  },
+  {
+    moudle: "کمپیوتر",
+    credit: 1,
+  },
+  {
+    moudle: "مضمون اختیاری",
+    credit: 1,
+  },
+]
+export const low_reference4 = [
+  {
+    moudle: "روش تحقیق (تخصصی) 2",
+    credit: 2,
+  },
+  {
+    moudle: "اصول روابط بین الملل 1",
+    credit: 2,
+  },
+  {
+    moudle: "اندیشه سیاسی قرن بیست ",
+    credit: 2,
+  },
+  {
+    moudle: "جغرافیای سیاسی",
+    credit: 2,
+  },
+  {
+    moudle: "نوسازی و توسعه سیاسی",
+    credit: 2,
+  },
+  {
+    moudle: "انگلیسی تخصصی",
+    credit: 2,
+  },
+  {
+    moudle: "سیاست و حکومت در آسیای مرکزی",
+    credit: 2,
+  },
+  {
+    moudle: "اصول رهبری",
+    credit: 2,
+  },
+  {
+    moudle: "نظام های انتخاباتی",
+    credit: 2,
+  },
+  {
+    moudle: "ثقافت اسلامی 4",
+    credit: 1,
+  },
+]
+export const low_reference5 = [
+  {
+    moudle: "اصول روابط بین الملل (۲)",
+    credit: 2,
+  },
+  {
+    moudle: "حقوق بین الملل عمومی (۱)",
+    credit: 2,
+  },
+  {
+    moudle: "جامعه شناسی سیاسی (۱)",
+    credit: 2,
+  },
+  {
+    moudle: "مسایل سیاسی-اقتصادی کشور های کم توسعه",
+    credit: 2,
+  },
+  {
+    moudle: "حقوق اساسی مقایسوی",
+    credit: 2,
+  },
+  {
+    moudle: "صلح و حل منازغات",
+    credit: 2,
+  },
+  {
+    moudle: "مبانی دیپلوماسی",
+    credit: 2,
+  },
+  {
+    moudle: "جهانی شدن",
+    credit: 2,
+  },
+  {
+    moudle: "ثقافت اسلامی (5)",
+    credit: 2,
+  },
+  {
+    moudle: "مضمون اختیاری",
+    credit: 1,
+  },
+]
+export const low_reference6 = [
+  {
+    moudle: "حقوق بین الملل عمومی (2)",
+    credit: 2,
+  },
+  {
+    moudle: "جامعه شناسی سیاسی (2)",
+    credit: 2,
+  },
+  {
+    moudle: "حقوق اداری ",
+    credit: 2,
+  },
+  {
+    moudle: "مبانی تحلیلی سیاست خارجی",
+    credit: 2,
+  },
+  {
+    moudle: "حقوق دیپلوماتیک و قنسلی",
+    credit: 2,
+  },
+  {
+    moudle: "آداب و تشریفات دیپلوماتیک ",
+    credit: 2,
+  },
+  {
+    moudle: "سیاست و حکومت در ایالات متحده آمریکا",
+    credit: 2,
+  },
+  {
+    moudle: "نظام سیاسی افغانستان ",
+    credit: 2,
+  },
+  {
+    moudle: "ثقافت اسلامی(6)",
+    credit: 2,
+  },
+  {
+    moudle: "مضمون اختیاری",
+    credit: 1,
+  },
+]
+export const low_reference7 = [
+  {
+    moudle: "تئوری های روابط بین المللی",
+    credit: 2,
+  },
+  {
+    moudle: "سیاست خارجی قدرتهای بزرگ (1)",
+    credit: 2,
+  },
+  {
+    moudle: "امنیت بین الملل",
+    credit: 2,
+  },
+  {
+    moudle: "تجارت بین الملل",
+    credit: 2,
+  },
+  {
+    moudle: "حقوق بشر",
+    credit: 2,
+  },
+  {
+    moudle: "سیاست مقایسوی",
+    credit: 2,
+  },
+  {
+    moudle: "ثقافت اسلامی(7)",
+    credit: 2,
+  },
+  {
+    moudle: "برنامه عملی(شبیه سازی)",
+    credit: 2,
+  },
+  {
+    moudle: "پایان نامه",
+    credit: 2,
+  },
+  {
+    moudle: "مضمون اختیاری",
+    credit: 1,
+  },
+]
+export const low_reference8 = [
+  {
+    moudle: "تئوری های روابط بین المللی(2)",
+    credit: 2,
+  },
+  {
+    moudle: "سیاست خارجی قدرت های بزرگ (2)",
+    credit: 2,
+  },
+  {
+    moudle: "اقتصاد سیاسی بین المللی",
+    credit: 2,
+  },
+  {
+    moudle: "روانشناسی سیاسی",
+    credit: 2,
+  },
+  {
+    moudle: "مسائل سیاسی جهان",
+    credit: 2,
+  },
+  {
+    moudle: "پایان نامه",
+    credit: 4,
+  },
+  {
+    moudle: "کارآموزی",
+    credit: 2,
+  },
+  {
+    moudle: "ثقافت اسلامی (8)",
+    credit: 1,
+  },
+]
+// End of Low
 
 // Dentistry
 export const goalsOf_Dentistry = [
@@ -260,3 +1023,452 @@ export const valuesOf_Dentistry = [
   "تلاش در نوآوری های علمی و تحقیقی.",
   "رعایت نظم کاری و حفظ موقف اعضای هیئت علمی، کارمندان و محصلان.",
 ]
+export const dentistry_references_tabHeader = [
+  {
+    semester: "سمستر اول",
+    counter: 1,
+  },
+  {
+    semester: "سمستر دوم",
+    counter: 2,
+  },
+  {
+    semester: "سمستر سوم",
+    counter: 3,
+  },
+  {
+    semester: "سمستر چهارم",
+    counter: 4,
+  },
+  {
+    semester: "سمستر پنجم",
+    counter: 5,
+  },
+  {
+    semester: "سمستر ششم",
+    counter: 6,
+  },
+  {
+    semester: "سمستر هفتم",
+    counter: 7,
+  },
+  {
+    semester: "سمستر هشتم",
+    counter: 8,
+  },
+  {
+    semester: "سمستر نهم",
+    counter: 9,
+  },
+  {
+    semester: "سمستر دهم",
+    counter: 10,
+  },
+]
+export const dentistry_reference1 = [
+  {
+    moudle: "ثقافت اسلامی 1",
+    credit: 3,
+  },
+  {
+    moudle: "بیولوژی مالیکولی 1",
+    credit: 3,
+  },
+  {
+    moudle: "کامپیوتر",
+    credit: 2,
+  },
+  {
+    moudle: "جنتیک طبی",
+    credit: 2,
+  },
+  {
+    moudle: "انگلیسی",
+    credit: 3,
+  },
+  {
+    moudle: "بیوفزیک 1",
+    credit: 2,
+  },
+  {
+    moudle: "کیمیا طبی 1",
+    credit: 1,
+  },
+  {
+    moudle: "اناتومی 1",
+    credit: 2,
+  },
+  {
+    moudle: "هستولوژی 1",
+    credit: 2,
+  },
+  {
+    moudle: "محیط زیست",
+    credit: 1,
+  },
+]
+export const dentistry_reference2 = [
+  {
+    moudle: "ثقافت اسلامی 2",
+    credit: 4,
+  },
+  {
+    moudle: "بیولوژی مالیکولی 2",
+    credit: 2,
+  },
+  {
+    moudle: "کامپیوتر 2",
+    credit: 2,
+  },
+  {
+    moudle: "فزیک طبی",
+    credit: 2,
+  },
+  {
+    moudle: "انگلیسی 2",
+    credit: 3,
+  },
+  {
+    moudle: "اناتومی 2",
+    credit: 2,
+  },
+  {
+    moudle: "کیمیا طبی 2",
+    credit: 2,
+  },
+  {
+    moudle: "امبریولوژی عمومی 1",
+    credit: 1,
+  },
+  {
+    moudle: "هستولوژی 2",
+    credit: 2,
+  },
+]
+export const dentistry_reference3 = [
+  {
+    moudle: "ثقافت اسلامی 3",
+    credit: 4,
+  },
+  {
+    moudle: "اناتومی سر و گردن 3",
+    credit: 4,
+  },
+  {
+    moudle: "هستالوژی جوف دهن 3",
+    credit: 2,
+  },
+  {
+    moudle: "امبریولوژی جوف دهن 2",
+    credit: 1,
+  },
+  {
+    moudle: "فزیولوژی طبی 1",
+    credit: 3,
+  },
+  {
+    moudle: "بیوشمی طبی 1",
+    credit: 2,
+  },
+  {
+    moudle: "پتالوژی عمومی 1",
+    credit: 2,
+  },
+  {
+    moudle: "میکروبیولوژی عمومی 1",
+    credit: 2,
+  },
+]
+export const dentistry_reference4 = [
+  {
+    moudle: "ثقافت اسلامی 4",
+    credit: 3,
+  },
+  {
+    moudle: "فزیولوژی 2",
+    credit: 3,
+  },
+  {
+    moudle: "بیوشیمی",
+    credit: 2,
+  },
+  {
+    moudle: "پتالوژی سیستمی 2",
+    credit: 2,
+  },
+  {
+    moudle: "میکروبیولوژی",
+    credit: 2,
+  },
+  {
+    moudle: "مواد دندان",
+    credit: 2,
+  },
+  {
+    moudle: "اخلاق طبابت",
+    credit: 1,
+  },
+  {
+    moudle: "کمک ها اولیه",
+    credit: 2,
+  },
+  {
+    moudle: "ایمینیولوژی",
+    credit: 1,
+  },
+  {
+    moudle: "پروستودنتکس 1",
+    credit: 2,
+  },
+]
+export const dentistry_reference5 = [
+  {
+    moudle: "ثقافت اسلامی 5",
+    credit: 3,
+  },
+  {
+    moudle: "فزیولوژی جوف دهن 3",
+    credit: 2,
+  },
+  {
+    moudle: "پتالوژی جوف دهن 3",
+    credit: 2,
+  },
+  {
+    moudle: "پروستودنتکس 3",
+    credit: 2,
+  },
+  {
+    moudle: "فارماکولوژی عمومی 3",
+    credit: 2,
+  },
+  {
+    moudle: "داخله عمومی 1",
+    credit: 2,
+  },
+  {
+    moudle: "جراحی عمومی 1",
+    credit: 2,
+  },
+  {
+    moudle: "صحت عامه",
+    credit: 1,
+  },
+  {
+    moudle: "داخله دندان",
+    credit: 2,
+  },
+  {
+    moudle: "جراحی وجه و فک 1",
+    credit: 2,
+  },
+]
+export const dentistry_reference6 = [
+  {
+    moudle: "ثقافت اسلامی 6",
+    credit: 2,
+  },
+  {
+    moudle: "پروستودنتکس 3",
+    credit: 2,
+  },
+  {
+    moudle: "فارماکولوژی دندان 2",
+    credit: 2,
+  },
+  {
+    moudle: "داخله عمومی 2",
+    credit: 2,
+  },
+  {
+    moudle: "جراحی عمومی 2",
+    credit: 2,
+  },
+  {
+    moudle: "صحت عامه 2",
+    credit: 1,
+  },
+  {
+    moudle: "داخله دندان 2",
+    credit: 2,
+  },
+  {
+    moudle: "نیورولوژی",
+    credit: 2,
+  },
+  {
+    moudle: "جراحی وجه و فک 2",
+    credit: 2,
+  },
+  {
+    moudle: "انستیزی",
+    credit: 2,
+  },
+]
+export const dentistry_reference7 = [
+  {
+    moudle: "ثقافت اسلامی 7",
+    credit: 2,
+  },
+  {
+    moudle: "پروستودنتکس 4",
+    credit: 2,
+  },
+  {
+    moudle: "داخله عمومی 3",
+    credit: 2,
+  },
+  {
+    moudle: "جراحی عمومی 3",
+    credit: 2,
+  },
+  {
+    moudle: "صحت عامه",
+    credit: 1,
+  },
+  {
+    moudle: "داخله دندان (ترمیمی دندان) 3",
+    credit: 2,
+  },
+  {
+    moudle: "جراحی وجه و فک 3",
+    credit: 2,
+  },
+  {
+    moudle: "گوش و گلو",
+    credit: 2,
+  },
+  {
+    moudle: "اطفال دندان",
+    credit: 2,
+  },
+  {
+    moudle: "طب عدلی",
+    credit: 2,
+  },
+]
+export const dentistry_reference8 = [
+  {
+    moudle: "ثقافت اسلامی 8",
+    credit: 2,
+  },
+  {
+    moudle: "پروستودنتکس 5",
+    credit: 2,
+  },
+  {
+    moudle: "داخله دندان 1",
+    credit: 2,
+  },
+  {
+    moudle: "جراحی وجه و فک 4",
+    credit: 2,
+  },
+  {
+    moudle: "اطفال دندان",
+    credit: 2,
+  },
+  {
+    moudle: "امراض جوف دهن 1",
+    credit: 2,
+  },
+  {
+    moudle: "رادیولوژی عمومی 1",
+    credit: 2,
+  },
+  {
+    moudle: "پریودنتولوژی 1",
+    credit: 2,
+  },
+  {
+    moudle: "ارتودنسی 1",
+    credit: 2,
+  },
+  {
+    moudle: "انتانی تبرکلوز",
+    credit: 2,
+  },
+]
+export const dentistry_reference9 = [
+  {
+    moudle: "پروستودنتکس 6",
+    credit: 2,
+  },
+  {
+    moudle: "داخله دندان 2",
+    credit: 2,
+  },
+  {
+    moudle: "جراحی وجه و فک 5",
+    credit: 2,
+  },
+  {
+    moudle: "اطفال دندان",
+    credit: 2,
+  },
+  {
+    moudle: "امراض جوف دهن 2",
+    credit: 2,
+  },
+  {
+    moudle: "رادیولوژی جوف دهن 2",
+    credit: 2,
+  },
+  {
+    moudle: "پریودنتولوژی 2",
+    credit: 2,
+  },
+  {
+    moudle: "ارتودنسی 2",
+    credit: 2,
+  },
+  {
+    moudle: "چشم",
+    credit: 2,
+  },
+]
+export const dentistry_reference10 = [
+  {
+    moudle: "پروستودنتکس 7",
+    credit: 2,
+  },
+  {
+    moudle: "داخله دندان 3",
+    credit: 2,
+  },
+  {
+    moudle: "امراض جوف دهن 3",
+    credit: 2,
+  },
+  {
+    moudle: "پریودنتولوژی 3",
+    credit: 2,
+  },
+  {
+    moudle: "ارتودنسی 3",
+    credit: 2,
+  },
+  {
+    moudle: "صحت عامه (اپیدیمولوژی)",
+    credit: 1,
+  },
+  {
+    moudle: "صحت عامه (روش تحقیق)",
+    credit: 1,
+  },
+  {
+    moudle: "جراحی عصبی",
+    credit: 2,
+  },
+  {
+    moudle: "جراحی پلاستیک",
+    credit: 2,
+  },
+  {
+    moudle: "دندان پزشکی وقایوی",
+    credit: 2,
+  },
+]
+// End of Dentistry
+
+// #______ End of Faculties ______#
