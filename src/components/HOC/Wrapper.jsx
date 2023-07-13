@@ -1,38 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "./Wrapper.css"
 
 const Wrapper = (props) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
-    // Add event listener to window to check if user has scrolled enough to show back to top button
-    window.addEventListener('scroll', handleScroll);
+    const wrapper = wrapperRef.current;
+
+    const handleScroll = () => {
+      // Check if wrapper has been scrolled more than 200 pixels
+      if (wrapper.scrollTop > 200) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+
+    // Add event listener to wrapper to check if it has been scrolled
+    wrapper.addEventListener('scroll', handleScroll);
+
     // Cleanup function to remove event listener when component unmounts
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      wrapper.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  const handleScroll = () => {
-    // Check if user has scrolled more than 200 pixels from the top of the page
-    if (window.pageYOffset > 200) {
-      setShowBackToTop(true);
-    } else {
-      setShowBackToTop(false);
-    }
-  };
-
   const handleBackToTop = () => {
-    // Scroll to top of page
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to top of wrapper
+    const wrapper = wrapperRef.current;
+    wrapper.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <div className="wrapper" id="wrapper">
+    <div className="wrapper" id="wrapper" ref={wrapperRef}>
       {showBackToTop && (
-        <button className='btn ' onClick={handleBackToTop}>
-          back
-        </button>
+        <div className={`back_to_top ${showBackToTop ? "fade_in" : "fade_out"}`}>
+          <button onClick={handleBackToTop}>
+            <i className="bi bi-arrow-up-short"></i>
+          </button>
+        </div>
       )}
       {props.children}
     </div>

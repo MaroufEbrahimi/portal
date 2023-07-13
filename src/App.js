@@ -12,7 +12,6 @@ import "./App.css"
 import Loading from "./components/UI/Loading/Loading"
 import Wrapper from "./components/HOC/Wrapper"
 import Header from "./components/Header/Header"
-import BackToTop from "./components/UI/BackToTop/BackToTop"
 import About from "./pages/About/About"
 import UpdatePost from "./components/UpdatePost/UpdatePost"
 
@@ -68,7 +67,6 @@ const App = () => {
             <Wrapper>
               <Outlet />
             </Wrapper>
-            <BackToTop />
           </main>
         </div>
       </Suspense>
