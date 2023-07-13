@@ -1,0 +1,64 @@
+.semester_refs {
+  display: flex;
+}
+.semester_refs ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.semester_refs ul li span {
+  font-size: 15px;
+  line-height: 1em;
+  color: var(--text-color);
+}
+.low_tabHeaderDep {
+  display: none;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--gen-color);
+  border-radius: 3px;
+}
+.low_tabHeaderDep.active_content {
+  display: block;
+}
+
+.low_ref_title ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.low_ref_title ul li {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: bold;
+}
+.low_ref {
+  margin: 1rem 0;
+}
+.low_ref ul {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid var(--gen-color);
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  padding: 8px 0;
+}
+.low_ref ul li {
+  margin-top: 10px;
+}
+.low_ref ul li span {
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.low_tabHeader {
+  display: none;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--gen-color);
+  border-radius: 3px;
+}
+.low_tabHeader.active_content {
+  display: block;
+}
