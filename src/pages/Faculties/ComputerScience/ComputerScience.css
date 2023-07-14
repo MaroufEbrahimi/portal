@@ -4,30 +4,97 @@
   list-style-type: square;
 }
 
-.semester_refs {
-  display: flex;
-}
-.semester_refs ul {
-  padding: 0;
-  margin: 0;
+.departement_tabHeader ul {
   list-style: none;
+  padding: 0;
 }
-.semester_refs ul li span {
+
+.semester_tabHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gen-bg-color);
+  z-index: 0;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+.semester_tabHeader ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.semester_tabHeader ul li {
+  padding: 8px 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.semester_tabHeader ul li:hover,
+.semester_tabHeader ul .active_tab {
+  border-top-color: var(--gen-color);
+}
+.semester_tabHeader ul li span {
   font-size: 15px;
   line-height: 1em;
   color: var(--text-color);
 }
-.faculties_tabHeader_contents .faculties_tabHeader_content {
+.computer_science_tabHeader {
   display: none;
   margin: 1rem;
   padding: 1rem;
   border: 1px solid var(--gen-color);
   border-radius: 3px;
 }
-.faculties_tabHeader_contents .faculties_tabHeader_content p {
+.computer_science_tabHeader > p {
   text-align: justify;
   line-height: 2.5em;
+  color: var(--text-color);
 }
-.faculties_tabHeader_contents .active_content {
+.computer_science_tabHeader.active_content {
   display: block;
+}
+.computer_science_tabHeader > ul {
+  list-style-type: square;
+  padding: 10px 1.5rem;
+}
+
+.computer_science_ref_title ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.computer_science_ref_title ul li {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: bold;
+}
+.computer_science_ref {
+  margin: 1rem 0;
+}
+.computer_science_ref ul {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid var(--gen-color);
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  padding: 8px 0;
+}
+.computer_science_ref ul li {
+  margin-top: 10px;
+}
+.computer_science_ref ul li span {
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .semester_tabHeader {
+    flex-wrap: wrap;
+    line-height: 0;
+  }
 }
