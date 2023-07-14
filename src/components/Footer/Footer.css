@@ -81,11 +81,11 @@
 .copyright {
   border-top: 1px solid var(--gen-bg-color);
   margin: 2rem 0 1rem 0;
-  padding: 1rem 0;
-  text-align: center;
+  padding-top: 1rem;
 }
 .copyright .credits p {
   color: var(--text-color);
+  text-align: center;
 }
 .copyright .credits p:last-child {
   font-size: 14px;
