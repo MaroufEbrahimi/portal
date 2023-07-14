@@ -76,7 +76,7 @@ function Posts() {
             })}
             <section style={{ position: "relative", height: "60px" }}>
                 {hasMore && <Spinner />}
-                {!hasMore && <h5 style={{ textAlign: "center" }}>end of the the posts</h5>}
+                {!hasMore && <h5 style={{ textAlign: "center" }}>آخرین پست</h5>}
             </section>
         </div>
     )

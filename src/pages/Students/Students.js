@@ -23,25 +23,24 @@ const Students = () => {
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState('')
+  const [page, setPage] = useState()
+  const [endpoint, setEndpoint] = useState(APIEndpoints.root + APIEndpoints.students.getAll + `&offset=${pagination.offset}&pageSize=${pagination.pageSize}`);
 
 
-  // useEffect(() => {
-  //   fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
-  //     .then(res => {
-  //       if (res.ok) {
-  //         return res.json();
-  //       } else {
-  //         throw new Error(res.statusText)
-  //       }
-  //     })
-  //     .then(data => {
-  //       setFields(data.content)
-  //     })
-  //   console.log("field useeffect")
-  // }, [])
   useEffect(() => {
-    console.log(pagination)
-    fetch(APIEndpoints.root + APIEndpoints.students.getAll + `&offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
+    fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then(data => {
+        setFields(data.content)
+      })
+
+    fetch(endpoint, {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + authentication.token
@@ -53,17 +52,17 @@ const Students = () => {
         }
       })
       .then(data => {
+        console.log(pagination.offset + " <- offset: data ->", data)
         if (data.totalPages - 1 > pagination.offset) {
           setHasMore(true)
         } else {
           setHasMore(false)
         }
-        setStudents([...students, ...data.content])
+        setPage(data)
+        setStudents(Array.from(new Set([...students, ...data.content])))
         setLoading(false)
-
       })
-    console.log("student useeffect")
-  }, [pagination.offset])
+  }, [])
 
 
   const lastNodeReference = node => {
@@ -71,13 +70,43 @@ const Students = () => {
     if (lastNode.current) lastNode.current.disconnect();
     lastNode.current = new IntersectionObserver(enteries => {
       if (enteries[0].isIntersecting) {
-        if (hasMore) {
+        if (hasMore && !loading && page.totalPages > pagination.offset) {
           setPagination({ offset: pagination.offset + 1, pageSize: pagination.pageSize })
+          fetch(endpoint, {
+            method: "GET",
+            headers: {
+              "Authorization": "Bearer " + authentication.token
+            }
+          })
+            .then(res => {
+              if (res.ok) {
+                return res.json();
+              }
+            })
+            .then(data => {
+              console.log(pagination.offset + " <- offset: data ->", data)
+              if (data.totalPages - 1 > pagination.offset) {
+                setHasMore(true)
+              } else {
+                setHasMore(false)
+              }
+              const newList = [...students, ...data.content].filter((obj, index, self) =>
+                index === self.findIndex((o) => (
+                  o.id === obj.id
+                ))
+              );
+              setPage(data)
+              setStudents(newList)
+              setLoading(false)
+
+            })
         }
       }
     })
     if (node) lastNode.current.observe(node);
   }
+
+  // create an array with unique data
 
 
 
@@ -100,21 +129,22 @@ const Students = () => {
   }
 
   const handleSearchButton = () => {
+    resetAllStates()
     let url = APIEndpoints.root + APIEndpoints.students.getAll + `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
-    console.log("url: ", url)
     if (searchKeyword) {
-      url += "&keyword=" + searchKeyword == "همه" ? "%" : searchKeyword;
+      url += "&keyword=" + (searchKeyword == "همه" ? "%" : searchKeyword);
     }
     if (feildOfStudy) {
-      url += "&fieldOfStudy=" + feildOfStudy == "همه" ? "%" : feildOfStudy;
+      url += "&fieldOfStudy=" + (feildOfStudy == "همه" ? "%" : feildOfStudy);
     }
     if (semester) {
-      url += "&semester=" + semester == "همه" ? "%" : semester;
+      url += "&semester=" + (semester == "همه" ? "%" : semester);
     }
     if (department) {
-      url += "&department=" + department == "همه" ? "%" : department;
+      url += "&department=" + (department == "همه" ? "%" : department);
     }
-    console.log(url)
+    console.log('in search ', url)
+    setEndpoint(url)
     fetch(url, {
       method: "GET",
       headers: {
@@ -123,12 +153,19 @@ const Students = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         setStudents(data.content)
+        setPage(data)
+        setLoading(false)
       })
   }
 
-  console.log(students)
+  const resetAllStates = () => {
+    setPagination({ offset: 0, pageSize: 10 })
+    setLoading(true);
+    setStudents([])
+    setPage({})
+  }
+
   return (
     <div className="students_page fade_in">
       {/* add new student */}
@@ -219,7 +256,8 @@ const Students = () => {
         })}
         <section style={{ position: "relative", height: "60px", width: "100%" }}>
           {hasMore && <Spinner />}
-          {!hasMore && <h5 style={{ textAlign: "center" }}>end of the the posts</h5>}
+          {!hasMore && students.length > 0 && <h5 style={{ textAlign: "center" }}>آخرین محصل</h5>}
+          {!hasMore && students.length == 0 && <h5 style={{ textAlign: "center" }}>محصل یافت نشد!</h5>}
         </section>
       </div>
     </div>
