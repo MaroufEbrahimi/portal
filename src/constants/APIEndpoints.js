@@ -12,7 +12,8 @@ const APIEndpoints = {
 
     },
     fieldOfStudy: {
-
+        getAll: "field-of-studies",
+        depratments: (id) => "field-of-studies/" + id + "/departments"
     }
 
 

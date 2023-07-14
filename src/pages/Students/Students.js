@@ -7,6 +7,7 @@ import Student from "../../components/Student/Student"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
 import APIEndpoints from "../../constants/APIEndpoints"
+import Spinner from "../../components/UI/Loading/Spinner"
 
 const Students = () => {
   useProtect({ roles: [Roles.ADMIN] })
@@ -16,27 +17,31 @@ const Students = () => {
   const [feildOfStudy, setfeildOfStudy] = useState()
   const [hasMore, setHasMore] = useState(true);
   const lastNode = useRef();
-  const [pagination, setPagination] = useState({ offset: 0, pageSize: 5 })
+  const [pagination, setPagination] = useState({ offset: 0, pageSize: 10 })
   const [loading, setLoading] = useState(true);
   const [students, setStudents] = useState([])
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState('')
 
+
+  // useEffect(() => {
+  //   fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
+  //     .then(res => {
+  //       if (res.ok) {
+  //         return res.json();
+  //       } else {
+  //         throw new Error(res.statusText)
+  //       }
+  //     })
+  //     .then(data => {
+  //       setFields(data.content)
+  //     })
+  //   console.log("field useeffect")
+  // }, [])
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/field-of-studies")
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error(res.statusText)
-        }
-      })
-      .then(data => {
-        console.log(data)
-        setFields(data.content)
-      })
-    fetch("http://localhost:1000/api/v1/students/?&offset=0&pageSize=20", {
+    console.log(pagination)
+    fetch(APIEndpoints.root + APIEndpoints.students.getAll + `&offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + authentication.token
@@ -48,11 +53,18 @@ const Students = () => {
         }
       })
       .then(data => {
-        setStudents(data.content)
-        console.log(data)
-      })
+        if (data.totalPages - 1 > pagination.offset) {
+          setHasMore(true)
+        } else {
+          setHasMore(false)
+        }
+        setStudents([...students, ...data.content])
+        setLoading(false)
 
-  }, [])
+      })
+    console.log("student useeffect")
+  }, [pagination.offset])
+
 
   const lastNodeReference = node => {
     if (loading) return;
@@ -67,12 +79,14 @@ const Students = () => {
     if (node) lastNode.current.observe(node);
   }
 
+
+
   const setfield = (e) => {
     setfeildOfStudy(e.target.value)
     const f = fields.find((item) => {
       return item.fieldName == e.target.value
     })
-    fetch("http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments")
+    fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id))
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -89,16 +103,16 @@ const Students = () => {
     let url = APIEndpoints.root + APIEndpoints.students.getAll + `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
     console.log("url: ", url)
     if (searchKeyword) {
-      url += "&keyword=" + searchKeyword;
+      url += "&keyword=" + searchKeyword == "همه" ? "%" : searchKeyword;
     }
     if (feildOfStudy) {
-      url += "&fieldOfStudy=" + feildOfStudy
+      url += "&fieldOfStudy=" + feildOfStudy == "همه" ? "%" : feildOfStudy;
     }
     if (semester) {
-      url += "&semester=" + semester
+      url += "&semester=" + semester == "همه" ? "%" : semester;
     }
     if (department) {
-      url += "&department=" + department
+      url += "&department=" + department == "همه" ? "%" : department;
     }
     console.log(url)
     fetch(url, {
@@ -114,7 +128,7 @@ const Students = () => {
       })
   }
 
-
+  console.log(students)
   return (
     <div className="students_page fade_in">
       {/* add new student */}
@@ -137,9 +151,10 @@ const Students = () => {
             <select
               id="type"
               value={semester}
+              defaultValue={"همه"}
               onChange={(e) => setsemester(e.target.value)}
             >
-              <option disabled selected>سمستر</option>
+              <option >همه</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -155,9 +170,10 @@ const Students = () => {
             <select
               id="type"
               value={feildOfStudy}
+              defaultValue={"همه"}
               onChange={(e) => setfield(e)}
             >
-              <option disabled selected>پوهنحی</option>
+              <option >همه</option>
               {fields?.map(item => {
                 return <option key={item.id}>{item.fieldName}</option>
               })}
@@ -168,9 +184,10 @@ const Students = () => {
             <select
               id="type"
               value={department}
+              defaultValue={"همه"}
               onChange={(e) => setdepartment(e.target.value)}
             >
-              <option disabled selected>دیپارتمنت</option>
+              <option >همه</option>
               {departments?.map(item => {
                 return <option key={item.id}>{item.departmentName}</option>
               })}
@@ -200,6 +217,10 @@ const Students = () => {
             studentInfo={student
             } />
         })}
+        <section style={{ position: "relative", height: "60px", width: "100%" }}>
+          {hasMore && <Spinner />}
+          {!hasMore && <h5 style={{ textAlign: "center" }}>end of the the posts</h5>}
+        </section>
       </div>
     </div>
   )

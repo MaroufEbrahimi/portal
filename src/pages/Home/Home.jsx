@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import { useStateValue } from "../../context/StateProvider"
 import "./Home.css"
 import ShowCaseSlider from "../../components/Slider/ShowCaseSlider/ShowCaseSlider"
@@ -55,11 +55,11 @@ const Home = () => {
           {fields.map(f => {
             console.log(f)
             return (
-              <div className="faculty box_shadow">
+              <div className="faculty box_shadow" key={f.id}>
                 <div className="faculty_img">
                   <img src={faculty} alt="img faculty" />
                   <div className="img_details">
-                    <p style={{color:"#fff", fontSize:"1.5rem"}}>{f.fieldName}</p>
+                    <p style={{ color: "#fff", fontSize: "1.5rem" }}>{f.fieldName}</p>
                   </div>
                 </div>
                 <div className="faculty_details">

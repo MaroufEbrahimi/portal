@@ -1,9 +1,3 @@
-.students_page {
-  overflow-y: scroll;
-  overflow-x: scroll;
-}
-
-
 .all_students {
   display: flex;
   flex-flow: wrap;
