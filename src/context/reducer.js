@@ -2,6 +2,7 @@ import { getCookies } from "../Utils/Cookie";
 
 function getAuthInfoFromCookie() {
   let data = getCookies()
+  console.log(data)
   if (data.size > 0) {
     return {
       isAuthenticated: data.get("token") ? true : false,
