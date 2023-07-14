@@ -82,22 +82,22 @@ const UpdateStudent = () => {
             </div>
             <div className="build_box">
               <label>جلد</label>
-              <input type="text" />
+              <input type="text" inputMode="numeric" />
             </div>
 
             <div className="build_box">
               <label>صفحه</label>
-              <input type="text" />
+              <input type="text" inputMode="numeric" />
             </div>
 
             <div className="build_box">
               <label>شماره ثبت</label>
-              <input type="text" />
+              <input type="text" inputMode="numeric" />
             </div>
 
             <div className="build_box">
               <label>نمبر عمومی</label>
-              <input type="text" />
+              <input type="text" inputMode="numeric" />
             </div>
 
             <div className="full_width">

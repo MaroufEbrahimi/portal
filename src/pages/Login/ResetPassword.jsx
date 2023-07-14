@@ -11,7 +11,7 @@ const ResetPassword = () => {
       <form action="">
         <div className="form_container reset_password_form">
           <div className="login_box">
-            <input type="text" placeholder="ایمیل جدید" name="resetemail" />
+            <input type="email" placeholder="ایمیل جدید" name="resetemail" inputMode="email" />
             <i className="bi bi-person-circle"></i>
           </div>
           <div className="login_box">

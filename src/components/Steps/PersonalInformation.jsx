@@ -11,23 +11,22 @@ export const PersonalInformation = () => {
     file: "",
     isOk: studentImage ? true : false,
   })
-  const [fields, setFields] = useState([]);
-  const [departments, setDepartments] = useState([]);
+  const [fields, setFields] = useState([])
+  const [departments, setDepartments] = useState([])
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/field-of-studies")
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
           throw new Error(res.statusText)
         }
       })
-      .then(data => {
+      .then((data) => {
         console.log(data)
         setFields(data.content)
       })
   }, [])
-
 
   // handle input change of profile image
   const setProfileImgInput = (e) => {
@@ -37,7 +36,7 @@ export const PersonalInformation = () => {
       type: actionTypes.ADD_STUDENT_IMAGE,
       payload: {
         file: e.target.files[0],
-        url: url
+        url: url,
       },
     })
   }
@@ -176,15 +175,19 @@ export const PersonalInformation = () => {
           return item.fieldName == e.target.value
         })
         console.log(f)
-        fetch("http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments")
-          .then(res => {
+        fetch(
+          "http://localhost:1000/api/v1/field-of-studies/" +
+            f.id +
+            "/departments"
+        )
+          .then((res) => {
             if (res.ok) {
-              return res.json();
+              return res.json()
             } else {
               throw new Error(res.statusText)
             }
           })
-          .then(data => {
+          .then((data) => {
             console.log(data)
             setDepartments(data)
           })
@@ -304,6 +307,7 @@ export const PersonalInformation = () => {
             onChange={(e) => handleInputChangeValue(e, "email")}
             required
             placeholder="e.g famous@gmail.com"
+            inputMode="email"
           />
         </div>
 
@@ -314,6 +318,7 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.dob}
             onChange={(e) => handleInputChangeValue(e, "dob")}
             required
+            inputMode="url"
           />
         </div>
 
@@ -324,7 +329,9 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.motherTongue}
             onChange={(e) => handleInputChangeValue(e, "motherTongue")}
           >
-            <option disabled selected>زبان مادری</option>
+            <option disabled selected>
+              زبان مادری
+            </option>
             <option>دری</option>
             <option>پشتو</option>
           </select>
@@ -337,7 +344,9 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.gender}
             onChange={(e) => handleInputChangeValue(e, "gender")}
           >
-            <option disabled selected>جنسیت</option>
+            <option disabled selected>
+              جنسیت
+            </option>
             <option>مرد</option>
             <option>زن</option>
           </select>
@@ -350,7 +359,9 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.maritalStatus}
             onChange={(e) => handleInputChangeValue(e, "maritalStatus")}
           >
-            <option disabled selected>حالت مدنی</option>
+            <option disabled selected>
+              حالت مدنی
+            </option>
             <option>مجرد</option>
             <option>متاهل</option>
           </select>
@@ -373,6 +384,7 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.schoolGraduationDate}
             onChange={(e) => handleInputChangeValue(e, "schoolGraduationDate")}
             required
+            inputMode="url"
           />
         </div>
 
@@ -383,8 +395,10 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.fieldOfStudy}
             onChange={(e) => handleInputChangeValue(e, "fieldOfStudy")}
           >
-            <option disabled selected>رشته تحصیلی</option>
-            {fields.map(item => {
+            <option disabled selected>
+              رشته تحصیلی
+            </option>
+            {fields.map((item) => {
               return <option key={item.id}>{item.fieldName}</option>
             })}
           </select>
@@ -397,19 +411,24 @@ export const PersonalInformation = () => {
             value={studentPersonalInfo?.department}
             onChange={(e) => handleInputChangeValue(e, "department")}
           >
-            <option selected disabled>دیپارتمنت</option>
-            {departments.map(item => {
+            <option selected disabled>
+              دیپارتمنت
+            </option>
+            {departments.map((item) => {
               return <option key={item.id}>{item.departmentName}</option>
             })}
           </select>
         </div>
         <div className="post_box">
           <label>سمستر</label>
-          <select id="type"
+          <select
+            id="type"
             value={studentPersonalInfo?.semester}
             onChange={(e) => handleInputChangeValue(e, "semester")}
           >
-            <option selected disabled>سمستر</option>
+            <option selected disabled>
+              سمستر
+            </option>
             <option>1</option>
             <option>2</option>
             <option>3</option>

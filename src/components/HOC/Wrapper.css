@@ -8,12 +8,11 @@
   padding-bottom: 0;
 }
 
-
 .back_to_top {
   position: fixed;
   bottom: 2.5%;
   left: 3.3%;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .back_to_top button {
@@ -29,8 +28,8 @@
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   z-index: 2000;
-  box-shadow: 2px 2px 8px rgba(189, 243, 247, 0.4);
 }
 
 .back_to_top button i {

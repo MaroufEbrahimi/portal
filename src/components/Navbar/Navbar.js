@@ -82,9 +82,9 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                   <i className="bi bi-mortarboard"></i>
                   <span>پوهنــځی‌ها</span>
                   {activeFaculties ? (
-                    <i className="bi bi-chevron-down btn_toggle"></i>
-                  ) : (
                     <i className="bi bi-chevron-up btn_toggle"></i>
+                  ) : (
+                    <i className="bi bi-chevron-down btn_toggle"></i>
                   )}
                 </li>
               </div>
@@ -116,7 +116,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 <li className="navbar__item">
                   <i className="bi bi-gear"></i>
                   <span>ادمین پنل</span>
-                  <i className="bi bi-chevron-down btn_toggle"></i>
+                  <i className="bi bi-chevron-up btn_toggle"></i>
                 </li>
               </div>
               <input type="checkbox" className="drop_menu_button" />
