@@ -7,6 +7,7 @@
 
 }
 
+
 .update_post .file_post_body {
   padding: 10px;
   display: flex;
@@ -80,17 +81,51 @@
   gap: 5px;
 }
 
-.post_image {
+.update_post .post_image {
   position: relative;
 }
 
-.post_images img {
+.update_post .post_images img {
   object-fit: cover;
-  width: 45%;
+  width: 100%;
   border-radius: 10px;
 }
 
-.post_file {
+.update_post .image_container:hover .btn_container {
+  opacity: 1;
+  visibility: visible;
+}
+
+.update_post .image_container {
+  position: relative;
+  width: 50%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.update_post .btn_container {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.233);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in;
+  border-radius: 10px;
+}
+
+.update_post .file_control_btn {
+  background-color: #fff;
+  margin: 0 10px;
+}
+
+
+.update_post .post_file {
   display: flex;
   border-radius: 5px;
   background: linear-gradient(to right, var(--gen-color) #39c09e, #2bc4cfcc);
@@ -100,11 +135,11 @@
   max-width: 100%;
 }
 
-.files_icon_container {
+.update_post .files_icon_container {
   display: flex;
 }
 
-.files_icon_container p {
+.update_post .files_icon_container p {
   color: var(--text-color);
   max-width: 100%;
   word-break: break-word;
@@ -113,7 +148,7 @@
   align-items: center;
 }
 
-.file_post_title {
+.update_post .file_post_title {
   background-color: #ddd;
   display: flex;
   align-items: center;
@@ -124,13 +159,13 @@
   justify-content: space-between;
 }
 
-.file_post_title .file_post_details p {
+.update_post .file_post_title .file_post_details p {
   padding: 5px 0;
   color: var(--text-color);
   font-size: 16px;
 }
 
-.file_post_title .file_post_date {
+.update_post .file_post_title .file_post_date {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -138,7 +173,7 @@
 }
 
 /* download button */
-.btn_download {
+.update_post .btn_download {
   position: relative;
   width: 60px;
   height: 26px;
@@ -159,11 +194,11 @@
   transition: all 0.3s;
 }
 
-.btn_download .button_download_text {
+.update_post .btn_download .button_download_text {
   color: #fff;
 }
 
-.btn_download .button_download_icon {
+.update_post .btn_download .button_download_icon {
   position: absolute;
   transform: translateX(109px);
   height: 100%;
@@ -175,12 +210,12 @@
   color: #fff;
 }
 
-.btn_download .button_download_icon>i {
+.update_post .btn_download .button_download_icon>i {
   color: #fff;
   font-size: 18px;
 }
 
-.btn_download:hover {
+.update_post .btn_download:hover {
   background: var(--gen-color);
 }
 

@@ -1,5 +1,5 @@
 .spinner__wrapper {
-    display: block;
+    display: flex;
     text-align: center;
     min-height: 100px;
     position: absolute;

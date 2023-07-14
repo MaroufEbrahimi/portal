@@ -50,7 +50,7 @@ function Posts() {
                 setLoading(false)
             })
     }, [pagination])
-    console.log(posts)
+
     return (
         <div className='post_page'>
             {Array.from(new Set(posts)).map((item, index) => {
