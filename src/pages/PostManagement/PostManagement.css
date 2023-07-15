@@ -18,11 +18,9 @@
 }
 
 .content_of_PostManagement .content_of_posts_details {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   column-gap: 20px;
-  overflow-y: scroll;
-  overflow-x: scroll;
   padding: 10px;
 }
 
@@ -32,13 +30,7 @@
     flex-wrap: wrap;
   }
 
-  .title_posts_management .title_posts_title {
-    flex: 100%;
-  }
 
-  .content_of_PostManagement .content_of_posts_details {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 768px) {
