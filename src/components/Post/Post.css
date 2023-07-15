@@ -75,14 +75,15 @@
   left: 10px;
 }
 
-.post_settings .setting_menu li {
+.post_settings .setting_menu .setting_option {
   padding: 4px;
+  cursor: pointer;
+
 }
 
 .post_settings .setting_menu li:hover {
   font-weight: bold;
-  color: #fff;
-  background-color: var(--orange);
+  background-color: var(--gen-bg-color);
   border-radius: 5px;
 }
 

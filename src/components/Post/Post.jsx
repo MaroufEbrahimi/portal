@@ -21,14 +21,14 @@ const Post = ({ id, images, docs, author, date, text, customRef = null }) => {
             <span className="setting_icon"><i className="bi bi-three-dots"></i></span>
             <div className="setting_menu">
               <ul>
-                <li>
+                <li className="setting_option">
                   <Link to={"edit/" + id}>
                     <i className="bi bi-brush"></i>
                     ویرایش پست
                   </Link>
                 </li>
-                <li><i className="bi bi-save-fill"></i>پنهان کردن</li>
-                <li><i className="bi bi-trash-fill"></i>حذف پست</li>
+                <li className="setting_option"><i className="bi bi-save-fill"></i>پنهان کردن</li>
+                <li className="setting_option"><i className="bi bi-trash-fill"></i>حذف پست</li>
               </ul>
             </div>
           </div>
