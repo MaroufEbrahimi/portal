@@ -1,8 +1,9 @@
 import React from "react"
 import "./Post.css"
+import { Link } from "react-router-dom"
 
 
-const Post = ({ images, docs, author, date, text, customRef = null }) => {
+const Post = ({ id, images, docs, author, date, text, customRef = null }) => {
 
   return (
     <div className="post" ref={customRef}>
@@ -16,7 +17,21 @@ const Post = ({ images, docs, author, date, text, customRef = null }) => {
             </div>
 
           </div>
-
+          <div className="post_settings">
+            <span className="setting_icon"><i className="bi bi-three-dots"></i></span>
+            <div className="setting_menu">
+              <ul>
+                <li>
+                  <Link to={"edit/" + id}>
+                    <i className="bi bi-arrows-angle-expand"></i>
+                    ویرایش پست
+                  </Link>
+                </li>
+                <li><i className="bi bi-save-fill"></i>پنهان کردن</li>
+                <li><i className="bi bi-trash-fill"></i>حذف پست</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       <div className="file_post_body">

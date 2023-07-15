@@ -4,8 +4,10 @@
   border-radius: 6px;
   padding: 10px;
   margin: 30px 5px 0 5px;
-  
+  position: relative;
 }
+
+
 
 .file_post_body {
   padding: 10px;
@@ -47,6 +49,52 @@
 .post_header .post_share_with p {
   font-size: 14px;
   color: var(--text-color);
+}
+
+
+/* post setting */
+
+
+.post_settings .setting_icon {
+  cursor: pointer;
+  padding: 5px;
+  padding-right: 0;
+}
+
+.setting_icon:hover+.setting_menu {
+  transform: scaleY(1);
+}
+
+.post_settings .setting_menu {
+  border-radius: 5px;
+  width: 125px;
+  position: absolute;
+  background-color: #fff;
+  z-index: 100;
+  font-size: 0.8rem;
+  padding: 10px;
+  list-style: none;
+  transform: scaleY(0);
+  transition: all .2s ease-in-out;
+  transform-origin: top;
+  top: 30px;
+  left: 10px;
+}
+
+.post_settings .setting_menu li {
+  padding: 4px;
+}
+
+.post_settings .setting_menu li:hover {
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--orange);
+  border-radius: 5px;
+}
+
+.post_settings .setting_menu:hover {
+  transform: scaleY(1);
+
 }
 
 .img_post_body {
@@ -161,7 +209,7 @@
   color: #fff;
 }
 
-.btn_download .button_download_icon > i {
+.btn_download .button_download_icon>i {
   color: #fff;
   font-size: 18px;
 }
@@ -186,16 +234,17 @@
 .btn_download:active {
   border: 1px solid var(--gen-color);
 }
+
 /* End of download button */
 
 /* Responsive */
-@media (max-width: 991px) {
-}
+@media (max-width: 991px) {}
+
 @media (max-width: 768px) {
   .post_header .post_share_with img {
     width: 45px;
     height: 45px;
   }
 }
-@media (max-width: 480px) {
-}
+
+@media (max-width: 480px) {}

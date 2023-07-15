@@ -197,15 +197,17 @@ const PostManagement = () => {
           {Array.from(new Set(posts)).map((item, index) => {
             if (posts.length === index + 1) {
               return (
-                <Link to={"edit/" + item.id}> <Post
-                  key={item.id}
-                  author={item.author}
-                  date={item.dateTime}
-                  images={item.images}
-                  docs={item.docs}
-                  text={item.message}
-                  customRef={lastNodeReference}
-                />
+                <Link to={"edit/" + item.id}>
+                  <Post
+                    key={item.id}
+                    author={item.author}
+                    date={item.dateTime}
+                    images={item.images}
+                    id={item.id}
+                    docs={item.docs}
+                    text={item.message}
+                    customRef={lastNodeReference}
+                  />
                 </Link>
               )
             }
@@ -215,6 +217,7 @@ const PostManagement = () => {
                 author={item.author}
                 date={item.dateTime}
                 images={item.images}
+                id={item.id}
                 docs={item.docs}
                 text={item.message}
               />
