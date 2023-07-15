@@ -7,37 +7,39 @@ const Footer = () => {
     <div className="footer">
       <div className="footer_boxes">
         <div className="footer_box first_footer_box">
-          <h1>موسسسه تحصیلات عالی هریوا</h1>
-          <p>
+          <h1 className="text_color">موسسسه تحصیلات عالی هریوا</h1>
+          <p className="text_color text_align_justify">
             مؤسسه تحصیلات عالی هریوا در سال 1393 در حوزه غرب کشور در ولایت هرات
             شروع به فعالیت نموده و تا کنون تمام تلاش خویش برای ارایه آموزش های
             معیاری و اکادمیک مینماید.
           </p>
         </div>
-        <div className="footer_box second_footer_box">
+        <div className="footer_box second_footer_box display_flex justify_content_center flex_direction_column">
           <div className="box_info">
-            <i className="bi bi-geo-alt"></i>
+            <i className="bi bi-geo-alt text_color"></i>
             <div>
-              <h1>مکان</h1>
-              <p>آب بخش بادمرغان، فردوسی 15، جاده شرقی بادمرغان</p>
+              <h1 className="text_color">مکان</h1>
+              <p className="text_color">
+                آب بخش بادمرغان، فردوسی 15، جاده شرقی بادمرغان
+              </p>
             </div>
           </div>
           <div className="box_info">
-            <i className="bi bi-envelope"></i>
+            <i className="bi bi-envelope text_color"></i>
             <div>
-              <h1>ایمیل</h1>
-              <p>info@hariwa.edu.af</p>
+              <h1 className="text_color">ایمیل</h1>
+              <p className="text_color">info@hariwa.edu.af</p>
             </div>
           </div>
           <div className="box_info">
-            <i className="bi bi-phone"></i>
+            <i className="bi bi-phone text_color"></i>
             <div>
-              <h1>تماس</h1>
-              <p className="call_number">0799 600 344</p>
+              <h1 className="text_color">تماس</h1>
+              <p className="call_number text_color">0799 600 344</p>
             </div>
           </div>
         </div>
-        <div className="footer_box third_footer_box">
+        <div className="footer_box third_footer_box display_flex flex_direction_column">
           <Link to="/">خانه</Link>
           <Link to="/cs">کامپیوتر ساینس</Link>
           <Link to="/dentistry">طب دندان</Link>
@@ -47,10 +49,16 @@ const Footer = () => {
       {/* !CopyRight */}
       <div className="copyright">
         <div className="credits">
-          <p>حق کاپی محفوظ است &copy; 2023 هریوا</p>
-          <p>
+          <p className="text_color text_align_center">
+            حق کاپی محفوظ است &copy; 2023 هریوا
+          </p>
+          <p className="text_color text_align_center">
             ارایه شده توسط
-            <a href="https://github.com/maroufebrahimi" target="_blank">
+            <a
+              className="text_color"
+              href="https://github.com/maroufebrahimi"
+              target="_blank"
+            >
               <span> </span>MaroufEbrahimi
             </a>
           </p>

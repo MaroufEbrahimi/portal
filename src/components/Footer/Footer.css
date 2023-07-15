@@ -9,20 +9,12 @@
 /* first_footer_box */
 .footer_boxes .first_footer_box h1 {
   font-size: 25px;
-  color: var(--text-color);
 }
 .footer_boxes .first_footer_box p {
-  color: var(--text-color);
-  text-align: justify;
   margin-top: 1rem;
 }
 
 /* second_footer_box */
-.second_footer_box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 .second_footer_box .box_info {
   width: 100%;
   margin: 10px;
@@ -33,7 +25,6 @@
 }
 .second_footer_box .box_info i {
   background: var(--gen-bg-color);
-  color: var(--text-color);
   margin-top: 6px;
   font-size: 20px;
   border-radius: 4px;
@@ -50,11 +41,9 @@
 }
 .second_footer_box .box_info h1 {
   font-size: 22px;
-  color: var(--text-color);
   font-weight: 600;
 }
 .second_footer_box .box_info p {
-  color: var(--text-color);
   font-size: 15px;
   margin-bottom: 0;
 }
@@ -65,8 +54,6 @@
 /* third_footer_box */
 .third_footer_box {
   padding-top: 2rem;
-  display: flex;
-  flex-direction: column;
 }
 .third_footer_box a {
   line-height: 2em;
@@ -83,17 +70,10 @@
   margin: 2rem 0 1rem 0;
   padding-top: 1rem;
 }
-.copyright .credits p {
-  color: var(--text-color);
-  text-align: center;
-}
 .copyright .credits p:last-child {
   font-size: 14px;
   padding-top: 6px;
   transition: all 0.3s ease-in-out;
-}
-.copyright .credits a {
-  color: var(--text-color);
 }
 .copyright .credits a:hover {
   color: var(--gen-color);

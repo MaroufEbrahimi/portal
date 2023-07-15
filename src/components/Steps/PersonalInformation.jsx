@@ -235,7 +235,7 @@ export const PersonalInformation = () => {
             className="input_profile_img"
             alt="user_image"
           />
-          <span className="upload_icon display_flex align_items_center justify_content_center">
+          <span className="upload_icon display_flex align_items_center justify_content_center cursor_pointer">
             <i className="bi bi-camera"></i>
           </span>
           <input

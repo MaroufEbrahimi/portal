@@ -72,10 +72,6 @@
 }
 
 .add_img_profile .upload_icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
   position: absolute;
   height: 30px;
   bottom: 0;

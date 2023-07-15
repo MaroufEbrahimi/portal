@@ -7,17 +7,20 @@ const Header = ({ isDark, darkModeHandler }) => {
   const navigate = useNavigate()
   const [{ authentication }, dispatch] = useStateValue()
   return (
-    <div className="header">
-      <div className="header_right">
+    <div className="header display_flex align_items_center justify_content_space_between">
+      <div className="header_right display_flex">
         {!authentication?.isAuthenticated ? (
-          <button className="header_login" onClick={() => navigate("/login")}>
+          <button
+            className="header_login text_color cursor_pointer border_radius_8 background_color_transparent"
+            onClick={() => navigate("/login")}
+          >
             ورود به سیستم
           </button>
         ) : null}
       </div>
-      <div className="header_left">
+      <div className="header_left display_flex">
         <div
-          className="dark_mode_toggle"
+          className="dark_mode_toggle cursor_pointer border_radius_8 background_color_transparent"
           onClick={darkModeHandler}
           title="تغییر تم"
         >

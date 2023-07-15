@@ -71,9 +71,9 @@ const Stepper = ({ steps, currentStep }) => {
             : "display_stepper fade_in"
         }
       >
-        <div className="display_nums_des">
+        <div className="display_nums_des display_flex align_items_center justify_content_center flex_direction_column text_align_center">
           <div
-            className={`display_nums ${
+            className={`display_nums display_flex align_items_center justify_content_center ${
               step.selected ? "numbers_completed" : ""
             }`}
           >
@@ -88,14 +88,14 @@ const Stepper = ({ steps, currentStep }) => {
             )}
           </div>
           <div
-            className={`display_des ${
+            className={`display_des display_flex ${
               step.highlighted
                 ? "description_highlighted"
                 : "description_not_highlighted"
             }`}
           >
             {/*  Display Description  */}
-            <p>{step.description}</p>
+            <p className="text_color">{step.description}</p>
           </div>
         </div>
         <div
@@ -111,7 +111,11 @@ const Stepper = ({ steps, currentStep }) => {
     )
   })
 
-  return <div className="stepper">{allSteps}</div>
+  return (
+    <div className="stepper display_flex align_items_center justify_content_space_between">
+      {allSteps}
+    </div>
+  )
 }
 
 export default Stepper

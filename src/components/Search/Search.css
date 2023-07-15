@@ -1,10 +1,7 @@
 .search__input {
-  display: flex;
-  align-items: center;
   border: 1px solid var(--gen-color);
   height: 35px;
   padding: 10px 0;
-  border-radius: 8px;
   width: 70vw;
   margin: 0 auto;
   margin-top: 20px;
@@ -27,17 +24,12 @@
 }
 
 .search .search__button {
-  cursor: pointer;
-  background-color: transparent;
-  outline: none;
   padding: 4px 15px;
-  color: var(--text-color);
   transition: all 0.3s ease-in-out;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
-  border: none;
   border-right: 1px solid var(--gen-color);
 }
 
