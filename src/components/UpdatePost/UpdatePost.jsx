@@ -5,13 +5,12 @@ import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 import ReactQuill from "react-quill"
 import "react-quill/dist/quill.snow.css"
-import Button from "../UI/Button/Button";
-import ICONS from "../../constants/Icons";
-import BtnTypes from "../../constants/BtnTypes";
-import Backdrop from "../UI/backrop/Backdrop";
-import Spinner from "../UI/Loading/Spinner";
-import ModalDelete from "../UI/ModalDelete/ModalDelete";
-
+import Button from "../UI/Button/Button"
+import ICONS from "../../constants/Icons"
+import BtnTypes from "../../constants/BtnTypes"
+import Backdrop from "../UI/BackDrop/BackDrop"
+import Spinner from "../UI/Loading/Spinner"
+import ModalDelete from "../UI/ModalDelete/ModalDelete"
 
 const UpdatePost = () => {
   const { id } = useParams()
@@ -20,9 +19,9 @@ const UpdatePost = () => {
   const [text, setText] = useState("")
   const [showModal, setShowModal] = useState(false)
   const [loading, setloading] = useState(true)
-  const [imageOnModal, setImageOnModal] = useState('');
+  const [imageOnModal, setImageOnModal] = useState("")
   const [showRemoveFileModal, setShowRemoveFileModal] = useState(false)
-  const [fileUrlToRemove, setfileUrlToRemove] = useState('')
+  const [fileUrlToRemove, setfileUrlToRemove] = useState("")
   const modalCloseHandler = () => {
     setShowModal(false)
     setloading(true)
@@ -33,15 +32,13 @@ const UpdatePost = () => {
   }
   const setShowRemoveFileModalHandlerAndSetFileUrl = (fileUrl) => {
     setShowRemoveFileModal(true)
-    setfileUrlToRemove(fileUrl);
+    setfileUrlToRemove(fileUrl)
   }
   const removeFile = () => {
-
     // to do
     // remove the file on the server
     setShowRemoveFileModal(false)
     alert("file removed")
-
   }
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.posts.getPost + id, {
@@ -69,8 +66,6 @@ const UpdatePost = () => {
         .then((data) => {})
     }
   }
-
-
 
   console.log(post)
   return (
@@ -106,9 +101,18 @@ const UpdatePost = () => {
               <div className="image_container" key={item}>
                 <img src={item} alt="" key={item} />
                 <div className="btn_container">
-                  <Button icon={ICONS.trash} type={BtnTypes.danger} onClick={() => setShowRemoveFileModalHandlerAndSetFileUrl(item)} />
+                  <Button
+                    icon={ICONS.trash}
+                    type={BtnTypes.danger}
+                    onClick={() =>
+                      setShowRemoveFileModalHandlerAndSetFileUrl(item)
+                    }
+                  />
                   <Button icon={ICONS.download} />
-                  <Button icon={ICONS.fullscreen} onClick={() => fullscreen(item)} />
+                  <Button
+                    icon={ICONS.fullscreen}
+                    onClick={() => fullscreen(item)}
+                  />
                 </div>
               </div>
             )
@@ -142,21 +146,29 @@ const UpdatePost = () => {
         </div>
         <Backdrop show={showModal} modalClose={modalCloseHandler}>
           {loading && <Spinner />}
-          <img src={imageOnModal} onLoad={() => setloading(false)} alt="file_image" />
+          <img
+            src={imageOnModal}
+            onLoad={() => setloading(false)}
+            alt="file_image"
+          />
         </Backdrop>
         <ModalDelete show={showRemoveFileModal} modalClose={modalCloseHandler}>
           <div className="logout">
             <i className="bi bi-exclamation-triangle-fill"></i>
             <p>برای حذف شدن فایل از سیستم مطمین هستید؟</p>
             <div className="logout_buttons">
-              <button className="btn logout_btn" onClick={() => removeFile()}>بلی</button>
-              <button className="btn" onClick={() => setShowRemoveFileModal(false)}>
+              <button className="btn logout_btn" onClick={() => removeFile()}>
+                بلی
+              </button>
+              <button
+                className="btn"
+                onClick={() => setShowRemoveFileModal(false)}
+              >
                 نخیر
               </button>
             </div>
           </div>
         </ModalDelete>
-
       </div>
     </div>
   )
