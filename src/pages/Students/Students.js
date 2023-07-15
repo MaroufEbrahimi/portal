@@ -169,7 +169,7 @@ const Students = () => {
   return (
     <div className="students_page fade_in">
       {/* add new student */}
-      <div className="students_add_new_student">
+      <div className="students_add_new_student display_flex align_items_center justify_content_space_between">
         <button>
           <Link to="/admin/addstudent">محصل جدید</Link>
         </button>
@@ -178,10 +178,8 @@ const Students = () => {
         </button>
       </div>
 
-
-
       {/* some button for filtering */}
-      <div className="students_filter_btn">
+      <div className="students_filter_btn display_flex align_items_center justify_content_center">
         <div className="posts_management_boxes">
           <div className="post_mana_box">
             <label>سمستر</label>
@@ -191,7 +189,7 @@ const Students = () => {
               defaultValue={"همه"}
               onChange={(e) => setsemester(e.target.value)}
             >
-              <option >همه</option>
+              <option>همه</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -210,8 +208,8 @@ const Students = () => {
               defaultValue={"همه"}
               onChange={(e) => setfield(e)}
             >
-              <option >همه</option>
-              {fields?.map(item => {
+              <option>همه</option>
+              {fields?.map((item) => {
                 return <option key={item.id}>{item.fieldName}</option>
               })}
             </select>
@@ -224,40 +222,45 @@ const Students = () => {
               defaultValue={"همه"}
               onChange={(e) => setdepartment(e.target.value)}
             >
-              <option >همه</option>
-              {departments?.map(item => {
+              <option>همه</option>
+              {departments?.map((item) => {
                 return <option key={item.id}>{item.departmentName}</option>
               })}
             </select>
           </div>
-
         </div>
         <Search
           value={searchKeyword}
           onChange={(e) => setSearchKeyword(e.target.value)}
           handleSearchButton={handleSearchButton}
-          placeHolder="جستجوی محصل..." />
+          placeHolder="جستجوی محصل..."
+        />
       </div>
 
       {/* All Students Here */}
-      <div className="all_students">
+      <div className="all_students display_flex justify_content_center">
         {students?.map((student, index) => {
           if (students?.length === index + 1) {
-            return <Student
-              key={student.id}
-              studentInfo={student}
-              customRef={lastNodeReference}
-            />
+            return (
+              <Student
+                key={student.id}
+                studentInfo={student}
+                customRef={lastNodeReference}
+              />
+            )
           }
-          return <Student
-            key={student.id}
-            studentInfo={student
-            } />
+          return <Student key={student.id} studentInfo={student} />
         })}
-        <section style={{ position: "relative", height: "60px", width: "100%" }}>
+        <section
+          style={{ position: "relative", height: "60px", width: "100%" }}
+        >
           {hasMore && <Spinner />}
-          {!hasMore && students.length > 0 && <h5 style={{ textAlign: "center" }}>آخرین محصل</h5>}
-          {!hasMore && students.length == 0 && <h5 style={{ textAlign: "center" }}>محصل یافت نشد!</h5>}
+          {!hasMore && students.length > 0 && (
+            <h5 style={{ textAlign: "center" }}>آخرین محصل</h5>
+          )}
+          {!hasMore && students.length == 0 && (
+            <h5 style={{ textAlign: "center" }}>محصل یافت نشد!</h5>
+          )}
         </section>
       </div>
     </div>

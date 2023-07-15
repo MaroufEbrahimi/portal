@@ -4,10 +4,7 @@
   direction: ltr;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  align-items: center;
   padding-top: 12rem;
-  flex-direction: column;
   top: 0;
   bottom: 0;
   left: 0;
@@ -25,16 +22,7 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-.login_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .login .avatart {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-image: url("/public/img/favicon.png");
   background-size: cover;
   border-radius: 50%;
@@ -69,7 +57,6 @@
 
 form .form_container .login_box {
   margin: 15px 0;
-  display: grid;
   grid-template-columns: 90% 10%;
 }
 
@@ -105,18 +92,14 @@ form .error {
 .btn_login {
   position: absolute;
   width: 100%;
-  display: flex;
   bottom: -47px;
 }
 
 .btn_login .login_button {
   width: 100%;
   background-color: rgba(230, 243, 243, 0.4);
-  border: none;
-  outline: none;
   border-radius: 8px;
   font-size: 17px;
-  cursor: pointer;
   padding: 10px;
   transition: all 0.2s ease-in-out;
 }
@@ -126,7 +109,6 @@ form .error {
 }
 
 /* Responsive */
-
 
 @media (max-width: 480px) {
   .login .avatart {

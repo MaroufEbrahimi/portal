@@ -88,7 +88,7 @@ const AddStudent = () => {
   }
   console.log(apiResponse)
   return (
-    <div className="add_new fade_in">
+    <div className="add_new fade_in border_radius_8">
       {/* Stepper */}
       <div className="stepper_step">
         <Stepper steps={steps} currentStep={counter} />
@@ -96,15 +96,20 @@ const AddStudent = () => {
 
       {/* Display components */}
       <div className="">
-        {counter < components.length - 1 ? <stepComponent.component /> : <stepComponent.component apiResponse={apiResponse} />}
+        {counter < components.length - 1 ? (
+          <stepComponent.component />
+        ) : (
+          <stepComponent.component apiResponse={apiResponse} />
+        )}
       </div>
 
       {/* Navigation control */}
-      {<FormControl
-        handleNextStep={handleNextStep}
-        currentStep={counter}
-        steps={steps}
-      />
+      {
+        <FormControl
+          handleNextStep={handleNextStep}
+          currentStep={counter}
+          steps={steps}
+        />
       }
     </div>
   )

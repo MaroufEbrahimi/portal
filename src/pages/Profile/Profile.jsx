@@ -59,14 +59,14 @@ const Profile = () => {
   return (
     <div className="profile fade_in">
       <div className="profile_title">
-        <div className="user_profile_img">
+        <div className="user_profile_img display_flex align_items_center">
           <img src={student?.imageUrl} alt="user img" />
           <h1>
             {student?.studentPersonalInfo?.name}{" "}
             {student?.studentPersonalInfo?.lastName}
           </h1>
         </div>
-        <div className="logout_changePass">
+        <div className="logout_changePass display_flex">
           <button onClick={showModalHandler}>
             <span> خروج از حساب کاربری</span>
             <i className="bi bi-reply-all-fill"></i>
@@ -82,8 +82,10 @@ const Profile = () => {
           <div className="logout">
             <i className="bi bi-exclamation-triangle-fill"></i>
             <p>برای بیرون شدن از سیستم مطمین هستید؟</p>
-            <div className="logout_buttons">
-              <button className="btn logout_btn" onClick={logout}>بلی</button>
+            <div className="logout_buttons display_flex align_items_center justify_content_space_around">
+              <button className="btn logout_btn" onClick={logout}>
+                بلی
+              </button>
               <button className="btn" onClick={modalCloseHandler}>
                 نخیر
               </button>
@@ -106,7 +108,7 @@ const Profile = () => {
       </div>
       <div className="content_of_profile">
         <div className={showTab === 1 ? "content active_content" : "content"}>
-          <div className="content_boxes">
+          <div className="content_boxes display_grid">
             <div className="content_box">
               <label>نام</label>
               <p>{student?.studentPersonalInfo?.name}</p>

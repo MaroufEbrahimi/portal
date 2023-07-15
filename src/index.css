@@ -80,6 +80,23 @@ a {
 .outline_none {
   outline: none;
 }
+.cursor_pointer {
+  cursor: pointer;
+}
+.border_radius_8 {
+  border-radius: 8px;
+}
+.background_color_transparent {
+  background-color: transparent;
+}
+.text_align_justify {
+  text-align: justify;
+}
+
+/* Grid */
+.display_grid {
+  display: grid;
+}
 /* Flex Box */
 .display_flex {
   display: flex;
@@ -105,22 +122,6 @@ a {
   flex-direction: column;
 }
 
-.cursor_pointer {
-  cursor: pointer;
-}
-
-.border_radius_8 {
-  border-radius: 8px;
-}
-
-.background_color_transparent {
-  background-color: transparent;
-}
-
-.text_align_justify {
-  text-align: justify;
-}
-
 ul {
   list-style: none;
 }
@@ -128,7 +129,6 @@ ul {
 img {
   -webkit-user-drag: none;
 }
-
 
 ::selection {
   background-color: #67b0d1;

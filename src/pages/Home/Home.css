@@ -4,9 +4,6 @@
 }
 .home_header {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-bottom: 15px;
   padding: 0px 30px;
 }
@@ -130,10 +127,6 @@ section {
 /* faculty_boxes */
 .faculty_boxes {
   position: relative;
-  display: grid;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   grid-gap: 1rem;
   margin: 10px;
@@ -168,9 +161,6 @@ section {
   font-size: 12px;
 }
 .faculty .faculty_details {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 10px;
 }
 .faculty .faculty_details img {
@@ -178,9 +168,7 @@ section {
   width: 30px;
 }
 .faculty .faculty_details > div {
-  display: flex;
   align-items: end;
-  flex-direction: column;
 }
 .faculty .faculty_details > div p {
   font-size: 14px;
@@ -188,7 +176,6 @@ section {
 }
 /* Elite Students */
 .elite_students .elite_stu {
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.7rem;
 }
@@ -237,28 +224,12 @@ section {
   color: var(--text-color);
 }
 
-/* auto_play_slider */
-.auto_play_slider {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-/* .auto_play_slider div {
-  background: red;
-} */
-
 /* colleague institute */
 .colleague_institute_boxes {
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, auto));
   grid-column: 2rem;
 }
 .colleague_institute_boxes .colleague_institute_box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 2px;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 4px;

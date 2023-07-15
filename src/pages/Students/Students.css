@@ -1,15 +1,10 @@
 .all_students {
-  display: flex;
   flex-flow: wrap;
-  justify-content: center;
   margin-top: 30px;
 }
 
 /* students_add_new_student */
 .students_add_new_student {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 10px;
 }
 
@@ -29,9 +24,6 @@
 
 /* Filtering Buttons */
 .students_filter_btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
   margin: 15px 0;
@@ -82,12 +74,6 @@
   border-top-left-radius: 10px;
 }
 
-.student_profile_img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .student_profile_img img {
   position: absolute;
   top: 30px;
@@ -102,11 +88,6 @@
 /* student descriptions */
 .student_personal_info {
   margin-top: 30px;
-  /* padding: 5px; */
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
 }
 
 .student_personal_info p {
@@ -124,11 +105,7 @@
 
 .student_university_info {
   background: var(--gen-bg-color);
-  border-radius: 8px;
   margin: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .student_university_info p {

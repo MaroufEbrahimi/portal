@@ -1,12 +1,12 @@
 import React from "react"
-import './About.css'
+import "./About.css"
 import Footer from "../../components/Footer/Footer"
 
 const About = () => {
   return (
     <div className="about">
       <div className="about_details">
-        <h1>معرفی مؤسسه تحصیلات عالی هریوا</h1>
+        <h1 className="text_color">معرفی مؤسسه تحصیلات عالی هریوا</h1>
         <p>
           مؤسسه تحصیلات عالی هریوا یک نهاد علمی – تحصیلی خصوصی می باشد که در رأس
           آن ریاست عمومی مؤسسه و تحت آن شش بخش کلیدی، معاونیت علمی، معاونیت مالی
