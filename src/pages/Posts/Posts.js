@@ -50,7 +50,7 @@ function Posts() {
                 setLoading(false)
             })
     }, [pagination])
-    console.log(posts)
+
     return (
         <div className='post_page'>
             {Array.from(new Set(posts)).map((item, index) => {
@@ -76,7 +76,7 @@ function Posts() {
             })}
             <section style={{ position: "relative", height: "60px" }}>
                 {hasMore && <Spinner />}
-                {!hasMore && <h5 style={{ textAlign: "center" }}>end of the the posts</h5>}
+                {!hasMore && <h5 style={{ textAlign: "center" }}>آخرین پست</h5>}
             </section>
         </div>
     )

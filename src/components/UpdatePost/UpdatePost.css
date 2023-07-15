@@ -6,6 +6,7 @@
   margin: 30px 5px 0 5px;
 }
 
+
 .update_post .file_post_body {
   padding: 10px;
 }
@@ -71,13 +72,25 @@
   gap: 5px;
 }
 
-.post_image {
+.update_post .post_image {
   position: relative;
 }
 
-.post_images img {
+.update_post .post_images img {
   object-fit: cover;
-  width: 45%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.update_post .image_container:hover .btn_container {
+  opacity: 1;
+  visibility: visible;
+}
+
+.update_post .image_container {
+  position: relative;
+  width: 50%;
+  overflow: hidden;
   border-radius: 10px;
 }
 
@@ -96,7 +109,7 @@
   font-size: 14px;
 }
 
-.file_post_title {
+.update_post .file_post_title {
   background-color: #ddd;
   display: flex;
   align-items: center;
@@ -107,13 +120,13 @@
   justify-content: space-between;
 }
 
-.file_post_title .file_post_details p {
+.update_post .file_post_title .file_post_details p {
   padding: 5px 0;
   color: var(--text-color);
   font-size: 16px;
 }
 
-.file_post_title .file_post_date {
+.update_post .file_post_title .file_post_date {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -121,7 +134,7 @@
 }
 
 /* download button */
-.btn_download {
+.update_post .btn_download {
   position: relative;
   width: 60px;
   height: 26px;
@@ -138,11 +151,11 @@
   transition: all 0.3s;
 }
 
-.btn_download .button_download_text {
+.update_post .btn_download .button_download_text {
   color: #fff;
 }
 
-.btn_download .button_download_icon {
+.update_post .btn_download .button_download_icon {
   position: absolute;
   transform: translateX(109px);
   height: 100%;
@@ -156,7 +169,7 @@
   font-size: 18px;
 }
 
-.btn_download:hover {
+.update_post .btn_download:hover {
   background: var(--gen-color);
 }
 

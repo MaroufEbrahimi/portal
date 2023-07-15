@@ -28,6 +28,7 @@
   --gen-main-bg: #eaf8ff;
   --text-color: #000;
   --icon-faculties-color: #fff;
+  --btn-bg-color: #6dc7f1f3;
 }
 
 .theme-dark {
@@ -127,6 +128,7 @@ ul {
 img {
   -webkit-user-drag: none;
 }
+
 
 ::selection {
   background-color: #67b0d1;
