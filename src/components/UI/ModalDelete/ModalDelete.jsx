@@ -8,7 +8,7 @@ const ModalDelete = (props) => {
     <Wrapper>
       <BackDrop show={props.show} removeOrder={props.modalClose} />
       <div
-        className="modal"
+        className="modal text_align_center border_radius_8"
         style={{
           transform: props.show ? "translateY(0)" : "translateY(-100vh)",
           opacity: props.show ? "1" : "0",

@@ -13,7 +13,7 @@ const DeleteStudent = (props) => {
   }
   return (
     <div className="delete_student fade_in">
-      <div className="delete_lock_buttons">
+      <div className="delete_lock_buttons display_flex align_items_center justify_content_space_between">
         <button className="btn" onClick={showModalHandler}>
           پاک کردن
         </button>
@@ -23,7 +23,7 @@ const DeleteStudent = (props) => {
             <i className="bi bi-exclamation-diamond"></i>
             <h3>مطمین هستید؟</h3>
             <p>بصورت دایمی پاک خواهد شد</p>
-            <div className="del_cancel_btn">
+            <div className="del_cancel_btn display_flex align_items_center justify_content_space_around">
               <button className="btn delete_btn">پاک کردن</button>
               <button className="btn" onClick={modalCloseHandler}>
                 نخیر

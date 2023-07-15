@@ -13,7 +13,7 @@ const ViewPoint = ({ viewPoint, mission }) => {
         <h2>دیدگاه و مأموریت</h2>
       </div>
 
-      <div className="view_point_tabHeader faculties_tabHeader">
+      <div className="view_point_tabHeader tab_header">
         <ul>
           <li
             className={showTab === 1 ? "active_tab" : ""}
@@ -34,8 +34,8 @@ const ViewPoint = ({ viewPoint, mission }) => {
         <div
           className={
             showTab === 1
-              ? "faculties_tabHeader_content active_content box_shadow"
-              : "faculties_tabHeader_content"
+              ? "tab_header_display active_content box_shadow"
+              : "tab_header_display"
           }
         >
           <p>{viewPoint}</p>
@@ -43,8 +43,8 @@ const ViewPoint = ({ viewPoint, mission }) => {
         <div
           className={
             showTab === 2
-              ? "faculties_tabHeader_content active_content box_shadow"
-              : "faculties_tabHeader_content"
+              ? "tab_header_display active_content box_shadow"
+              : "tab_header_display"
           }
         >
           <p>{mission}</p>

@@ -1,15 +1,3 @@
-/* Title of Posts Management */
-.title_posts_management {
-  background-color: var(--gen-bg-color);
-  padding: 1rem;
-  border-radius: 8px 8px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-
 /* Posts Management Content */
 .content_of_PostManagement {
   margin: 20px 0px;
@@ -33,10 +21,6 @@
 
 }
 
-@media (max-width: 768px) {
-  .title_posts_management .title_posts_divs {
-    flex-wrap: wrap;
-  }
-}
+@media (max-width: 768px) {}
 
 @media (max-width: 480px) {}

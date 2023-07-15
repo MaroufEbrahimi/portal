@@ -55,12 +55,12 @@ const Login = () => {
   }
 
   return (
-    <div className="login fade_in">
-      <div className="avatart"></div>
-      <div className="login_container login_details">
+    <div className="login fade_in display_flex align_items_center flex_direction_column">
+      <div className="avatart display_flex align_items_center justify_content_center"></div>
+      <div className="login_container login_details display_flex align_items_center justify_content_center">
         <form action="">
           <div className="form_container">
-            <div className="login_box">
+            <div className="login_box display_grid">
               <input
                 type="text"
                 placeholder="ایمیل"
@@ -70,7 +70,7 @@ const Login = () => {
               />
               <i className="bi bi-person-circle"></i>
             </div>
-            <div className="login_box">
+            <div className="login_box display_grid">
               <input
                 type="password"
                 placeholder="رمز عبور"
@@ -82,8 +82,11 @@ const Login = () => {
             </div>
           </div>
           <p className="error">{error && "ایمیل یا رمز اشتباه است!"}</p>
-          <div className="btn_login">
-            <button className="login_button" onClick={handleSubmit}>
+          <div className="btn_login display_flex">
+            <button
+              className="login_button border_none outline_none cursor_pointer"
+              onClick={handleSubmit}
+            >
               ورود به سیستم
             </button>
           </div>

@@ -14,9 +14,9 @@ const IntroOfDeanOfFaculty = ({
   deanTxt2,
 }) => {
   return (
-    <div className="intro_of_dean_of_faculty">
+    <div className="intro_of_dean_of_faculty display_flex justify_content_space_between">
       <div className="dean_of_faculty_info">
-        <div className="dean_of_img">
+        <div className="dean_of_img display_flex align_items_center justify_content_center text_align_center">
           <img className="main_img" src={deanImg} alt="Dean image" />
         </div>
         <div className="dean_of_faculty_details">

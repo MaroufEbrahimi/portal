@@ -57,7 +57,7 @@ const Dentistry = () => {
           <h2>مفردات درسی</h2>
         </div>
 
-        <div className="dentistry_tabHeaders">
+        <div className="dentistry_tabHeaders tab_header">
           {dentistry_references_tabHeader.map((item) => (
             <ul>
               <li
@@ -74,8 +74,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 1
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">
@@ -101,8 +101,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 2
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">
@@ -128,8 +128,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 3
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">
@@ -155,8 +155,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 4
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">
@@ -182,8 +182,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 5
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">
@@ -209,8 +209,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 6
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">
@@ -236,8 +236,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 7
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">
@@ -263,8 +263,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 8
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">
@@ -290,8 +290,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 9
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">
@@ -317,8 +317,8 @@ const Dentistry = () => {
       <div
         className={
           showTabSemester === 10
-            ? "dentistry_tabHeader active_content box_shadow"
-            : "dentistry_tabHeader"
+            ? "tab_header_display active_content box_shadow"
+            : "tab_header_display"
         }
       >
         <div className="dentistry_ref_title">

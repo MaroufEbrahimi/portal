@@ -7,7 +7,7 @@ import Footer from "../../components/Footer/Footer"
 const NotFound = () => {
   return (
     <>
-      <div className="not_found fade_in">
+      <div className="not_found fade_in display_flex align_items_center flex_direction_column">
         <img src={notFound} className="bottom-to-top" alt="404" />
         <p className="fade_in">این صفحه یافت نشد</p>
         <button className="btn fade_in">

@@ -3,9 +3,6 @@
 }
 
 .delete_student .delete_lock_buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 10px;
 }
 
@@ -37,9 +34,6 @@
 }
 .del_cancel_btn {
   margin-top: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   gap: 15px;
 }
 .delete_btn {

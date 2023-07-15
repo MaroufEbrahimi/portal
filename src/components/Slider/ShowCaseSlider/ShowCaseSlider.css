@@ -2,7 +2,6 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
   width: 100%;
 }
 .active_slide {

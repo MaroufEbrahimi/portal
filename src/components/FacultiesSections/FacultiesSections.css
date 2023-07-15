@@ -3,14 +3,7 @@
   margin-top: 6rem;
 }
 .faculties_sections_title h2 {
-  color: var(--text-color);
   font-size: 30px;
-  /* text-shadow: 0 0.1px 4.896px var(--gen-color);
-  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
-    0px -4px 10px rgba(255, 255, 255, 0.3); */
-  /* text-shadow: 0 2px 2px #dfdfdf, -2px 5px 1px #b8b8b8;
-  text-shadow: 3px 0px 7px rgba(21, 81, 71, 0.8);
-  text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8); */
   text-shadow: 3px 3px 20px #99ffe9, -2px 1px 30px #77d5f1;
 }
 .introduction_of_faculty p {
@@ -26,8 +19,6 @@
 /* #_____ Introduction of Dean of Faculties _____# */
 .intro_of_dean_of_faculty {
   margin: 4rem 0;
-  display: flex;
-  justify-content: space-between;
   gap: 30px;
 }
 .intro_of_dean_of_faculty .dean_of_faculty_info {
@@ -38,10 +29,6 @@
   width: 330px;
   height: 330px;
   background-image: url("../../assets/img/deans/back_img.png");
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 10px;
 }
 
@@ -81,31 +68,11 @@
 /* #_____ End of Introduction of Dean of Faculties _____# */
 
 /* #_____ View Point of the Faculties _____# */
-.faculties_tabHeader {
-  position: relative;
-  background: var(--gen-bg-color);
-  z-index: 0;
-  border-radius: 10px;
+.view_point_tabHeader,
+.goals_tabHeader {
   margin-top: 1rem;
 }
-.faculties_tabHeader ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  display: flex;
-  text-align: center;
-}
-.faculties_tabHeader ul li {
-  padding: 8px 20px;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-.faculties_tabHeader ul li:hover,
-.faculties_tabHeader ul .active_tab {
-  border-top-color: var(--gen-color);
-}
-.faculties_tabHeader_contents .faculties_tabHeader_content {
+/* .faculties_tabHeader_contents .faculties_tabHeader_content {
   display: none;
   margin: 1rem;
   padding: 1rem;
@@ -114,7 +81,7 @@
 }
 .faculties_tabHeader_contents .active_content {
   display: block;
-}
+} */
 /* #_____ End of View Point of the Faculties _____# */
 
 /* #_____ Goals and Mission of the Faculties _____# */

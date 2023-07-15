@@ -62,8 +62,6 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
   top: 93%;
 }
 .all_dots .dot {

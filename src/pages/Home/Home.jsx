@@ -12,18 +12,18 @@ import faculty from "../../assets/img/imgpost.jpg"
 const Home = () => {
   const [{ term }, dispatch] = useStateValue()
 
-  const [fields, setFields] = useState([]);
-  const [departments, setDepartments] = useState([]);
+  const [fields, setFields] = useState([])
+  const [departments, setDepartments] = useState([])
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/field-of-studies")
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
           throw new Error(res.statusText)
         }
       })
-      .then(data => {
+      .then((data) => {
         console.log(data)
         setFields(data.content)
       })
@@ -31,7 +31,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="home_header">
+      <div className="home_header display_flex align_items_center justify_content_space_between">
         <div className="input_group">
           <label>
             <h1>{term}</h1>
@@ -51,20 +51,22 @@ const Home = () => {
         <div className="section_title">
           <h1>پوهنحی ها</h1>
         </div>
-        <div className="faculty_boxes">
-          {fields.map(f => {
+        <div className="faculty_boxes display_grid align_items_center text_align_center justify_content_center ">
+          {fields.map((f) => {
             console.log(f)
             return (
               <div className="faculty box_shadow" key={f.id}>
                 <div className="faculty_img">
                   <img src={faculty} alt="img faculty" />
                   <div className="img_details">
-                    <p style={{ color: "#fff", fontSize: "1.5rem" }}>{f.fieldName}</p>
+                    <p style={{ color: "#fff", fontSize: "1.5rem" }}>
+                      {f.fieldName}
+                    </p>
                   </div>
                 </div>
-                <div className="faculty_details">
+                <div className="faculty_details display_flex align_items_center justify_content_space_between">
                   <img src={LOGO} alt="" />
-                  <div>
+                  <div className="display_flex flex_direction_column">
                     <p>120$</p>
                     <p>0799999999</p>
                   </div>
@@ -81,7 +83,7 @@ const Home = () => {
         <div className="section_title">
           <h1>محصلان نخبه</h1>
         </div>
-        <div className="elite_stu">
+        <div className="elite_stu display_grid">
           {eliteStudents.map((item) => (
             <div className="elite_stu_card" key={item.id}>
               <div className="elite_stu_card_text box_shadow">
@@ -103,11 +105,11 @@ const Home = () => {
         <div className="section_title">
           <h1>نهاد های همکار</h1>
         </div>
-        <div className="colleague_institute_boxes">
+        <div className="colleague_institute_boxes display_grid">
           {colleagueInstitute.map((itemImg) => (
             <div
               key={itemImg.id}
-              className="colleague_institute_box"
+              className="colleague_institute_box display_flex align_items_center justify_content_center"
               title={itemImg.title}
             >
               <img src={itemImg.imgInstitute} alt={itemImg.alt} />

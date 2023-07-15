@@ -11,8 +11,6 @@
 
 .file_post_body {
   padding: 10px;
-  display: flex;
-  flex-direction: column;
 }
 
 .file_post_containter {
@@ -28,13 +26,9 @@
 
 .post_header {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
 }
 
 .post_header .post_share_with {
-  display: flex;
-  align-items: center;
   gap: 10px;
 }
 
@@ -109,7 +103,6 @@
 
 /* file post */
 .post_images {
-  display: flex;
   flex-flow: wrap;
   gap: 5px;
 }
@@ -125,7 +118,6 @@
 }
 
 .post_file {
-  display: flex;
   border-radius: 5px;
   background: linear-gradient(to right, var(--gen-color) #39c09e, #2bc4cfcc);
   padding: 6px;
@@ -134,41 +126,10 @@
   max-width: 100%;
 }
 
-.files_icon_container {
-  display: flex;
-}
-
 .files_icon_container p {
-  color: var(--text-color);
   max-width: 100%;
   word-break: break-word;
   font-size: 14px;
-  display: flex;
-  align-items: center;
-}
-
-.file_post_title {
-  background-color: #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  flex: 7;
-  display: flex;
-  justify-content: space-between;
-}
-
-.file_post_title .file_post_details p {
-  padding: 5px 0;
-  color: var(--text-color);
-  font-size: 16px;
-}
-
-.file_post_title .file_post_date {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
 }
 
 /* download button */
@@ -176,10 +137,6 @@
   position: relative;
   width: 60px;
   height: 26px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid var(--gen-bg-color);
   background-color: var(--gen-color);
   overflow: hidden;
@@ -203,9 +160,6 @@
   height: 100%;
   width: 39px;
   background-color: var(--gen-bg-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #fff;
 }
 

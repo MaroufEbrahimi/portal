@@ -37,12 +37,8 @@
   --gen-bg-color: #000106;
   --gen-main-bg: #222;
   --text-color: #f5f5f5;
-  --icon-faculties-color: saturate(450%) contrast(410%) brightness(150%) invert(120%) sepia(420%) hue-rotate(120deg);
-  --btn-bg-color: #000000ce;
-}
-
-.danger {
-  --gen-color-hover: #d81212;
+  --icon-faculties-color: saturate(450%) contrast(410%) brightness(150%)
+    invert(120%) sepia(420%) hue-rotate(120deg);
 }
 
 /* End of Dark or Light Themes */
@@ -72,6 +68,60 @@ a {
   cursor: pointer;
 }
 
+.text_color {
+  color: var(--text-color);
+}
+.text_align_center {
+  text-align: center;
+}
+.border_none {
+  border: none;
+}
+.outline_none {
+  outline: none;
+}
+.cursor_pointer {
+  cursor: pointer;
+}
+.border_radius_8 {
+  border-radius: 8px;
+}
+.background_color_transparent {
+  background-color: transparent;
+}
+.text_align_justify {
+  text-align: justify;
+}
+
+/* Grid */
+.display_grid {
+  display: grid;
+}
+/* Flex Box */
+.display_flex {
+  display: flex;
+}
+
+.align_items_center {
+  align-items: center;
+}
+
+.justify_content_center {
+  justify-content: center;
+}
+
+.justify_content_space_between {
+  justify-content: space-between;
+}
+
+.justify_content_space_around {
+  justify-content: space-around;
+}
+
+.flex_direction_column {
+  flex-direction: column;
+}
+
 ul {
   list-style: none;
 }
@@ -79,7 +129,6 @@ ul {
 img {
   -webkit-user-drag: none;
 }
-
 
 ::selection {
   background-color: #67b0d1;
@@ -149,8 +198,51 @@ img {
   background: var(--gen-bg-color);
   transition: background 0s;
 }
-
 /* End Button */
+
+/* Tab Header */
+.tab_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--gen-bg-color);
+  z-index: 0;
+  border-radius: 10px;
+}
+.tab_header ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+}
+.tab_header ul li {
+  padding: 8px 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.tab_header ul li:hover,
+.tab_header ul .active_tab {
+  border-top-color: var(--gen-color);
+}
+.tab_header ul li span {
+  font-size: 15px;
+  line-height: 1em;
+  color: var(--text-color);
+}
+.tab_header_display {
+  display: none;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--gen-color);
+  border-radius: 3px;
+}
+.tab_header_display.active_content {
+  display: block;
+}
+
+/* End of Tab Header */
 
 .add_img_profile {
   position: relative;
@@ -205,7 +297,6 @@ img {
 }
 
 @media (max-width: 768px) {
-
   .bottom-to-top,
   .right-to-left,
   .left-to-right {

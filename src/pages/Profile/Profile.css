@@ -6,9 +6,11 @@
   position: relative;
   width: 100%;
   height: 180px;
-  background: linear-gradient(to top,
-      rgba(86, 189, 236, 0.5),
-      rgba(55, 181, 171, 0.2));
+  background: linear-gradient(
+    to top,
+    rgba(86, 189, 236, 0.5),
+    rgba(55, 181, 171, 0.2)
+  );
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
@@ -18,7 +20,6 @@
   left: 2%;
   top: 20px;
   z-index: 1;
-  display: flex;
   gap: 15px;
 }
 
@@ -38,12 +39,12 @@
   padding-right: 6px;
 }
 
-.profile_title .logout>i {
+.profile_title .logout > i {
   color: var(--gen-color);
   font-size: 60px;
 }
 
-.profile_title .logout>p {
+.profile_title .logout > p {
   font-size: 15px;
   color: var(--text-color);
 }
@@ -54,9 +55,6 @@
   margin: 0 20px;
   border-radius: 10px;
   margin-top: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .profile_title .logout .logout_buttons button {
@@ -67,8 +65,6 @@
   position: absolute;
   bottom: -25px;
   right: 10%;
-  display: flex;
-  align-items: center;
   z-index: 1;
 }
 
@@ -82,7 +78,6 @@
   object-fit: cover;
   object-position: top;
   background: #67b0d1;
-  ;
 }
 
 .user_profile_img h1 {
@@ -94,40 +89,22 @@
   line-height: 56px;
   text-shadow: 1px 1px 1px #2f4d5a;
 }
-
-.tab_header {
+/* tab header */
+.profile .profile_tab_header {
   position: relative;
   width: 100%;
-  background: var(--gen-bg-color);
-  z-index: 0;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.tab_header ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tab_header ul li {
+.profile .profile_tab_header ul li {
   padding: 8px 0;
   margin: 0 2px;
-  border-bottom: 2px solid transparent;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
-.tab_header ul li:hover,
-.tab_header ul .active_tab {
-  border-bottom: 2px solid var(--gen-color);
-}
-
-.tab_header ul li span {
+.profile .profile_tab_header ul li span {
   font-size: 16px;
   padding: 0 10px;
 }
@@ -149,7 +126,6 @@
 }
 
 .content_of_profile .content_boxes {
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 1rem;
   grid-row-gap: 1.5rem;

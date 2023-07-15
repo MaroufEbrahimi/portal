@@ -28,25 +28,31 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
   return (
     <div className={`navbar ${activeNav && "active_nav_right"}`}>
       <div className="toggle_header_navbar">
-        <div className="toggle_header_icon" onClick={navActiveHandler}>
+        <div
+          className="toggle_header_icon display_flex align_items_center justify_content_center"
+          onClick={navActiveHandler}
+        >
           {activeNav ? (
-            <i className="bi bi-chevron-left"></i>
+            <i className="bi bi-chevron-left text_color cursor_pointer"></i>
           ) : (
-            <i className="bi bi-chevron-right"></i>
+            <i className="bi bi-chevron-right text_color cursor_pointer"></i>
           )}
         </div>
       </div>
 
       {authentication.isAuthenticated ? (
-        <Link to={"/profile/" + authentication.userId} className="nav_profile">
-          <div className="add_img_profile full_width">
+        <Link
+          to={"/profile/" + authentication.userId}
+          className="nav_profile display_flex align_items_center justify_content_center flex_direction_column"
+        >
+          <div className="add_img_profile full_width display_flex">
             <img
               src={authentication.imageUrl || "/public/img/favicon.png"}
-              className="input_profile_img"
+              className="input_profile_img display_flex"
               alt="user_image"
             />
           </div>
-          <h4>
+          <h4 className="text_color">
             {authentication.name} {authentication.lastname}
           </h4>
         </Link>
@@ -75,10 +81,10 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           <div className="faculties_menu">
             <div className="menu_container">
               <div
-                className="navbar__title open__navbar"
+                className="navbar__title open__navbar display_flex"
                 onClick={facultiesHandler}
               >
-                <li className="navbar__item">
+                <li className="navbar__item display_flex align_items_center">
                   <i className="bi bi-mortarboard"></i>
                   <span>پوهنــځی‌ها</span>
                   {activeFaculties ? (
@@ -88,7 +94,10 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                   )}
                 </li>
               </div>
-              <input type="checkbox" className="drop_menu_button" />
+              <input
+                type="checkbox"
+                className="drop_menu_button outline_none cursor_pointer"
+              />
               <div className="navbar__dropdown">
                 <CustomeLinks to="/cs" title="کامپیوتر ساینس">
                   <i className="bi bi-window"></i>
@@ -112,14 +121,17 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
 
           {authentication?.roles?.includes("ADMIN") ? (
             <div className="admin_menu menu_container">
-              <div className="navbar__title open__navbar">
-                <li className="navbar__item">
+              <div className="navbar__title open__navbar display_flex">
+                <li className="navbar__item display_flex align_items_center">
                   <i className="bi bi-gear"></i>
                   <span>ادمین پنل</span>
                   <i className="bi bi-chevron-up btn_toggle"></i>
                 </li>
               </div>
-              <input type="checkbox" className="drop_menu_button" />
+              <input
+                type="checkbox"
+                className="drop_menu_button outline_none cursor_pointer"
+              />
               <div className="navbar__dropdown">
                 <CustomeLinks to="/students" title="محصلین">
                   <i className="bi bi-people"></i>

@@ -17,7 +17,7 @@ const ShowCaseSlider = () => {
   }, [activeIndex])
 
   return (
-    <div className="showcase_slider">
+    <div className="showcase_slider border_radius_8">
       <SliderContent activeIndex={activeIndex} imageSlider={imageSliderData} />
       <Arrow
         prevSlide={() =>

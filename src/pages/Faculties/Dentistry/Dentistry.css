@@ -4,46 +4,7 @@
 }
 
 .dentistry_tabHeaders {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background: var(--gen-bg-color);
-  z-index: 0;
-  border-radius: 10px;
   margin-top: 1rem;
-}
-.dentistry_tabHeaders ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  text-align: center;
-}
-.dentistry_tabHeaders ul li {
-  padding: 8px 10px;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-.dentistry_tabHeaders ul li:hover,
-.dentistry_tabHeaders ul .active_tab {
-  border-top-color: var(--gen-color);
-}
-.dentistry_tabHeaders ul li span {
-  font-size: 15px;
-  line-height: 1em;
-  color: var(--text-color);
-}
-
-.dentistry_tabHeader {
-  display: none;
-  margin: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--gen-color);
-  border-radius: 3px;
-}
-.dentistry_tabHeader.active_content {
-  display: block;
 }
 .dentistry_ref_title ul {
   display: flex;
