@@ -6,7 +6,6 @@
   margin: 30px 5px 0 5px;
 }
 
-
 .update_post .file_post_body {
   padding: 10px;
 }
@@ -107,30 +106,6 @@
   max-width: 100%;
   word-break: break-word;
   font-size: 14px;
-}
-
-.update_post .file_post_title {
-  background-color: #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  flex: 7;
-  display: flex;
-  justify-content: space-between;
-}
-
-.update_post .file_post_title .file_post_details p {
-  padding: 5px 0;
-  color: var(--text-color);
-  font-size: 16px;
-}
-
-.update_post .file_post_title .file_post_date {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
 }
 
 /* download button */

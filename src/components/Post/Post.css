@@ -83,30 +83,6 @@
   font-size: 14px;
 }
 
-.file_post_title {
-  background-color: #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  flex: 7;
-  display: flex;
-  justify-content: space-between;
-}
-
-.file_post_title .file_post_details p {
-  padding: 5px 0;
-  color: var(--text-color);
-  font-size: 16px;
-}
-
-.file_post_title .file_post_date {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
 /* download button */
 .btn_download {
   position: relative;
