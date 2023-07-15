@@ -23,7 +23,7 @@ const Post = ({ id, images, docs, author, date, text, customRef = null }) => {
               <ul>
                 <li>
                   <Link to={"edit/" + id}>
-                    <i className="bi bi-arrows-angle-expand"></i>
+                    <i className="bi bi-brush"></i>
                     ویرایش پست
                   </Link>
                 </li>
