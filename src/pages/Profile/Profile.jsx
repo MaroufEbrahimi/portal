@@ -48,10 +48,10 @@ const Profile = () => {
     setShowTab(index)
   }
   const logout = () => {
-    removeAllCookies();
+    removeAllCookies()
     dispatch({
       type: actionTypes.LOGOUT,
-      payload: {}
+      payload: {},
     })
     navigate("/")
   }
@@ -94,7 +94,7 @@ const Profile = () => {
         </ModalDelete>
       </div>
 
-      <div className="tab_header">
+      <div className="profile_tab_header tab_header">
         {profileTabHeader.map((item) => (
           <ul>
             <li

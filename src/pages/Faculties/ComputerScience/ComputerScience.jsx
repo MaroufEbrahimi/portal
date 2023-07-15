@@ -89,7 +89,7 @@ const ComputerScience = () => {
           <h2>دیپارتمنت ها</h2>
         </div>
 
-        <div className="departement_tabHeader faculties_tabHeader">
+        <div className="departement_tabHeader tab_header">
           <ul>
             <li
               className={showTab === 1 ? "active_tab" : ""}
@@ -111,14 +111,14 @@ const ComputerScience = () => {
           <div
             className={
               showTab === 1
-                ? "computer_science_tabHeader active_content box_shadow"
-                : "computer_science_tabHeader"
+                ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                : "computer_science_tabHeader tab_header_display"
             }
           >
             <div>
               <p>معرفی، اهداف و مفردات درسی دیپارتمنت انجینری نرم افزار.</p>
             </div>
-            <div className="departement_tabHeader faculties_tabHeader">
+            <div className="departement_tabHeader tab_header">
               <ul>
                 <li
                   className={showTabِDep === 1 ? "active_tab" : ""}
@@ -144,8 +144,8 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 1
-                  ? "computer_science_tabHeader active_content box_shadow"
-                  : "computer_science_tabHeader"
+                  ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                  : "computer_science_tabHeader tab_header_display"
               }
             >
               <p>{cs_software_intro}</p>
@@ -154,8 +154,8 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 2
-                  ? "computer_science_tabHeader active_content box_shadow"
-                  : "computer_science_tabHeader"
+                  ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                  : "computer_science_tabHeader tab_header_display"
               }
             >
               {cs_software_goals.map((item) => (
@@ -169,11 +169,11 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 3
-                  ? "computer_science_tabHeader active_content box_shadow"
-                  : "computer_science_tabHeader"
+                  ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                  : "computer_science_tabHeader tab_header_display"
               }
             >
-              <div className="semester_tabHeader">
+              <div className="semester_tabHeader tab_header">
                 {semester_tabHeader.map((item) => (
                   <ul>
                     <li
@@ -190,8 +190,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 1
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -217,8 +217,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 2
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -244,8 +244,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 3
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -271,8 +271,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 4
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -298,8 +298,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 5
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -325,8 +325,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 6
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -352,8 +352,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 7
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -379,8 +379,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 8
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -409,8 +409,8 @@ const ComputerScience = () => {
           <div
             className={
               showTab === 2
-                ? "computer_science_tabHeader active_content box_shadow"
-                : "computer_science_tabHeader"
+                ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                : "computer_science_tabHeader tab_header_display"
             }
           >
             <div>
@@ -418,7 +418,7 @@ const ComputerScience = () => {
                 معرفی، اهداف و مفردات درسی دیپارتمنت سیستم های عامل و ارتباطات.
               </p>
             </div>
-            <div className="view_point_tabHeader faculties_tabHeader">
+            <div className="departement_tabHeader tab_header">
               <ul>
                 <li
                   className={showTabِDep === 1 ? "active_tab" : ""}
@@ -444,8 +444,8 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 1
-                  ? "computer_science_tabHeader active_content box_shadow"
-                  : "computer_science_tabHeader"
+                  ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                  : "computer_science_tabHeader tab_header_display"
               }
             >
               <p>{cs_network_intro}</p>
@@ -453,8 +453,8 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 2
-                  ? "computer_science_tabHeader active_content box_shadow"
-                  : "computer_science_tabHeader"
+                  ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                  : "computer_science_tabHeader tab_header_display"
               }
             >
               {cs_network_goals.map((item) => (
@@ -468,11 +468,11 @@ const ComputerScience = () => {
             <div
               className={
                 showTabِDep === 3
-                  ? "computer_science_tabHeader active_content box_shadow"
-                  : "computer_science_tabHeader"
+                  ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                  : "computer_science_tabHeader tab_header_display"
               }
             >
-              <div className="semester_tabHeader">
+              <div className="semester_tabHeader tab_header">
                 {semester_tabHeader.map((item) => (
                   <ul>
                     <li
@@ -490,8 +490,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 1
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -517,8 +517,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 2
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -544,8 +544,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 3
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -571,8 +571,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 4
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -598,8 +598,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 5
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -625,8 +625,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 6
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -652,8 +652,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 7
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
@@ -679,8 +679,8 @@ const ComputerScience = () => {
               <div
                 className={
                   showTabSemester === 8
-                    ? "computer_science_tabHeader active_content box_shadow"
-                    : "computer_science_tabHeader"
+                    ? "computer_science_tabHeader tab_header_display active_content box_shadow"
+                    : "computer_science_tabHeader tab_header_display"
                 }
               >
                 <div className="computer_science_ref_title">
