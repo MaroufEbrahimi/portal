@@ -13,7 +13,7 @@ const Goals = ({ goals = [], values = [] }) => {
         <h2>اهداف و ارزش ها</h2>
       </div>
 
-      <div className="goals_tabHeader faculties_tabHeader">
+      <div className="goals_tabHeader tab_header">
         <ul>
           <li
             className={showTab === 1 ? "active_tab" : ""}
@@ -34,8 +34,8 @@ const Goals = ({ goals = [], values = [] }) => {
         <div
           className={
             showTab === 1
-              ? "faculties_tabHeader_content active_content box_shadow"
-              : "faculties_tabHeader_content"
+              ? "tab_header_display active_content box_shadow"
+              : "tab_header_display"
           }
         >
           {goals.map((item) => (
@@ -49,8 +49,8 @@ const Goals = ({ goals = [], values = [] }) => {
         <div
           className={
             showTab === 2
-              ? "faculties_tabHeader_content active_content box_shadow"
-              : "faculties_tabHeader_content"
+              ? "tab_header_display active_content box_shadow"
+              : "tab_header_display"
           }
         >
           {values.map((item) => (

@@ -57,7 +57,7 @@ const Low = () => {
           <h2>دیپارتمنت ها</h2>
         </div>
 
-        <div className="view_point_tabHeader faculties_tabHeader">
+        <div className="view_point_tabHeader faculties_tabHeader tab_header">
           <ul>
             <li
               className={showTabDep === 1 ? "active_tab" : ""}
@@ -78,14 +78,14 @@ const Low = () => {
         <div
           className={
             showTabDep === 1
-              ? "low_tabHeaderDep active_content box_shadow"
-              : "low_tabHeaderDep"
+              ? "tab_header_display active_content box_shadow"
+              : "tab_header_display"
           }
         >
           <div className="low_references_title">
             <h2>مفردات درسی</h2>
           </div>
-          <div className="low_tabHeaders">
+          <div className="low_tabHeaders tab_header">
             {semester_tabHeader.map((item) => (
               <ul>
                 <li
@@ -103,8 +103,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 1
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -130,8 +130,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 2
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -157,8 +157,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 3
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -184,8 +184,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 4
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -211,8 +211,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 5
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -238,8 +238,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 6
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -265,8 +265,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 7
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -292,8 +292,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 8
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -320,14 +320,14 @@ const Low = () => {
         <div
           className={
             showTabDep === 2
-              ? "low_tabHeaderDep active_content box_shadow"
-              : "low_tabHeaderDep"
+              ? "tab_header_display active_content box_shadow"
+              : "tab_header_display"
           }
         >
           <div className="low_references_title">
             <h2>مفردات درسی</h2>
           </div>
-          <div className="low_tabHeaders">
+          <div className="low_tabHeaders tab_header">
             {semester_tabHeader.map((item) => (
               <ul>
                 <li
@@ -344,8 +344,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 1
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -371,8 +371,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 2
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -398,8 +398,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 3
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -425,8 +425,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 4
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -452,8 +452,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 5
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -479,8 +479,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 6
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -506,8 +506,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 7
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">
@@ -533,8 +533,8 @@ const Low = () => {
           <div
             className={
               showTabSemester === 8
-                ? "low_tabHeader active_content box_shadow"
-                : "low_tabHeader"
+                ? "tab_header_display active_content box_shadow"
+                : "tab_header_display"
             }
           >
             <div className="low_ref_title">

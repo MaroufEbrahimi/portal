@@ -68,31 +68,11 @@
 /* #_____ End of Introduction of Dean of Faculties _____# */
 
 /* #_____ View Point of the Faculties _____# */
-.faculties_tabHeader {
-  position: relative;
-  background: var(--gen-bg-color);
-  z-index: 0;
-  border-radius: 10px;
+.view_point_tabHeader,
+.goals_tabHeader {
   margin-top: 1rem;
 }
-.faculties_tabHeader ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  display: flex;
-  text-align: center;
-}
-.faculties_tabHeader ul li {
-  padding: 8px 20px;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-.faculties_tabHeader ul li:hover,
-.faculties_tabHeader ul .active_tab {
-  border-top-color: var(--gen-color);
-}
-.faculties_tabHeader_contents .faculties_tabHeader_content {
+/* .faculties_tabHeader_contents .faculties_tabHeader_content {
   display: none;
   margin: 1rem;
   padding: 1rem;
@@ -101,7 +81,7 @@
 }
 .faculties_tabHeader_contents .active_content {
   display: block;
-}
+} */
 /* #_____ End of View Point of the Faculties _____# */
 
 /* #_____ Goals and Mission of the Faculties _____# */
