@@ -10,11 +10,13 @@ const Post = ({ images, docs, author, date, text, customRef = null }) => {
         <div className="post_header">
           <div className="post_share_with">
             <img src={author?.imageUrl} alt={author?.name} />
-            <p>{author?.name} {author?.lastname}</p>
+            <div className="post_date">
+              <p>{author?.name} {author?.lastname}</p>
+              <p>{new Date(date).toDateString()}</p>
+            </div>
+
           </div>
-          <div className="post_date">
-            <p>{new Date(date).toDateString()}</p>
-          </div>
+
         </div>
       </div>
       <div className="file_post_body">
