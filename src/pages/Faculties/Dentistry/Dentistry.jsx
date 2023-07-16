@@ -78,22 +78,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference1.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -105,22 +107,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference2.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -132,22 +136,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference3.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -159,22 +165,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference4.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -186,22 +194,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference5.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -213,22 +223,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference6.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -240,22 +252,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference7.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -267,22 +281,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference8.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -294,22 +310,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference9.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -321,22 +339,24 @@ const Dentistry = () => {
             : "tab_header_display"
         }
       >
-        <div className="dentistry_ref_title">
-          <ul>
-            <li>ماژول</li>
-            <li>تعداد کردیت</li>
-          </ul>
-        </div>
-        <div className="dentistry_ref">
+        <div className="dep_reference_table">
+          <div className="table_row table_header">
+            <div className="table_cell">
+              <p>ماژول</p>
+            </div>
+            <div className="table_cell">
+              <p>تعداد کردیت</p>
+            </div>
+          </div>
           {dentistry_reference10.map((item) => (
-            <ul>
-              <li>
-                <span>{item.moudle}</span>
-              </li>
-              <li>
-                <span>{item.credit}</span>
-              </li>
-            </ul>
+            <div className="table_row">
+              <div className="table_cell">
+                <p>{item.moudle}</p>
+              </div>
+              <div className="table_cell">
+                <p>{item.credit}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

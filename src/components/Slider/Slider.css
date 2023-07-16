@@ -1,17 +1,31 @@
 /* Slides */
 .slider_content {
   width: 100%;
+  position: relative;
+  height: 550px;
+  background-size: cover;
 }
 .slides {
   position: relative;
   width: 100%;
+  height: 550px;
+}
+.slides .slides_container {
+  position: absolute;
+  width: 100%;
   height: 100%;
-  height: 500px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 .slides .img_slide {
-  position: absolute;
+  position: relative;
   background-color: var(--gen-bg-color);
   object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .slides .slide_title,
 .slides .slide_description {
@@ -21,11 +35,12 @@
   font-size: 40px;
   position: absolute;
   text-align: center;
-  top: 40%;
+  top: 27%;
+  padding: 0 20px;
 }
 .slides .slide_description {
   top: 65%;
-  font-size: 2rem;
+  font-size: 25px;
 }
 
 /* Arrows */
@@ -34,13 +49,12 @@
   position: absolute;
   top: 50%;
   width: auto;
-  padding: 13px;
+  padding: 10px;
   margin-top: -3rem;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
   border-radius: 5px 0px 0px 5px;
   cursor: pointer;
-  background: var(--gen-bg-color);
 }
 .arrows .prev_slide i,
 .arrows .next_slide i {
@@ -49,7 +63,7 @@
 .arrows .prev_slide:hover,
 .arrows .next_slide:hover {
   color: #fff;
-  background-color: var(--gen-color);
+  background: var(--gen-bg-color);
   transition: all 0.3s ease-in;
 }
 .arrows .next_slide {
@@ -62,25 +76,36 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 93%;
+  top: 95%;
 }
 .all_dots .dot {
   cursor: pointer;
-  width: 15px;
-  height: 15px;
-  margin: 0 4px;
+  width: 13px;
+  height: 13px;
+  margin: 0 2.5px;
   border-radius: 50%;
   background: var(--gen-bg-color);
   display: inline-block;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in-out;
 }
 .all_dots .active_dot,
 .all_dots .dot:hover {
   background: var(--gen-color);
+  width: 14px;
+  height: 14px;
 }
 
 /* Responsive */
+@media (max-width: 991px) {
+  .slides .slide_title {
+    font-size: 30px;
+  }
+  .slides .slide_description {
+    font-size: 20px;
+    top: 60%;
+  }
+}
 @media (max-width: 768px) {
   .arrows .prev_slide,
   .arrows .next_slide {
@@ -92,5 +117,21 @@
   .navbar {
     width: 65px;
     border-right: 5px solid var(--gen-color);
+  }
+  .slides .slide_title {
+    font-size: 25px;
+  }
+  .slides .slide_description {
+    font-size: 20;
+    top: 52%;
+  }
+  .arrows .prev_slide,
+  .arrows .next_slide {
+    padding: 6px;
+    font-size: 18px;
+  }
+  .all_dots .dot {
+    width: 13px;
+    height: 13px;
   }
 }

@@ -22,8 +22,10 @@ const CustomeLinks = ({ to, children, ...props }) => {
 const Navbar = ({ activeNav, navActiveHandler }) => {
   const [{ authentication }, dispatch] = useStateValue()
   const [activeFaculties, setActiveFaculties] = useState(false)
+  const [activeAdminPanel, setActiveAdminPanel] = useState(false)
 
   const facultiesHandler = () => setActiveFaculties(!activeFaculties)
+  const adminPanelHandler = () => setActiveAdminPanel(!activeAdminPanel)
 
   return (
     <div className={`navbar ${activeNav && "active_nav_right"}`}>
@@ -80,22 +82,22 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           {/* Links of Faculties */}
           <div className="faculties_menu">
             <div className="menu_container">
-              <div
-                className="navbar__title open__navbar display_flex"
-                onClick={facultiesHandler}
-              >
+              <div className="navbar__title open__navbar display_flex">
                 <li className="navbar__item display_flex align_items_center">
                   <i className="bi bi-mortarboard"></i>
                   <span>پوهنــځی‌ها</span>
-                  {activeFaculties ? (
-                    <i className="bi bi-chevron-up btn_toggle"></i>
-                  ) : (
-                    <i className="bi bi-chevron-down btn_toggle"></i>
-                  )}
+                  <div style={{ paddingRight: "34px" }}>
+                    {activeFaculties ? (
+                      <i className="bi bi-chevron-up btn_toggle"></i>
+                    ) : (
+                      <i className="bi bi-chevron-down btn_toggle"></i>
+                    )}
+                  </div>
                 </li>
               </div>
               <input
                 type="checkbox"
+                onClick={facultiesHandler}
                 className="drop_menu_button outline_none cursor_pointer"
               />
               <div className="navbar__dropdown">
@@ -125,11 +127,18 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 <li className="navbar__item display_flex align_items_center">
                   <i className="bi bi-gear"></i>
                   <span>ادمین پنل</span>
-                  <i className="bi bi-chevron-up btn_toggle"></i>
+                  <div style={{ paddingRight: "40px" }}>
+                    {activeAdminPanel ? (
+                      <i className="bi bi-chevron-up btn_toggle"></i>
+                    ) : (
+                      <i className="bi bi-chevron-down btn_toggle"></i>
+                    )}
+                  </div>
                 </li>
               </div>
               <input
                 type="checkbox"
+                onClick={adminPanelHandler}
                 className="drop_menu_button outline_none cursor_pointer"
               />
               <div className="navbar__dropdown">
