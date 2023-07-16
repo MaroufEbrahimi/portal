@@ -130,7 +130,9 @@ const Students = () => {
 
   const handleSearchButton = () => {
     resetAllStates()
-    let url = APIEndpoints.root + APIEndpoints.students.getAll + `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+
+    console.log(pagination)
+    let url = APIEndpoints.root + APIEndpoints.students.getAll + `offset=0&pageSize=${pagination.pageSize}`
     if (searchKeyword) {
       url += "&keyword=" + (searchKeyword == "همه" ? "%" : searchKeyword);
     }
@@ -153,8 +155,10 @@ const Students = () => {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data)
         setStudents(data.content)
         setPage(data)
+        setHasMore(false)
         setLoading(false)
       })
   }
@@ -164,6 +168,7 @@ const Students = () => {
     setLoading(true);
     setStudents([])
     setPage({})
+    console.log("in reset all states ", pagination)
   }
 
   return (
