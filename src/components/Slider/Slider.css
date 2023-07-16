@@ -2,13 +2,13 @@
 .slider_content {
   width: 100%;
   position: relative;
-  height: 500px;
+  height: 550px;
   background-size: cover;
 }
 .slides {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 550px;
 }
 .slides .slides_container {
   position: absolute;
