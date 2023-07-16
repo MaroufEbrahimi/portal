@@ -87,24 +87,32 @@
   transition: border 0.3s ease;
 }
 
+.ql-editor {
+  text-align: right;
+}
+
 /* Responsive */
 @media (max-width: 991px) {
   .new_post {
     padding: 0;
   }
 }
+
 @media (max-width: 768px) {
   .post_file_img {
     margin-top: 4.5rem;
   }
 }
+
 @media (max-width: 480px) {
   .post_file_img {
     margin-top: 5.8rem;
   }
+
   .post_file_img .file_handler .image-upload i {
     font-size: 20px;
   }
+
   .post_file_img .file_handler label p {
     font-size: 13px;
   }
