@@ -194,22 +194,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_software_references1.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -221,22 +223,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_software_references2.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -248,22 +252,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_software_references3.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -275,22 +281,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_software_references4.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -302,22 +310,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_software_references5.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -329,22 +339,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_software_references6.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -356,22 +368,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_software_references7.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -383,22 +397,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_software_references8.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -494,22 +510,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_network_references1.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -521,22 +539,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_network_references2.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -548,22 +568,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_network_references3.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -575,22 +597,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_network_references4.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -602,22 +626,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_network_references5.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -629,22 +655,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_network_references6.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -656,22 +684,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_network_references7.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -683,22 +713,24 @@ const ComputerScience = () => {
                     : "computer_science_tabHeader tab_header_display"
                 }
               >
-                <div className="computer_science_ref_title">
-                  <ul>
-                    <li>ماژول</li>
-                    <li>تعداد کردیت</li>
-                  </ul>
-                </div>
-                <div className="computer_science_ref">
+                <div className="dep_reference_table">
+                  <div className="table_row table_header">
+                    <div className="table_cell">
+                      <p>ماژول</p>
+                    </div>
+                    <div className="table_cell">
+                      <p>تعداد کردیت</p>
+                    </div>
+                  </div>
                   {cs_network_references8.map((item) => (
-                    <ul>
-                      <li>
-                        <span>{item.moudle}</span>
-                      </li>
-                      <li>
-                        <span>{item.credit}</span>
-                      </li>
-                    </ul>
+                    <div className="table_row">
+                      <div className="table_cell">
+                        <p>{item.moudle}</p>
+                      </div>
+                      <div className="table_cell">
+                        <p>{item.credit}</p>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
