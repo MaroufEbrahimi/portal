@@ -1,19 +1,36 @@
 import React from "react"
 import "./Post.css"
+import { Link } from "react-router-dom"
 
-const Post = ({ images, docs, author, date, text, customRef = null }) => {
+
+const Post = ({ id, images, docs, author, date, text, customRef = null }) => {
+
   return (
     <div className="post" ref={customRef}>
       <div className="image_header_container">
         <div className="post_header display_flex justify_content_space_between">
           <div className="post_share_with display_flex align_items_center">
             <img src={author?.imageUrl} alt={author?.name} />
-            <p>
-              {author?.name} {author?.lastname}
-            </p>
+            <div className="post_date">
+              <p>{author?.name} {author?.lastname}</p>
+              <p>{new Date(date).toDateString()}</p>
+            </div>
+
           </div>
-          <div className="post_date">
-            <p>{new Date(date).toDateString()}</p>
+          <div className="post_settings">
+            <span className="setting_icon"><i className="bi bi-three-dots"></i></span>
+            <div className="setting_menu">
+              <ul>
+                <li className="setting_option">
+                  <Link to={"edit/" + id}>
+                    <i className="bi bi-brush"></i>
+                    ویرایش پست
+                  </Link>
+                </li>
+                <li className="setting_option"><i className="bi bi-save-fill"></i>پنهان کردن</li>
+                <li className="setting_option"><i className="bi bi-trash-fill"></i>حذف پست</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

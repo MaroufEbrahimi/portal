@@ -197,28 +197,27 @@ const PostManagement = () => {
           {Array.from(new Set(posts)).map((item, index) => {
             if (posts.length === index + 1) {
               return (
-                <Link to={"edit/" + item.id}> <Post
+                <Post
                   key={item.id}
                   author={item.author}
                   date={item.dateTime}
                   images={item.images}
+                  id={item.id}
                   docs={item.docs}
                   text={item.message}
                   customRef={lastNodeReference}
-                />
-                </Link>
-              )
+                />)
             }
-            return (<Link to={"edit/" + item.id}>
+            return (
               <Post
                 key={item.id}
                 author={item.author}
                 date={item.dateTime}
                 images={item.images}
+                id={item.id}
                 docs={item.docs}
                 text={item.message}
-              />
-            </Link>)
+              />)
           })}
           <section style={{ position: "relative", height: "60px" }}>
             {hasMore && <Spinner />}
