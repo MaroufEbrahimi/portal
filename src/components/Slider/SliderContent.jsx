@@ -10,8 +10,10 @@ const SliderContent = ({ activeIndex, imageSlider }) => {
           className={index === activeIndex ? "slides active_slide" : "inactive"}
         >
           <img className="img_slide" src={slide.sliderImg} alt="" />
-          <h2 className="slide_title bottom-to-top">{slide.title}</h2>
-          <h3 className="slide_description fade_in">{slide.desc}</h3>
+          <div className="slides_container">
+            <h2 className="slide_title bottom-to-top">{slide.title}</h2>
+            <h4 className="slide_description fade_in">{slide.desc}</h4>
+          </div>
         </div>
       ))}
     </section>

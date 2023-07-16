@@ -4,7 +4,7 @@
   overflow-x: hidden;
   box-sizing: border-box;
   border-radius: 15px;
-  padding: 36px;
+  padding: 5px 30px;
   padding-bottom: 0;
 }
 
@@ -18,8 +18,8 @@
 .back_to_top button {
   background: var(--gen-bg-color);
   font-size: 25px;
-  width: 45px;
-  height: 45px;
+  width: 43px;
+  height: 43px;
   border-radius: 25px;
   transition: all 0.3s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -34,4 +34,27 @@
 
 .back_to_top button:hover i {
   margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+  }
+  .back_to_top {
+    bottom: 2%;
+    left: 5%;
+  }
+
+  .back_to_top button {
+    font-size: 23px;
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 480px) {
+  .back_to_top {
+    bottom: 1.3%;
+    left: 6%;
+  }
 }
