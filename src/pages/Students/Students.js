@@ -26,8 +26,8 @@ const Students = () => {
   const [page, setPage] = useState()
   const [endpoint, setEndpoint] = useState(
     APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `&offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+    APIEndpoints.students.getAll +
+    `&offset=${pagination.offset}&pageSize=${pagination.pageSize}`
   )
 
   useEffect(() => {
@@ -131,10 +131,9 @@ const Students = () => {
 
   const handleSearchButton = () => {
     resetAllStates()
-    let url =
-      APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+
+    console.log(pagination)
+    let url = APIEndpoints.root + APIEndpoints.students.getAll + `offset=0&pageSize=${pagination.pageSize}`
     if (searchKeyword) {
       url += "&keyword=" + (searchKeyword == "همه" ? "%" : searchKeyword)
     }
@@ -155,10 +154,12 @@ const Students = () => {
         Authorization: "Bearer " + authentication.token,
       },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
         setStudents(data.content)
         setPage(data)
+        setHasMore(false)
         setLoading(false)
       })
   }
@@ -168,6 +169,7 @@ const Students = () => {
     setLoading(true)
     setStudents([])
     setPage({})
+    console.log("in reset all states ", pagination)
   }
 
   return (

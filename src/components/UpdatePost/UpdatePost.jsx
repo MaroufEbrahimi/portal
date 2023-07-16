@@ -27,6 +27,7 @@ const UpdatePost = () => {
     setloading(true)
   }
   const fullscreen = (url) => {
+    console.log(url)
     setImageOnModal(url)
     setShowModal(true)
   }
@@ -63,7 +64,7 @@ const UpdatePost = () => {
         },
       })
         .then((res) => res.json())
-        .then((data) => {})
+        .then((data) => { })
     }
   }
 

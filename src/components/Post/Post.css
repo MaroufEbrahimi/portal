@@ -63,7 +63,7 @@
   border-radius: 5px;
   width: 125px;
   position: absolute;
-  background-color: #fff;
+  background-color: var(--gen-bg-color);
   z-index: 100;
   font-size: 0.8rem;
   padding: 10px;
@@ -83,7 +83,7 @@
 
 .post_settings .setting_menu li:hover {
   font-weight: bold;
-  background-color: var(--gen-bg-color);
+  background-color: var(--gen-color);
   border-radius: 5px;
 }
 

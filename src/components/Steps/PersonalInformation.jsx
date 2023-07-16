@@ -177,8 +177,8 @@ export const PersonalInformation = () => {
         console.log(f)
         fetch(
           "http://localhost:1000/api/v1/field-of-studies/" +
-            f.id +
-            "/departments"
+          f.id +
+          "/departments"
         )
           .then((res) => {
             if (res.ok) {
@@ -314,7 +314,7 @@ export const PersonalInformation = () => {
         <div className="build_box">
           <label>سال تولد</label>
           <input
-            type=""
+            type="date"
             value={studentPersonalInfo?.dob}
             onChange={(e) => handleInputChangeValue(e, "dob")}
             required
@@ -380,7 +380,7 @@ export const PersonalInformation = () => {
         <div className="build_box">
           <label>سال فراغت</label>
           <input
-            type=""
+            type="date"
             value={studentPersonalInfo?.schoolGraduationDate}
             onChange={(e) => handleInputChangeValue(e, "schoolGraduationDate")}
             required
