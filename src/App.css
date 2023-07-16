@@ -62,6 +62,33 @@
   width: 130px;
 }
 
+/* Departement Reference Table */
+.dep_reference_table .table_row {
+  display: table;
+  width: 100%;
+  padding: 8px 0;
+  border: 1px solid var(--gen-color);
+  margin: 10px 0;
+  border-radius: 6px;
+}
+.dep_reference_table .table_header {
+  border: none;
+}
+.dep_reference_table .table_header p {
+  font-weight: bold;
+}
+.dep_reference_table .table_row p {
+  color: var(--text-color);
+  font-size: 16px;
+}
+.dep_reference_table .table_cell {
+  display: table-cell;
+  text-align: center;
+  width: 30%;
+  vertical-align: middle;
+}
+/* End of Departement Reference Table */
+
 /* Responsive */
 @media (max-width: 991px) {
   .app .main {
