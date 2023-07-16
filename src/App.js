@@ -1,11 +1,6 @@
 import React, { Suspense, useState } from "react"
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet,
-  Navigate,
-} from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
 import "./App.css"
 
@@ -40,21 +35,23 @@ const Dentistry = React.lazy(() =>
 )
 
 const App = () => {
+  // switch between light or dark mode
   const [isDark, setIsDark] = useState(
     localStorage.getItem("isDark") == null
       ? false
       : localStorage.getItem("isDark") == "true"
-        ? true
-        : false
+      ? true
+      : false
   )
-  const [activeNav, setActiveNav] = useState(false)
   // handle tab header
+  const [activeNav, setActiveNav] = useState(false)
   const navActiveHandler = () => setActiveNav(!activeNav)
 
   const darkModeHandler = () => {
     setIsDark(!isDark)
   }
 
+  // added layout for every components and pages
   const Layout = () => {
     return (
       <Suspense fallback={<Loading />}>
@@ -73,6 +70,7 @@ const App = () => {
     )
   }
 
+  // every link for pages
   const router = createBrowserRouter([
     {
       path: "/",

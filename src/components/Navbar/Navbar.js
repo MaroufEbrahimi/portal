@@ -86,11 +86,13 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 <li className="navbar__item display_flex align_items_center">
                   <i className="bi bi-mortarboard"></i>
                   <span>پوهنــځی‌ها</span>
-                  {activeFaculties ? (
-                    <i className="bi bi-chevron-up btn_toggle"></i>
-                  ) : (
-                    <i className="bi bi-chevron-down btn_toggle"></i>
-                  )}
+                  <div style={{ paddingRight: "34px" }}>
+                    {activeFaculties ? (
+                      <i className="bi bi-chevron-up btn_toggle"></i>
+                    ) : (
+                      <i className="bi bi-chevron-down btn_toggle"></i>
+                    )}
+                  </div>
                 </li>
               </div>
               <input
@@ -125,12 +127,13 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 <li className="navbar__item display_flex align_items_center">
                   <i className="bi bi-gear"></i>
                   <span>ادمین پنل</span>
-                  {/* <i className="bi bi-chevron-up btn_toggle"></i> */}
-                  {activeAdminPanel ? (
-                    <i className="bi bi-chevron-up btn_toggle"></i>
-                  ) : (
-                    <i className="bi bi-chevron-down btn_toggle"></i>
-                  )}
+                  <div style={{ paddingRight: "40px" }}>
+                    {activeAdminPanel ? (
+                      <i className="bi bi-chevron-up btn_toggle"></i>
+                    ) : (
+                      <i className="bi bi-chevron-down btn_toggle"></i>
+                    )}
+                  </div>
                 </li>
               </div>
               <input

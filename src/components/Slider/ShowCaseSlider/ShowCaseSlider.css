@@ -1,6 +1,6 @@
 .showcase_slider {
-  box-sizing: border-box;
   position: relative;
+  box-sizing: border-box;
   overflow: hidden;
   width: 100%;
 }

@@ -15,43 +15,46 @@ const Students = () => {
   const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
-  const [hasMore, setHasMore] = useState(true);
-  const lastNode = useRef();
+  const [hasMore, setHasMore] = useState(true)
+  const lastNode = useRef()
   const [pagination, setPagination] = useState({ offset: 0, pageSize: 10 })
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
   const [students, setStudents] = useState([])
   const [fields, setFields] = useState([])
-  const [departments, setDepartments] = useState([]);
-  const [searchKeyword, setSearchKeyword] = useState('')
+  const [departments, setDepartments] = useState([])
+  const [searchKeyword, setSearchKeyword] = useState("")
   const [page, setPage] = useState()
-  const [endpoint, setEndpoint] = useState(APIEndpoints.root + APIEndpoints.students.getAll + `&offset=${pagination.offset}&pageSize=${pagination.pageSize}`);
-
+  const [endpoint, setEndpoint] = useState(
+    APIEndpoints.root +
+      APIEndpoints.students.getAll +
+      `&offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+  )
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
           throw new Error(res.statusText)
         }
       })
-      .then(data => {
+      .then((data) => {
         setFields(data.content)
       })
 
     fetch(endpoint, {
       method: "GET",
       headers: {
-        "Authorization": "Bearer " + authentication.token
-      }
+        Authorization: "Bearer " + authentication.token,
+      },
     })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         }
       })
-      .then(data => {
+      .then((data) => {
         console.log(pagination.offset + " <- offset: data ->", data)
         if (data.totalPages - 1 > pagination.offset) {
           setHasMore(true)
@@ -64,51 +67,49 @@ const Students = () => {
       })
   }, [])
 
-
-  const lastNodeReference = node => {
-    if (loading) return;
-    if (lastNode.current) lastNode.current.disconnect();
-    lastNode.current = new IntersectionObserver(enteries => {
+  const lastNodeReference = (node) => {
+    if (loading) return
+    if (lastNode.current) lastNode.current.disconnect()
+    lastNode.current = new IntersectionObserver((enteries) => {
       if (enteries[0].isIntersecting) {
         if (hasMore && !loading && page.totalPages > pagination.offset) {
-          setPagination({ offset: pagination.offset + 1, pageSize: pagination.pageSize })
+          setPagination({
+            offset: pagination.offset + 1,
+            pageSize: pagination.pageSize,
+          })
           fetch(endpoint, {
             method: "GET",
             headers: {
-              "Authorization": "Bearer " + authentication.token
-            }
+              Authorization: "Bearer " + authentication.token,
+            },
           })
-            .then(res => {
+            .then((res) => {
               if (res.ok) {
-                return res.json();
+                return res.json()
               }
             })
-            .then(data => {
+            .then((data) => {
               console.log(pagination.offset + " <- offset: data ->", data)
               if (data.totalPages - 1 > pagination.offset) {
                 setHasMore(true)
               } else {
                 setHasMore(false)
               }
-              const newList = [...students, ...data.content].filter((obj, index, self) =>
-                index === self.findIndex((o) => (
-                  o.id === obj.id
-                ))
-              );
+              const newList = [...students, ...data.content].filter(
+                (obj, index, self) =>
+                  index === self.findIndex((o) => o.id === obj.id)
+              )
               setPage(data)
               setStudents(newList)
               setLoading(false)
-
             })
         }
       }
     })
-    if (node) lastNode.current.observe(node);
+    if (node) lastNode.current.observe(node)
   }
 
   // create an array with unique data
-
-
 
   const setfield = (e) => {
     setfeildOfStudy(e.target.value)
@@ -116,43 +117,46 @@ const Students = () => {
       return item.fieldName == e.target.value
     })
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id))
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
           throw new Error(res.statusText)
         }
       })
-      .then(data => {
+      .then((data) => {
         setDepartments(data)
       })
   }
 
   const handleSearchButton = () => {
     resetAllStates()
-    let url = APIEndpoints.root + APIEndpoints.students.getAll + `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+    let url =
+      APIEndpoints.root +
+      APIEndpoints.students.getAll +
+      `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
     if (searchKeyword) {
-      url += "&keyword=" + (searchKeyword == "همه" ? "%" : searchKeyword);
+      url += "&keyword=" + (searchKeyword == "همه" ? "%" : searchKeyword)
     }
     if (feildOfStudy) {
-      url += "&fieldOfStudy=" + (feildOfStudy == "همه" ? "%" : feildOfStudy);
+      url += "&fieldOfStudy=" + (feildOfStudy == "همه" ? "%" : feildOfStudy)
     }
     if (semester) {
-      url += "&semester=" + (semester == "همه" ? "%" : semester);
+      url += "&semester=" + (semester == "همه" ? "%" : semester)
     }
     if (department) {
-      url += "&department=" + (department == "همه" ? "%" : department);
+      url += "&department=" + (department == "همه" ? "%" : department)
     }
-    console.log('in search ', url)
+    console.log("in search ", url)
     setEndpoint(url)
     fetch(url, {
       method: "GET",
       headers: {
-        "Authorization": "Bearer " + authentication.token
-      }
+        Authorization: "Bearer " + authentication.token,
+      },
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setStudents(data.content)
         setPage(data)
         setLoading(false)
@@ -161,7 +165,7 @@ const Students = () => {
 
   const resetAllStates = () => {
     setPagination({ offset: 0, pageSize: 10 })
-    setLoading(true);
+    setLoading(true)
     setStudents([])
     setPage({})
   }
