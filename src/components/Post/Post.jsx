@@ -1,6 +1,7 @@
 import React from "react"
 import "./Post.css"
 import { Link } from "react-router-dom"
+import { timeSince } from "../../Utils/DateTimeUtils"
 
 
 const Post = ({ id, images, docs, author, date, text, customRef = null }) => {
@@ -13,7 +14,7 @@ const Post = ({ id, images, docs, author, date, text, customRef = null }) => {
             <img src={author?.imageUrl} alt={author?.name} />
             <div className="post_date">
               <p>{author?.name} {author?.lastname}</p>
-              <p>{new Date(date).toDateString()}</p>
+              <p style={{ fontSize: "10px" }}>{timeSince(new Date(date))}</p>
             </div>
 
           </div>
