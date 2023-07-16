@@ -48,7 +48,11 @@ const AddStudent = () => {
       locations: globalState.studentLocations,
       identification: globalState.studentIdenfication
     }
-
+    if (!globalState?.studentImage?.file) {
+      setApiResponse({ message: "لطفا عکس محصل را وارد نمائید!" })
+      console.log("in if ")
+      return;
+    }
     fetch("http://localhost:1000/api/v1/students", {
       method: "POST",
       headers: {
