@@ -8,7 +8,7 @@ import "react-quill/dist/quill.snow.css"
 import Button from "../UI/Button/Button"
 import ICONS from "../../constants/Icons"
 import BtnTypes from "../../constants/BtnTypes"
-import Backdrop from "../UI/BackDrop/BackDrop"
+import BackDrop from "../UI/BackDrop/BackDrop"
 import Spinner from "../UI/Loading/Spinner"
 import ModalDelete from "../UI/ModalDelete/ModalDelete"
 
@@ -144,14 +144,14 @@ const UpdatePost = () => {
             )
           })}
         </div>
-        <Backdrop show={showModal} modalClose={modalCloseHandler}>
+        <BackDrop show={showModal} modalClose={modalCloseHandler}>
           {loading && <Spinner />}
           <img
             src={imageOnModal}
             onLoad={() => setloading(false)}
             alt="file_image"
           />
-        </Backdrop>
+        </BackDrop>
         <ModalDelete show={showRemoveFileModal} modalClose={modalCloseHandler}>
           <div className="logout">
             <i className="bi bi-exclamation-triangle-fill"></i>
