@@ -17,23 +17,23 @@ import institute6 from "../assets/img/institutes/institute6.png"
 // #______ Main Image Slider ______#
 export const imageSliderData = [
   {
-    title: "this is the first text for test",
-    desc: "this is the first image slider for test it is not bad for me and another users.",
+    title: "تـــعـــد امــروز تخــصــص فـردا",
+    desc: "موسسه تحصیلات عالی هریوا یکی از برترین موسسات آموزش عالی در کشور",
     sliderImg: sliderImg1,
   },
   {
-    title: "this is the second text for test",
-    desc: "this is the second image slider for test it is not bad for me and another users.",
+    title: "تـــعـــد امــروز تخــصــص فـردا",
+    desc: "اساتید برجسته و کار آزموده به دانشجویان خود فرصتی را برای یاد گیری در محیطی پویا میدهند",
     sliderImg: sliderImg2,
   },
   {
-    title: "this is the third text for test",
-    desc: "this is the third image slider for test it is not bad for me and another users.",
+    title: "تـــعـــد امــروز تخــصــص فـردا",
+    desc: "ارزش های آموزشی مان شامل انعطاف پذیری، کارایی و رشد فردی می باشد",
     sliderImg: sliderImg3,
   },
   {
-    title: "this is the forth text for test",
-    desc: "this is the forth image slider for test it is not bad for me and another users.",
+    title: "تـــعـــد امــروز تخــصــص فـردا",
+    desc: "اگر شما به دنبال یک دانشگاه با برنامه های آموزشی برجسته، فضای آموزشی پویا و فرصت هایی برای توسعه شخصی و حرفه ای هستید، موسسه ما گزینه خوبی برای شما خواهد بود",
     sliderImg: sliderImg4,
   },
 ]
@@ -64,18 +64,6 @@ export const eliteStudents = [
   },
 ]
 // #______ End of Elite Students ______#
-
-// #______ Hariwa Faculties ______#
-export const hariwaFaculties = [
-  {
-    imgFaculty: "",
-    imgText: "",
-    imgProfile: "",
-    priceFaculty: "",
-    callFaculty: "",
-  },
-]
-// #______ End of Hariwa Faculties ______#
 
 // #______ All Students ______#
 export const allStudents = [

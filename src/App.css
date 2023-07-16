@@ -1,13 +1,12 @@
 .app {
-  /* background: radial-gradient(#df1677, #923632, #4371f0); */
-  /* background: linear-gradient(266deg, #48d9e3, #4bc68a, #2a5647); */
   min-height: 100vh;
   background-color: var(--gen-main-bg);
   position: relative;
+  box-sizing: border-box;
 }
 
 .app .main {
-  margin: 0px 260px 0px 25px;
+  margin: 0px 220px 0px 15px;
   box-sizing: border-box;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
@@ -16,14 +15,12 @@
 }
 
 .app .main_active_nav {
-  margin: 0 100px 0 25px;
+  margin: 0 100px 0 15px;
 }
 
 .search__icon {
   color: gray;
 }
-
-
 
 /* Post Management Tab Header */
 .posts_management_boxes {
@@ -65,32 +62,21 @@
   width: 130px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* Responsive */
 @media (max-width: 991px) {
   .app .main {
-    margin: 0 100px 0 20px;
+    margin: 0 100px 0 10px;
   }
 }
 
 @media (max-width: 768px) {
   .app .main {
-    margin: 0 85px 0 10px;
+    margin: 0 20px 0 0px;
   }
 }
 
 @media (max-width: 480px) {
   .app .main {
-    margin: 0px 78px 0px 0px;
+    margin: 0px 10px 0px 0px;
   }
 }

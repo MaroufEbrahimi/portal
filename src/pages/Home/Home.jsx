@@ -31,17 +31,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      <div className="home_header display_flex align_items_center justify_content_space_between">
-        <div className="input_group">
-          <label>
-            <h1>{term}</h1>
-            {/* <i className="bi bi-search search__icon"></i>
-            <input type="text" placeholder="جستجو ..." /> */}
-          </label>
-        </div>
-        <img src={LOGO} alt="LOGO" />
-      </div>
-
       {/* Main Show Slider */}
       <ShowCaseSlider />
       {/* End of Main Show Slider */}
