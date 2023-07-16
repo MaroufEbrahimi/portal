@@ -12,7 +12,7 @@ const Search = ({ value, onChange, handleSearchButton, placeHolder }) => {
           onClick={handleSearchButton}
         >
           <i className="bi bi-search search__icon"></i>
-          جستجو
+          <span>جستجو</span>
         </button>
       </div>
     </div>

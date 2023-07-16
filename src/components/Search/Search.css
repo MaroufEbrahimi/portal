@@ -13,14 +13,11 @@
   background-color: transparent;
   padding: 10px 20px;
   border: none;
+  color: var(--text-color);
 }
 
 .search__input input:focus {
   outline-width: 0;
-}
-
-.search_input_icon i {
-  color: gray;
 }
 
 .search .search__button {
@@ -31,10 +28,19 @@
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
   border-right: 1px solid var(--gen-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
 }
 
 .search__button:hover {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.search__button i {
+  color: gray;
+  font-size: 14px;
 }
 
 .search__buttonHidden {
