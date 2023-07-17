@@ -199,48 +199,6 @@ img {
 }
 /* End Button */
 
-/* Tab Header */
-.tab_header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background: var(--gen-bg-color);
-  z-index: 0;
-  border-radius: 10px;
-}
-.tab_header ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  text-align: center;
-}
-.tab_header ul li {
-  padding: 8px 10px;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-.tab_header ul li:hover,
-.tab_header ul .active_tab {
-  border-top-color: var(--gen-color);
-}
-.tab_header ul li span {
-  font-size: 15px;
-  line-height: 1em;
-  color: var(--text-color);
-}
-.tab_header_display {
-  display: none;
-  margin: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--gen-color);
-  border-radius: 3px;
-}
-.tab_header_display.active_content {
-  display: block;
-}
-/* End of Tab Header */
 
 .profile_tab_header {
   border-top-right-radius: 0px;
