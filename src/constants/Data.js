@@ -5,14 +5,15 @@ import sliderImg4 from "../assets/img/slide/slide4.jpg"
 
 import eliteImg1 from "../assets/img/user.jpg"
 
-import profile1 from "../assets/img/user.jpg"
 // Institute
-import institute1 from "../assets/img/institutes/institute1.png"
-import institute2 from "../assets/img/institutes/institute2.png"
-import institute3 from "../assets/img/institutes/institute3.png"
-import institute4 from "../assets/img/institutes/institute4.png"
-import institute5 from "../assets/img/institutes/institute5.png"
-import institute6 from "../assets/img/institutes/institute6.png"
+import jami_un from "../assets/img/institutes/jami.png"
+import rahanet from "../assets/img/institutes/Rahanet.png"
+import airms from "../assets/img/institutes/Airms.png"
+import ansari_un from "../assets/img/institutes/Ansari.png"
+import asia_un from "../assets/img/institutes/Asia.png"
+import atu_un from "../assets/img/institutes/atu.png"
+import ferdowsi_un from "../assets/img/institutes/Ferdowsi-University.png"
+import ghalib_un from "../assets/img/institutes/Ghalib.png"
 
 // #______ Main Image Slider ______#
 export const imageSliderData = [
@@ -69,39 +70,51 @@ export const eliteStudents = [
 export const colleagueInstitute = [
   {
     id: 1,
-    imgInstitute: institute1,
-    title: "title",
-    alt: "alt",
+    imgInstitute: jami_un,
+    title: "دانشگاه جامی",
+    alt: "دانشگاه جامی",
   },
   {
     id: 2,
-    imgInstitute: institute2,
-    title: "title",
-    alt: "alt",
+    imgInstitute: rahanet,
+    title: "خدمات انترنتی رهانت",
+    alt: "خدمات انترنتی رهانت",
   },
   {
     id: 3,
-    imgInstitute: institute3,
-    title: "title",
-    alt: "alt",
+    imgInstitute: atu_un,
+    title: "دانشگاه علامه طباطبایی",
+    alt: "دانشگاه علامه طباطبایی",
   },
   {
     id: 4,
-    imgInstitute: institute4,
-    title: "title",
-    alt: "alt",
+    imgInstitute: asia_un,
+    title: "دانشگاه آسیا",
+    alt: "دانشگاه آسیا",
   },
   {
     id: 5,
-    imgInstitute: institute5,
-    title: "title",
-    alt: "alt",
+    imgInstitute: airms,
+    title: "Airms",
+    alt: "Airms",
   },
   {
     id: 6,
-    imgInstitute: institute6,
-    title: "title",
-    alt: "alt",
+    imgInstitute: ferdowsi_un,
+    title: "دانشگاه فردوسی",
+    alt: "دانشگاه فردوسی",
+  },
+  {
+    id: 7,
+    imgInstitute: ghalib_un,
+    title: "دانشگاه غالب",
+    alt: "دانشگاه غالب",
+  },
+  {
+    id: 8,
+    imgInstitute: ansari_un,
+    title: "دانشگاه انصاری",
+    alt: "دانشگاه انصاری",
   },
 ]
 // #______ End of Colleague Institute ______#
