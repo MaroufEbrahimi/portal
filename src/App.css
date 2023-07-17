@@ -6,7 +6,7 @@
 }
 
 .app .main {
-  margin: 0px 220px 0px 15px;
+  margin: 0px 220px 0px 25px;
   box-sizing: border-box;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
@@ -98,12 +98,17 @@
 
 @media (max-width: 768px) {
   .app .main {
-    margin: 0 20px 0 0px;
+    margin: 0px 70px 0px 10px;
   }
 }
 
 @media (max-width: 480px) {
   .app .main {
-    margin: 0px 10px 0px 0px;
+    margin: 0px 60px 0px 10px;
+  }
+}
+@media (max-width: 375px) {
+  .app .main {
+    margin: 0px 50px 0px 10px;
   }
 }

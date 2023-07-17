@@ -240,8 +240,14 @@ img {
 .tab_header_display.active_content {
   display: block;
 }
-
 /* End of Tab Header */
+
+.profile_tab_header {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
 
 .add_img_profile {
   position: relative;
