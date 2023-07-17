@@ -3,11 +3,12 @@ import "./Profile.css"
 import { profileTabHeader } from "../../constants/Data"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { useStateValue } from "../../context/StateProvider"
-import ModalDelete from "../../components/UI/ModalDelete/ModalDelete"
 import { actionTypes } from "../../context/reducer"
-import { removeAllCookies } from "../../Utils/Cookie"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
+import MessageBox from "../../components/MessageBox/MessageBox"
+import ICONS from "../../constants/Icons"
+import BackDrop from "../../components/UI/BackDrop/BackDrop"
 
 const Profile = () => {
   const { id } = useParams()
@@ -77,20 +78,15 @@ const Profile = () => {
             </Link>
           </button>
         </div>
-        <ModalDelete show={showModal} modalClose={modalCloseHandler}>
-          <div className="logout">
-            <i className="bi bi-exclamation-triangle-fill"></i>
-            <p>برای بیرون شدن از سیستم مطمین هستید؟</p>
-            <div className="logout_buttons display_flex align_items_center justify_content_space_around">
-              <button className="btn logout_btn" onClick={logout}>
-                بلی
-              </button>
-              <button className="btn" onClick={modalCloseHandler}>
-                نخیر
-              </button>
-            </div>
-          </div>
-        </ModalDelete>
+        <BackDrop show={showModal} modalClose={modalCloseHandler}>
+          {<MessageBox
+            messageType="asking"
+            firstBtn={{ btnText: "بلی", onClick: logout }}
+            secondBtn={{ btnText: "نخیر", onClick: modalCloseHandler }}
+            message={"برای بیرون شدن از سیستم مطمین هستید؟"}
+            iconType={ICONS.asking}
+          />}
+        </BackDrop>
       </div>
 
       <div className="profile_tab_header tab_header">
@@ -105,62 +101,64 @@ const Profile = () => {
           </ul>
         ))}
       </div>
-      {authentication.roles.includes(Roles.STUDENT) ?
-        <div className="content_of_profile border_radius_8">
-          <div className={showTab === 1 ? "content active_content" : "content"}>
-            <div className="content_boxes display_grid ">
-              <div className="content_box">
-                <label>نام</label>
-                <p>{student?.studentPersonalInfo?.name}</p>
-              </div>
-              <div className="content_box">
-                <label>تخلص</label>
-                <p>{student?.studentPersonalInfo?.lastName}</p>
-              </div>
-              <div className="content_box">
-                <label>نام پدر</label>
-                <p>{student?.studentPersonalInfo?.fatherName}</p>
-              </div>
-              <div className="content_box">
-                <label>شماره تماس</label>
-                <p>{student?.studentPersonalInfo?.phoneNumber}</p>
-              </div>
-              <div className="content_box">
-                <label>ایمیل</label>
-                <p>{student?.studentPersonalInfo?.email}</p>
-              </div>
-              <div className="content_box">
-                <label>سال شمولیت</label>
-                <p>{student?.studentPersonalInfo?.joinedDate}</p>
-              </div>
-              <div className="content_box">
-                <label>دیپارتمنت</label>
-                <p>{student?.studentPersonalInfo?.department}</p>
-              </div>
-              <div className="content_box">
-                <label>سال</label>
-                <p>{student?.studentPersonalInfo?.year}</p>
-              </div>
-              <div className="content_box">
-                <label>سمستر</label>
-                <p>{student?.studentPersonalInfo?.semester}</p>
+      {
+        authentication.roles.includes(Roles.STUDENT) ?
+          <div className="content_of_profile border_radius_8">
+            <div className={showTab === 1 ? "content active_content" : "content"}>
+              <div className="content_boxes display_grid ">
+                <div className="content_box">
+                  <label>نام</label>
+                  <p>{student?.studentPersonalInfo?.name}</p>
+                </div>
+                <div className="content_box">
+                  <label>تخلص</label>
+                  <p>{student?.studentPersonalInfo?.lastName}</p>
+                </div>
+                <div className="content_box">
+                  <label>نام پدر</label>
+                  <p>{student?.studentPersonalInfo?.fatherName}</p>
+                </div>
+                <div className="content_box">
+                  <label>شماره تماس</label>
+                  <p>{student?.studentPersonalInfo?.phoneNumber}</p>
+                </div>
+                <div className="content_box">
+                  <label>ایمیل</label>
+                  <p>{student?.studentPersonalInfo?.email}</p>
+                </div>
+                <div className="content_box">
+                  <label>سال شمولیت</label>
+                  <p>{student?.studentPersonalInfo?.joinedDate}</p>
+                </div>
+                <div className="content_box">
+                  <label>دیپارتمنت</label>
+                  <p>{student?.studentPersonalInfo?.department}</p>
+                </div>
+                <div className="content_box">
+                  <label>سال</label>
+                  <p>{student?.studentPersonalInfo?.year}</p>
+                </div>
+                <div className="content_box">
+                  <label>سمستر</label>
+                  <p>{student?.studentPersonalInfo?.semester}</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div
-            className={
-              showTab === 2
-                ? "content active_content text_align_center"
-                : "content"
-            }
-          >
-            <h1>بزودی...</h1>
-          </div>
+            <div
+              className={
+                showTab === 2
+                  ? "content active_content text_align_center"
+                  : "content"
+              }
+            >
+              <h1>بزودی...</h1>
+            </div>
 
-        </div>
-        : null}
-    </div>
+          </div>
+          : null
+      }
+    </div >
   )
 }
 

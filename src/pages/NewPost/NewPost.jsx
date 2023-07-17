@@ -123,7 +123,7 @@ const NewPost = () => {
             id="input"
             multiple
             onChange={(e) => setfiles(e.target.files)}
-            accept="image/*"
+            accept=".pdf,.jpg,.jpeg,.png"
           />
           <label
             htmlFor="input"
