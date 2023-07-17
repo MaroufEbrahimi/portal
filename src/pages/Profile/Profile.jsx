@@ -105,58 +105,61 @@ const Profile = () => {
           </ul>
         ))}
       </div>
-      <div className="content_of_profile border_radius_8">
-        <div className={showTab === 1 ? "content active_content" : "content"}>
-          <div className="content_boxes display_grid ">
-            <div className="content_box">
-              <label>نام</label>
-              <p>{student?.studentPersonalInfo?.name}</p>
-            </div>
-            <div className="content_box">
-              <label>تخلص</label>
-              <p>{student?.studentPersonalInfo?.lastName}</p>
-            </div>
-            <div className="content_box">
-              <label>نام پدر</label>
-              <p>{student?.studentPersonalInfo?.fatherName}</p>
-            </div>
-            <div className="content_box">
-              <label>شماره تماس</label>
-              <p>{student?.studentPersonalInfo?.phoneNumber}</p>
-            </div>
-            <div className="content_box">
-              <label>ایمیل</label>
-              <p>{student?.studentPersonalInfo?.email}</p>
-            </div>
-            <div className="content_box">
-              <label>سال شمولیت</label>
-              <p>{student?.studentPersonalInfo?.joinedDate}</p>
-            </div>
-            <div className="content_box">
-              <label>دیپارتمنت</label>
-              <p>{student?.studentPersonalInfo?.department}</p>
-            </div>
-            <div className="content_box">
-              <label>سال</label>
-              <p>{student?.studentPersonalInfo?.year}</p>
-            </div>
-            <div className="content_box">
-              <label>سمستر</label>
-              <p>{student?.studentPersonalInfo?.semester}</p>
+      {authentication.roles.includes(Roles.STUDENT) ?
+        <div className="content_of_profile border_radius_8">
+          <div className={showTab === 1 ? "content active_content" : "content"}>
+            <div className="content_boxes display_grid ">
+              <div className="content_box">
+                <label>نام</label>
+                <p>{student?.studentPersonalInfo?.name}</p>
+              </div>
+              <div className="content_box">
+                <label>تخلص</label>
+                <p>{student?.studentPersonalInfo?.lastName}</p>
+              </div>
+              <div className="content_box">
+                <label>نام پدر</label>
+                <p>{student?.studentPersonalInfo?.fatherName}</p>
+              </div>
+              <div className="content_box">
+                <label>شماره تماس</label>
+                <p>{student?.studentPersonalInfo?.phoneNumber}</p>
+              </div>
+              <div className="content_box">
+                <label>ایمیل</label>
+                <p>{student?.studentPersonalInfo?.email}</p>
+              </div>
+              <div className="content_box">
+                <label>سال شمولیت</label>
+                <p>{student?.studentPersonalInfo?.joinedDate}</p>
+              </div>
+              <div className="content_box">
+                <label>دیپارتمنت</label>
+                <p>{student?.studentPersonalInfo?.department}</p>
+              </div>
+              <div className="content_box">
+                <label>سال</label>
+                <p>{student?.studentPersonalInfo?.year}</p>
+              </div>
+              <div className="content_box">
+                <label>سمستر</label>
+                <p>{student?.studentPersonalInfo?.semester}</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div
-          className={
-            showTab === 2
-              ? "content active_content text_align_center"
-              : "content"
-          }
-        >
-          <h1>بزودی...</h1>
+          <div
+            className={
+              showTab === 2
+                ? "content active_content text_align_center"
+                : "content"
+            }
+          >
+            <h1>بزودی...</h1>
+          </div>
+
         </div>
-      </div>
+        : null}
     </div>
   )
 }

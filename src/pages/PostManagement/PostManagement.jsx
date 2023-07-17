@@ -5,7 +5,6 @@ import { useStateValue } from "../../context/StateProvider"
 import Spinner from "../../components/UI/Loading/Spinner"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
-import { Link } from "react-router-dom"
 
 const PostManagement = () => {
   useProtect({ roles: [Roles.ADMIN] })
@@ -45,7 +44,6 @@ const PostManagement = () => {
         }
       })
       .then(data => {
-        console.log(data)
         setFields(data.content)
       })
   }, [])
@@ -53,12 +51,13 @@ const PostManagement = () => {
   // th e auth token must be read from somewhere in the frontend
   useEffect(() => {
     setLoading(true)
+
+    console.log(requestParams)
     fetch(endpoint + requestParams, {
       method: "GET",
       headers: { "Authorization": "Bearer " + authentication.token }
     })
       .then(res => {
-        console.log("posts,  r, ", res)
         if (res.ok) {
           return res.json();
         } else {
@@ -66,7 +65,6 @@ const PostManagement = () => {
         }
       })
       .then(data => {
-        console.log("posts, ", data)
         if (data.totalPages - 1 > pagination.offset) {
           setHasMore(true)
         } else {
@@ -80,23 +78,19 @@ const PostManagement = () => {
   const handleFilterButton = () => {
     setPagination({ offset: 0, pageSize: 3 })
     setPosts([])
-    // let currentEndpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
-    console.log(authentication)
+
     let requestParam = ""
     if (semester) {
-      console.log("semester", semester)
-      requestParam += `&semester=${semester}`
+      requestParam += `&semester=${(semester == "همه" ? "%" : semester)}`
     }
     if (department) {
-      console.log("dep", department)
-      requestParam += `&department=${department}`
+      requestParam += `&department=${(department == "همه" ? "%" : department)}`
     }
     if (feildOfStudy) {
-      console.log("feildOfStudy", feildOfStudy)
-      requestParam += `&fieldOfStudy=${feildOfStudy}`
+      requestParam += `&fieldOfStudy=${(feildOfStudy == "همه" ? "%" : feildOfStudy)}`
     }
     setRequestParams(requestParam)
-    console.log(endpoint)
+    console.log(requestParam)
     fetch(endpoint + requestParam, {
       method: "GET",
       headers: { "Authorization": "Bearer " + authentication.token }
@@ -121,6 +115,7 @@ const PostManagement = () => {
       })
   }
   const setfield = (e) => {
+    setDepartments([])
     setfeildOfStudy(e.target.value)
     const f = fields.find((item) => {
       return item.fieldName == e.target.value
@@ -137,7 +132,7 @@ const PostManagement = () => {
         setDepartments(data)
       })
   }
-  console.log(posts)
+
   return (
     <div className="posts_management">
       <div className="posts_management_tabHeader">
@@ -148,8 +143,9 @@ const PostManagement = () => {
               id="type"
               value={semester}
               onChange={(e) => setsemester(e.target.value)}
+              defaultValue="همه"
             >
-              <option disabled selected>سمستر</option>
+              <option>همه</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -166,8 +162,9 @@ const PostManagement = () => {
               id="type"
               value={feildOfStudy}
               onChange={(e) => setfield(e)}
+              defaultValue="همه"
             >
-              <option disabled selected>پوهنحی</option>
+              <option>همه</option>
               {fields.map(item => {
                 return <option key={item.id}>{item.fieldName}</option>
               })}
@@ -179,8 +176,9 @@ const PostManagement = () => {
               id="type"
               value={department}
               onChange={(e) => setdepartment(e.target.value)}
+              defaultValue="همه"
             >
-              <option disabled selected>دیپارتمنت</option>
+              <option >همه</option>
               {departments.map(item => {
                 return <option key={item.id}>{item.departmentName}</option>
               })}

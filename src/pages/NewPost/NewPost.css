@@ -85,9 +85,6 @@
   transition: border 0.3s ease;
 }
 
-.ql-editor {
-  text-align: right;
-}
 
 /* Responsive */
 @media (max-width: 991px) {
