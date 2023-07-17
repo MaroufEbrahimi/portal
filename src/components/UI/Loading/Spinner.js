@@ -1,10 +1,17 @@
-import React from 'react'
+import React from "react"
 import "./Spinner.css"
 
 function Spinner() {
   return (
-    <div className="spinner__wrapper text_align_center">
-      <div className="spinner__circle"></div>
+    <div className="spinner__wrapper display_flex align_items_center justify_content_center">
+      <div className="spinner__circle">
+        <div className="display_grid">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   )
 }
