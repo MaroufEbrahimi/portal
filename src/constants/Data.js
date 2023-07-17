@@ -33,7 +33,7 @@ export const imageSliderData = [
   },
   {
     title: "تـــعـــد امــروز تخــصــص فـردا",
-    desc: "اگر شما به دنبال یک دانشگاه با برنامه های آموزشی برجسته، فضای آموزشی پویا و فرصت هایی برای توسعه شخصی و حرفه ای هستید، موسسه ما گزینه خوبی برای شما خواهد بود",
+    desc: "اگر شما به دنبال یک دانشگاه با برنامه های آموزشی برجسته، فضای آموزشی پویا و فرصت هایی برای توسعه شخصی و حرفه ای هستید",
     sliderImg: sliderImg4,
   },
 ]
@@ -64,46 +64,6 @@ export const eliteStudents = [
   },
 ]
 // #______ End of Elite Students ______#
-
-// #______ All Students ______#
-export const allStudents = [
-  {
-    profileImg: profile1,
-    studentName: "معروف ابراهیمی",
-    studentEmail: "famous@gmail.com",
-    studentDepartement: "سافت ویر",
-    studentSemester: "8",
-  },
-  {
-    profileImg: profile1,
-    studentName: "معروف ابراهیمی",
-    studentEmail: "famous@gmail.com",
-    studentDepartement: "سافت ویر",
-    studentSemester: "8",
-  },
-  {
-    profileImg: profile1,
-    studentName: "معروف ابراهیمی",
-    studentEmail: "famous@gmail.com",
-    studentDepartement: "سافت ویر",
-    studentSemester: "8",
-  },
-  {
-    profileImg: profile1,
-    studentName: "معروف ابراهیمی",
-    studentEmail: "famous@gmail.com",
-    studentDepartement: "سافت ویر",
-    studentSemester: "8",
-  },
-  {
-    profileImg: profile1,
-    studentName: "معروف ابراهیمی",
-    studentEmail: "famous@gmail.com",
-    studentDepartement: "سافت ویر",
-    studentSemester: "8",
-  },
-]
-// #______ End of All Students ______#
 
 // #______ Colleague Institute ______#
 export const colleagueInstitute = [
@@ -158,27 +118,6 @@ export const profileTabHeader = [
   },
 ]
 // #______ End of Profile Tab Header ______#
-
-// #______ Students Filtering Buttons ______#
-export const StuFilterButtons = [
-  {
-    text: "همه",
-    counter: 1,
-  },
-  {
-    text: "کامپیوتر ساینس",
-    counter: 2,
-  },
-  {
-    text: "طب دندان",
-    counter: 3,
-  },
-  {
-    text: "حقوق",
-    counter: 4,
-  },
-]
-// #______ End of Students Filtering Buttons ______#
 
 // #______ Faculties ______#
 // General
