@@ -4,27 +4,27 @@ export function timeSince(date) {
 
     let interval = Math.floor(seconds / 31536000);
     if (interval >= 1) {
-        return `${interval} سال${interval === 1 ? '' : 's'} پیش`;
+        return `${interval} سال پیش`;
     }
 
     interval = Math.floor(seconds / 2592000);
     if (interval >= 1) {
-        return `${interval} ماه${interval === 1 ? '' : 's'} پیش`;
+        return `${interval} ماه پیش`;
     }
 
     interval = Math.floor(seconds / 86400);
     if (interval >= 1) {
-        return `${interval} روز${interval === 1 ? '' : 's'} پیش`;
+        return `${interval} روز پیش`;
     }
 
     interval = Math.floor(seconds / 3600);
     if (interval >= 1) {
-        return `${interval} ساعت${interval === 1 ? '' : 's'} پیش`;
+        return `${interval} ساعت پیش`;
     }
 
     interval = Math.floor(seconds / 60);
     if (interval >= 1) {
-        return `${interval} دقیقه${interval === 1 ? '' : 's'} پیش`;
+        return `${interval} دقیقه پیش`;
     }
 
     return `همین الان`;

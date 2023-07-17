@@ -199,6 +199,7 @@ const PostManagement = () => {
               return (
                 <Post
                   key={item.id}
+                  role={Roles.ADMIN}
                   author={item.author}
                   date={item.dateTime}
                   images={item.images}
@@ -211,6 +212,7 @@ const PostManagement = () => {
             return (
               <Post
                 key={item.id}
+                role={Roles.ADMIN}
                 author={item.author}
                 date={item.dateTime}
                 images={item.images}

@@ -2,10 +2,9 @@ import React from "react"
 import "./Post.css"
 import { Link } from "react-router-dom"
 import { timeSince } from "../../Utils/DateTimeUtils"
+import Roles from "../../constants/Roles"
 
-
-const Post = ({ id, images, docs, author, date, text, customRef = null }) => {
-
+const Post = ({ role, id, images, docs, author, date, text, customRef = null }) => {
   return (
     <div className="post" ref={customRef}>
       <div className="image_header_container">
@@ -18,21 +17,23 @@ const Post = ({ id, images, docs, author, date, text, customRef = null }) => {
             </div>
 
           </div>
-          <div className="post_settings">
-            <span className="setting_icon"><i className="bi bi-three-dots"></i></span>
-            <div className="setting_menu">
-              <ul>
-                <li className="setting_option">
-                  <Link to={"edit/" + id}>
-                    <i className="bi bi-brush"></i>
-                    ویرایش پست
-                  </Link>
-                </li>
-                <li className="setting_option"><i className="bi bi-save-fill"></i>پنهان کردن</li>
-                <li className="setting_option"><i className="bi bi-trash-fill"></i>حذف پست</li>
-              </ul>
-            </div>
-          </div>
+          {role == Roles.ADMIN ?
+            <div className="post_settings">
+              <span className="setting_icon"><i className="bi bi-three-dots"></i></span>
+              <div className="setting_menu">
+                <ul>
+                  <li className="setting_option">
+                    <Link to={"edit/" + id}>
+                      <i className="bi bi-brush"></i>
+                      ویرایش پست
+                    </Link>
+                  </li>
+                  <li className="setting_option"><i className="bi bi-save-fill"></i>پنهان کردن</li>
+                  <li className="setting_option"><i className="bi bi-trash-fill"></i>حذف پست</li>
+                </ul>
+              </div>
+            </div> : null
+          }
         </div>
       </div>
       <div className="file_post_body display_flex flex_direction_column">
