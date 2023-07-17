@@ -27,6 +27,7 @@
     border-radius: 50%;
 }
 
+
 .btn:hover {
     color: #fff;
 }
@@ -45,6 +46,10 @@
 .btn:active:before {
 
     transition: background 0s;
+}
+
+.danger:before {
+    background: #ee1818;
 }
 
 /* End Button */

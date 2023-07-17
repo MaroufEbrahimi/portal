@@ -8,7 +8,7 @@ function MessageBox({ messageType, message, firstBtn, secondBtn, iconType, btnTe
             <div className="message_box box_shadow">
                 <i className={iconType + " message_icon"}></i>
                 <p className='message'>{message}</p>
-                <Button text={firstBtn?.btnText} onClick={firstBtn?.onClick} />
+                <Button text={firstBtn?.btnText} type={firstBtn.btnType} onClick={firstBtn?.onClick} />
             </div> :
             <div className="message_box box_shadow">
                 <i className={iconType + " message_icon"}></i>

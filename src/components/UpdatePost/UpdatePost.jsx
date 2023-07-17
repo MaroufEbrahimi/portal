@@ -12,6 +12,7 @@ import BackDrop from "../UI/BackDrop/BackDrop"
 import Spinner from "../UI/Loading/Spinner"
 import ModalDelete from "../UI/ModalDelete/ModalDelete"
 import MessageBox from "../MessageBox/MessageBox"
+import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 
 const UpdatePost = () => {
   const { id } = useParams()
@@ -131,7 +132,7 @@ const UpdatePost = () => {
                       setShowRemoveFileModalHandlerAndSetFileUrl(item)
                     }
                   />
-                  <Button icon={ICONS.download} />
+                  <Button icon={ICONS.download} onClick={() => downloadFileFromApi(item)} />
                   <Button
                     icon={ICONS.fullscreen}
                     onClick={() => fullscreen(item)}

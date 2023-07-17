@@ -9,6 +9,7 @@ import Roles from "../../constants/Roles"
 import MessageBox from "../../components/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
+import BtnTypes from "../../constants/BtnTypes"
 
 const Profile = () => {
   const { id } = useParams()
@@ -81,7 +82,7 @@ const Profile = () => {
         <BackDrop show={showModal} modalClose={modalCloseHandler}>
           {<MessageBox
             messageType="asking"
-            firstBtn={{ btnText: "بلی", onClick: logout }}
+            firstBtn={{ btnText: "بلی", btnType: BtnTypes.danger, onClick: logout }}
             secondBtn={{ btnText: "نخیر", onClick: modalCloseHandler }}
             message={"برای بیرون شدن از سیستم مطمین هستید؟"}
             iconType={ICONS.asking}
