@@ -12,9 +12,9 @@
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px;
 }
 
-@media (max-width: 60rem) {
+@media (max-width: 768px) {
   .modal {
-    width: 30%;
-    left: 30%;
+    width: 50%;
+    left: 25%;
   }
 }
