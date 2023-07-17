@@ -72,16 +72,6 @@
 .goals_tabHeader {
   margin-top: 1rem;
 }
-/* .faculties_tabHeader_contents .faculties_tabHeader_content {
-  display: none;
-  margin: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--gen-color);
-  border-radius: 3px;
-}
-.faculties_tabHeader_contents .active_content {
-  display: block;
-} */
 /* #_____ End of View Point of the Faculties _____# */
 
 /* #_____ Goals and Mission of the Faculties _____# */
@@ -119,18 +109,46 @@
   }
 }
 @media (max-width: 768px) {
+  .faculties_sections_title {
+    margin-top: 5rem;
+  }
+  .faculties_sections_title h2 {
+    font-size: 27px;
+  }
+  .intro_of_dean_of_faculty .dean_of_faculty_text p {
+    margin: 30px 15px;
+  }
 }
 @media (max-width: 480px) {
+  .faculties_sections_title h2 {
+    font-size: 23px;
+  }
   .dean_of_faculty_info .dean_of_img {
     width: 220px;
     height: 220px;
   }
   .dean_of_faculty_info .dean_of_img img {
     width: 200px;
-    height: 250px;
+    height: 200px;
   }
   .dean_of_faculty_details ul li {
-    /* justify-content: space-between; */
     flex-direction: column;
+  }
+  .intro_of_dean_of_faculty .dean_of_faculty_text p {
+    margin: 0px 15px 30px;
+  }
+}
+@media (max-width: 375px) {
+  .faculties_sections_title h2 {
+    font-size: 20px;
+  }
+  .dean_of_faculty_info .dean_of_img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .dean_of_faculty_info .dean_of_img img {
+    width: 175px;
+    height: 185px;
   }
 }

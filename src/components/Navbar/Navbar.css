@@ -19,6 +19,10 @@
   margin-bottom: 10px;
 }
 
+.menu_container input {
+  z-index: 10;
+}
+
 /* toggle_header_navbar */
 .toggle_header_navbar {
   position: fixed;
@@ -66,6 +70,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  padding-right: 10px;
 }
 
 .navbar_menu li {
@@ -90,8 +95,9 @@
   color: var(--text-color);
   display: flex;
   align-items: center;
-  padding: 7px 10px;
+  padding: 5px 10px;
   font-size: 16px;
+  margin: 2px 0;
 }
 
 .navbar_menu li span {
@@ -103,12 +109,14 @@
   color: var(--text-color);
   font-weight: 300;
   padding: 0 8px;
+  z-index: 10;
 }
 
 .faculties_menu li i img {
   width: 22px;
   margin-right: -4px;
   filter: var(--icon-faculties-color);
+  z-index: 0;
 }
 
 .navbar_menu li:hover a::before,
@@ -196,11 +204,15 @@
   height: auto;
 }
 
+.navbar__dropdown li {
+  margin: 4px 0;
+}
+
 .navbar__dropdown li a {
   display: flex;
   align-items: center;
   font-size: 15px;
-  margin: -8px 0;
+  margin: -4px 0;
 }
 
 .navbar__dropdown li span {
@@ -321,6 +333,13 @@
   .navbar {
     width: 55px;
   }
+  .navbar_menu {
+    padding-right: 5px;
+  }
+  .faculties_menu li i img {
+    width: 20px;
+    margin-right: 0px;
+  }
   .navbar_menu li a {
     padding: 6px 7px;
     font-size: 16px;
@@ -340,7 +359,10 @@
 
 @media (max-width: 375px) {
   .navbar {
-    width: 45px;
+    width: 40px;
+  }
+  .navbar_menu {
+    padding-right: 2px;
   }
   .navbar .add_img_profile,
   .navbar .input_profile_img {
