@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import "./Profile.css"
 import { profileTabHeader } from "../../constants/Data"
-import Post from "../../components/Post/Post"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { useStateValue } from "../../context/StateProvider"
 import ModalDelete from "../../components/UI/ModalDelete/ModalDelete"
@@ -106,9 +105,9 @@ const Profile = () => {
           </ul>
         ))}
       </div>
-      <div className="content_of_profile">
+      <div className="content_of_profile border_radius_8">
         <div className={showTab === 1 ? "content active_content" : "content"}>
-          <div className="content_boxes display_grid">
+          <div className="content_boxes display_grid ">
             <div className="content_box">
               <label>نام</label>
               <p>{student?.studentPersonalInfo?.name}</p>
@@ -148,10 +147,14 @@ const Profile = () => {
           </div>
         </div>
 
-        <div className={showTab === 2 ? "content active_content" : "content"}>
-          <Post />
-          <Post />
-          <Post />
+        <div
+          className={
+            showTab === 2
+              ? "content active_content text_align_center"
+              : "content"
+          }
+        >
+          <h1>بزودی...</h1>
         </div>
       </div>
     </div>
