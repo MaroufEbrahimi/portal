@@ -1,37 +1,57 @@
 .spinner__wrapper {
-    display: block;
-    min-height: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .spinner__circle {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
+  vertical-align: middle;
+  position: relative;
+  background: black;
+  padding: 9.5px;
+  border-radius: 10px;
+  box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
 }
 
-.spinner__circle:after {
-    content: " ";
-    display: block;
-    width: 40px;
-    height: 40px;
-    margin: 4px;
-    border-radius: 50%;
-    border: 5px solid var(--gen-color);
-    border-color: var(--gen-color) transparent var(--gen-color) transparent;
-    animation: spinner 1.2s linear infinite;
+.spinner__circle > div {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  animation: spinner 1s linear infinite;
+}
+
+.spinner__circle span {
+  display: inline-block;
+  width: 11.5px;
+  height: 11.5px;
+  background: #b1afaf;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes spinner {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 786px) {
+  .spinner__circle {
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .spinner__circle > div {
+    gap: 4px;
+  }
+
+  .spinner__circle span {
+    display: inline-block;
+    width: 9.5px;
+    height: 9.5px;
+  }
 }
