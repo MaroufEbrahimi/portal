@@ -1,26 +1,24 @@
-import { getCookies } from "../Utils/Cookie";
 
-function getAuthInfoFromCookie() {
-  let data = getCookies()
-  console.log(data)
-  if (data.size > 0) {
+function getAuthInfoFromLocalStorage() {
+  if (localStorage.length > 0) {
     return {
-      isAuthenticated: data.get("token") ? true : false,
-      name: data.get("name"),
-      lastname: data.get("lastname"),
-      email: data.get("email"),
-      token: data.get("token"),
-      userId: data.get("userId"),
-      imageUrl: data.get("imageUrl"),
+      isAuthenticated: localStorage.getItem("token") ? true : false,
+      name: localStorage.getItem("name"),
+      lastname: localStorage.getItem("lastname"),
+      email: localStorage.getItem("email"),
+      token: localStorage.getItem("token"),
+      userId: localStorage.getItem("userId"),
+      imageUrl: localStorage.getItem("imageUrl"),
       roles: localStorage.getItem("roles").split(",")
     }
   }
 }
+console.log(document.cookie)
 
 console.log(localStorage.getItem("isDkark"))
 export const initialState = {
   term: null,
-  authentication: getAuthInfoFromCookie() ? getAuthInfoFromCookie() : {
+  authentication: getAuthInfoFromLocalStorage() ? getAuthInfoFromLocalStorage() : {
     isAuthenticated: false,
     name: null,
     lastName: null,

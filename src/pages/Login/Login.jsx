@@ -39,12 +39,12 @@ const Login = () => {
       .then((data) => {
         console.log(data)
         // if successfully authenticated
-        setCookie("token", data?.token)
-        setCookie("name", data?.name)
-        setCookie("lastname", data.lastname)
-        setCookie("email", data?.email)
-        setCookie("userId", data?.userId)
-        setCookie("imageUrl", data?.imageUrl)
+        localStorage.setItem("token", data?.token)
+        localStorage.setItem("name", data?.name)
+        localStorage.setItem("lastname", data.lastname)
+        localStorage.setItem("email", data?.email)
+        localStorage.setItem("userId", data?.userId)
+        localStorage.setItem("imageUrl", data?.imageUrl)
         localStorage.setItem("roles", data?.roles.toString())
         dispatch({
           type: actionTypes.SET_AUTHENTICATION,

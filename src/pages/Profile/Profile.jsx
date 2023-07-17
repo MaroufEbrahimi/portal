@@ -48,7 +48,7 @@ const Profile = () => {
     setShowTab(index)
   }
   const logout = () => {
-    removeAllCookies()
+    localStorage.clear();
     dispatch({
       type: actionTypes.LOGOUT,
       payload: {},
@@ -96,7 +96,7 @@ const Profile = () => {
 
       <div className="profile_tab_header tab_header">
         {profileTabHeader.map((item) => (
-          <ul>
+          <ul key={item.counter}>
             <li
               className={showTab === item.counter ? "active_tab" : ""}
               onClick={() => handleTabs(item.counter)}
