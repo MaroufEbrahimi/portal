@@ -3,23 +3,18 @@
   left: 0;
   bottom: 0;
   right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .spinner__circle {
-  text-align: center;
   vertical-align: middle;
   position: relative;
   background: black;
-  padding: 10px;
-  border-radius: 12px;
+  padding: 9.5px;
+  border-radius: 10px;
   box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
 }
 
 .spinner__circle > div {
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
   animation: spinner 1s linear infinite;
@@ -27,8 +22,8 @@
 
 .spinner__circle span {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 11.5px;
+  height: 11.5px;
   background: #b1afaf;
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -41,5 +36,22 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 786px) {
+  .spinner__circle {
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .spinner__circle > div {
+    gap: 4px;
+  }
+
+  .spinner__circle span {
+    display: inline-block;
+    width: 9.5px;
+    height: 9.5px;
   }
 }
