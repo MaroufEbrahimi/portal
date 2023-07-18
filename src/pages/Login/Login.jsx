@@ -16,6 +16,7 @@ const Login = () => {
   const [loading, setlaoding] = useState(false)
 
   const handleChange = (e) => {
+    setError(false)
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
   const navigate = useNavigate()
@@ -88,7 +89,7 @@ const Login = () => {
               <i className="bi bi-lock-fill"></i>
             </div>
           </div>
-          <p className="error">{error && "ایمیل یا رمز اشتباه است!"}</p>
+          {error && <p className="error">ایمیل یا رمز اشتباه است!</p>}
           <div className="btn_login display_flex">
             <Button
               text={"ورود به سیستم"}
