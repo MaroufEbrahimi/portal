@@ -76,7 +76,7 @@ const Profile = () => {
             <i className="bi bi-reply-all-fill"></i>
           </button>
           <button>
-            <Link to="/reset-password">
+            <Link to={"/reset-password/" + id}>
               <span>تغییر رمز یا ایمیل</span>
               <i className="bi bi-check2-square"></i>
             </Link>

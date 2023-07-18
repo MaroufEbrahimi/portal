@@ -1,22 +1,47 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./Login.css"
 import "./ResetPassword.css"
 import APIEnpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 import APIEndpoints from "../../constants/APIEndpoints"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { actionTypes } from "../../context/reducer"
 import MessageBox from "../../components/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
+import Roles from '../../constants/Roles'
 
 const ResetPassword = () => {
-  const [email, setEmail] = useState({ value: localStorage.getItem("email") || '', msg: '' })
+  const { id } = useParams();
+  const [email, setEmail] = useState({ value: '', msg: '' })
   const [password, setPassword] = useState({ value: '', msg: '' })
   const [prePassword, setPrePassword] = useState({ value: '', msg: '' })
   const [{ authentication }, dispatch] = useStateValue()
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   const navigate = useNavigate()
+
+  console.log(authentication)
+  useEffect(() => {
+    if (authentication.roles.includes(Roles.ADMIN) && authentication.userId != id) {
+      fetch(APIEndpoints.root + APIEndpoints.students.getStudent(id), {
+        method: "GET",
+        headers: {
+          "Authorization": "Bearer " + authentication.token
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          setEmail({ value: data?.studentPersonalInfo?.email, msg: "" })
+        }).catch(() => navigate("/"))
+    } else if (authentication.roles.includes(Roles.STUDENT) && authentication.userId == id ||
+      authentication.roles.includes(Roles.ADMIN) && authentication.userId == id) {
+      setEmail({ value: localStorage.getItem("email") || '', msg: '' })
+    } else {
+      navigate("/")
+    }
+
+  }, [id])
+
 
   const sendInformation = (e) => {
     console.log(authentication)

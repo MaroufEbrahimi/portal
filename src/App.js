@@ -135,7 +135,7 @@ const App = () => {
           element: <Login />,
         },
         {
-          path: "/reset-password",
+          path: "/reset-password/:id",
           element: <ResetPassword />,
         },
         {

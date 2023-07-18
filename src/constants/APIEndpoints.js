@@ -2,7 +2,8 @@ const APIEndpoints = {
     root: "http://localhost:1000/api/v1/",
     students: {
         getAll: "students/?",
-        addStudent: "students"
+        addStudent: "students",
+        getStudent: (id) => `students/${id}`
     },
     posts: {
         getAllPostsForStudent: "posts/student",
