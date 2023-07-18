@@ -10,7 +10,6 @@ import ICONS from "../../constants/Icons"
 import BtnTypes from "../../constants/BtnTypes"
 import BackDrop from "../UI/BackDrop/BackDrop"
 import Spinner from "../UI/Loading/Spinner"
-import ModalDelete from "../UI/ModalDelete/ModalDelete"
 import MessageBox from "../MessageBox/MessageBox"
 import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 
@@ -87,7 +86,26 @@ const UpdatePost = () => {
 
   // this function is used to send the update post to the api
   const sendInformationToAPI = () => {
+    // let bd = {
+    //   fieldOfStudy,
+    //   department,
+    //   message,
+    //   authorId,
+    //   semester,
+    //   isPublic
+    // }
 
+
+    fetch(APIEndpoints.posts.update(post.id), {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer " + authentication.token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+
+      })
+    })
   }
 
   console.log(post)
@@ -180,7 +198,7 @@ const UpdatePost = () => {
         <BackDrop show={showRemoveFileModal} modalClose={modalCloseHandler}>
           {<MessageBox
             messageType="asking"
-            firstBtn={{ btnText: "بلی", onClick: () => removeFile("image") }}
+            firstBtn={{ btnText: "بلی", btnType: BtnTypes.danger, onClick: () => removeFile("image") }}
             secondBtn={{ btnText: "نخیر", onClick: () => setShowRemoveFileModal(false) }}
             message={"برای حذف شدن فایل از سیستم مطمین هستید؟"}
             iconType={ICONS.asking}
@@ -209,6 +227,7 @@ const UpdatePost = () => {
           </label>
         </div>
       </div>
+      <Button text={"بروز رسانی پست"} onClick={sendInformationToAPI} />
     </div>
   )
 }

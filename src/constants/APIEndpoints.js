@@ -8,7 +8,8 @@ const APIEndpoints = {
         getAllPostsForStudent: "posts/student",
         getAllPostsForAdmin: "posts/?",
         getPost: "posts/",
-        addPost: "posts"
+        addPost: "posts",
+        update: (id) => "posts/" + id
 
     },
     fieldOfStudy: {

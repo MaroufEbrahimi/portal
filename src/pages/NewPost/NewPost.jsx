@@ -6,6 +6,9 @@ import { useStateValue } from "../../context/StateProvider"
 import { useNavigate } from "react-router-dom"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
+import BackDrop from "../../components/UI/BackDrop/BackDrop"
+import MessageBox from "../../components/MessageBox/MessageBox"
+import ICONS from "../../constants/Icons"
 
 const NewPost = () => {
   // this is for security purpose
@@ -20,6 +23,7 @@ const NewPost = () => {
   const [files, setfiles] = useState([])
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
+  const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/field-of-studies")
       .then((res) => {
@@ -75,7 +79,7 @@ const NewPost = () => {
           body: formData,
         }).then((res) => {
           if (res.ok) {
-            navigate("/admin/postmanagement")
+            setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
           }
         })
       })
@@ -211,6 +215,14 @@ const NewPost = () => {
           ارسال
         </button>
       </div>
+      <BackDrop show={completeMsg.show}>
+        {<MessageBox
+          messageType="info"
+          firstBtn={{ btnText: "تایید", onClick: () => navigate("/admin/postmanagement") }}
+          message={completeMsg.msg}
+          iconType={ICONS.info}
+        />}
+      </BackDrop>
     </div>
   )
 }

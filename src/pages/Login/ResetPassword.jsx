@@ -15,7 +15,7 @@ const ResetPassword = () => {
   const [password, setPassword] = useState({ value: '', msg: '' })
   const [prePassword, setPrePassword] = useState({ value: '', msg: '' })
   const [{ authentication }, dispatch] = useStateValue()
-  const [completeMsg, setCompleteMsg] = useState({ show: true, msg: "اطلاعات کاربری با موفقیت بروزرسانی شد!" })
+  const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   const navigate = useNavigate()
 
   const sendInformation = (e) => {

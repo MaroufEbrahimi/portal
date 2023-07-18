@@ -3,6 +3,7 @@ import "./Post.css"
 import { Link } from "react-router-dom"
 import { timeSince } from "../../Utils/DateTimeUtils"
 import Roles from "../../constants/Roles"
+import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 
 const Post = ({ role, id, images, docs, author, date, text, customRef = null }) => {
   return (
@@ -61,6 +62,7 @@ const Post = ({ role, id, images, docs, author, date, text, customRef = null }) 
                   <button
                     className="btn_download display_flex cursor_pointer align_items_center justify_content_center"
                     type="button"
+                    onClick={() => downloadFileFromApi(doc)}
                   >
                     <span className="button_download_text">دانلود</span>
                     <span className="button_download_icon display_flex align_items_center justify_content_center">
