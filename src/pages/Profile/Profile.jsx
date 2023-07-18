@@ -49,7 +49,7 @@ const Profile = () => {
     setShowTab(index)
   }
   const logout = () => {
-    localStorage.clear();
+    localStorage.clear()
     dispatch({
       type: actionTypes.LOGOUT,
       payload: {},
@@ -61,7 +61,9 @@ const Profile = () => {
     <div className="profile fade_in">
       <div className="profile_title">
         <div className="user_profile_img display_flex align_items_center">
-          <img src={student?.imageUrl} alt="user img" />
+          {authentication.roles.includes(Roles.STUDENT) ? (
+            <img src={student?.imageUrl} alt="user img" />
+          ) : null}
           <h1>
             {student?.studentPersonalInfo?.name}{" "}
             {student?.studentPersonalInfo?.lastName}
@@ -80,32 +82,41 @@ const Profile = () => {
           </button>
         </div>
         <BackDrop show={showModal} modalClose={modalCloseHandler}>
-          {<MessageBox
-            messageType="asking"
-            firstBtn={{ btnText: "بلی", btnType: BtnTypes.danger, onClick: logout }}
-            secondBtn={{ btnText: "نخیر", onClick: modalCloseHandler }}
-            message={"برای بیرون شدن از سیستم مطمین هستید؟"}
-            iconType={ICONS.asking}
-          />}
+          {
+            <MessageBox
+              messageType="asking"
+              firstBtn={{
+                btnText: "بلی",
+                btnType: BtnTypes.danger,
+                onClick: logout,
+              }}
+              secondBtn={{ btnText: "نخیر", onClick: modalCloseHandler }}
+              message={"برای بیرون شدن از سیستم مطمین هستید؟"}
+              iconType={ICONS.asking}
+            />
+          }
         </BackDrop>
       </div>
 
-      <div className="profile_tab_header tab_header">
-        {profileTabHeader.map((item) => (
-          <ul key={item.counter}>
-            <li
-              className={showTab === item.counter ? "active_tab" : ""}
-              onClick={() => handleTabs(item.counter)}
-            >
-              <span>{item.text}</span>
-            </li>
-          </ul>
-        ))}
-      </div>
-      {
-        authentication.roles.includes(Roles.STUDENT) ?
+      {authentication.roles.includes(Roles.STUDENT) ? (
+        <div className="profile_details">
+          <div className="profile_tab_header tab_header">
+            {profileTabHeader.map((item) => (
+              <ul key={item.counter}>
+                <li
+                  className={showTab === item.counter ? "active_tab" : ""}
+                  onClick={() => handleTabs(item.counter)}
+                >
+                  <span>{item.text}</span>
+                </li>
+              </ul>
+            ))}
+          </div>
+
           <div className="content_of_profile border_radius_8">
-            <div className={showTab === 1 ? "content active_content" : "content"}>
+            <div
+              className={showTab === 1 ? "content active_content" : "content"}
+            >
               <div className="content_boxes display_grid ">
                 <div className="content_box">
                   <label>نام</label>
@@ -155,11 +166,10 @@ const Profile = () => {
             >
               <h1>بزودی...</h1>
             </div>
-
           </div>
-          : null
-      }
-    </div >
+        </div>
+      ) : null}
+    </div>
   )
 }
 
