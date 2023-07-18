@@ -10,15 +10,18 @@ import { actionTypes } from "../../context/reducer"
 import MessageBox from "../../components/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import Roles from '../../constants/Roles'
+import Button from "../../components/UI/Button/Button"
 
 const ResetPassword = () => {
   const { id } = useParams();
-  const [email, setEmail] = useState({ value: '', msg: '' })
-  const [password, setPassword] = useState({ value: '', msg: '' })
-  const [prePassword, setPrePassword] = useState({ value: '', msg: '' })
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [prePassword, setPrePassword] = useState('')
   const [{ authentication }, dispatch] = useStateValue()
+  const [error, setError] = useState(null)
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   const navigate = useNavigate()
+  const [loading, setloading] = useState(false)
 
   console.log(authentication)
   useEffect(() => {
@@ -35,7 +38,7 @@ const ResetPassword = () => {
         }).catch(() => navigate("/"))
     } else if (authentication.roles.includes(Roles.STUDENT) && authentication.userId == id ||
       authentication.roles.includes(Roles.ADMIN) && authentication.userId == id) {
-      setEmail({ value: localStorage.getItem("email") || '', msg: '' })
+      setEmail(localStorage.getItem("email"))
     } else {
       navigate("/")
     }
@@ -45,15 +48,19 @@ const ResetPassword = () => {
 
   const sendInformation = (e) => {
     console.log(authentication)
+    setError(null)
     e.preventDefault();
 
     // here should do some messaging
-    if (password.value.length < 5 && prePassword.value.length < 5) {
+    if (password.length < 5) {
+      setError("رمز باید بیشتر از 5 کارکتر باشد!")
       return;
     }
-    if (password.value == prePassword.value) {
+    if (password == prePassword) {
+      setError("!رمز جدید با رمز قبلی یکی است")
       return;
     }
+    setloading(true)
     fetch(APIEndpoints.root + APIEnpoints.login.update, {
       method: "PUT",
       headers: {
@@ -61,12 +68,13 @@ const ResetPassword = () => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        email: email.value,
-        previousPassword: prePassword.value,
-        newPassword: password.value
+        email: email,
+        previousPassword: prePassword,
+        newPassword: password
       })
     })
       .then(res => {
+        setloading(false)
         if (res.ok) {
           setCompleteMsg({
             show: true,
@@ -105,23 +113,28 @@ const ResetPassword = () => {
               type="email"
               placeholder="ایمیل جدید"
               name="resetemail"
-              value={email.value}
+              value={email}
               onChange={(e) => email(e.target.value)}
               inputMode="email"
             />
             <i className="bi bi-person-circle"></i>
           </div>
           <div className="login_box display_grid">
-            <input type="password" value={prePassword.value} onChange={(e) => setPrePassword({ ...prePassword, value: e.target.value })} placeholder="رمز قبلی" name="password" />
+            <input type="password" value={prePassword} onChange={(e) => setPrePassword(e.target.value)} placeholder="رمز قبلی" name="password" />
             <i className="bi bi-lock"></i>
           </div>
           <div className="login_box display_grid">
-            <input type="password" value={password.value} onChange={(e) => setPassword({ ...password, value: e.target.value })} placeholder="رمز جدید" name="password" />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="رمز جدید" name="password" />
             <i className="bi bi-lock-fill"></i>
           </div>
+          {error && <p className="error">{error}</p>}
         </div>
         <div className="reset_button">
-          <button className="btn" onClick={sendInformation}>ارسال</button>
+          <Button
+            loading={loading}
+            onClick={sendInformation}
+            text="ارسال"
+          />
         </div>
       </form>
       <BackDrop show={completeMsg.show}>
