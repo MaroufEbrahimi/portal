@@ -52,4 +52,8 @@
     background: #ee1818;
 }
 
+.btn_container {
+    position: relative;
+}
+
 /* End Button */

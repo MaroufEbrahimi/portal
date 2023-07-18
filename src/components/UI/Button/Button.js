@@ -1,11 +1,16 @@
 import React from 'react'
 import "./Button.css"
+import Loading from '../Loading/Loading'
+import ButtonLoading from '../Loading/ButtonLoading'
 
-function Button({ type, icon, onClick, text }) {
+function Button({ type, icon, onClick, text, loading }) {
     return (
-        <button className={'btn ' + type} onClick={onClick} >
-            <i class={"bi " + icon}></i>{text}
-        </button>
+        <div className='btn_container'>
+            <button className={'btn ' + type} onClick={onClick} >
+                <i class={"bi " + icon}></i>{text}
+            </button>
+            {loading && <ButtonLoading />}
+        </div>
     )
 }
 

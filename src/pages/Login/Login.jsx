@@ -4,6 +4,7 @@ import "./Login.css"
 import { actionTypes } from "../../context/reducer"
 import { setCookie } from "../../Utils/Cookie"
 import { useStateValue } from "../../context/StateProvider"
+import Button from "../../components/UI/Button/Button"
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -12,6 +13,7 @@ const Login = () => {
   })
   const [, dispatch] = useStateValue()
   const [error, setError] = useState(null)
+  const [loading, setlaoding] = useState(false)
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -19,6 +21,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
+    setlaoding(true)
     e.preventDefault()
     fetch("http://localhost:1000/api/v1/auth/authenticate", {
       method: "POST",
@@ -29,6 +32,7 @@ const Login = () => {
     })
       .then((res) => {
         console.log(res)
+        setlaoding(false)
         if (res.ok) {
           return res.json()
         } else {
@@ -83,12 +87,11 @@ const Login = () => {
           </div>
           <p className="error">{error && "ایمیل یا رمز اشتباه است!"}</p>
           <div className="btn_login display_flex">
-            <button
-              className="login_button border_none outline_none cursor_pointer"
+            <Button
+              text={"ورود به سیستم"}
               onClick={handleSubmit}
-            >
-              ورود به سیستم
-            </button>
+              loading={loading}
+            />
           </div>
         </form>
       </div>

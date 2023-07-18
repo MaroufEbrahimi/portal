@@ -93,6 +93,9 @@ form .error {
   position: absolute;
   width: 100%;
   bottom: -47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn_login .login_button {
