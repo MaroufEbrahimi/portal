@@ -129,7 +129,8 @@ const Students = () => {
       })
   }
 
-  const handleSearchButton = () => {
+  const handleSearchButton = (e) => {
+    e.preventDefault();
     resetAllStates()
 
     console.log(pagination)

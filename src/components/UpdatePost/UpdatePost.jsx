@@ -11,6 +11,8 @@ import BtnTypes from "../../constants/BtnTypes"
 import BackDrop from "../UI/BackDrop/BackDrop"
 import Spinner from "../UI/Loading/Spinner"
 import ModalDelete from "../UI/ModalDelete/ModalDelete"
+import MessageBox from "../MessageBox/MessageBox"
+import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 
 const UpdatePost = () => {
   const { id } = useParams()
@@ -22,24 +24,52 @@ const UpdatePost = () => {
   const [imageOnModal, setImageOnModal] = useState("")
   const [showRemoveFileModal, setShowRemoveFileModal] = useState(false)
   const [fileUrlToRemove, setfileUrlToRemove] = useState("")
+  const [files, setfiles] = useState([])
   const modalCloseHandler = () => {
+    console.log("close")
     setShowModal(false)
     setloading(true)
   }
+
+  // show image in fullscreen mode
   const fullscreen = (url) => {
     console.log(url)
     setImageOnModal(url)
     setShowModal(true)
   }
+
   const setShowRemoveFileModalHandlerAndSetFileUrl = (fileUrl) => {
     setShowRemoveFileModal(true)
     setfileUrlToRemove(fileUrl)
   }
-  const removeFile = () => {
+
+  // this function is used to remove file on the server
+  const removeFile = (type) => {
     // to do
     // remove the file on the server
-    setShowRemoveFileModal(false)
-    alert("file removed")
+    console.log(fileUrlToRemove)
+    if (fileUrlToRemove != null) {
+      fetch(fileUrlToRemove, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + authentication.token,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(fileUrlToRemove)
+          console.log(data)
+          if (data.statusCode == 200) {
+            setShowRemoveFileModal(false)
+            if (type == "image") {
+              const images = post.images.filter(item => item != fileUrlToRemove)
+              setPost({ ...post, images: images })
+            }
+          }
+
+        })
+    }
+
   }
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.posts.getPost + id, {
@@ -55,20 +85,13 @@ const UpdatePost = () => {
       })
   }, [])
 
-  const deleteFile = (url) => {
-    if (url != null) {
-      fetch(url, {
-        method: "DELETE",
-        headers: {
-          Authorization: "Bearer " + authentication.token,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => { })
-    }
+  // this function is used to send the update post to the api
+  const sendInformationToAPI = () => {
+
   }
 
   console.log(post)
+  console.log(files)
   return (
     <div className="update_post">
       <div className="image_header_container">
@@ -94,7 +117,7 @@ const UpdatePost = () => {
             onChange={setText}
           />
         </div>
-        <p className="post_section_title">فایلهای پست:</p>
+        {(post?.images.length > 0 || post?.docs.length > 0) ? <p className="post_section_title">فایلهای پست:</p> : null}
         <div className="post_images display_flex">
           {/* for each item of image array render a post_file */}
           {post?.images?.map((item) => {
@@ -109,7 +132,7 @@ const UpdatePost = () => {
                       setShowRemoveFileModalHandlerAndSetFileUrl(item)
                     }
                   />
-                  <Button icon={ICONS.download} />
+                  <Button icon={ICONS.download} onClick={() => downloadFileFromApi(item)} />
                   <Button
                     icon={ICONS.fullscreen}
                     onClick={() => fullscreen(item)}
@@ -143,9 +166,9 @@ const UpdatePost = () => {
                 </div>
               </div>
             )
-          })}
+          }) && null}
         </div>
-        <BackDrop show={showModal} modalClose={modalCloseHandler}>
+        <BackDrop show={showModal} closeModal={modalCloseHandler}>
           {loading && <Spinner />}
           <img
             src={imageOnModal}
@@ -153,23 +176,38 @@ const UpdatePost = () => {
             alt="file_image"
           />
         </BackDrop>
-        <ModalDelete show={showRemoveFileModal} modalClose={modalCloseHandler}>
-          <div className="logout">
-            <i className="bi bi-exclamation-triangle-fill"></i>
-            <p>برای حذف شدن فایل از سیستم مطمین هستید؟</p>
-            <div className="logout_buttons">
-              <button className="btn logout_btn" onClick={() => removeFile()}>
-                بلی
-              </button>
-              <button
-                className="btn"
-                onClick={() => setShowRemoveFileModal(false)}
-              >
-                نخیر
-              </button>
-            </div>
-          </div>
-        </ModalDelete>
+
+        <BackDrop show={showRemoveFileModal} modalClose={modalCloseHandler}>
+          {<MessageBox
+            messageType="asking"
+            firstBtn={{ btnText: "بلی", onClick: () => removeFile("image") }}
+            secondBtn={{ btnText: "نخیر", onClick: () => setShowRemoveFileModal(false) }}
+            message={"برای حذف شدن فایل از سیستم مطمین هستید؟"}
+            iconType={ICONS.asking}
+          />}
+        </BackDrop>
+      </div>
+      <div className="post_file_img display_flex">
+        <div className="file_handler">
+          <input
+            type="file"
+            name="image-upload"
+            id="input"
+            multiple
+            onChange={(e) => setfiles(e.target.files)}
+            accept=".pdf,.jpg,.jpeg,.png"
+          />
+          <label
+            htmlFor="input"
+            className="image-upload display_flex align_items_center justify_content_center text_align_center cursor_pointer"
+          >
+            <i
+              className="bi bi-file-earmark-plus-fill"
+              title="choose your photo"
+            ></i>
+            <p>اضافه کردن فایل یا تصویر</p>
+          </label>
+        </div>
       </div>
     </div>
   )

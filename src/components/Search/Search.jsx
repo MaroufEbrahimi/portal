@@ -3,7 +3,7 @@ import "./Search.css"
 
 const Search = ({ value, onChange, handleSearchButton, placeHolder }) => {
   return (
-    <div className="search">
+    <form className="search">
       <div className="search__input display_flex align_items_center border_radius_8">
         <input value={value} onChange={onChange} placeholder={placeHolder} />
         <button
@@ -15,7 +15,7 @@ const Search = ({ value, onChange, handleSearchButton, placeHolder }) => {
           <span>جستجو</span>
         </button>
       </div>
-    </div>
+    </form>
   )
 }
 

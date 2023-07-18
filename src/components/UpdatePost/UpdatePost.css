@@ -68,8 +68,13 @@
 /* file post */
 .post_images {
   flex-flow: wrap;
-  gap: 5px;
+  gap: 10px;
 }
+
+.post_file_img .file_handler #input[type="file"] {
+  display: none;
+}
+
 
 .update_post .post_image {
   position: relative;
@@ -85,12 +90,13 @@
   opacity: 1;
   visibility: visible;
 }
+
 .update_post .btn_container {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 8px;
   opacity: 0;
   display: flex;
   align-items: center;
@@ -98,11 +104,12 @@
   visibility: hidden;
   transition: opacity 0.3s ease-in;
   background-color: #00000077;
+  border-radius: 10px;
 }
 
 .update_post .image_container {
   position: relative;
-  width: 50%;
+  width: 45%;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -153,7 +160,7 @@
   color: #fff;
 }
 
-.btn_download .button_download_icon > i {
+.btn_download .button_download_icon>i {
   color: #fff;
   font-size: 18px;
 }
@@ -182,8 +189,7 @@
 /* End of download button */
 
 /* Responsive */
-@media (max-width: 991px) {
-}
+@media (max-width: 991px) {}
 
 @media (max-width: 768px) {
   .post_header .post_share_with img {
@@ -192,5 +198,4 @@
   }
 }
 
-@media (max-width: 480px) {
-}
+@media (max-width: 480px) {}

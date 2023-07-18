@@ -4,12 +4,19 @@ import "./ResetPassword.css"
 import APIEnpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 import APIEndpoints from "../../constants/APIEndpoints"
+import BackDrop from "../../components/UI/BackDrop/BackDrop"
+import { useNavigate } from "react-router-dom"
+import { actionTypes } from "../../context/reducer"
+import MessageBox from "../../components/MessageBox/MessageBox"
+import ICONS from "../../constants/Icons"
 
 const ResetPassword = () => {
   const [email, setEmail] = useState({ value: localStorage.getItem("email") || '', msg: '' })
   const [password, setPassword] = useState({ value: '', msg: '' })
   const [prePassword, setPrePassword] = useState({ value: '', msg: '' })
   const [{ authentication }, dispatch] = useStateValue()
+  const [completeMsg, setCompleteMsg] = useState({ show: true, msg: "اطلاعات کاربری با موفقیت بروزرسانی شد!" })
+  const navigate = useNavigate()
 
   const sendInformation = (e) => {
     console.log(authentication)
@@ -34,9 +41,28 @@ const ResetPassword = () => {
         newPassword: password.value
       })
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok) {
+          setCompleteMsg({
+            show: true,
+            msg: "اطلاعات کاربری با موفقیت بروزرسانی شد!"
+          })
+          return res.json()
+        }
+      })
       .then(data => {
-        console.log(data)
+        localStorage.setItem("token", data?.token)
+        localStorage.setItem("name", data?.name)
+        localStorage.setItem("lastname", data.lastname)
+        localStorage.setItem("email", data?.email)
+        localStorage.setItem("userId", data?.userId)
+        localStorage.setItem("imageUrl", data?.imageUrl)
+        localStorage.setItem("roles", data?.roles.toString())
+        dispatch({
+          type: actionTypes.SET_AUTHENTICATION,
+          payload: data,
+        })
+
       })
   }
   return (
@@ -73,6 +99,14 @@ const ResetPassword = () => {
           <button className="btn" onClick={sendInformation}>ارسال</button>
         </div>
       </form>
+      <BackDrop show={completeMsg.show}>
+        {<MessageBox
+          messageType="info"
+          firstBtn={{ btnText: "تایید", onClick: () => navigate("/") }}
+          message={completeMsg.msg}
+          iconType={ICONS.info}
+        />}
+      </BackDrop>
     </div>
   )
 }
