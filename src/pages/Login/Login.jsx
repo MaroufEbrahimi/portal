@@ -12,7 +12,7 @@ const Login = () => {
     password: "",
   })
   const [, dispatch] = useStateValue()
-  const [error, setError] = useState(null)
+  const [error, setError] = useState()
   const [loading, setlaoding] = useState(false)
 
   const handleChange = (e) => {
@@ -31,12 +31,13 @@ const Login = () => {
       body: JSON.stringify(inputs),
     })
       .then((res) => {
-        console.log(res)
+
         setlaoding(false)
         if (res.ok) {
           return res.json()
         } else {
           // do some error handling
+          setError(true)
           throw new Error(res.statusText)
         }
       })
@@ -55,6 +56,8 @@ const Login = () => {
           payload: data,
         })
         navigate("/")
+      }).catch(error => {
+        setError(error)
       })
   }
 

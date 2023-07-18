@@ -48,6 +48,9 @@
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login_container form .form_container {
@@ -85,8 +88,14 @@ form .form_container .login_box i {
 }
 
 form .error {
-  color: red;
-  font-size: 14px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  margin-top: -20px;
+  background: #ef1b1b;
+  width: max-content;
+  border-radius: 5px;
+  padding: 2px 10px;
 }
 
 .btn_login {
