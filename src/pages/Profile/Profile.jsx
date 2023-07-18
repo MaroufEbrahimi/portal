@@ -61,7 +61,8 @@ const Profile = () => {
     <div className="profile fade_in">
       <div className="profile_title">
         <div className="user_profile_img display_flex align_items_center">
-          {authentication.roles.includes(Roles.STUDENT) ? (
+          {(authentication.roles.includes(Roles.ADMIN) && id != authentication?.userId
+            || authentication.roles.includes(Roles.STUDENT) && id == authentication?.userId) ? (
             <img src={student?.imageUrl} alt="user img" />
           ) : null}
           <h1>
@@ -98,7 +99,8 @@ const Profile = () => {
         </BackDrop>
       </div>
 
-      {authentication.roles.includes(Roles.STUDENT) ? (
+      {(authentication.roles.includes(Roles.ADMIN) && id != authentication?.userId
+        || authentication.roles.includes(Roles.STUDENT) && id == authentication?.userId) ? (
         <div className="profile_details">
           <div className="profile_tab_header tab_header">
             {profileTabHeader.map((item) => (
