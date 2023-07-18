@@ -26,22 +26,22 @@
   background-image: url("/public/img/favicon.png");
   background-size: cover;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   position: absolute;
   border: 2px solid transparent;
   border-bottom-color: #eed43f;
   border-right-color: #eed43f;
   border-top-color: rgba(30, 235, 224, 0.4);
   border-left-color: rgba(30, 235, 224, 0.4);
-  top: 7rem;
+  top: 7.8rem;
   z-index: 100;
 }
 
 .login_container form {
   position: relative;
   padding: 3rem 0 1rem 0;
-  width: 300px;
+  width: 320px;
   background-color: rgba(230, 243, 243, 0.4);
   border-radius: 8px;
   z-index: 90;
@@ -52,7 +52,7 @@
 
 .login_container form .form_container {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
 }
 
 form .form_container .login_box {
@@ -64,14 +64,14 @@ form .form_container .login_box input {
   border: none;
   outline: none;
   border-radius: 0 8px 8px 0;
-  padding: 5px 12px;
+  padding: 5px 10px 5px 8px;
   direction: ltr;
-  font-size: 17px;
-  color: var(--text-color);
+  font-size: 15px;
 }
 
 form .form_container .login_box input::placeholder {
-  font-size: 15px;
+  text-align: right;
+  font-size: 14px;
 }
 
 form .form_container .login_box i {
@@ -99,7 +99,7 @@ form .error {
   width: 100%;
   background-color: rgba(230, 243, 243, 0.4);
   border-radius: 8px;
-  font-size: 17px;
+  font-size: 16px;
   padding: 10px;
   transition: all 0.2s ease-in-out;
 }

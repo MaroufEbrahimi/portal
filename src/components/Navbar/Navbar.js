@@ -3,8 +3,8 @@ import { Link, useResolvedPath, useMatch } from "react-router-dom"
 import "./Navbar.css"
 import { useStateValue } from "../../context/StateProvider"
 import logo from "../../assets/img/logo.png"
-import lowIcon from "../../assets/img/low-icon.png"
-import dentistryIcon from "../../assets/img/dentistry-icon.png"
+import lowIcon from "../../assets/img/faculties/low-icon.png"
+import dentistryIcon from "../../assets/img/faculties/dentistry-icon.png"
 
 const CustomeLinks = ({ to, children, ...props }) => {
   const resolvedPath = useResolvedPath(to)
