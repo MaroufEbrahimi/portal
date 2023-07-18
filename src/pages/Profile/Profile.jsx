@@ -43,7 +43,7 @@ const Profile = () => {
         console.log(data)
         setstudent(data)
       })
-  }, [])
+  }, [id])
 
   const handleTabs = (index) => {
     setShowTab(index)
@@ -56,7 +56,7 @@ const Profile = () => {
     })
     navigate("/")
   }
-
+  console.log(student)
   return (
     <div className="profile fade_in">
       <div className="profile_title">
