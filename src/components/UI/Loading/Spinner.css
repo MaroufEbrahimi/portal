@@ -8,7 +8,7 @@
 .spinner__circle {
   vertical-align: middle;
   position: relative;
-  background: black;
+  background: var(--gen-bg-color);
   padding: 9.5px;
   border-radius: 10px;
   box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
@@ -16,17 +16,16 @@
 
 .spinner__circle > div {
   grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
-  animation: spinner 1s linear infinite;
+  gap: 4px;
+  animation: spinner 0.8s linear infinite;
 }
 
 .spinner__circle span {
   display: inline-block;
-  width: 11.5px;
-  height: 11.5px;
-  background: #b1afaf;
+  width: 10px;
+  height: 10px;
+  background: black;
   border-radius: 10px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes spinner {
@@ -46,7 +45,7 @@
   }
 
   .spinner__circle > div {
-    gap: 4px;
+    gap: 3.7px;
   }
 
   .spinner__circle span {
