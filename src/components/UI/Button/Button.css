@@ -54,6 +54,7 @@
 
 .btn_container {
     position: relative;
+    display: inline;
 }
 
 /* End Button */
