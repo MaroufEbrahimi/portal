@@ -142,7 +142,7 @@ const UpdatePost = () => {
             return (
               <div className="image_container" key={item}>
                 <img src={item} alt="" key={item} />
-                <div className="btn_container">
+                <div className="btn_container_for_modal">
                   <Button
                     icon={ICONS.trash}
                     type={BtnTypes.danger}

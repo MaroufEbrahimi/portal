@@ -123,7 +123,7 @@ const App = () => {
           element: <NewPost />,
         },
         {
-          path: "/admin/deletestudent",
+          path: "/admin/update-student/:id",
           element: <DeleteStudent />,
         },
         {

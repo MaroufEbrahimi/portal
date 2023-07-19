@@ -81,6 +81,14 @@ const Profile = () => {
               <i className="bi bi-check2-square"></i>
             </Link>
           </button>
+          {authentication.roles.includes(Roles.ADMIN) &&
+            <button>
+              <Link to={"/admin/update-student/" + id}>
+                <span>بروزرسانی اطلاعات</span>
+                <i className="bi bi-check2-square"></i>
+              </Link>
+            </button>
+          }
         </div>
         <BackDrop show={showModal} modalClose={modalCloseHandler}>
           {

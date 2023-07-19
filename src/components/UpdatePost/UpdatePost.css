@@ -74,12 +74,12 @@
   border-radius: 10px;
 }
 
-.update_post .image_container:hover .btn_container {
+.update_post .image_container:hover .btn_container_for_modal {
   opacity: 1;
   visibility: visible;
 }
 
-.update_post .btn_container {
+.update_post .btn_container_for_modal {
   position: absolute;
   top: 0;
   left: 0;
@@ -148,7 +148,7 @@
   color: #fff;
 }
 
-.btn_download .button_download_icon > i {
+.btn_download .button_download_icon>i {
   color: #fff;
   font-size: 18px;
 }
@@ -177,8 +177,7 @@
 /* End of download button */
 
 /* Responsive */
-@media (max-width: 991px) {
-}
+@media (max-width: 991px) {}
 
 @media (max-width: 768px) {
   .post_header .post_share_with img {
@@ -187,5 +186,4 @@
   }
 }
 
-@media (max-width: 480px) {
-}
+@media (max-width: 480px) {}
