@@ -142,7 +142,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 className="drop_menu_button outline_none cursor_pointer"
               />
               <div className="navbar__dropdown">
-                <CustomeLinks to="/students" title="محصلین">
+                <CustomeLinks to="/admin/students" title="محصلین">
                   <i className="bi bi-people"></i>
                   <span>محصلین</span>
                 </CustomeLinks>
@@ -150,7 +150,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                   <i className="bi bi-file-earmark-plus"></i>
                   <span>محتوای جدید</span>
                 </CustomeLinks>
-                <CustomeLinks to="/admin/postmanagement" title="مدیریت پست ها">
+                <CustomeLinks to="/admin/post-management" title="مدیریت پست ها">
                   <i className="bi bi-files"></i>
                   <span>مدیریت پست ها</span>
                 </CustomeLinks>

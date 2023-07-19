@@ -61,14 +61,14 @@ const UpdatePost = () => {
           if (data.statusCode == 200) {
             setShowRemoveFileModal(false)
             if (type == "image") {
-              const images = post.images.filter(item => item != fileUrlToRemove)
+              const images = post.images.filter(
+                (item) => item != fileUrlToRemove
+              )
               setPost({ ...post, images: images })
             }
           }
-
         })
     }
-
   }
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.posts.getPost + id, {
@@ -95,16 +95,13 @@ const UpdatePost = () => {
     //   isPublic
     // }
 
-
     fetch(APIEndpoints.posts.update(post.id), {
       method: "PUT",
       headers: {
-        "Authorization": "Bearer " + authentication.token,
-        "Content-Type": "application/json"
+        Authorization: "Bearer " + authentication.token,
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-
-      })
+      body: JSON.stringify({}),
     })
   }
 
@@ -135,7 +132,9 @@ const UpdatePost = () => {
             onChange={setText}
           />
         </div>
-        {(post?.images.length > 0 || post?.docs.length > 0) ? <p className="post_section_title">فایلهای پست:</p> : null}
+        {post?.images.length > 0 || post?.docs.length > 0 ? (
+          <p className="post_section_title">فایلهای پست:</p>
+        ) : null}
         <div className="post_images display_flex">
           {/* for each item of image array render a post_file */}
           {post?.images?.map((item) => {
@@ -150,7 +149,10 @@ const UpdatePost = () => {
                       setShowRemoveFileModalHandlerAndSetFileUrl(item)
                     }
                   />
-                  <Button icon={ICONS.download} onClick={() => downloadFileFromApi(item)} />
+                  <Button
+                    icon={ICONS.download}
+                    onClick={() => downloadFileFromApi(item)}
+                  />
                   <Button
                     icon={ICONS.fullscreen}
                     onClick={() => fullscreen(item)}
@@ -196,13 +198,22 @@ const UpdatePost = () => {
         </BackDrop>
 
         <BackDrop show={showRemoveFileModal} modalClose={modalCloseHandler}>
-          {<MessageBox
-            messageType="asking"
-            firstBtn={{ btnText: "بلی", btnType: BtnTypes.danger, onClick: () => removeFile("image") }}
-            secondBtn={{ btnText: "نخیر", onClick: () => setShowRemoveFileModal(false) }}
-            message={"برای حذف شدن فایل از سیستم مطمین هستید؟"}
-            iconType={ICONS.asking}
-          />}
+          {
+            <MessageBox
+              messageType="asking"
+              firstBtn={{
+                btnText: "بلی",
+                btnType: BtnTypes.danger,
+                onClick: () => removeFile("image"),
+              }}
+              secondBtn={{
+                btnText: "نخیر",
+                onClick: () => setShowRemoveFileModal(false),
+              }}
+              message={"برای حذف شدن فایل از سیستم مطمین هستید؟"}
+              iconType={ICONS.asking}
+            />
+          }
         </BackDrop>
       </div>
       <div className="post_file_img display_flex">

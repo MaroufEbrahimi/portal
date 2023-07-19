@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="footer_social_media">
             <ul className="display_flex">
               <li title="انستاگرام">
-                <a href="" target="_blank">
+                <a href="https://instagram.com/hariwa_edu" target="_blank">
                   <i className="bi bi-instagram"></i>
                 </a>
               </li>
