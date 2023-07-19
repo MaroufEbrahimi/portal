@@ -34,7 +34,7 @@ const ResetPassword = () => {
       })
         .then(res => res.json())
         .then(data => {
-          setEmail({ value: data?.studentPersonalInfo?.email, msg: "" })
+          setEmail(data?.studentPersonalInfo?.email)
         }).catch(() => navigate("/"))
     } else if (authentication.roles.includes(Roles.STUDENT) && authentication.userId == id ||
       authentication.roles.includes(Roles.ADMIN) && authentication.userId == id) {
