@@ -83,21 +83,15 @@ const Profile = () => {
               <span>تغییر رمز یا ایمیل</span>
             </Link>
           </button>
-<<<<<<< HEAD
-          {authentication.roles.includes(Roles.ADMIN) && authentication.userId != id &&
-=======
-          {authentication.roles.includes(Roles.ADMIN) && (
->>>>>>> 846a68e0a26961ab0d27ba0b3a644a41cad0fd1a
-            <button>
-              <Link to={"/admin/update-student/" + id}>
-                <i className="bi bi-brush"></i>
-                <span>بروزرسانی اطلاعات</span>
-<<<<<<< HEAD
-=======
-                <i className="bi bi-arrow-repeat"></i>
->>>>>>> 846a68e0a26961ab0d27ba0b3a644a41cad0fd1a
-              </Link>
-            </button>
+          {authentication.roles.includes(
+            Roles.ADMIN && authentication.userId != id && (
+              <button>
+                <Link to={"/admin/update-student/" + id}>
+                  <i className="bi bi-arrow-repeat"></i>
+                  <span>بروزرسانی اطلاعات</span>
+                </Link>
+              </button>
+            )
           )}
         </div>
         <BackDrop show={showModal} modalClose={modalCloseHandler}>
