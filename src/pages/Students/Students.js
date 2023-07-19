@@ -24,11 +24,7 @@ const Students = () => {
   const [departments, setDepartments] = useState([])
   const [searchKeyword, setSearchKeyword] = useState("")
   const [page, setPage] = useState()
-  const [endpoint, setEndpoint] = useState(
-    APIEndpoints.root +
-    APIEndpoints.students.getAll +
-    `&offset=${pagination.offset}&pageSize=${pagination.pageSize}`
-  )
+  const [requestParams, setRequestParams] = useState('');
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
@@ -43,7 +39,7 @@ const Students = () => {
         setFields(data.content)
       })
 
-    fetch(endpoint, {
+    fetch(APIEndpoints.root + APIEndpoints.students.getAll + `offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + authentication.token,
@@ -77,7 +73,8 @@ const Students = () => {
             offset: pagination.offset + 1,
             pageSize: pagination.pageSize,
           })
-          fetch(endpoint, {
+
+          fetch(APIEndpoints.root + APIEndpoints.students.getAll + `offset=${pagination.offset}&pageSize=${pagination.pageSize}` + requestParams, {
             method: "GET",
             headers: {
               Authorization: "Bearer " + authentication.token,
@@ -133,8 +130,7 @@ const Students = () => {
     e.preventDefault();
     resetAllStates()
 
-    console.log(pagination)
-    let url = APIEndpoints.root + APIEndpoints.students.getAll + `offset=0&pageSize=${pagination.pageSize}`
+    let url = '';
     if (searchKeyword) {
       url += "&keyword=" + (searchKeyword == "همه" ? "%" : searchKeyword)
     }
@@ -147,9 +143,8 @@ const Students = () => {
     if (department) {
       url += "&department=" + (department == "همه" ? "%" : department)
     }
-    console.log("in search ", url)
-    setEndpoint(url)
-    fetch(url, {
+    setRequestParams(url)
+    fetch(APIEndpoints.root + APIEndpoints.students.getAll + `offset=0&pageSize=${pagination.pageSize}` + url, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + authentication.token,
@@ -170,7 +165,6 @@ const Students = () => {
     setLoading(true)
     setStudents([])
     setPage({})
-    console.log("in reset all states ", pagination)
   }
 
   return (
