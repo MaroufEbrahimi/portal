@@ -3,25 +3,19 @@
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 var(--gen-bg-color);
   border-radius: 6px;
   padding: 10px;
-  margin: 30px 5px 0 5px;
   position: relative;
 }
 
-
-
 .file_post_body {
-  padding: 10px;
+  padding: 20px;
 }
 
-.file_post_containter {
-  flex: 1;
-}
-
-.file_post_containter img {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+.post_text > p {
+  font-size: 15px;
+  line-height: 1.8em;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  text-align: justify;
 }
 
 .post_header {
@@ -37,25 +31,24 @@
   height: 50px;
   border-radius: 50%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
-  border: 1px solid var(--gen-color);
 }
 
-.post_header .post_share_with p {
+.post_header .post_share_with .post_date p {
   font-size: 14px;
   color: var(--text-color);
 }
 
-
 /* post setting */
-
-
 .post_settings .setting_icon {
-  cursor: pointer;
   padding: 5px;
   padding-right: 0;
 }
 
-.setting_icon:hover+.setting_menu {
+.post_settings .setting_icon i {
+  font-size: 17px;
+}
+
+.setting_icon:hover + .setting_menu {
   transform: scaleY(1);
 }
 
@@ -69,16 +62,20 @@
   padding: 10px;
   list-style: none;
   transform: scaleY(0);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   transform-origin: top;
   top: 30px;
   left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .post_settings .setting_menu .setting_option {
   padding: 4px;
   cursor: pointer;
-
+}
+.post_settings .setting_menu .setting_option_details {
+  display: flex;
+  gap: 10px;
 }
 
 .post_settings .setting_menu li:hover {
@@ -89,7 +86,6 @@
 
 .post_settings .setting_menu:hover {
   transform: scaleY(1);
-
 }
 
 .img_post_body {
@@ -114,7 +110,7 @@
 
 .post_images img {
   object-fit: cover;
-  width: 45%;
+  width: 100%;
   border-radius: 10px;
 }
 
@@ -164,7 +160,7 @@
   color: #fff;
 }
 
-.btn_download .button_download_icon>i {
+.btn_download .button_download_icon > i {
   color: #fff;
   font-size: 18px;
 }
@@ -193,7 +189,8 @@
 /* End of download button */
 
 /* Responsive */
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+}
 
 @media (max-width: 768px) {
   .post_header .post_share_with img {
@@ -202,4 +199,5 @@
   }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+}
