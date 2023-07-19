@@ -61,8 +61,10 @@ const Profile = () => {
     <div className="profile fade_in">
       <div className="profile_title">
         <div className="user_profile_img display_flex align_items_center">
-          {(authentication.roles.includes(Roles.ADMIN) && id != authentication?.userId
-            || authentication.roles.includes(Roles.STUDENT) && id == authentication?.userId) ? (
+          {(authentication.roles.includes(Roles.ADMIN) &&
+            id != authentication?.userId) ||
+          (authentication.roles.includes(Roles.STUDENT) &&
+            id == authentication?.userId) ? (
             <img src={student?.imageUrl} alt="user img" />
           ) : null}
           <h1>
@@ -81,14 +83,22 @@ const Profile = () => {
               <span>تغییر رمز یا ایمیل</span>
             </Link>
           </button>
+<<<<<<< HEAD
           {authentication.roles.includes(Roles.ADMIN) && authentication.userId != id &&
+=======
+          {authentication.roles.includes(Roles.ADMIN) && (
+>>>>>>> 846a68e0a26961ab0d27ba0b3a644a41cad0fd1a
             <button>
               <Link to={"/admin/update-student/" + id}>
                 <i className="bi bi-brush"></i>
                 <span>بروزرسانی اطلاعات</span>
+<<<<<<< HEAD
+=======
+                <i className="bi bi-arrow-repeat"></i>
+>>>>>>> 846a68e0a26961ab0d27ba0b3a644a41cad0fd1a
               </Link>
             </button>
-          }
+          )}
         </div>
         <BackDrop show={showModal} modalClose={modalCloseHandler}>
           {
@@ -107,8 +117,10 @@ const Profile = () => {
         </BackDrop>
       </div>
 
-      {(authentication.roles.includes(Roles.ADMIN) && id != authentication?.userId
-        || authentication.roles.includes(Roles.STUDENT) && id == authentication?.userId) ? (
+      {(authentication.roles.includes(Roles.ADMIN) &&
+        id != authentication?.userId) ||
+      (authentication.roles.includes(Roles.STUDENT) &&
+        id == authentication?.userId) ? (
         <div className="profile_details">
           <div className="profile_tab_header tab_header">
             {profileTabHeader.map((item) => (
