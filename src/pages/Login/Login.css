@@ -85,6 +85,7 @@ form .form_container .login_box i {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
 }
 
 form .error {

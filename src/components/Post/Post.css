@@ -132,8 +132,8 @@
 /* download button */
 .btn_download {
   position: relative;
-  width: 60px;
-  height: 26px;
+  width: 100px;
+  height: 30px;
   border: 1px solid var(--gen-bg-color);
   background-color: var(--gen-color);
   overflow: hidden;

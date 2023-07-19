@@ -59,8 +59,16 @@
   direction: rtl;
 }
 
+/* style for light | dark of react-quill */
 .ql-container .ql-editor {
   text-align: right !important;
+}
+
+.ql-toolbar .ql-picker-label {
+  color: var(--text-color);
+}
+.ql-toolbar button svg {
+  filter: var(--icon-faculties-color);
 }
 
 body {
