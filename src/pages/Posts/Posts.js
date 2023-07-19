@@ -66,6 +66,7 @@ function Posts() {
                         images={item.images}
                         docs={item.docs}
                         text={item.message}
+                        isUpdated={item.isUpdated}
                         customRef={lastNodeReference}
                     />
                 }

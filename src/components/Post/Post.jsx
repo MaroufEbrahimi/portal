@@ -13,6 +13,7 @@ const Post = ({
   author,
   date,
   text,
+  isUpdated = false,
   customRef = null,
 }) => {
   return (
@@ -25,7 +26,7 @@ const Post = ({
               <p>
                 {author?.name} {author?.lastname}
               </p>
-              <p style={{ fontSize: "10px" }}>{timeSince(new Date(date))}</p>
+              <p style={{ fontSize: "10px" }}>{timeSince(new Date(date))}{isUpdated && " بروزرسانی شد"}</p>
             </div>
           </div>
           {role == Roles.ADMIN ? (

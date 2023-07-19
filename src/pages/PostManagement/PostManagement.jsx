@@ -142,7 +142,7 @@ const PostManagement = () => {
         setDepartments(data)
       })
   }
-
+  console.log(posts)
   return (
     <div className="posts_management">
       <div className="posts_management_tabHeader">
@@ -217,6 +217,7 @@ const PostManagement = () => {
                     id={item.id}
                     docs={item.docs}
                     text={item.message}
+                    isUpdated={item.isUpdated}
                     customRef={lastNodeReference}
                   />
                 )
@@ -230,6 +231,7 @@ const PostManagement = () => {
                   images={item.images}
                   id={item.id}
                   docs={item.docs}
+                  isUpdated={item.isUpdated}
                   text={item.message}
                 />
               )
