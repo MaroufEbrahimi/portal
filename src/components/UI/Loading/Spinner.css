@@ -8,7 +8,7 @@
 .spinner__circle {
   vertical-align: middle;
   position: relative;
-  background: var(--gen-bg-color);
+  background: #c2e2f1;
   padding: 9.5px;
   border-radius: 10px;
   box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
