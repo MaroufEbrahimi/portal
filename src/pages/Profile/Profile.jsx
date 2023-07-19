@@ -72,20 +72,20 @@ const Profile = () => {
         </div>
         <div className="logout_changePass display_flex">
           <button onClick={showModalHandler}>
-            <span> خروج از حساب کاربری</span>
             <i className="bi bi-reply-all-fill"></i>
+            <span> خروج از حساب کاربری</span>
           </button>
           <button>
             <Link to={"/reset-password/" + id}>
-              <span>تغییر رمز یا ایمیل</span>
               <i className="bi bi-check2-square"></i>
+              <span>تغییر رمز یا ایمیل</span>
             </Link>
           </button>
-          {authentication.roles.includes(Roles.ADMIN) &&
+          {authentication.roles.includes(Roles.ADMIN) && authentication.userId != id &&
             <button>
               <Link to={"/admin/update-student/" + id}>
+                <i className="bi bi-brush"></i>
                 <span>بروزرسانی اطلاعات</span>
-                <i className="bi bi-check2-square"></i>
               </Link>
             </button>
           }

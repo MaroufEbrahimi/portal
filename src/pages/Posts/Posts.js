@@ -46,7 +46,11 @@ function Posts() {
                 } else {
                     setHasMore(false)
                 }
-                setposts([...posts, ...data.content])
+                const newPosts = [...posts, ...data.content].filter(
+                    (obj, index, self) =>
+                        index === self.findIndex((o) => o.id === obj.id)
+                )
+                setposts(newPosts)
                 setLoading(false)
             })
     }, [pagination])

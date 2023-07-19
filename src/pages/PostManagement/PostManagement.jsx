@@ -73,7 +73,11 @@ const PostManagement = () => {
         } else {
           setHasMore(false)
         }
-        setPosts([...posts, ...data.content])
+        const newPosts = [...posts, ...data.content].filter(
+          (obj, index, self) =>
+            index === self.findIndex((o) => o.id === obj.id)
+        )
+        setPosts(newPosts)
         setLoading(false)
       })
   }, [pagination])
@@ -90,9 +94,8 @@ const PostManagement = () => {
       requestParam += `&department=${department == "همه" ? "%" : department}`
     }
     if (feildOfStudy) {
-      requestParam += `&fieldOfStudy=${
-        feildOfStudy == "همه" ? "%" : feildOfStudy
-      }`
+      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" ? "%" : feildOfStudy
+        }`
     }
     setRequestParams(requestParam)
     console.log(requestParam)
