@@ -14,6 +14,35 @@
   margin-top: 1rem;
 }
 
+/* Social media network */
+.footer_social_media ul {
+  margin-top: 1rem;
+  justify-content: end;
+}
+.footer_social_media ul li a {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--gen-bg-color);
+  text-align: center;
+  transition: 0.6s;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.3);
+}
+.footer_social_media ul li a:hover {
+  transform: translate(0, -8px);
+}
+.footer_social_media ul li {
+  list-style: none;
+  margin: 0 4px;
+}
+.footer_social_media ul li i {
+  font-size: 20px;
+  line-height: 45px;
+  color: var(--main-color);
+}
+
 /* second_footer_box */
 .second_footer_box .box_info {
   width: 100%;
