@@ -13,6 +13,25 @@ const Footer = () => {
             شروع به فعالیت نموده و تا کنون تمام تلاش خویش برای ارایه آموزش های
             معیاری و اکادمیک مینماید.
           </p>
+          <div className="footer_social_media">
+            <ul className="display_flex">
+              <li title="انستاگرام">
+                <a href="" target="_blank">
+                  <i className="bi bi-instagram"></i>
+                </a>
+              </li>
+              <li title="تلگرام">
+                <a href="https://t.me/Hariwa_edu" target="_blank">
+                  <i className="bi bi-telegram"></i>
+                </a>
+              </li>
+              <li title="فیسبوک">
+                <a href="#" target="_blank">
+                  <i className="bi bi-facebook"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="footer_box second_footer_box display_flex justify_content_center flex_direction_column">
           <div className="box_info">
