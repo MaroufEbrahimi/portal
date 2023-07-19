@@ -176,6 +176,39 @@
 
 /* End of download button */
 
+.share_post_on {
+  margin-top: 1.5rem;
+}
+
+.share_post_on h3 {
+  font-size: 19px;
+  color: var(--text-color);
+}
+
+.post_boxes {
+  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+  grid-gap: 10px;
+}
+
+.post_boxes .post_box {
+  width: 100%;
+}
+
+.post_boxes .post_box select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+  border: 1px solid #e0dcdc;
+  border-left-color: var(--gen-color);
+  border-left-width: 3px;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
 /* Responsive */
 @media (max-width: 991px) {}
 

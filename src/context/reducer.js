@@ -9,7 +9,7 @@ function getAuthInfoFromLocalStorage() {
       token: localStorage.getItem("token"),
       userId: localStorage.getItem("userId"),
       imageUrl: localStorage.getItem("imageUrl"),
-      roles: localStorage.getItem("roles").split(",")
+      roles: localStorage.getItem("roles")?.split(",")
     }
   }
 }

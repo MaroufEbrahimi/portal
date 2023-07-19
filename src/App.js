@@ -4,12 +4,13 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
 import "./App.css"
 
-import Loading from "./components/UI/Loading/Loading"
 import Wrapper from "./components/HOC/Wrapper"
 import Header from "./components/Header/Header"
 import About from "./pages/About/About"
 import UpdatePost from "./components/UpdatePost/UpdatePost"
-
+import Spinner from "./components/UI/Loading/Spinner"
+import ButtonLoading from "./components/UI/Loading/ButtonLoading"
+import Loading from "./components/UI/Loading/Loading"
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
 const Posts = React.lazy(() => import("./pages/Posts/Posts"))
@@ -53,10 +54,11 @@ const App = () => {
     setIsDark(!isDark)
   }
 
+
   // added layout for every components and pages
   const Layout = () => {
     return (
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<ButtonLoading />}>
         <div className={`app ${isDark ? "theme-dark" : "theme-light"}`}>
           <main className={`main ${activeNav && "main_active_nav"}`}>
             <div className="app_header">
@@ -67,6 +69,7 @@ const App = () => {
               <Outlet />
             </Wrapper>
           </main>
+
         </div>
       </Suspense>
     )
