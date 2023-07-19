@@ -20,17 +20,6 @@
   margin: 10px 0;
 }
 
-.file_post_containter {
-  flex: 1;
-}
-
-.file_post_containter img {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
-}
-
 .update_post .post_header {
   width: 100%;
   border-radius: 30px;
@@ -74,7 +63,6 @@
 .post_file_img .file_handler #input[type="file"] {
   display: none;
 }
-
 
 .update_post .post_image {
   position: relative;
@@ -160,7 +148,7 @@
   color: #fff;
 }
 
-.btn_download .button_download_icon>i {
+.btn_download .button_download_icon > i {
   color: #fff;
   font-size: 18px;
 }
@@ -189,7 +177,8 @@
 /* End of download button */
 
 /* Responsive */
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+}
 
 @media (max-width: 768px) {
   .post_header .post_share_with img {
@@ -198,4 +187,5 @@
   }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+}

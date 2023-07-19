@@ -26,7 +26,10 @@ const Footer = () => {
                 </a>
               </li>
               <li title="فیسبوک">
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.facebook.com/HariwaHigherEducationInstitute"
+                  target="_blank"
+                >
                   <i className="bi bi-facebook"></i>
                 </a>
               </li>
