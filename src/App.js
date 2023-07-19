@@ -40,8 +40,8 @@ const App = () => {
     localStorage.getItem("isDark") == null
       ? false
       : localStorage.getItem("isDark") == "true"
-        ? true
-        : false
+      ? true
+      : false
   )
   console.log(isDark)
   // handle tab header
@@ -99,7 +99,7 @@ const App = () => {
           element: <About />,
         },
         {
-          path: "/admin/addstudent",
+          path: "/admin/add-student",
           element: <AddStudent />,
         },
         {
@@ -107,11 +107,11 @@ const App = () => {
           element: <Posts />,
         },
         {
-          path: "/admin/postmanagement/edit/:id",
+          path: "/admin/post-management/edit/:id",
           element: <UpdatePost />,
         },
         {
-          path: "/students",
+          path: "/admin/students",
           element: <Students />,
         },
         {
@@ -127,7 +127,7 @@ const App = () => {
           element: <DeleteStudent />,
         },
         {
-          path: "/admin/postmanagement",
+          path: "/admin/post-management",
           element: <PostManagement />,
         },
         {
