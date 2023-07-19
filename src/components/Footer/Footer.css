@@ -114,3 +114,35 @@
     grid-template-columns: 100%;
   }
 }
+
+@media (max-width: 490px) {
+  .footer_boxes .first_footer_box h1 {
+    font-size: 23px;
+  }
+  .footer_boxes .first_footer_box p {
+    margin-top: 15px;
+  }
+  .footer_social_media ul li a {
+    width: 33px;
+    height: 33px;
+  }
+  .footer_social_media ul li {
+    margin: 0 3px;
+  }
+  .footer_social_media ul li i {
+    font-size: 17px;
+    line-height: 39px;
+  }
+
+  .second_footer_box .box_info {
+    margin: 10px 0px;
+  }
+  .second_footer_box .box_info i {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+  }
+  .second_footer_box .box_info > div {
+    margin-right: 3.2rem;
+  }
+}

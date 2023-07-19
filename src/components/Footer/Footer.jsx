@@ -63,6 +63,7 @@ const Footer = () => {
           <Link to="/cs">کامپیوتر ساینس</Link>
           <Link to="/dentistry">طب دندان</Link>
           <Link to="/low">حقوق و علوم سیاسی</Link>
+          <Link to="/about">درباره</Link>
         </div>
       </div>
       {/* !CopyRight */}
