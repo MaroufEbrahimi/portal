@@ -9,41 +9,44 @@ import Roles from "../../constants/Roles"
 const PostManagement = () => {
   useProtect({ roles: [Roles.ADMIN] })
   const [{ authentication }, dispatch] = useStateValue()
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([])
   const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
-  const [hasMore, setHasMore] = useState(true);
-  const lastNode = useRef();
+  const [hasMore, setHasMore] = useState(true)
+  const lastNode = useRef()
   const [pagination, setPagination] = useState({ offset: 0, pageSize: 3 })
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
   const [fields, setFields] = useState([])
-  const [departments, setDepartments] = useState([]);
+  const [departments, setDepartments] = useState([])
   const [requestParams, setRequestParams] = useState(``)
   let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
-  const lastNodeReference = node => {
-    if (loading) return;
-    if (lastNode.current) lastNode.current.disconnect();
-    lastNode.current = new IntersectionObserver(enteries => {
+  const lastNodeReference = (node) => {
+    if (loading) return
+    if (lastNode.current) lastNode.current.disconnect()
+    lastNode.current = new IntersectionObserver((enteries) => {
       if (enteries[0].isIntersecting) {
         if (hasMore) {
-          setPagination({ offset: pagination.offset + 1, pageSize: pagination.pageSize })
+          setPagination({
+            offset: pagination.offset + 1,
+            pageSize: pagination.pageSize,
+          })
         }
       }
     })
-    if (node) lastNode.current.observe(node);
+    if (node) lastNode.current.observe(node)
   }
 
   useEffect(() => {
     fetch("http://localhost:1000/api/v1/field-of-studies")
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
           throw new Error(res.statusText)
         }
       })
-      .then(data => {
+      .then((data) => {
         setFields(data.content)
       })
   }, [])
@@ -55,16 +58,16 @@ const PostManagement = () => {
     console.log(requestParams)
     fetch(endpoint + requestParams, {
       method: "GET",
-      headers: { "Authorization": "Bearer " + authentication.token }
+      headers: { Authorization: "Bearer " + authentication.token },
     })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
-          throw new Error(res.statusText);
+          throw new Error(res.statusText)
         }
       })
-      .then(data => {
+      .then((data) => {
         if (data.totalPages - 1 > pagination.offset) {
           setHasMore(true)
         } else {
@@ -81,29 +84,31 @@ const PostManagement = () => {
 
     let requestParam = ""
     if (semester) {
-      requestParam += `&semester=${(semester == "همه" ? "%" : semester)}`
+      requestParam += `&semester=${semester == "همه" ? "%" : semester}`
     }
     if (department) {
-      requestParam += `&department=${(department == "همه" ? "%" : department)}`
+      requestParam += `&department=${department == "همه" ? "%" : department}`
     }
     if (feildOfStudy) {
-      requestParam += `&fieldOfStudy=${(feildOfStudy == "همه" ? "%" : feildOfStudy)}`
+      requestParam += `&fieldOfStudy=${
+        feildOfStudy == "همه" ? "%" : feildOfStudy
+      }`
     }
     setRequestParams(requestParam)
     console.log(requestParam)
     fetch(endpoint + requestParam, {
       method: "GET",
-      headers: { "Authorization": "Bearer " + authentication.token }
+      headers: { Authorization: "Bearer " + authentication.token },
     })
-      .then(res => {
+      .then((res) => {
         console.log(res)
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
-          throw new Error(res.statusText);
+          throw new Error(res.statusText)
         }
       })
-      .then(data => {
+      .then((data) => {
         console.log(data)
         if (data.totalPages - 1 > pagination.offset) {
           setHasMore(true)
@@ -120,15 +125,17 @@ const PostManagement = () => {
     const f = fields.find((item) => {
       return item.fieldName == e.target.value
     })
-    fetch("http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments")
-      .then(res => {
+    fetch(
+      "http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments"
+    )
+      .then((res) => {
         if (res.ok) {
-          return res.json();
+          return res.json()
         } else {
           throw new Error(res.statusText)
         }
       })
-      .then(data => {
+      .then((data) => {
         setDepartments(data)
       })
   }
@@ -165,7 +172,7 @@ const PostManagement = () => {
               defaultValue="همه"
             >
               <option>همه</option>
-              {fields.map(item => {
+              {fields.map((item) => {
                 return <option key={item.id}>{item.fieldName}</option>
               })}
             </select>
@@ -178,22 +185,39 @@ const PostManagement = () => {
               onChange={(e) => setdepartment(e.target.value)}
               defaultValue="همه"
             >
-              <option >همه</option>
-              {departments.map(item => {
+              <option>همه</option>
+              {departments.map((item) => {
                 return <option key={item.id}>{item.departmentName}</option>
               })}
             </select>
           </div>
         </div>
         <div className="posts_management_filter_btn">
-          <button className="btn" onClick={handleFilterButton}>فیلتر</button>
+          <button className="btn" onClick={handleFilterButton}>
+            فیلتر
+          </button>
         </div>
       </div>
 
       <div className="content_of_PostManagement">
         <div className="content_of_posts_details">
-          {Array.from(new Set(posts)).map((item, index) => {
-            if (posts.length === index + 1) {
+          <div>
+            {Array.from(new Set(posts)).map((item, index) => {
+              if (posts.length === index + 1) {
+                return (
+                  <Post
+                    key={item.id}
+                    role={Roles.ADMIN}
+                    author={item.author}
+                    date={item.dateTime}
+                    images={item.images}
+                    id={item.id}
+                    docs={item.docs}
+                    text={item.message}
+                    customRef={lastNodeReference}
+                  />
+                )
+              }
               return (
                 <Post
                   key={item.id}
@@ -204,28 +228,21 @@ const PostManagement = () => {
                   id={item.id}
                   docs={item.docs}
                   text={item.message}
-                  customRef={lastNodeReference}
-                />)
-            }
-            return (
-              <Post
-                key={item.id}
-                role={Roles.ADMIN}
-                author={item.author}
-                date={item.dateTime}
-                images={item.images}
-                id={item.id}
-                docs={item.docs}
-                text={item.message}
-              />)
-          })}
-          <section style={{ position: "relative", height: "60px" }}>
+                />
+              )
+            })}
+          </div>
+          <section className="end_of_posts">
             {hasMore && <Spinner />}
-            {!hasMore && <h5 style={{ textAlign: "center" }}>{posts.length > 0 ? "آخرین پست" : "پست های مورد نظر یافت نشد"} </h5>}
+            {!hasMore && (
+              <h5 className="text_color text_align_center">
+                {posts.length > 0 ? "آخرین پست" : "پست های مورد نظر یافت نشد"}{" "}
+              </h5>
+            )}
           </section>
         </div>
       </div>
-    </div >
+    </div>
   )
 }
 
