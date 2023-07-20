@@ -56,7 +56,7 @@
 
 .img_post_body p {
   font-size: 15px;
-  line-height: 1.5em;
+  /* line-height: 1.5em; */
   color: var(--text-color);
 }
 
@@ -99,6 +99,11 @@
   transition: opacity 0.3s ease-in;
   background-color: #00000077;
   border-radius: 10px;
+  gap: 8px;
+}
+
+.update_post .btn_container_for_modal i {
+  color: #fff;
 }
 
 .update_post .image_container {
@@ -124,7 +129,6 @@
 }
 
 .update_post .image-upload {
-  margin-bottom: 13px;
   font-size: 15px;
 }
 .update_post .image-upload p {

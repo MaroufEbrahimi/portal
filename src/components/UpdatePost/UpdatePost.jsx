@@ -224,21 +224,27 @@ const UpdatePost = () => {
               <div className="image_container" key={item}>
                 <img src={item} alt="" key={item} />
                 <div className="btn_container_for_modal">
-                  <Button
-                    icon={ICONS.trash}
-                    type={BtnTypes.danger}
-                    onClick={() =>
-                      setShowRemoveFileModalHandlerAndSetFileUrl(item)
-                    }
-                  />
-                  <Button
-                    icon={ICONS.download}
-                    onClick={() => downloadFileFromApi(item)}
-                  />
-                  <Button
-                    icon={ICONS.fullscreen}
-                    onClick={() => fullscreen(item)}
-                  />
+                  <span title="پاک کردن">
+                    <Button
+                      icon={ICONS.trash}
+                      type={BtnTypes.danger}
+                      onClick={() =>
+                        setShowRemoveFileModalHandlerAndSetFileUrl(item)
+                      }
+                    />
+                  </span>
+                  <span title="دانلود">
+                    <Button
+                      icon={ICONS.download}
+                      onClick={() => downloadFileFromApi(item)}
+                    />
+                  </span>
+                  <span title="صحفه بزرگ">
+                    <Button
+                      icon={ICONS.fullscreen}
+                      onClick={() => fullscreen(item)}
+                    />
+                  </span>
                 </div>
               </div>
             )
