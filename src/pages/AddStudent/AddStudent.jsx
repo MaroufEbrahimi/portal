@@ -11,20 +11,27 @@ import { Complete } from "../../components/Steps/Complete"
 import { useNavigate } from "react-router-dom"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
-const components = [PersonalInformation, StudentHabitation, StudentRelatives, Complete]
-let counter = 0;
+const components = [
+  PersonalInformation,
+  StudentHabitation,
+  StudentRelatives,
+  Complete,
+]
+let counter = 0
 const AddStudent = () => {
   useProtect({ roles: [Roles.ADMIN] })
   const navigate = useNavigate()
   const steps = ["معلومات شخصی", "تذکره و سکونت محصل", "اقارب محصل", "بخش آخر"]
   const [globalState, dispatch] = useStateValue()
-  const [stepComponent, setStepComponent] = useState({ component: components[counter] })
-  const [apiResponse, setApiResponse] = useState({});
+  const [stepComponent, setStepComponent] = useState({
+    component: components[counter],
+  })
+  const [apiResponse, setApiResponse] = useState({})
 
   console.log(counter)
   const handleNextStep = (direction) => {
     if (direction == "back" && counter == 0) {
-      navigate("/students")
+      navigate("/admin/students")
       return
     }
     if (direction == "next" && counter == steps.length - 2) {
@@ -32,40 +39,42 @@ const AddStudent = () => {
       sendInformation()
     }
     if (direction == "next" && counter == steps.length - 1) {
-      navigate("/students")
+      navigate("/admin/students")
       return
     }
-    direction === "next" && counter >= 0 && counter < steps.length ? counter++ : counter--
+    direction === "next" && counter >= 0 && counter < steps.length
+      ? counter++
+      : counter--
     // check if steps are within bounds
     setStepComponent({ component: components[counter] })
   }
   console.log(globalState)
 
   const sendInformation = () => {
-    const relations = [];
+    const relations = []
     for (let r in globalState.studentRelations) {
-      relations.push(globalState.studentRelations[r]);
+      relations.push(globalState.studentRelations[r])
     }
     const info = {
       studentPersonalInfo: globalState.studentPersonalInfo,
       relatives: relations,
       locations: globalState.studentLocations,
-      identification: globalState.studentIdenfication
+      identification: globalState.studentIdenfication,
     }
     if (!globalState?.studentImage?.file) {
       setApiResponse({ message: "لطفا عکس محصل را وارد نمائید!" })
-      return;
+      return
     }
     fetch("http://localhost:1000/api/v1/students", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer " + globalState.authentication.token,
-        'Content-Type': 'application/json',
+        Authorization: "Bearer " + globalState.authentication.token,
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(info)
+      body: JSON.stringify(info),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data?.statusCode && data.statusCode != 201) {
           setApiResponse(data)
           console.log("in if", apiResponse)
@@ -73,22 +82,22 @@ const AddStudent = () => {
         }
 
         sendStudentImage(data.imageUrl, globalState.studentImage.file)
-
-      }).catch(error => setApiResponse(error))
+      })
+      .catch((error) => setApiResponse(error))
   }
   const sendStudentImage = (imageUrl, image) => {
     console.log(imageUrl, image)
-    const formDate = new FormData();
+    const formDate = new FormData()
     formDate.append("file", image)
     fetch(imageUrl, {
       method: "POST",
       headers: {
-        "Authorization": "Bearer " + globalState.authentication.token,
+        Authorization: "Bearer " + globalState.authentication.token,
       },
-      body: formDate
+      body: formDate,
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setApiResponse(data)
         console.log(data)
       })
