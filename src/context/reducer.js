@@ -39,7 +39,8 @@ export const actionTypes = {
   ADD_STIUDENT_LOCATIONS: "ADD_STIUDENT_LOCATIONS",
   ADD_STUDENT_RELATIONS: "ADD_STUDENT_RELATIONS",
   ADD_STUDENT_IMAGE: "ADD_STUDENT_IMAGE",
-  LOGOUT: "LOGOUT"
+  LOGOUT: "LOGOUT",
+  REMOVE_STUDENT_REGISTERATION_STATE: "REMOVE_STUDENT_REGISTERATION_STATE"
 }
 
 const reducer = (state, action) => {
@@ -95,6 +96,15 @@ const reducer = (state, action) => {
           profileImage: null,
           roles: []
         }
+      }
+    case actionTypes.REMOVE_STUDENT_REGISTERATION_STATE:
+      return {
+        ...state,
+        studentIdenfication: {},
+        studentLocations: {},
+        studentImage: {},
+        studentRelations: {},
+        studentPersonalInfo: {}
       }
     default:
       return state

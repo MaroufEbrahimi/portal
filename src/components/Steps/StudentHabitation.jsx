@@ -144,7 +144,7 @@ export const StudentHabitation = () => {
         <div className="build_box">
           <label>جلد</label>
           <input
-            type="text"
+            type="number"
             value={studentIdenfication?.caseNumber}
             onChange={(e) => handleInputChangeValue(e, "caseNumber")}
             inputMode="numeric"
@@ -154,7 +154,7 @@ export const StudentHabitation = () => {
         <div className="build_box">
           <label>صفحه</label>
           <input
-            type="text"
+            type="number"
             value={studentIdenfication?.pageNumber}
             onChange={(e) => handleInputChangeValue(e, "pageNumber")}
             inputMode="numeric"
@@ -164,7 +164,7 @@ export const StudentHabitation = () => {
         <div className="build_box">
           <label>شماره ثبت</label>
           <input
-            type="text"
+            type="number"
             value={studentIdenfication?.registrationNumber}
             onChange={(e) => handleInputChangeValue(e, "registrationNumber")}
             inputMode="numeric"
@@ -174,7 +174,7 @@ export const StudentHabitation = () => {
         <div className="build_box">
           <label>نمبر عمومی</label>
           <input
-            type="text"
+            type="number"
             value={studentIdenfication?.nationalId}
             onChange={(e) => handleInputChangeValue(e, "nationalId")}
             inputMode="numeric"
