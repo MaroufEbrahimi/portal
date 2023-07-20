@@ -31,6 +31,10 @@ const AddStudent = () => {
       setApiResponse({})
       sendInformation()
     }
+    if (direction == "next" && counter == steps.length - 1) {
+      navigate("/students")
+      return
+    }
     direction === "next" && counter >= 0 && counter < steps.length ? counter++ : counter--
     // check if steps are within bounds
     setStepComponent({ component: components[counter] })
@@ -50,7 +54,6 @@ const AddStudent = () => {
     }
     if (!globalState?.studentImage?.file) {
       setApiResponse({ message: "لطفا عکس محصل را وارد نمائید!" })
-      console.log("in if ")
       return;
     }
     fetch("http://localhost:1000/api/v1/students", {
@@ -68,7 +71,7 @@ const AddStudent = () => {
           console.log("in if", apiResponse)
           return
         }
-        console.log("after if ", data)
+
         sendStudentImage(data.imageUrl, globalState.studentImage.file)
 
       }).catch(error => setApiResponse(error))

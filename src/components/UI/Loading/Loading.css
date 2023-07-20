@@ -20,8 +20,8 @@
   height: 40px;
   margin: 4px;
   border-radius: 50%;
-  border: 5px solid var(--gen-color);
-  border-color: var(--gen-color) transparent var(--gen-color) transparent;
+  border: 5px solid var(--main-color);
+  border-color: var(--main-color) transparent var(--main-color) transparent;
   animation: spinner 1.2s linear infinite;
 }
 

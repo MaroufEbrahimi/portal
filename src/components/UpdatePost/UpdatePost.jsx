@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import "./UpdatePost.css"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 import ReactQuill from "react-quill"
@@ -15,6 +15,7 @@ import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 
 const UpdatePost = () => {
   const { id } = useParams()
+  const navigate = useNavigate();
   const [post, setPost] = useState()
   const [{ authentication }, dispatch] = useStateValue()
   const [text, setText] = useState("")
@@ -24,6 +25,9 @@ const UpdatePost = () => {
   const [showRemoveFileModal, setShowRemoveFileModal] = useState(false)
   const [fileUrlToRemove, setfileUrlToRemove] = useState("")
   const [files, setfiles] = useState([])
+  const [fields, setFields] = useState([])
+  const [departments, setDepartments] = useState([])
+  const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   const modalCloseHandler = () => {
     console.log("close")
     setShowModal(false)
@@ -79,21 +83,54 @@ const UpdatePost = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         setPost(data)
         setText(data?.message)
       })
+
   }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:1000/api/v1/field-of-studies")
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then((data) => {
+        setFields(data.content)
+        const f = data.content.find((item) => {
+          return item.fieldName == post?.fieldOfStudy
+        })
+        fetch(
+          "http://localhost:1000/api/v1/field-of-studies/" + f?.id + "/departments"
+        )
+          .then((res) => {
+            if (res.ok) {
+              return res.json()
+            } else {
+              throw new Error(res.statusText)
+            }
+          })
+          .then((data) => {
+            console.log("dep -> ", data)
+            setDepartments(data)
+          })
+      })
+  }, [post])
 
   // this function is used to send the update post to the api
   const sendInformationToAPI = () => {
-    // let bd = {
-    //   fieldOfStudy,
-    //   department,
-    //   message,
-    //   authorId,
-    //   semester,
-    //   isPublic
-    // }
+    const body = {
+      fieldOfStudy: post.fieldOfStudy,
+      department: post.department,
+      message: text,
+      authorId: authentication.userId,
+      semester: post.semester,
+      isPublic: post.isPublic == "صفحه اصلی" ? true : false,
+    }
 
     fetch(APIEndpoints.posts.update(post.id), {
       method: "PUT",
@@ -103,10 +140,22 @@ const UpdatePost = () => {
       },
       body: JSON.stringify({}),
     })
+    fetch(
+      "http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments"
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error(res.statusText)
+        }
+      })
+      .then((data) => {
+        console.log(data)
+        setDepartments(data)
+      })
   }
 
-  console.log(post)
-  console.log(files)
   return (
     <div className="update_post">
       <div className="image_header_container">
@@ -238,6 +287,75 @@ const UpdatePost = () => {
           </label>
         </div>
       </div>
+      <div className="share_post_on">
+        <h3>اشتراک گذاری در کجا</h3>
+        <div className="post_boxes display_grid">
+          <div className="post_box">
+            <select
+              id="type"
+              onChange={(e) =>
+                setPost({ ...post, isPublic: e.target.value == "صفحه اصلی" ? true : false })
+              }
+              defaultValue={!post?.isPublic ? "صفحه محصل" : "صفحه اصلی"}
+            >
+              <option disabled>
+                موقعیت
+              </option>
+              <option>صفحه محصل</option>
+              <option>صفحه اصلی</option>
+            </select>
+          </div>
+          {!post?.isPublic ? (
+            <>
+              <div className="post_box">
+                <select
+                  id="type"
+                  onChange={(e) => fieldOfStudeyInputHandling(e)}
+                  defaultValue={post?.fieldOfStudy}
+                >
+                  {fields.map((item) => {
+                    return <option key={item.id}>{item.fieldName}</option>
+                  })}
+                </select>
+              </div>
+              <div className="post_box">
+                <select
+                  id="type"
+                  onChange={(e) => setPost({ ...post, department: e.target.value })}
+                  defaultValue={post?.department}
+                >
+                  {departments.map((item) => {
+                    return <option key={item.id}>{item.departmentName}</option>
+                  })}
+                </select>
+              </div>
+              <div className="post_box">
+                <select
+                  id="type"
+                  onChange={(e) => setPost({ ...post, semester: e.target.value })}
+                  defaultValue={post?.semester}
+                >
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map(item => {
+                    return <option>{item}</option>
+                  })}
+
+
+                </select>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
+      </div>
+      <BackDrop show={completeMsg.show}>
+        {<MessageBox
+          messageType="info"
+          firstBtn={{ btnText: "تایید", onClick: () => navigate("/admin/postmanagement") }}
+          message={completeMsg.msg}
+          iconType={ICONS.info}
+        />}
+      </BackDrop>
       <Button text={"بروز رسانی پست"} onClick={sendInformationToAPI} />
     </div>
   )
