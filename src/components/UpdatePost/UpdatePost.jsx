@@ -390,7 +390,7 @@ const UpdatePost = () => {
             messageType="info"
             firstBtn={{
               btnText: "تایید",
-              onClick: () => navigate("/admin/postmanagement"),
+              onClick: () => navigate("/admin/post-management"),
             }}
             message={completeMsg.msg}
             iconType={ICONS.info}
