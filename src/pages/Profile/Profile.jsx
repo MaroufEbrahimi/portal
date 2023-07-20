@@ -28,7 +28,7 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/students/" + id, {
+    fetch("http://localhost:1000/api/v1/admin/students/" + id, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + authentication.token,
@@ -63,8 +63,8 @@ const Profile = () => {
         <div className="user_profile_img display_flex align_items_center">
           {(authentication.roles.includes(Roles.ADMIN) &&
             id != authentication?.userId) ||
-            (authentication.roles.includes(Roles.STUDENT) &&
-              id == authentication?.userId) ? (
+          (authentication.roles.includes(Roles.STUDENT) &&
+            id == authentication?.userId) ? (
             <img src={student?.imageUrl} alt="user img" />
           ) : null}
           <h1>
@@ -83,16 +83,15 @@ const Profile = () => {
               <i className="bi bi-check2-square"></i>
             </Link>
           </button>
-          {authentication.roles.includes(
-            Roles.ADMIN) && authentication.userId != id &&
-            <button>
-              <Link to={"/admin/update-student/" + id}>
-                <span>بروزرسانی اطلاعات</span>
-                <i className="bi bi-arrow-repeat"></i>
-              </Link>
-            </button>
-
-          }
+          {authentication.roles.includes(Roles.ADMIN) &&
+            authentication.userId != id && (
+              <button>
+                <Link to={"/admin/update-student/" + id}>
+                  <span>بروزرسانی اطلاعات</span>
+                  <i className="bi bi-arrow-repeat"></i>
+                </Link>
+              </button>
+            )}
         </div>
         <BackDrop show={showModal} modalClose={modalCloseHandler}>
           {
@@ -113,8 +112,8 @@ const Profile = () => {
 
       {(authentication.roles.includes(Roles.ADMIN) &&
         id != authentication?.userId) ||
-        (authentication.roles.includes(Roles.STUDENT) &&
-          id == authentication?.userId) ? (
+      (authentication.roles.includes(Roles.STUDENT) &&
+        id == authentication?.userId) ? (
         <div className="profile_details">
           <div className="profile_tab_header tab_header">
             {profileTabHeader.map((item) => (

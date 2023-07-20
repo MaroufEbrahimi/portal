@@ -190,6 +190,9 @@
   }
 }
 @media (max-width: 480px) {
+  .profile_title {
+    height: 210px;
+  }
   .profile_title .logout_changePass {
     top: 10px;
     gap: 5px;

@@ -15,7 +15,7 @@ import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 
 const UpdatePost = () => {
   const { id } = useParams()
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [post, setPost] = useState()
   const [{ authentication }, dispatch] = useStateValue()
   const [text, setText] = useState("")
@@ -65,14 +65,14 @@ const UpdatePost = () => {
           if (data.statusCode == 200) {
             setShowRemoveFileModal(false)
             if (type == "image") {
-              const images = post.images.filter(item => item != fileUrlToRemove)
+              const images = post.images.filter(
+                (item) => item != fileUrlToRemove
+              )
               setPost({ ...post, images: images })
             }
           }
-
         })
     }
-
   }
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.posts.getPost + id, {
@@ -87,7 +87,6 @@ const UpdatePost = () => {
         setPost(data)
         setText(data?.message)
       })
-
   }, [])
 
   useEffect(() => {
@@ -105,7 +104,9 @@ const UpdatePost = () => {
           return item.fieldName == post?.fieldOfStudy
         })
         fetch(
-          "http://localhost:1000/api/v1/field-of-studies/" + f?.id + "/departments"
+          "http://localhost:1000/api/v1/field-of-studies/" +
+            f?.id +
+            "/departments"
         )
           .then((res) => {
             if (res.ok) {
@@ -132,17 +133,16 @@ const UpdatePost = () => {
       isPublic: post.isPublic == "صفحه اصلی" ? true : false,
     }
 
-
     fetch(APIEndpoints.root + APIEndpoints.posts.update(post.id), {
       method: "PUT",
       headers: {
-        "Authorization": "Bearer " + authentication.token,
-        "Content-Type": "application/json"
+        Authorization: "Bearer " + authentication.token,
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         // now send the file
         console.log(data)
         console.log(files)
@@ -214,7 +214,9 @@ const UpdatePost = () => {
             onChange={setText}
           />
         </div>
-        {(post?.images?.length > 0 || post?.docs?.length > 0) ? <p className="post_section_title">فایلهای پست:</p> : null}
+        {post?.images.length > 0 || post?.docs.length > 0 ? (
+          <p className="post_section_title">فایلهای پست:</p>
+        ) : null}
         <div className="post_images display_flex">
           {/* for each item of image array render a post_file */}
           {post?.images?.map((item) => {
@@ -222,18 +224,27 @@ const UpdatePost = () => {
               <div className="image_container" key={item}>
                 <img src={item} alt="" key={item} />
                 <div className="btn_container_for_modal">
-                  <Button
-                    icon={ICONS.trash}
-                    type={BtnTypes.danger}
-                    onClick={() =>
-                      setShowRemoveFileModalHandlerAndSetFileUrl(item)
-                    }
-                  />
-                  <Button icon={ICONS.download} onClick={() => downloadFileFromApi(item)} />
-                  <Button
-                    icon={ICONS.fullscreen}
-                    onClick={() => fullscreen(item)}
-                  />
+                  <span title="پاک کردن">
+                    <Button
+                      icon={ICONS.trash}
+                      type={BtnTypes.danger}
+                      onClick={() =>
+                        setShowRemoveFileModalHandlerAndSetFileUrl(item)
+                      }
+                    />
+                  </span>
+                  <span title="دانلود">
+                    <Button
+                      icon={ICONS.download}
+                      onClick={() => downloadFileFromApi(item)}
+                    />
+                  </span>
+                  <span title="صحفه بزرگ">
+                    <Button
+                      icon={ICONS.fullscreen}
+                      onClick={() => fullscreen(item)}
+                    />
+                  </span>
                 </div>
               </div>
             )
@@ -275,13 +286,22 @@ const UpdatePost = () => {
         </BackDrop>
 
         <BackDrop show={showRemoveFileModal} modalClose={modalCloseHandler}>
-          {<MessageBox
-            messageType="asking"
-            firstBtn={{ btnText: "بلی", btnType: BtnTypes.danger, onClick: () => removeFile("image") }}
-            secondBtn={{ btnText: "نخیر", onClick: () => setShowRemoveFileModal(false) }}
-            message={"برای حذف شدن فایل از سیستم مطمین هستید؟"}
-            iconType={ICONS.asking}
-          />}
+          {
+            <MessageBox
+              messageType="asking"
+              firstBtn={{
+                btnText: "بلی",
+                btnType: BtnTypes.danger,
+                onClick: () => removeFile("image"),
+              }}
+              secondBtn={{
+                btnText: "نخیر",
+                onClick: () => setShowRemoveFileModal(false),
+              }}
+              message={"برای حذف شدن فایل از سیستم مطمین هستید؟"}
+              iconType={ICONS.asking}
+            />
+          }
         </BackDrop>
       </div>
       <div className="post_file_img display_flex">
@@ -313,13 +333,14 @@ const UpdatePost = () => {
             <select
               id="type"
               onChange={(e) =>
-                setPost({ ...post, isPublic: e.target.value == "صفحه اصلی" ? true : false })
+                setPost({
+                  ...post,
+                  isPublic: e.target.value == "صفحه اصلی" ? true : false,
+                })
               }
               defaultValue={!post?.isPublic ? "صفحه محصل" : "صفحه اصلی"}
             >
-              <option disabled>
-                موقعیت
-              </option>
+              <option disabled>موقعیت</option>
               <option>صفحه محصل</option>
               <option>صفحه اصلی</option>
             </select>
@@ -340,7 +361,9 @@ const UpdatePost = () => {
               <div className="post_box">
                 <select
                   id="type"
-                  onChange={(e) => setPost({ ...post, department: e.target.value })}
+                  onChange={(e) =>
+                    setPost({ ...post, department: e.target.value })
+                  }
                   defaultValue={post?.department}
                 >
                   {departments.map((item) => {
@@ -351,14 +374,14 @@ const UpdatePost = () => {
               <div className="post_box">
                 <select
                   id="type"
-                  onChange={(e) => setPost({ ...post, semester: e.target.value })}
+                  onChange={(e) =>
+                    setPost({ ...post, semester: e.target.value })
+                  }
                   defaultValue={post?.semester}
                 >
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map(item => {
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => {
                     return <option>{item}</option>
                   })}
-
-
                 </select>
               </div>
             </>
@@ -368,12 +391,17 @@ const UpdatePost = () => {
         </div>
       </div>
       <BackDrop show={completeMsg.show}>
-        {<MessageBox
-          messageType="info"
-          firstBtn={{ btnText: "تایید", onClick: () => navigate("/admin/postmanagement") }}
-          message={completeMsg.msg}
-          iconType={ICONS.info}
-        />}
+        {
+          <MessageBox
+            messageType="info"
+            firstBtn={{
+              btnText: "تایید",
+              onClick: () => navigate("/admin/post-management"),
+            }}
+            message={completeMsg.msg}
+            iconType={ICONS.info}
+          />
+        }
       </BackDrop>
       <Button text={"بروز رسانی پست"} onClick={sendInformationToAPI} />
     </div>

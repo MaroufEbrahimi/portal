@@ -172,7 +172,7 @@ const Students = () => {
       {/* add new student */}
       <div className="students_add_new_student display_flex align_items_center justify_content_space_between">
         <button>
-          <Link to="/admin/addstudent">محصل جدید</Link>
+          <Link to="/admin/add-student">محصل جدید</Link>
         </button>
         <button>
           <Link to="/admin/newpost">محتوای جدید</Link>

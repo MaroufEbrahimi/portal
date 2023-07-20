@@ -216,12 +216,17 @@ const NewPost = () => {
         </button>
       </div>
       <BackDrop show={completeMsg.show}>
-        {<MessageBox
-          messageType="info"
-          firstBtn={{ btnText: "تایید", onClick: () => navigate("/admin/postmanagement") }}
-          message={completeMsg.msg}
-          iconType={ICONS.info}
-        />}
+        {
+          <MessageBox
+            messageType="info"
+            firstBtn={{
+              btnText: "تایید",
+              onClick: () => navigate("/admin/post-management"),
+            }}
+            message={completeMsg.msg}
+            iconType={ICONS.info}
+          />
+        }
       </BackDrop>
     </div>
   )

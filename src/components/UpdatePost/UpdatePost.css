@@ -1,30 +1,36 @@
-.post {
-  width: 100%;
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 var(--gen-bg-color);
-  border-radius: 6px;
-  padding: 10px;
-  margin: 30px 5px 0 5px;
+.update_post {
+  margin: 3rem;
 }
 
 .update_post .file_post_body {
   padding: 10px;
+  text-align: left;
+}
+
+.update_post .file_post_body .ql-editor {
+  min-height: 100px;
 }
 
 .update_post .post_section_title {
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: var(--gen-bg-color);
   width: max-content;
-  padding: 2px 5px;
+  padding: 2px 8px;
   margin: 10px 0;
 }
 
 .update_post .post_header {
   width: 100%;
-  border-radius: 30px;
-  background: var(--gen-color-hover);
+  border-radius: 8px;
+  background: var(--gen-bg-color);
   padding: 4px 5px;
+}
+
+.update_post .post_header .post_date p {
+  font-size: 14px;
+  color: var(--text-color);
 }
 
 .post_header .post_share_with {
@@ -50,7 +56,7 @@
 
 .img_post_body p {
   font-size: 15px;
-  line-height: 1.5em;
+  /* line-height: 1.5em; */
   color: var(--text-color);
 }
 
@@ -93,6 +99,11 @@
   transition: opacity 0.3s ease-in;
   background-color: #00000077;
   border-radius: 10px;
+  gap: 8px;
+}
+
+.update_post .btn_container_for_modal i {
+  color: #fff;
 }
 
 .update_post .image_container {
@@ -114,6 +125,13 @@
 .files_icon_container p {
   max-width: 100%;
   word-break: break-word;
+  font-size: 14px;
+}
+
+.update_post .image-upload {
+  font-size: 15px;
+}
+.update_post .image-upload p {
   font-size: 14px;
 }
 
@@ -148,7 +166,7 @@
   color: #fff;
 }
 
-.btn_download .button_download_icon>i {
+.btn_download .button_download_icon > i {
   color: #fff;
   font-size: 18px;
 }
@@ -210,13 +228,26 @@
 }
 
 /* Responsive */
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+}
 
 @media (max-width: 768px) {
+  .update_post {
+    margin: 1rem;
+  }
   .post_header .post_share_with img {
     width: 45px;
     height: 45px;
   }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  .update_post {
+    margin: 0;
+  }
+  .update_post .file_post_body .ql-toolbar button {
+    height: 20px;
+    padding: 3px;
+    width: 20px;
+  }
+}

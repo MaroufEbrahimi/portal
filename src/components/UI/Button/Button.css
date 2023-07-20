@@ -13,7 +13,7 @@
     font-weight: 500;
     color: var(--text-color);
     cursor: pointer;
-    background: var(--btn-bg-color);
+    /* background: var(--btn-bg-color); */
     text-align: center;
 }
 
