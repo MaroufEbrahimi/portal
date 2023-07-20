@@ -170,11 +170,15 @@ const PostManagement = () => {
     })
       .then(res => {
         setDeleteModal(false)
-        if (res.ok) res.json();
+        console.log(res)
+        if (res.ok) return res.json();
         else throw new Error(res.statusText)
       })
       .then(data => {
+        console.log(data)
         setCompleteMsg({ msg: data.message, show: true })
+        const newList = posts.filter(item => item.id != postToDelete)
+        setPosts(newList)
       }).catch(error => {
         console.log(error)
         setCompleteMsg({ msg: error.message, show: true })
