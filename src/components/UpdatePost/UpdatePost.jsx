@@ -15,7 +15,7 @@ import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 
 const UpdatePost = () => {
   const { id } = useParams()
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [post, setPost] = useState()
   const [{ authentication }, dispatch] = useStateValue()
   const [text, setText] = useState("")
@@ -87,7 +87,6 @@ const UpdatePost = () => {
         setPost(data)
         setText(data?.message)
       })
-
   }, [])
 
   useEffect(() => {
@@ -105,7 +104,9 @@ const UpdatePost = () => {
           return item.fieldName == post?.fieldOfStudy
         })
         fetch(
-          "http://localhost:1000/api/v1/field-of-studies/" + f?.id + "/departments"
+          "http://localhost:1000/api/v1/field-of-studies/" +
+            f?.id +
+            "/departments"
         )
           .then((res) => {
             if (res.ok) {
@@ -132,13 +133,45 @@ const UpdatePost = () => {
       isPublic: post.isPublic == "صفحه اصلی" ? true : false,
     }
 
-    fetch(APIEndpoints.posts.update(post.id), {
+    fetch(APIEndpoints.root + APIEndpoints.posts.update(post.id), {
       method: "PUT",
       headers: {
         Authorization: "Bearer " + authentication.token,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // now send the file
+        console.log(data)
+        console.log(files)
+        if (files.length > 0) {
+          const formData = new FormData()
+          for (let f in files) {
+            formData.append("files", files[f])
+          }
+
+          fetch(data.filesUrl, {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + authentication.token,
+            },
+            body: formData,
+          }).then((res) => {
+            if (res.ok) {
+              setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
+            }
+          })
+        } else {
+          setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
+        }
+      })
+  }
+  const fieldOfStudeyInputHandling = (e) => {
+    setPost({ ...post, fieldOfStudy: e.target.value })
+    const f = fields.find((item) => {
+      return item.fieldName == e.target.value
     })
     fetch(
       "http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments"
@@ -294,13 +327,14 @@ const UpdatePost = () => {
             <select
               id="type"
               onChange={(e) =>
-                setPost({ ...post, isPublic: e.target.value == "صفحه اصلی" ? true : false })
+                setPost({
+                  ...post,
+                  isPublic: e.target.value == "صفحه اصلی" ? true : false,
+                })
               }
               defaultValue={!post?.isPublic ? "صفحه محصل" : "صفحه اصلی"}
             >
-              <option disabled>
-                موقعیت
-              </option>
+              <option disabled>موقعیت</option>
               <option>صفحه محصل</option>
               <option>صفحه اصلی</option>
             </select>
@@ -321,7 +355,9 @@ const UpdatePost = () => {
               <div className="post_box">
                 <select
                   id="type"
-                  onChange={(e) => setPost({ ...post, department: e.target.value })}
+                  onChange={(e) =>
+                    setPost({ ...post, department: e.target.value })
+                  }
                   defaultValue={post?.department}
                 >
                   {departments.map((item) => {
@@ -332,14 +368,14 @@ const UpdatePost = () => {
               <div className="post_box">
                 <select
                   id="type"
-                  onChange={(e) => setPost({ ...post, semester: e.target.value })}
+                  onChange={(e) =>
+                    setPost({ ...post, semester: e.target.value })
+                  }
                   defaultValue={post?.semester}
                 >
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map(item => {
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => {
                     return <option>{item}</option>
                   })}
-
-
                 </select>
               </div>
             </>
@@ -349,12 +385,17 @@ const UpdatePost = () => {
         </div>
       </div>
       <BackDrop show={completeMsg.show}>
-        {<MessageBox
-          messageType="info"
-          firstBtn={{ btnText: "تایید", onClick: () => navigate("/admin/postmanagement") }}
-          message={completeMsg.msg}
-          iconType={ICONS.info}
-        />}
+        {
+          <MessageBox
+            messageType="info"
+            firstBtn={{
+              btnText: "تایید",
+              onClick: () => navigate("/admin/postmanagement"),
+            }}
+            message={completeMsg.msg}
+            iconType={ICONS.info}
+          />
+        }
       </BackDrop>
       <Button text={"بروز رسانی پست"} onClick={sendInformationToAPI} />
     </div>
