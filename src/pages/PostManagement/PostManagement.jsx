@@ -5,9 +5,17 @@ import { useStateValue } from "../../context/StateProvider"
 import Spinner from "../../components/UI/Loading/Spinner"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
+import APIEndpoints from "../../constants/APIEndpoints"
+import BackDrop from "../../components/UI/BackDrop/BackDrop"
+import MessageBox from "../../components/MessageBox/MessageBox"
+import ICONS from "../../constants/Icons"
+import BtnTypes from "../../constants/BtnTypes"
+import { useNavigate } from "react-router-dom"
+
 
 const PostManagement = () => {
   useProtect({ roles: [Roles.ADMIN] })
+  const navigate = useNavigate()
   const [{ authentication }, dispatch] = useStateValue()
   const [posts, setPosts] = useState([])
   const [semester, setsemester] = useState()
@@ -20,6 +28,9 @@ const PostManagement = () => {
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
   const [requestParams, setRequestParams] = useState(``)
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [postToDelete, setPostToDelete] = useState();
+  const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
   const lastNodeReference = (node) => {
     if (loading) return
@@ -82,6 +93,12 @@ const PostManagement = () => {
       })
   }, [pagination])
 
+  const showDeleteModal = (id) => {
+    setDeleteModal(true);
+    setPostToDelete(id);
+    console.log(id)
+  }
+
   const handleFilterButton = () => {
     setPagination({ offset: 0, pageSize: 3 })
     setPosts([])
@@ -140,6 +157,27 @@ const PostManagement = () => {
       })
       .then((data) => {
         setDepartments(data)
+      })
+  }
+
+
+  const handleDelete = () => {
+    fetch(APIEndpoints.root + APIEndpoints.posts.deletePost(postToDelete), {
+      method: "DELETE",
+      headers: {
+        "Authorization": "Bearer " + authentication.token
+      }
+    })
+      .then(res => {
+        setDeleteModal(false)
+        if (res.ok) res.json();
+        else throw new Error(res.statusText)
+      })
+      .then(data => {
+        setCompleteMsg({ msg: data.message, show: true })
+      }).catch(error => {
+        console.log(error)
+        setCompleteMsg({ msg: error.message, show: true })
       })
   }
   console.log(posts)
@@ -218,6 +256,7 @@ const PostManagement = () => {
                     docs={item.docs}
                     text={item.message}
                     isUpdated={item.isUpdated}
+                    handleDelete={() => showDeleteModal(item.id)}
                     customRef={lastNodeReference}
                   />
                 )
@@ -231,8 +270,10 @@ const PostManagement = () => {
                   images={item.images}
                   id={item.id}
                   docs={item.docs}
+                  isHidden={item.isHidden}
                   isUpdated={item.isUpdated}
                   text={item.message}
+                  handleDelete={() => showDeleteModal(item.id)}
                 />
               )
             })}
@@ -247,6 +288,23 @@ const PostManagement = () => {
           </section>
         </div>
       </div>
+      <BackDrop show={deleteModal}>
+        {<MessageBox
+          messageType="asking"
+          firstBtn={{ btnText: "بلی", btnType: BtnTypes.danger, onClick: handleDelete }}
+          secondBtn={{ btnText: "نخیر", onClick: () => setDeleteModal(false) }}
+          message={"برای حذف شدن پست از سیستم مطمئن هستید؟"}
+          iconType={ICONS.asking}
+        />}
+      </BackDrop>
+      <BackDrop show={completeMsg.show}>
+        {<MessageBox
+          messageType="info"
+          firstBtn={{ btnText: "تایید", onClick: () => setCompleteMsg({ show: false, msg: "" }) }}
+          message={completeMsg.msg}
+          iconType={ICONS.info}
+        />}
+      </BackDrop>
     </div>
   )
 }

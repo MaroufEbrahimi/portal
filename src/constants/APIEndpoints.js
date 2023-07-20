@@ -10,8 +10,9 @@ const APIEndpoints = {
         getAllPostsForAdmin: "posts/?",
         getPost: "posts/",
         addPost: "posts",
-        update: (id) => "posts/" + id
-
+        update: (id) => "posts/" + id,
+        toggleHideShow: (id) => `posts/${id}/hide-show`,
+        deletePost: (id) => `posts/${id}`,
     },
     fieldOfStudy: {
         getAll: "field-of-studies",

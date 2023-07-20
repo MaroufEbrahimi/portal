@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import "./Post.css"
 import { Link } from "react-router-dom"
 import { timeSince } from "../../Utils/DateTimeUtils"
 import Roles from "../../constants/Roles"
 import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
+import APIEndpoints from "../../constants/APIEndpoints"
+import { useStateValue } from "../../context/StateProvider"
 
 const Post = ({
   role,
@@ -14,8 +16,26 @@ const Post = ({
   date,
   text,
   isUpdated = false,
+  isHidden,
+  handleDelete,
   customRef = null,
 }) => {
+  const [{ authentication }, dispatch] = useStateValue();
+  const [isHide, setIsHide] = useState(isHidden);
+
+  const handleHideShow = () => {
+    console.log(isHidden)
+    fetch(APIEndpoints.root + APIEndpoints.posts.toggleHideShow(id), {
+      headers: {
+        "Authorization": "Bearer " + authentication.token
+      }
+    })
+      .then(res => {
+        if (res.ok) {
+          setIsHide(!isHide);
+        }
+      })
+  }
   return (
     <div className="post" ref={customRef}>
       <div className="image_header_container">
@@ -42,15 +62,15 @@ const Post = ({
                       <span>ویرایش پست</span>
                     </Link>
                   </li>
-                  <li className="setting_option">
+                  <li className="setting_option" onClick={handleHideShow}>
                     <span className="setting_option_details">
-                      <i className="bi bi-eye-slash-fill"></i>
-                      <span>پنهان کردن</span>
+                      {!isHide ? <i className="bi bi-eye-slash-fill"></i> : <i className="bi bi-eye-fill"></i>}
+                      {!isHide ? <span>پنهان کردن</span> : <span>غیرفعال کردن حالت پنهان</span>}
+
                     </span>
                   </li>
-                  <li className="setting_option">
+                  <li className="setting_option" onClick={handleDelete}>
                     <span className="setting_option_details">
-                      {" "}
                       <i className="bi bi-trash-fill"></i>
                       <span>حذف پست</span>
                     </span>
