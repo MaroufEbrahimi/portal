@@ -10,6 +10,7 @@ import MessageBox from "../../components/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import BtnTypes from "../../constants/BtnTypes"
+import APIEndpoints from "../../constants/APIEndpoints"
 
 const Profile = () => {
   const { id } = useParams()
@@ -28,7 +29,7 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/admin/students/" + id, {
+    fetch(APIEndpoints.root + APIEndpoints.students.getStudent(id), {
       method: "GET",
       headers: {
         Authorization: "Bearer " + authentication.token,
@@ -63,8 +64,8 @@ const Profile = () => {
         <div className="user_profile_img display_flex align_items_center">
           {(authentication.roles.includes(Roles.ADMIN) &&
             id != authentication?.userId) ||
-          (authentication.roles.includes(Roles.STUDENT) &&
-            id == authentication?.userId) ? (
+            (authentication.roles.includes(Roles.STUDENT) &&
+              id == authentication?.userId) ? (
             <img src={student?.imageUrl} alt="user img" />
           ) : null}
           <h1>
@@ -112,8 +113,8 @@ const Profile = () => {
 
       {(authentication.roles.includes(Roles.ADMIN) &&
         id != authentication?.userId) ||
-      (authentication.roles.includes(Roles.STUDENT) &&
-        id == authentication?.userId) ? (
+        (authentication.roles.includes(Roles.STUDENT) &&
+          id == authentication?.userId) ? (
         <div className="profile_details">
           <div className="profile_tab_header tab_header">
             {profileTabHeader.map((item) => (
