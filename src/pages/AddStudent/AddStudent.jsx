@@ -11,6 +11,7 @@ import { Complete } from "../../components/Steps/Complete"
 import { useNavigate } from "react-router-dom"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
+import { actionTypes } from "../../context/reducer"
 const components = [
   PersonalInformation,
   StudentHabitation,
@@ -39,6 +40,10 @@ const AddStudent = () => {
       sendInformation()
     }
     if (direction == "next" && counter == steps.length - 1) {
+      counter = 0
+      dispatch({
+        type: actionTypes.REMOVE_STUDENT_REGISTERATION_STATE
+      })
       navigate("/admin/students")
       return
     }
@@ -62,7 +67,7 @@ const AddStudent = () => {
       identification: globalState.studentIdenfication,
     }
     if (!globalState?.studentImage?.file) {
-      setApiResponse({ message: "لطفا عکس محصل را وارد نمائید!" })
+      setApiResponse({ isFinished: false, message: "لطفا عکس محصل را وارد نمائید!" })
       return
     }
     fetch("http://localhost:1000/api/v1/students", {
@@ -76,15 +81,15 @@ const AddStudent = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data?.statusCode && data.statusCode != 201) {
-          setApiResponse(data)
-          console.log("in if", apiResponse)
+          setApiResponse({ ...data, isFinished: false })
           return
         }
-
         sendStudentImage(data.imageUrl, globalState.studentImage.file)
       })
       .catch((error) => setApiResponse(error))
   }
+
+  // send the student image to the API
   const sendStudentImage = (imageUrl, image) => {
     console.log(imageUrl, image)
     const formDate = new FormData()
@@ -98,6 +103,10 @@ const AddStudent = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (data.statusCode == 201) {
+          setApiResponse({ ...data, isFinished: true })
+          return
+        }
         setApiResponse(data)
         console.log(data)
       })
@@ -125,6 +134,7 @@ const AddStudent = () => {
           handleNextStep={handleNextStep}
           currentStep={counter}
           steps={steps}
+          isFinished={apiResponse?.isFinished}
         />
       }
     </div>
