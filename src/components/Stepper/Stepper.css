@@ -60,11 +60,9 @@
 }
 
 /* Responsive */
-@media (max-width: 991px) {
-}
 @media (max-width: 768px) {
   .stepper {
-    margin: 0px;
+    margin-bottom: 5rem;
   }
 }
 @media (max-width: 580px) {
