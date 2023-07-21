@@ -37,21 +37,30 @@
   width: 180px;
 }
 
+.posts_management_boxes .post_mana_box label {
+  display: block;
+  color: var(--text-color);
+  font-weight: 500;
+  padding-bottom: 6px;
+  padding-right: 6px;
+}
+
 .posts_management_boxes .post_mana_box select,
 .posts_management_boxes .post_mana_box button {
   box-sizing: border-box;
   width: 100%;
   padding: 6px 10px;
   font-size: 14px;
-  color: var(--text-color);
-  background-color: var(--gen-bg-color);
-  border: 1px solid #e0dcdc;
+  background-color: var(--input-box-color);
+  border: 1px solid var(--gen-bg-color);
   border-left-color: var(--gen-color);
   border-left-width: 3px;
   border-radius: 8px;
   outline: none;
   transition: border 0.3s ease;
+  color: var(--text-color);
 }
+
 
 .posts_management_tabHeader .posts_management_filter_btn {
   text-align: center;

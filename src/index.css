@@ -62,16 +62,25 @@
 }
 
 /* style for light | dark of react-quill */
+.ql-container {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
 .ql-container .ql-editor {
   text-align: right !important;
+  font-size: 16px;
 }
-
+.ql-toolbar {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
 .ql-toolbar .ql-picker-label {
   color: var(--text-color);
 }
 .ql-toolbar button svg {
   filter: var(--icon-faculties-color);
 }
+/* style for light | dark of react-quill */
 
 body {
   direction: rtl;
