@@ -41,7 +41,6 @@ const Profile = () => {
         }
       })
       .then((data) => {
-        console.log(data)
         setstudent(data)
       })
   }, [id])
