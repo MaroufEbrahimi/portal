@@ -137,12 +137,12 @@ export const StudentHabitation = () => {
   }
   return (
     <div className="form_details_student student_habitation left-to-right">
-      <form>
-        <div className="full_width">
-          <h3>معلومات تذکره</h3>
-        </div>
+      <div className="add_student_stepper_title">
+        <h3>مـعـلـومـات تـذکـره</h3>
+      </div>
+      <section className="build_boxes">
         <div className="build_box">
-          <label>جلد</label>
+          <label>جـلـد</label>
           <input
             type="text"
             value={studentIdenfication?.caseNumber}
@@ -152,7 +152,7 @@ export const StudentHabitation = () => {
         </div>
 
         <div className="build_box">
-          <label>صفحه</label>
+          <label>صـفـحـه</label>
           <input
             type="text"
             value={studentIdenfication?.pageNumber}
@@ -162,7 +162,7 @@ export const StudentHabitation = () => {
         </div>
 
         <div className="build_box">
-          <label>شماره ثبت</label>
+          <label>شـمـاره ثـبـت</label>
           <input
             type="text"
             value={studentIdenfication?.registrationNumber}
@@ -172,7 +172,7 @@ export const StudentHabitation = () => {
         </div>
 
         <div className="build_box">
-          <label>نمبر عمومی</label>
+          <label>نـمـبر عـمـومـی</label>
           <input
             type="text"
             value={studentIdenfication?.nationalId}
@@ -180,13 +180,15 @@ export const StudentHabitation = () => {
             inputMode="numeric"
           />
         </div>
+      </section>
 
-        <div className="full_width">
-          <h3>سکونت اصلی</h3>
-        </div>
+      <div className="add_student_stepper_title">
+        <h3>سـکـونـت اصـلـی</h3>
+      </div>
 
+      <section className="build_boxes build_boxes_three_boxes">
         <div className="build_box median_width">
-          <label>قریه / گذر</label>
+          <label>قـریـه / گـذر</label>
           <input
             type="text"
             value={studentLocations?.previous?.villageOrQuarter}
@@ -196,7 +198,7 @@ export const StudentHabitation = () => {
           />
         </div>
         <div className="build_box">
-          <label>ولسوالی / ناحیه</label>
+          <label>ولـسـوالـی / ناحیـه</label>
           <input
             type="text"
             value={studentLocations?.previous?.district}
@@ -204,19 +206,22 @@ export const StudentHabitation = () => {
           />
         </div>
         <div className="build_box">
-          <label>ولایت</label>
+          <label>ولایـت</label>
           <input
             type="text"
             value={studentLocations?.previous?.city}
             onChange={(e) => handleInputChangeValue(e, "previous.city")}
           />
         </div>
+      </section>
 
-        <div className="full_width">
-          <h3>سکونت فعلی</h3>
-        </div>
+      <div className="add_student_stepper_title">
+        <h3>سـکـونـت فعلی</h3>
+      </div>
+
+      <section className="build_boxes build_boxes_three_boxes">
         <div className="build_box median_width">
-          <label>قریه / گذر</label>
+          <label>قـریـه / گـذر</label>
           <input
             type="text"
             value={studentLocations?.current?.villageOrQuarter}
@@ -226,7 +231,7 @@ export const StudentHabitation = () => {
           />
         </div>
         <div className="build_box">
-          <label>ولسوالی / ناحیه</label>
+          <label>ولـسـوالـی / ناحیـه</label>
           <input
             type="text"
             value={studentLocations?.current?.district}
@@ -234,14 +239,14 @@ export const StudentHabitation = () => {
           />
         </div>
         <div className="build_box">
-          <label>ولایت</label>
+          <label>ولایـت</label>
           <input
             type="text"
             value={studentLocations?.current?.city}
             onChange={(e) => handleInputChangeValue(e, "current.city")}
           />
         </div>
-      </form>
+      </section>
     </div>
   )
 }
