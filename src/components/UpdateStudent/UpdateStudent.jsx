@@ -281,7 +281,7 @@ const UpdateStudent = () => {
   }
   console.log(student)
   return (
-    <div className="pdateStudent">
+    <div className="updateStudent">
       <div className="update_detail">
         <h1>بروزرسانی اطلاعات محصل</h1>
         {/* Personal Information */}

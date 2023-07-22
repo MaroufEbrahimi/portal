@@ -1,4 +1,6 @@
 .add_new {
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
   padding: 15px;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }

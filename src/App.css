@@ -37,20 +37,28 @@
   width: 180px;
 }
 
+.posts_management_boxes .post_mana_box label {
+  display: block;
+  color: var(--text-color);
+  font-weight: 500;
+  padding-bottom: 6px;
+  padding-right: 6px;
+}
+
 .posts_management_boxes .post_mana_box select,
 .posts_management_boxes .post_mana_box button {
   box-sizing: border-box;
   width: 100%;
   padding: 6px 10px;
   font-size: 14px;
-  color: var(--text-color);
-  background-color: var(--gen-bg-color);
-  border: 1px solid #e0dcdc;
+  background-color: var(--input-box-color);
+  border: 1px solid var(--gen-bg-color);
   border-left-color: var(--gen-color);
   border-left-width: 3px;
   border-radius: 8px;
   outline: none;
   transition: border 0.3s ease;
+  color: var(--text-color);
 }
 
 .posts_management_tabHeader .posts_management_filter_btn {
@@ -139,10 +147,118 @@
 }
 /* End of Departement Reference Table */
 
+/* Profile iamge  */
+.add_img_profile {
+  position: relative;
+  margin-right: 10px;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 10px;
+}
+
+.add_img_profile .input_profile_img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid;
+  border-right-color: var(--gen-color);
+  border-left-color: var(--gen-color);
+  border-top-color: #da892c;
+  border-bottom-color: #da892c;
+  object-position: top;
+}
+
+/* Add Form Students  */
+.add_student_stepper_title {
+  padding-right: 10px;
+  margin-right: 10px;
+  margin-top: 3rem;
+  border-right: 3px solid var(--gen-color);
+  border-radius: 7px;
+}
+.add_student_stepper_title h3 {
+  font-size: 22px;
+  color: var(--text-color);
+  font-weight: normal;
+}
+.form_details_student > .build_boxes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 0.6rem;
+  grid-row-gap: 2rem;
+  margin: 1rem 2rem;
+}
+.form_details_student > .build_boxes.build_boxes_three_boxes {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.form_details_student .build_boxes .build_box {
+  width: 100%;
+}
+.form_details_student label {
+  display: block;
+  color: var(--text-color);
+  font-weight: 500;
+  padding-bottom: 5px;
+  padding-right: 10px;
+}
+
+.form_details_student input,
+.form_details_student select {
+  width: 97%;
+  padding: 5px 15px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  transition: border 0.3s ease;
+  background-color: var(--input-box-color);
+  color: var(--text-color);
+  margin: 4px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid transparent;
+}
+
+.form_details_student input::placeholder,
+.form_details_student select::placeholder {
+  font-size: 14px;
+  color: var(--text-color);
+  word-break: break-word;
+}
+
+.form_details_student input:focus,
+.form_details_student textarea:focus {
+  border-color: var(--gen-color);
+}
+
+.form_details_student .email input {
+  text-align: end;
+}
+/* End Add Form Students  */
+
 /* Responsive */
 @media (max-width: 991px) {
   .app .main {
     margin: 0 100px 0 10px;
+  }
+  .add_img_profile {
+    width: 120px;
+    height: 120px;
+  }
+
+  .add_img_profile .input_profile_img {
+    width: 120px;
+    height: 120px;
+    border: 3px solid;
+  }
+
+  /* Add Form Students Responsive  */
+  .form_details_student .build_boxes {
+    margin: 1rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -154,6 +270,25 @@
     margin: 1rem 8px;
     padding: 1rem 10px;
   }
+  .add_img_profile {
+    width: 110px;
+    height: 110px;
+  }
+
+  .add_img_profile .input_profile_img {
+    width: 110px;
+    height: 110px;
+    border: 3px solid;
+  }
+  /* Add Form Students Responsive  */
+  .form_details_student .build_boxes {
+    margin: 1rem 0;
+  }
+}
+@media (max-width: 695px) {
+  .form_details_student > .build_boxes.build_boxes_three_boxes {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media (max-width: 480px) {
@@ -163,6 +298,21 @@
   .tab_header_display {
     margin: 10px 4px;
     padding: 10px 5px;
+  }
+  .add_img_profile {
+    width: 100px;
+    height: 100px;
+  }
+
+  .add_img_profile .input_profile_img {
+    width: 100px;
+    height: 100px;
+    border: 3px solid;
+  }
+  /* Add Form Students Responsive  */
+  .form_details_student .build_boxes {
+    grid-template-columns: 1fr;
+    grid-row-gap: 1.2rem;
   }
 }
 @media (max-width: 375px) {

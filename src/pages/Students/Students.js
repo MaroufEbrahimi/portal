@@ -24,7 +24,7 @@ const Students = () => {
   const [departments, setDepartments] = useState([])
   const [searchKeyword, setSearchKeyword] = useState("")
   const [page, setPage] = useState()
-  const [requestParams, setRequestParams] = useState('');
+  const [requestParams, setRequestParams] = useState("")
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
@@ -39,12 +39,17 @@ const Students = () => {
         setFields(data.content)
       })
 
-    fetch(APIEndpoints.root + APIEndpoints.students.getAll + `offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + authentication.token,
-      },
-    })
+    fetch(
+      APIEndpoints.root +
+        APIEndpoints.students.getAll +
+        `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + authentication.token,
+        },
+      }
+    )
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -74,12 +79,18 @@ const Students = () => {
             pageSize: pagination.pageSize,
           })
 
-          fetch(APIEndpoints.root + APIEndpoints.students.getAll + `offset=${pagination.offset}&pageSize=${pagination.pageSize}` + requestParams, {
-            method: "GET",
-            headers: {
-              Authorization: "Bearer " + authentication.token,
-            },
-          })
+          fetch(
+            APIEndpoints.root +
+              APIEndpoints.students.getAll +
+              `offset=${pagination.offset}&pageSize=${pagination.pageSize}` +
+              requestParams,
+            {
+              method: "GET",
+              headers: {
+                Authorization: "Bearer " + authentication.token,
+              },
+            }
+          )
             .then((res) => {
               if (res.ok) {
                 return res.json()
@@ -127,10 +138,10 @@ const Students = () => {
   }
 
   const handleSearchButton = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     resetAllStates()
 
-    let url = '';
+    let url = ""
     if (searchKeyword) {
       url += "&keyword=" + (searchKeyword == "همه" ? "%" : searchKeyword)
     }
@@ -144,14 +155,20 @@ const Students = () => {
       url += "&department=" + (department == "همه" ? "%" : department)
     }
     setRequestParams(url)
-    fetch(APIEndpoints.root + APIEndpoints.students.getAll + `offset=0&pageSize=${pagination.pageSize}` + url, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + authentication.token,
-      },
-    })
-      .then(res => res.json())
-      .then(data => {
+    fetch(
+      APIEndpoints.root +
+        APIEndpoints.students.getAll +
+        `offset=0&pageSize=${pagination.pageSize}` +
+        url,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + authentication.token,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data)
         setStudents(data.content)
         setPage(data)
@@ -183,25 +200,6 @@ const Students = () => {
       <div className="students_filter_btn display_flex align_items_center justify_content_center">
         <div className="posts_management_boxes">
           <div className="post_mana_box">
-            <label>سمستر</label>
-            <select
-              id="type"
-              value={semester}
-              defaultValue={"همه"}
-              onChange={(e) => setsemester(e.target.value)}
-            >
-              <option>همه</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-            </select>
-          </div>
-          <div className="post_mana_box">
             <label>پوهنحی</label>
             <select
               id="type"
@@ -229,6 +227,25 @@ const Students = () => {
               })}
             </select>
           </div>
+          <div className="post_mana_box">
+            <label>سمستر</label>
+            <select
+              id="type"
+              value={semester}
+              defaultValue={"همه"}
+              onChange={(e) => setsemester(e.target.value)}
+            >
+              <option>همه</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
         </div>
         <Search
           value={searchKeyword}
@@ -252,9 +269,7 @@ const Students = () => {
           }
           return <Student key={student.id} studentInfo={student} />
         })}
-        <section
-          style={{ position: "relative", height: "60px", width: "100%" }}
-        >
+        <section className="students_not_found">
           {hasMore && <Spinner />}
           {!hasMore && students.length > 0 && (
             <h5 style={{ textAlign: "center" }}>آخرین محصل</h5>

@@ -13,12 +13,14 @@
 .post_description .editorContainer {
   height: 200px;
   width: 100%;
+  border-radius: 10px;
 }
 
 .post_description .editorContainer .editor {
   height: 100%;
   border: none;
   font-size: 16px;
+  border-radius: 10px;
 }
 
 /* file handler */
@@ -76,9 +78,10 @@
   width: 100%;
   padding: 10px;
   font-size: 14px;
-  color: #555;
-  border: 1px solid #e0dcdc;
+  color: var(--text-color);
+  border: 1px solid var(--gen-bg-color);
   border-left-color: var(--gen-color);
+  background-color: var(--input-box-color);
   border-left-width: 3px;
   border-radius: 8px;
   outline: none;

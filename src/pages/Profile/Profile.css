@@ -1,31 +1,44 @@
+/* Profile style */
 .profile {
   margin: 0 40px;
 }
 
+/* Profile Title */
 .profile_title {
-  position: relative;
+  flex: 1.2;
   width: 100%;
-  height: 180px;
-  background: linear-gradient(
-    to top,
-    rgba(86, 189, 236, 0.5),
-    rgba(55, 181, 171, 0.2)
-  );
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  height: 500px;
+  background-color: var(--gen-bg-color);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-/* Logout & Change Password */
+/* User profile img */
+.user_profile_img img {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  object-fit: cover;
+  background: #67b0d1;
+}
+.user_profile_img h1 {
+  color: var(--text-color);
+  font-size: 25px;
+  font-weight: 700;
+  font-family: vazir_l;
+  line-height: 40px;
+  padding-top: 1rem;
+  word-spacing: 0.02em;
+  text-align: center;
+}
+/* End of User profile img */
+
+/* Profile Buttons */
 .profile_title .logout_changePass {
-  position: absolute;
-  left: 2%;
-  top: 20px;
-  z-index: 1;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 6px;
+  padding-top: 1.4rem;
 }
-
 .profile_title .logout_changePass button {
   background-color: transparent;
   border: 1px solid var(--gen-color);
@@ -37,212 +50,97 @@
   font-size: 14px;
   display: flex;
 }
-
 .profile_title .logout_changePass button i {
   padding-right: 6px;
 }
-/* Logout Modal */
-.profile_title .logout > i {
-  color: var(--gen-color);
-  font-size: 60px;
-}
+/* End of Profile Buttons */
 
-.profile_title .logout > p {
-  font-size: 15px;
-  color: var(--text-color);
+/* Profile Personal Info */
+.profile_details {
+  flex: 2;
+  background-color: var(--input-box-color);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
-
-.profile_title .logout .logout_buttons {
-  background-color: var(--gen-bg-color);
-  padding: 15px 0px;
-  margin: 0 20px;
-  border-radius: 10px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.profile_title .logout .logout_buttons button {
-  padding: 2px 30px;
-}
-
-/* User profile img */
-.user_profile_img {
-  position: absolute;
-  bottom: -25px;
-  right: 4%;
-  z-index: 1;
-}
-
-.user_profile_img img {
-  border: 3px solid var(--gen-color-hover);
-  border-right-color: rgb(157, 255, 0);
-  border-bottom-color: rgb(157, 255, 0);
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  object-fit: cover;
-  object-position: top;
-  background: #67b0d1;
-}
-
-.user_profile_img img:hover {
-  border-right-color: var(--gen-color-hover);
-  border-bottom-color: var(--gen-color-hover);
-  border-top-color: rgb(157, 255, 0);
-  border-left-color: rgb(157, 255, 0);
-}
-
-.user_profile_img h1 {
-  color: var(--text-color);
-  font-size: 25px;
-  font-weight: 700;
-  font-family: vazir_l;
-  margin: 0 15px 0px 0;
-  line-height: 26px;
-  text-shadow: 1px 1px 1px #2f4d5a;
-  word-spacing: 0.02em;
-  text-align: center;
-}
-
-/* user content */
-.content_of_profile {
+.profile_details .content_of_profile {
   margin: 20px 0px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 var(--gen-bg-color);
   padding: 30px;
 }
-
-.content_of_profile .content {
-  display: none;
-}
-
-.content_of_profile .active_content {
-  display: block;
-}
-
-.content_of_profile .content_boxes {
-  grid-template-columns: repeat(3, 1fr);
+.profile_details .content_of_profile .content_boxes {
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 0.5rem;
   grid-row-gap: 1rem;
 }
-
-.content_of_profile .content_box label {
+.profile_details .content_of_profile .profile_full_box {
+  grid-column: 1/3;
+}
+.profile_details .content_of_profile .content_box label {
   display: block;
   color: var(--text-color);
   font-weight: 500;
   padding: 0 10px 10px 0;
   font-size: 15px;
 }
-
-.content_of_profile .content_box p {
+.profile_details .content_of_profile .content_box p {
   width: 100%;
-  padding: 10px 15px;
-  font-size: 18px;
-  color: var(--text-color);
-  background: var(--gen-bg-color);
+  padding: 4px 15px;
+  font-size: 16px;
+  background: #e6f7fff3;
   outline: none;
-  border-radius: 8px;
   word-break: break-word;
+  border-radius: 4px;
+  color: black;
 }
+/* End of Profile Personal Info */
 
 /* Responsive */
 @media (max-width: 991px) {
-  .content_of_profile .content_boxes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .profile_title .logout > i {
-    font-size: 55px;
-  }
-
-  .profile_title .logout .logout_buttons {
-    margin: 0 6px;
-    margin-top: 20px;
-  }
-
-  .profile_title .logout .logout_buttons button {
-    padding: 2px 25px;
-    text-align: center;
+  .profile {
+    margin: 0 5px;
   }
 }
+
 @media (max-width: 768px) {
   .profile {
-    margin: 0 10px;
+    flex-direction: column;
   }
-  .user_profile_img {
-    bottom: -25px;
-    right: 3%;
+  .profile_title {
+    padding: 1rem 0 2rem 0;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
-
-  .user_profile_img img {
-    width: 90px;
-    height: 90px;
-  }
-
-  .user_profile_img h1 {
-    font-size: 22px;
-  }
-
-  .content_of_profile .content_boxes {
-    grid-template-columns: repeat(1, 1fr);
+  .profile_details {
+    flex: 0;
+    background-color: var(--input-box-color);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
   }
 }
-@media (max-width: 480px) {
-  .profile_title {
-    height: 210px;
-  }
-  .profile_title .logout_changePass {
-    top: 10px;
-    gap: 5px;
-  }
-
-  .profile_title .logout_changePass button {
-    padding: 4px 10px;
-    font-size: 13.5px;
-  }
-
-  .user_profile_img {
-    bottom: 6px;
-    right: 2%;
-  }
-
+@media (max-width: 530px) {
   .user_profile_img img {
-    width: 80px;
-    height: 80px;
-    border-width: 2px;
+    width: 110px;
+    height: 110px;
   }
-
   .user_profile_img h1 {
-    font-size: 19px;
+    font-size: 23px;
+    line-height: 30px;
   }
-
-  .profile_title .logout > i {
-    font-size: 50px;
+  .profile_details .content_of_profile .content_boxes {
+    grid-template-columns: repeat(1, 1fr);
   }
-  .profile_title .logout_changePass button i {
-    padding-right: 2px;
+  .profile_details .content_of_profile .profile_full_box {
+    grid-column: 1;
   }
 }
 @media (max-width: 375px) {
-  .profile {
-    margin: 0 0px;
-  }
   .user_profile_img img {
-    width: 65px;
-    height: 65px;
-    border-width: 1px;
+    width: 100px;
+    height: 100px;
   }
   .user_profile_img h1 {
-    color: var(--text-color);
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 24px;
-    word-spacing: 0em;
-  }
-  .profile_title .logout_changePass button {
-    padding: 4px 8px;
-    font-size: 13.5px;
+    font-size: 20px;
+    line-height: 20px;
   }
 }

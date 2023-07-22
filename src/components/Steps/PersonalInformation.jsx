@@ -177,8 +177,8 @@ export const PersonalInformation = () => {
         console.log(f)
         fetch(
           "http://localhost:1000/api/v1/field-of-studies/" +
-          f.id +
-          "/departments"
+            f.id +
+            "/departments"
         )
           .then((res) => {
             if (res.ok) {
@@ -228,26 +228,28 @@ export const PersonalInformation = () => {
 
   return (
     <div className="form_details_student personal_info right-to-left">
-      <form>
-        <div className="add_img_profile full_width">
-          <img
-            src={profileImg.isOk ? profileImg.imgUrl : avatar}
-            className="input_profile_img"
-            alt="user_image"
-          />
-          <span className="upload_icon display_flex align_items_center justify_content_center cursor_pointer">
-            <i className="bi bi-camera"></i>
-          </span>
-          <input
-            type={"file"}
-            accept="image/*"
-            id="input"
-            onChange={(e) => setProfileImgInput(e)}
-          />
-        </div>
-
+      <div className="add_img_profile">
+        <img
+          src={profileImg.isOk ? profileImg.imgUrl : avatar}
+          className="input_profile_img"
+          alt="user_image"
+        />
+        <span className="upload_icon display_flex align_items_center justify_content_center cursor_pointer">
+          <i className="bi bi-camera"></i>
+        </span>
+        <input
+          type={"file"}
+          accept="image/*"
+          id="input"
+          onChange={(e) => setProfileImgInput(e)}
+        />
+      </div>
+      <div className="add_student_stepper_title">
+        <h3>مـعـلـومـات شـخصـی</h3>
+      </div>
+      <section className="personal_info build_boxes">
         <div className="build_box">
-          <label>نام</label>
+          <label>نــام</label>
           <input
             type="text"
             value={studentPersonalInfo?.name}
@@ -257,7 +259,7 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>تخلص</label>
+          <label>تــخلــص</label>
           <input
             type="text"
             value={studentPersonalInfo?.lastName}
@@ -267,7 +269,7 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>نام پدر</label>
+          <label>نــام پــدر</label>
           <input
             type="text"
             value={studentPersonalInfo?.fatherName}
@@ -277,7 +279,7 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>نام پدرکلان</label>
+          <label>نــام پــدرکــلان</label>
           <input
             type="text"
             value={studentPersonalInfo?.grandFatherName}
@@ -287,7 +289,7 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>شماره تماس</label>
+          <label>شــمــاره تــمــاس</label>
           <input
             type="tel"
             id="phone"
@@ -300,7 +302,7 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box email">
-          <label>ایمیل</label>
+          <label>ایــمـیـل</label>
           <input
             type="email"
             value={studentPersonalInfo?.email}
@@ -312,7 +314,7 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>سال تولد</label>
+          <label>ســال تــولــد</label>
           <input
             type="date"
             value={studentPersonalInfo?.dob}
@@ -323,52 +325,52 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>زبان مادری</label>
+          <label>زبـان مــادری</label>
           <select
             id="type"
             value={studentPersonalInfo?.motherTongue}
             onChange={(e) => handleInputChangeValue(e, "motherTongue")}
           >
             <option disabled selected>
-              زبان مادری
+              زبـان مــادری
             </option>
             <option>دری</option>
-            <option>پشتو</option>
+            <option>پـشـتو</option>
           </select>
         </div>
 
         <div className="build_box">
-          <label>جنسیت</label>
+          <label>جـنسیت</label>
           <select
             id="type"
             value={studentPersonalInfo?.gender}
             onChange={(e) => handleInputChangeValue(e, "gender")}
           >
             <option disabled selected>
-              جنسیت
+              جـنسیت
             </option>
-            <option>مرد</option>
+            <option>مـرد</option>
             <option>زن</option>
           </select>
         </div>
 
         <div className="build_box">
-          <label>حالت مدنی</label>
+          <label>حـالـت مـدنـی</label>
           <select
             id="type"
             value={studentPersonalInfo?.maritalStatus}
             onChange={(e) => handleInputChangeValue(e, "maritalStatus")}
           >
             <option disabled selected>
-              حالت مدنی
+              حـالـت مـدنـی
             </option>
-            <option>مجرد</option>
-            <option>متاهل</option>
+            <option>مـجرد</option>
+            <option>متـاهل</option>
           </select>
         </div>
 
         <div className="build_box">
-          <label>مکتب / دارالعلوم</label>
+          <label>مکـتب / دارالـعـلوم</label>
           <input
             type="text"
             value={studentPersonalInfo?.highSchool}
@@ -378,7 +380,7 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>سال فراغت</label>
+          <label>سـال فـراغـت</label>
           <input
             type="date"
             value={studentPersonalInfo?.schoolGraduationDate}
@@ -389,14 +391,14 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>رشته تحصیلی</label>
+          <label>رشـتـه تحـصیـلی</label>
           <select
             id="type"
             value={studentPersonalInfo?.fieldOfStudy}
             onChange={(e) => handleInputChangeValue(e, "fieldOfStudy")}
           >
             <option disabled selected>
-              رشته تحصیلی
+              رشـتـه تحـصیـلی
             </option>
             {fields.map((item) => {
               return <option key={item.id}>{item.fieldName}</option>
@@ -405,29 +407,30 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>دیپارتمنت</label>
+          <label>دیـپـارتـمـنت</label>
           <select
             id="type"
             value={studentPersonalInfo?.department}
             onChange={(e) => handleInputChangeValue(e, "department")}
           >
             <option selected disabled>
-              دیپارتمنت
+              دیـپـارتـمـنت
             </option>
             {departments.map((item) => {
               return <option key={item.id}>{item.departmentName}</option>
             })}
           </select>
         </div>
+
         <div className="post_box">
-          <label>سمستر</label>
+          <label>سـمسـتر</label>
           <select
             id="type"
             value={studentPersonalInfo?.semester}
             onChange={(e) => handleInputChangeValue(e, "semester")}
           >
             <option selected disabled>
-              سمستر
+              سـمسـتر
             </option>
             <option>1</option>
             <option>2</option>
@@ -439,8 +442,9 @@ export const PersonalInformation = () => {
             <option>8</option>
           </select>
         </div>
+
         <div className="build_box">
-          <label>رمز حساب کاربری</label>
+          <label>رمـز حسـاب کـاربـری</label>
           <input
             type=""
             value={studentPersonalInfo?.password}
@@ -448,7 +452,7 @@ export const PersonalInformation = () => {
             required
           />
         </div>
-      </form>
+      </section>
     </div>
   )
 }

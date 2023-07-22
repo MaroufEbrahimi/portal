@@ -30,6 +30,7 @@
   --icon-faculties-color: #fff;
   --btn-bg-color: #6dc7f1f3;
   --show-color: #22222283;
+  --input-box-color: #fff;
 }
 
 .theme-dark {
@@ -39,7 +40,9 @@
   --gen-main-bg: #222;
   --text-color: #f5f5f5;
   --show-color: #dddddd83;
-  --icon-faculties-color: saturate(450%) contrast(410%) brightness(150%) invert(120%) sepia(420%) hue-rotate(120deg);
+  --icon-faculties-color: saturate(450%) contrast(410%) brightness(150%)
+    invert(120%) sepia(420%) hue-rotate(120deg);
+  --input-box-color: #3d3d3d;
 }
 
 /* End of Dark or Light Themes */
@@ -59,16 +62,25 @@
 }
 
 /* style for light | dark of react-quill */
+.ql-container {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
 .ql-container .ql-editor {
   text-align: right !important;
+  font-size: 16px;
 }
-
+.ql-toolbar {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
 .ql-toolbar .ql-picker-label {
   color: var(--text-color);
 }
 .ql-toolbar button svg {
   filter: var(--icon-faculties-color);
 }
+/* style for light | dark of react-quill */
 
 body {
   direction: rtl;
@@ -228,29 +240,6 @@ img {
   border-bottom-left-radius: 10px;
 }
 
-.add_img_profile {
-  position: relative;
-  margin-right: 10px;
-  overflow: hidden;
-  border-radius: 50%;
-  width: 130px;
-  height: 130px;
-  margin-bottom: 10px;
-}
-
-.add_img_profile .input_profile_img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid;
-  border-right-color: var(--gen-color);
-  border-left-color: var(--gen-color);
-  border-top-color: #da892c;
-  border-bottom-color: #da892c;
-  object-position: top;
-}
-
 /* Animations */
 .fade_in {
   animation-name: fade-in;
@@ -281,7 +270,6 @@ img {
 }
 
 @media (max-width: 768px) {
-
   .bottom-to-top,
   .right-to-left,
   .left-to-right {
