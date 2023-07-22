@@ -1,0 +1,76 @@
+/* Student */
+.student {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 var(--gen-bg-color);
+  border-radius: 8px;
+}
+
+/* Student title */
+.student_title_profile {
+  position: relative;
+}
+.student_profile_header {
+  width: 100%;
+  height: 70px;
+  background-image: linear-gradient(
+    to top,
+    var(--gen-bg-color),
+    var(--gen-color)
+  );
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+/* Student img */
+.student_profile_img img {
+  position: absolute;
+  top: 30px;
+  border: 3px solid white;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Student Descriptions */
+.student_personal_info {
+  margin-top: 30px;
+}
+
+.student_personal_info p {
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: bold;
+  margin: 2px 0;
+}
+
+.student_personal_info p:last-child {
+  line-height: 1.3em;
+  font-weight: normal;
+  color: var(--text-color);
+}
+
+.student_university_info {
+  background: var(--gen-bg-color);
+  margin: 10px;
+}
+
+.student_university_info p {
+  font-size: 15px;
+  line-height: 1.3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.student_university_info p span:first-child {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.student_university_info button {
+  border: none;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
