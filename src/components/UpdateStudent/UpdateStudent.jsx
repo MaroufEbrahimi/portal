@@ -6,7 +6,6 @@ import { useStateValue } from "../../context/StateProvider"
 import useProtect from "../../Hooks/useProtect"
 import APIEndpoints from "../../constants/APIEndpoints"
 import Roles from "../../constants/Roles"
-import { getTranslation } from "../../constants/KeyValue"
 import { PersonalInformation } from "../Steps/PersonalInformation"
 import { StudentHabitation } from "../Steps/StudentHabitation"
 import { actionTypes } from "../../context/reducer"
@@ -61,20 +60,230 @@ const UpdateStudent = () => {
       })
   }, [id])
 
-  if (student?.studentPersonalInfo) {
-    Object.keys(student.studentPersonalInfo).forEach(key => {
-      let t = getTranslation("studentPersonalInfo", key)
-      console.log(key, t)
-    })
-  }
-  function handleInputChangeValue() {
 
+  const handleInputChangeValue = (e, inputName) => {
+    switch (inputName) {
+      case "father.name": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            father: {
+              ...globalState.studentRelations?.father,
+              name: e.target.value,
+              relationship: "پدر"
+            }
+          }
+        })
+        break;
+      }
+      case "father.job": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            father: {
+              ...globalState.studentRelations?.father,
+              job: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "father.jobLocation": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            father: {
+              ...globalState.studentRelations?.father,
+              jobLocation: e.target.value
+            }
+          }
+        })
+        break;
+      }
+
+      case "father.phoneNumber": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            father: {
+              ...globalState.studentRelations?.father,
+              phoneNumber: e.target.value
+            }
+
+          }
+        })
+        break;
+      }
+      case "uncle.name": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            uncle: {
+              ...globalState.studentRelations?.uncle,
+              name: e.target.value,
+              relationship: "کاکا"
+            }
+          }
+        })
+        break;
+      }
+      case "uncle.job": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            uncle: {
+              ...globalState.studentRelations?.uncle,
+              job: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "uncle.jobLocation": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            uncle: {
+              ...globalState.studentRelations?.uncle,
+              jobLocation: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "uncle.phoneNumber": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            uncle: {
+              ...globalState.studentRelations?.uncle,
+              phoneNumber: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "aunt.name": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            aunt: {
+              ...globalState.studentRelations?.aunt,
+              name: e.target.value,
+              relationship: "ماما"
+            }
+          }
+        })
+        break;
+      }
+      case "aunt.job": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            aunt: {
+              ...globalState.studentRelations?.aunt,
+              job: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "aunt.jobLocation": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            aunt: {
+              ...globalState.studentRelations?.aunt,
+              jobLocation: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "aunt.phoneNumber": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            aunt: {
+              ...globalState.studentRelations?.aunt,
+              phoneNumber: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "brother.name": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            brother: {
+              ...globalState.studentRelations?.brother,
+              name: e.target.value,
+              relationship: "برادر"
+            }
+          }
+        })
+        break;
+      }
+      case "brother.job": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            brother: {
+              ...globalState.studentRelations?.brother,
+              job: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "brother.jobLocation": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            brother: {
+              ...globalState.studentRelations?.brother,
+              jobLocation: e.target.value
+            }
+          }
+        })
+        break;
+      }
+      case "brother.phoneNumber": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_RELATIONS,
+          payload: {
+            ...globalState.studentRelations,
+            brother: {
+              ...globalState.studentRelations?.brother,
+              phoneNumber: e.target.value
+            }
+          }
+        })
+        break;
+      }
+    }
   }
   console.log(student)
   return (
     <div className="pdateStudent">
       <div className="update_detail">
-        <h1>update this profile</h1>
+        <h1>بروزرسانی اطلاعات محصل</h1>
         {/* Personal Information */}
 
         <div className="form_details_student personal_info right-to-left">
