@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
 import { actionTypes } from "../../context/reducer"
+import APIEndpoints from "../../constants/APIEndpoints"
 const components = [
   PersonalInformation,
   StudentHabitation,
@@ -70,7 +71,7 @@ const AddStudent = () => {
       setApiResponse({ isFinished: false, message: "لطفا عکس محصل را وارد نمائید!" })
       return
     }
-    fetch("http://localhost:1000/api/v1/students", {
+    fetch(APIEndpoints.root + APIEndpoints.students.addStudent, {
       method: "POST",
       headers: {
         Authorization: "Bearer " + globalState.authentication.token,

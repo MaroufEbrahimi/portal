@@ -2,39 +2,46 @@ import React, { useState } from "react"
 import "./UpdateStudentPage.css"
 import ModalDelete from "../../components/UI/ModalDelete/ModalDelete"
 import UpdateStudent from "../../components/UpdateStudent/UpdateStudent"
+import BackDrop from "../../components/UI/BackDrop/BackDrop"
+import MessageBox from "../../components/MessageBox/MessageBox"
+import ICONS from "../../constants/Icons"
+import { useNavigate } from "react-router-dom"
 
-const UpdateStudentPage = (props) => {
+
+const UpdateStudentPage = () => {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false)
+  const [apiResponse, setapiResponse] = useState({})
   const showModalHandler = () => {
     setShowModal(true)
   }
   const modalCloseHandler = () => {
     setShowModal(false)
   }
+  console.log(apiResponse)
   return (
     <div className="delete_student fade_in">
-      <div className="delete_lock_buttons display_flex align_items_center justify_content_space_between">
-        <button className="btn" onClick={showModalHandler}>
-          حذف کردن
-        </button>
-        <button className="btn">قفل کردن</button>
-        <ModalDelete show={showModal} modalClose={modalCloseHandler}>
-          <div className="delete_cancel_modal">
-            <i className="bi bi-exclamation-diamond"></i>
-            <h3>مطمین هستید؟</h3>
-            <p>بصورت دایمی حذف خواهد شد</p>
-            <div className="del_cancel_btn display_flex align_items_center justify_content_space_around">
-              <button className="btn delete_btn">بـلـی</button>
-              <button className="btn" onClick={modalCloseHandler}>
-                نـخـیـر
-              </button>
-            </div>
-          </div>
-        </ModalDelete>
-      </div>
+
 
       {/* info */}
-      <UpdateStudent />
+      <UpdateStudent
+        setApiResponse={setapiResponse}
+      />
+
+      <BackDrop show={apiResponse.show}>
+        {
+          <MessageBox
+            messageType="info"
+            firstBtn={{
+              btnText: "تایید",
+              onClick: () => navigate("/students"),
+            }}
+            message={apiResponse.message}
+            iconType={ICONS.info}
+          />
+        }
+      </BackDrop>
+
     </div>
   )
 }

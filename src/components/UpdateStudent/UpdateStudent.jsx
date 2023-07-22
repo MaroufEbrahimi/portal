@@ -12,12 +12,11 @@ import { actionTypes } from "../../context/reducer"
 import Button from "../UI/Button/Button"
 
 
-const UpdateStudent = () => {
+const UpdateStudent = ({ setApiResponse }) => {
   useProtect({ roles: [Roles.ADMIN] })
   const { id } = useParams()
   const [student, setStudent] = useState({});
   const [globalState, dispatch] = useStateValue();
-  const [apiResponse, setApiResponse] = useState({})
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.students.getStudent(id), {
@@ -84,6 +83,7 @@ const UpdateStudent = () => {
 
 
   const sendInformationToAPI = () => {
+    console.log(globalState)
     const relations = []
     for (let r in globalState.studentRelations) {
       relations.push(globalState.studentRelations[r])
@@ -94,11 +94,7 @@ const UpdateStudent = () => {
       locations: globalState.studentLocations,
       identification: globalState.studentIdenfication,
     }
-    if (!globalState?.studentImage?.file) {
-      setApiResponse({ isFinished: false, message: "لطفا عکس محصل را وارد نمائید!" })
-      return
-    }
-    fetch(APIEndpoints.students.updateStudent(id), {
+    fetch(APIEndpoints.root + APIEndpoints.students.updateStudent(id), {
       method: "PUT",
       headers: {
         Authorization: "Bearer " + globalState.authentication.token,
@@ -108,11 +104,10 @@ const UpdateStudent = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data?.statusCode && data.statusCode != 201) {
-          setApiResponse({ ...data, isFinished: false })
-          return
+        if (globalState.studentImage.file) {
+          sendStudentImage(data.imageUrl, globalState.studentImage.file)
         }
-        sendStudentImage(data.imageUrl, globalState.studentImage.file)
+        setApiResponse({ ...data, show: true })
       })
       .catch((error) => setApiResponse(error))
   }
@@ -134,13 +129,12 @@ const UpdateStudent = () => {
           return
         }
         setApiResponse(data)
-        console.log(data)
       })
   }
 
 
   const handleInputChangeValue = (e, inputName) => {
-    console.log(inputName == "کاکا.jobLocation")
+
     switch (inputName) {
       case "پدر.name": {
         dispatch({
@@ -197,7 +191,7 @@ const UpdateStudent = () => {
         })
         break;
       }
-      case "uncle.name": {
+      case "کاکا.name": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {

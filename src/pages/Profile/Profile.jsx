@@ -20,6 +20,8 @@ const Profile = () => {
   const navigate = useNavigate()
 
   const [showModal, setShowModal] = useState(false)
+  const [removeModal, setremoveModal] = useState(false)
+  const [disableModal, setdisableModal] = useState(false)
   const showModalHandler = () => {
     setShowModal(true)
   }
@@ -52,6 +54,14 @@ const Profile = () => {
     })
     navigate("/")
   }
+
+  function removeStudent() {
+
+  }
+
+  function disableStudentAccount() {
+
+  }
   console.log(student)
   return (
     <div className="profile fade_in box_shadow display_flex border_radius_8">
@@ -59,8 +69,8 @@ const Profile = () => {
         <div className="user_profile_img display_flex align_items_center flex_direction_column">
           {(authentication.roles.includes(Roles.ADMIN) &&
             id != authentication?.userId) ||
-          (authentication.roles.includes(Roles.STUDENT) &&
-            id == authentication?.userId) ? (
+            (authentication.roles.includes(Roles.STUDENT) &&
+              id == authentication?.userId) ? (
             <img src={student?.imageUrl} alt="user img" />
           ) : null}
 
@@ -90,6 +100,46 @@ const Profile = () => {
             <i className="bi bi-reply-all-fill"></i>
           </button>
         </div>
+        {authentication.roles.includes(Roles.ADMIN) &&
+          authentication.userId != id && (
+            <div className="delete_lock_buttons display_flex align_items_center justify_content_space_between">
+              <button className="btn" onClick={() => setremoveModal(true)}>
+                حذف کردن
+              </button>
+              <button className="btn" onClick={() => setdisableModal(true)}>
+                {student.isLock ? 'غیرفعال سازی' : 'فعال سازی'}
+              </button>
+              <BackDrop show={disableModal} modalClose={() => setdisableModal(false)}>
+                {
+                  <MessageBox
+                    messageType="asking"
+                    firstBtn={{
+                      btnText: "بلی",
+                      btnType: BtnTypes.danger,
+                      onClick: disableStudentAccount,
+                    }}
+                    secondBtn={{ btnText: "نخیر", onClick: () => setdisableModal(false) }}
+                    message={"برای اجرا شدن این عملیات در سیستم مطمین هستید؟"}
+                    iconType={ICONS.asking}
+                  />
+                }
+              </BackDrop>
+              <BackDrop show={removeModal} modalClose={() => setremoveModal(false)}>
+                {
+                  <MessageBox
+                    messageType="asking"
+                    firstBtn={{
+                      btnText: "بلی",
+                      btnType: BtnTypes.danger,
+                      onClick: removeStudent,
+                    }}
+                    secondBtn={{ btnText: "نخیر", onClick: () => setremoveModal(false) }}
+                    message={"برای اجرا شدن این عملیات در سیستم مطمین هستید؟"}
+                    iconType={ICONS.asking}
+                  />
+                }
+              </BackDrop>
+            </div>)}
         <BackDrop show={showModal} modalClose={modalCloseHandler}>
           {
             <MessageBox
@@ -109,8 +159,8 @@ const Profile = () => {
 
       {(authentication.roles.includes(Roles.ADMIN) &&
         id != authentication?.userId) ||
-      (authentication.roles.includes(Roles.STUDENT) &&
-        id == authentication?.userId) ? (
+        (authentication.roles.includes(Roles.STUDENT) &&
+          id == authentication?.userId) ? (
         <div className="profile_details">
           <div className="content_of_profile border_radius_8">
             <div className="content">
