@@ -1,250 +1,338 @@
 import React from "react"
 import "./UpdateStudent.css"
-import "../Steps/Steps.css"
+import Button from "../UI/Button/Button"
 
 const UpdateStudent = () => {
   return (
-    <div className="pdateStudent">
+    <div className="updateStudent">
       <div className="update_detail">
-        <h1>update this profile</h1>
         {/* Personal Information */}
         <div className="form_details_student personal_info right-to-left">
-          <form>
-            <div className="build_box median_width">
-              <label>نام</label>
+          <div className="add_student_stepper_title">
+            <h3>مـعـلـومـات شـخصـی</h3>
+          </div>
+
+          <section className="build_boxes">
+            <div className="build_box">
+              <label>نــام</label>
               <input type="text" name="username" required />
             </div>
 
             <div className="build_box">
-              <label>تخلص</label>
+              <label>تــخلــص</label>
               <input type="text" name="lastname" required />
             </div>
 
             <div className="build_box">
-              <label>نام پدر</label>
+              <label>نــام پــدر</label>
               <input type="text" name="fathername" required />
             </div>
 
-            <div className="build_box median_width">
-              <label>نام پدرکلان</label>
+            <div className="build_box">
+              <label>نــام پــدرکــلان</label>
               <input type="text" name="grandfathername" required />
             </div>
 
             <div className="build_box">
-              <label>سال تولد</label>
+              <label>شــمــاره تــمــاس</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required
+              />
+            </div>
+
+            <div className="build_box email">
+              <label>ایــمـیـل</label>
+              <input
+                type="email"
+                required
+                placeholder="e.g famous@gmail.com"
+                inputMode="email"
+              />
+            </div>
+
+            <div className="build_box">
+              <label>ســال تــولــد</label>
               <input type="text" name="dateofbirth" required />
             </div>
 
             <div className="build_box">
-              <label>زبان مادری</label>
+              <label>زبـان مــادری</label>
               <select id="type">
-                <option>زبان مادری</option>
+                <option>زبـان مــادری</option>
                 <option>دری</option>
-                <option>پشتو</option>
+                <option>پـشـتو</option>
               </select>
-            </div>
-            <div className="build_box email median_width">
-              <label>ایمیل</label>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="e.g famous@gmail.com"
-              />
             </div>
 
             <div className="build_box">
-              <label>حالت مدنی</label>
-              <select id="type">
-                <option>حالت مدنی</option>
-                <option>مجرد</option>
-                <option>متاهل</option>
+              <label>جـنسیت</label>
+              <select>
+                <option disabled selected>
+                  جـنسیت
+                </option>
+                <option>مـرد</option>
+                <option>زن</option>
               </select>
             </div>
+
             <div className="build_box">
-              <label>شماره تماس</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                required
-              />
+              <label>حـالـت مـدنـی</label>
+              <select id="type">
+                <option disabled selected>
+                  حـالـت مـدنـی
+                </option>
+                <option>مـجرد</option>
+                <option>متـاهل</option>
+              </select>
             </div>
-          </form>
+
+            <div className="build_box">
+              <label>مکـتب / دارالـعـلوم</label>
+              <input type="text" required />
+            </div>
+
+            <div className="build_box">
+              <label>سـال فـراغـت</label>
+              <input type="date" required inputMode="url" />
+            </div>
+
+            <div className="build_box">
+              <label>رشـتـه تحـصیـلی</label>
+              <select id="type">
+                <option disabled selected>
+                  رشـتـه تحـصیـلی
+                </option>
+              </select>
+            </div>
+
+            <div className="build_box">
+              <label>دیـپـارتـمـنت</label>
+              <select id="type">
+                <option selected disabled>
+                  دیـپـارتـمـنت
+                </option>
+              </select>
+            </div>
+
+            <div className="post_box">
+              <label>سـمسـتر</label>
+              <select id="type">
+                <option selected disabled>
+                  سـمسـتر
+                </option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+              </select>
+            </div>
+
+            <div className="build_box">
+              <label>رمـز حسـاب کـاربـری</label>
+              <input type="" required />
+            </div>
+          </section>
         </div>
 
         {/* Student Habitation */}
         <div className="form_details_student student_habitation left-to-right">
-          <form>
-            <div className="full_width">
-              <h3>معلومات تذکره</h3>
-            </div>
+          <div className="add_student_stepper_title">
+            <h3>مـعـلـومـات تـذکـره</h3>
+          </div>
+          <section className="build_boxes">
             <div className="build_box">
-              <label>جلد</label>
-              <input type="text" inputMode="numeric" />
-            </div>
-
-            <div className="build_box">
-              <label>صفحه</label>
-              <input type="text" inputMode="numeric" />
+              <label>جـلـد</label>
+              <input type="number" inputMode="numeric" />
             </div>
 
             <div className="build_box">
-              <label>شماره ثبت</label>
-              <input type="text" inputMode="numeric" />
+              <label>صـفـحـه</label>
+              <input type="number" inputMode="numeric" />
             </div>
 
             <div className="build_box">
-              <label>نمبر عمومی</label>
-              <input type="text" inputMode="numeric" />
+              <label>شـمـاره ثـبـت</label>
+              <input type="number" inputMode="numeric" />
             </div>
 
-            <div className="full_width">
-              <h3>سکونت اصلی</h3>
+            <div className="build_box">
+              <label>نـمـبر عـمـومـی</label>
+              <input type="number" inputMode="numeric" />
             </div>
+          </section>
 
+          <div className="add_student_stepper_title">
+            <h3>سـکـونـت اصـلـی</h3>
+          </div>
+
+          <section className="build_boxes build_boxes_three_boxes">
             <div className="build_box median_width">
-              <label>قریه / گذر</label>
+              <label>قـریـه / گـذر</label>
               <input type="text" required />
             </div>
             <div className="build_box">
-              <label>ولسوالی / ناحیه</label>
+              <label>ولـسـوالـی / ناحیـه</label>
               <input type="text" required />
             </div>
             <div className="build_box">
-              <label>ولایت</label>
+              <label>ولایـت</label>
               <input type="text" required />
             </div>
+          </section>
 
-            <div className="full_width">
-              <h3>سکونت فعلی</h3>
-            </div>
+          <div className="add_student_stepper_title">
+            <h3>سـکـونـت فعلی</h3>
+          </div>
 
-            <div className="build_box median_width">
-              <label>قریه / گذر</label>
+          <section className="build_boxes build_boxes_three_boxes">
+            <div className="build_box">
+              <label>قـریـه / گـذر</label>
               <input type="text" required />
             </div>
             <div className="build_box">
-              <label>ولسوالی / ناحیه</label>
+              <label>ولـسـوالـی / ناحیـه</label>
               <input type="text" required />
             </div>
             <div className="build_box">
-              <label>ولایت</label>
+              <label>ولایـت</label>
               <input type="text" required />
             </div>
-          </form>
+          </section>
         </div>
 
         {/* Student Relatives */}
-        <div className="form_details_student student_relatives left-to-right">
-          <form>
-            <div className="full_width">
-              <h3>پدر محصل</h3>
-            </div>
-            <div className="build_box">
-              <label>نام</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>وظیفه</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>محل وظیفه</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>شماره تماس</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                required
-              />
-            </div>
-
-            <div className="full_width">
-              <h3>کاکای محصل</h3>
-            </div>
-
-            <div className="build_box">
-              <label>نام</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>وظیفه</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>محل وظیفه</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>شماره تماس</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                required
-              />
-            </div>
-
-            <div className="full_width">
-              <h3>مامای محصل</h3>
-            </div>
-            <div className="build_box">
-              <label>نام</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>وظیفه</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>محل وظیفه</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>شماره تماس</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                required
-              />
-            </div>
-
-            <div className="full_width">
-              <h3>برادر محصل / شوهر(خانم ها)</h3>
-            </div>
-            <div className="build_box">
-              <label>نام</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>وظیفه</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>محل وظیفه</label>
-              <input type="text" required />
-            </div>
-            <div className="build_box">
-              <label>شماره تماس</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                required
-              />
-            </div>
-          </form>
+        <div className="add_student_relatives">
+          <h2>اقــارب محـصل</h2>
         </div>
+        <div className="form_details_student student_relatives left-to-right">
+          <div className="add_student_stepper_title">
+            <h3>پـدر محـصل</h3>
+          </div>
+
+          <section className="build_boxes">
+            <div className="build_box">
+              <label>نـام</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>وظیـفـه</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>مـحل وظیـفـه</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>شـمـاره تـمـاس</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required
+              />
+            </div>
+          </section>
+
+          <div className="add_student_stepper_title">
+            <h3>کـاکـای محـصل</h3>
+          </div>
+
+          <section className="build_boxes">
+            <div className="build_box">
+              <label>نـام</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>وظیـفـه</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>مـحل وظیـفـه</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>شـمـاره تـمـاس</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required
+              />
+            </div>
+          </section>
+
+          <div className="add_student_stepper_title">
+            <h3>مـامـای محـصل</h3>
+          </div>
+
+          <section className="build_boxes">
+            <div className="build_box">
+              <label>نـام</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>وظیـفـه</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>مـحل وظیـفـه</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>شـمـاره تـمـاس</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required
+              />
+            </div>
+          </section>
+
+          <div className="add_student_stepper_title">
+            <h3>برادر محصل / شوهر(خانم ها)</h3>
+          </div>
+
+          <section className="build_boxes">
+            <div className="build_box">
+              <label>نـام</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>وظیـفـه</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>مـحل وظیـفـه</label>
+              <input type="text" required />
+            </div>
+            <div className="build_box">
+              <label>شـمـاره تـمـاس</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required
+              />
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div className="update_btn">
+        <Button text={"بروز رسانی اطلاعات"} />
       </div>
     </div>
   )

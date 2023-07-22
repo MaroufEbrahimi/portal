@@ -269,7 +269,7 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>نــــام پــدر</label>
+          <label>نــام پــدر</label>
           <input
             type="text"
             value={studentPersonalInfo?.fatherName}
@@ -279,7 +279,7 @@ export const PersonalInformation = () => {
         </div>
 
         <div className="build_box">
-          <label>نــــام پــدرکــلان</label>
+          <label>نــام پــدرکــلان</label>
           <input
             type="text"
             value={studentPersonalInfo?.grandFatherName}
@@ -421,6 +421,7 @@ export const PersonalInformation = () => {
             })}
           </select>
         </div>
+
         <div className="post_box">
           <label>سـمسـتر</label>
           <select
@@ -441,6 +442,7 @@ export const PersonalInformation = () => {
             <option>8</option>
           </select>
         </div>
+
         <div className="build_box">
           <label>رمـز حسـاب کـاربـری</label>
           <input
