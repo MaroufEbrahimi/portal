@@ -19,8 +19,8 @@ const AddStudent = React.lazy(() => import("./pages/AddStudent/AddStudent"))
 const Profile = React.lazy(() => import("./pages/Profile/Profile"))
 const Login = React.lazy(() => import("./pages/Login/Login"))
 const NewPost = React.lazy(() => import("./pages/NewPost/NewPost"))
-const DeleteStudent = React.lazy(() =>
-  import("./pages/DeleteStudent/DeleteStudent")
+const UpdateStudentPage = React.lazy(() =>
+  import("./pages/UpdateStudentPage/UpdateStudentPage")
 )
 const NotFound = React.lazy(() => import("./pages/NotFound/NotFound"))
 const PostManagement = React.lazy(() =>
@@ -54,7 +54,6 @@ const App = () => {
     setIsDark(!isDark)
   }
 
-
   // added layout for every components and pages
   const Layout = () => {
     return (
@@ -69,7 +68,6 @@ const App = () => {
               <Outlet />
             </Wrapper>
           </main>
-
         </div>
       </Suspense>
     )
@@ -127,7 +125,7 @@ const App = () => {
         },
         {
           path: "/admin/update-student/:id",
-          element: <DeleteStudent />,
+          element: <UpdateStudentPage />,
         },
         {
           path: "/admin/post-management",
