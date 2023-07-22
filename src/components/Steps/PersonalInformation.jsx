@@ -177,8 +177,8 @@ export const PersonalInformation = () => {
         console.log(f)
         fetch(
           "http://localhost:1000/api/v1/field-of-studies/" +
-            f.id +
-            "/departments"
+          f.id +
+          "/departments"
         )
           .then((res) => {
             if (res.ok) {
@@ -335,7 +335,7 @@ export const PersonalInformation = () => {
               زبـان مــادری
             </option>
             <option>دری</option>
-            <option>پـشـتو</option>
+            <option>پشتو</option>
           </select>
         </div>
 
@@ -349,7 +349,7 @@ export const PersonalInformation = () => {
             <option disabled selected>
               جـنسیت
             </option>
-            <option>مـرد</option>
+            <option>مرد</option>
             <option>زن</option>
           </select>
         </div>
@@ -364,8 +364,8 @@ export const PersonalInformation = () => {
             <option disabled selected>
               حـالـت مـدنـی
             </option>
-            <option>مـجرد</option>
-            <option>متـاهل</option>
+            <option>مجرد</option>
+            <option>متاهل</option>
           </select>
         </div>
 
