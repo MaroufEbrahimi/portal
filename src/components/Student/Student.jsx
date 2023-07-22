@@ -4,8 +4,8 @@ import "./Student.css"
 
 const Student = ({ studentInfo, customRef }) => {
   return (
-    <div className="student" ref={customRef}>
-      <Link to={"/profile/" + studentInfo?.id} className="students_details">
+    <div className="student box_shadow" ref={customRef}>
+      <Link to={"/profile/" + studentInfo?.id}>
         <div className="student_title_profile">
           <div className="student_profile_header"></div>
           <div className="student_profile_img display_flex align_items_center justify_content_center">
