@@ -3,7 +3,8 @@ const APIEndpoints = {
     students: {
         getAll: "students/?",
         addStudent: "students",
-        getStudent: (id) => `students/${id}`
+        getStudent: (id) => `students/${id}`,
+        updateStudent: (id) => `students/${id}`
     },
     posts: {
         getAllPostsForStudent: "posts/student",
