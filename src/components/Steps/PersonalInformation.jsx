@@ -4,7 +4,7 @@ import { useStateValue } from "../../context/StateProvider"
 import { actionTypes } from "../../context/reducer"
 import avatar from "../../assets/img/profile_avatar.png"
 
-export const PersonalInformation = () => {
+export const PersonalInformation = ({ updatedMode = false }) => {
   const [{ studentImage, studentPersonalInfo }, dispatch] = useStateValue()
   const [profileImg, setProfileImg] = useState({
     imgUrl: studentImage ? studentImage.url : null,
@@ -31,12 +31,13 @@ export const PersonalInformation = () => {
   // handle input change of profile image
   const setProfileImgInput = (e) => {
     const url = URL.createObjectURL(e.target.files[0])
-    setProfileImg({ imgUrl: url, file: e.target.files[0], isOk: true })
+    setProfileImg({ url: url, file: e.target.files[0], isOk: true })
     dispatch({
       type: actionTypes.ADD_STUDENT_IMAGE,
       payload: {
         file: e.target.files[0],
         url: url,
+        isOk: true
       },
     })
   }
@@ -225,12 +226,12 @@ export const PersonalInformation = () => {
       }
     }
   }
-
+  console.log(studentPersonalInfo)
   return (
     <div className="form_details_student personal_info right-to-left">
       <div className="add_img_profile">
         <img
-          src={profileImg.isOk ? profileImg.imgUrl : avatar}
+          src={studentImage?.isOk ? studentImage.url : avatar}
           className="input_profile_img"
           alt="user_image"
         />

@@ -88,9 +88,9 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                   <span>پوهنــځی‌ها</span>
                   <div style={{ paddingRight: "34px" }}>
                     {activeFaculties ? (
-                      <i className="bi bi-chevron-up btn_toggle"></i>
-                    ) : (
                       <i className="bi bi-chevron-down btn_toggle"></i>
+                    ) : (
+                      <i className="bi bi-chevron-right btn_toggle"></i>
                     )}
                   </div>
                 </li>
@@ -129,9 +129,9 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                   <span>ادمین پنل</span>
                   <div style={{ paddingRight: "40px" }}>
                     {activeAdminPanel ? (
-                      <i className="bi bi-chevron-up btn_toggle"></i>
-                    ) : (
                       <i className="bi bi-chevron-down btn_toggle"></i>
+                    ) : (
+                      <i className="bi bi-chevron-right btn_toggle"></i>
                     )}
                   </div>
                 </li>

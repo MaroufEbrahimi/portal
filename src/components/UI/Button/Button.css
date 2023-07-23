@@ -8,13 +8,14 @@
     border: 1px solid var(--gen-color);
     transition: color 0.5s;
     z-index: 1;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 6px;
     font-weight: 500;
     color: var(--text-color);
     cursor: pointer;
     /* background: var(--btn-bg-color); */
     text-align: center;
+    margin: 2px;
 }
 
 .btn:before {
@@ -55,6 +56,10 @@
 .btn_container {
     position: relative;
     display: inline;
+}
+
+.btn i {
+    margin-left: 4px;
 }
 
 /* End Button */
