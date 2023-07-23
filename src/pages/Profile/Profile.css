@@ -39,7 +39,6 @@
 
 /* Profile Buttons */
 .profile_title .logout_changePass {
-  gap: 6px;
   padding-top: 1.4rem;
 }
 
@@ -111,18 +110,8 @@
 .delete_student .delete_lock_buttons .buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
-.delete_student .delete_lock_buttons .buttons button {
-  border: 1px solid var(--gen-color);
-  padding: 8px 10px;
-  background-color: transparent;
-  color: var(--text-color);
-  border-radius: 4px;
-  font-size: 15px;
-  cursor: pointer;
-}
 
 
 .delete_lock_buttons {

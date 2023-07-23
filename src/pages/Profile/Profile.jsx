@@ -11,6 +11,7 @@ import ICONS from "../../constants/Icons"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import BtnTypes from "../../constants/BtnTypes"
 import APIEndpoints from "../../constants/APIEndpoints"
+import Button from "../../components/UI/Button/Button"
 
 const Profile = () => {
   const { id } = useParams()
@@ -80,35 +81,38 @@ const Profile = () => {
           </h1>
         </div>
         <div className="logout_changePass display_flex align_items_center flex_direction_column">
-          <button>
-            <Link to={"/reset-password/" + id}>
-              <span>تغییر رمز یا ایمیل</span>
-              <i className="bi bi-check2-square"></i>
-            </Link>
-          </button>
+          <Button
+            icon={"bi bi-check2-square"}
+            onClick={() => navigate("/reset-password/" + id)}
+            text={'تغییر رمز یا ایمیل'}
+          />
           {authentication.roles.includes(Roles.ADMIN) &&
             authentication.userId != id && (
-              <button>
-                <Link to={"/admin/update-student/" + id}>
-                  <span>بروزرسانی اطلاعات</span>
-                  <i className="bi bi-arrow-repeat"></i>
-                </Link>
-              </button>
+              <Button
+                icon={ICONS.brush}
+                text={"بروزرسانی اطلاعات"}
+                onClick={() => navigate("/admin/update-student/" + id)}
+              />
             )}
-          <button onClick={showModalHandler}>
-            <span> خروج از حساب کاربری</span>
-            <i className="bi bi-reply-all-fill"></i>
-          </button>
+          <Button
+            icon={"bi bi-reply-all-fill"}
+            text={'خروج از حساب کاربری'}
+            onClick={showModalHandler}
+          />
         </div>
         {authentication.roles.includes(Roles.ADMIN) &&
           authentication.userId != id && (
             <div className="delete_lock_buttons display_flex align_items_center justify_content_space_between">
-              <button className="btn" onClick={() => setremoveModal(true)}>
-                حذف کردن
-              </button>
-              <button className="btn" onClick={() => setdisableModal(true)}>
-                {student.isLock ? 'غیرفعال سازی' : 'فعال سازی'}
-              </button>
+              <Button
+                icon={ICONS.trash}
+                onClick={() => setremoveModal(true)}
+                text={"حذف کردن"}
+              />
+              <Button
+                icon={student.isEnable ? ICONS.lock : ICONS.unlock}
+                onClick={() => setdisableModal(true)}
+                text={student.isEnable ? 'غیرفعال سازی' : 'فعال سازی'}
+              />
               <BackDrop show={disableModal} modalClose={() => setdisableModal(false)}>
                 {
                   <MessageBox
