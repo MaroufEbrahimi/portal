@@ -353,59 +353,62 @@ const UpdateStudent = ({ setApiResponse }) => {
     }
   }
   return (
-    <div className="updateStudent">
-      <div className="update_detail">
-        <h1>بروزرسانی اطلاعات محصل</h1>
-        {/* Personal Information */}
+    <>
+      <div className="updateStudent">
+        <div className="update_detail">
+          <h1>بروزرسانی اطلاعات محصل</h1>
+          {/* Personal Information */}
 
-        <div className="form_details_student personal_info right-to-left">
-          <PersonalInformation />
+          <div className="form_details_student personal_info right-to-left">
+            <PersonalInformation />
+          </div>
+
+          {/* Student Habitation */}
+          <div className="form_details_student student_habitation left-to-right">
+            <StudentHabitation />
+          </div>
+
+          {/* Student Relatives */}
+          {
+            globalState.studentRelations && Object.keys(globalState.studentRelations).map(item => {
+              item = globalState.studentRelations[item]
+              return <div className="form_details_student student_relatives left-to-right">
+                <form>
+                  <div className="full_width">
+                    <h3>{item.relationship}</h3>
+                  </div>
+                  <div className="build_box">
+                    <label>نام</label>
+                    <input type="text" value={item.name} onChange={(e) => handleInputChangeValue(e, item.relationship + ".name")} />
+                  </div>
+                  <div className="build_box">
+                    <label>وظیفه</label>
+                    <input type="text" value={item.job} onChange={(e) => handleInputChangeValue(e, item.relationship + ".job")} />
+                  </div>
+                  <div className="build_box">
+                    <label>محل وظیفه</label>
+                    <input type="text" value={item.jobLocation} onChange={(e) => handleInputChangeValue(e, item.relationship + ".jobLocation")} />
+                  </div>
+                  <div className="build_box">
+                    <label>شماره تماس</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                      required
+                      value={item.phoneNumber} onChange={(e) => handleInputChangeValue(e, item.relationship + ".phoneNumber")}
+                    />
+                  </div>
+                </form>
+              </div>
+            })
+          }
         </div>
 
-        {/* Student Habitation */}
-        <div className="form_details_student student_habitation left-to-right">
-          <StudentHabitation />
-        </div>
-
-        {/* Student Relatives */}
-        {
-          globalState.studentRelations && Object.keys(globalState.studentRelations).map(item => {
-            item = globalState.studentRelations[item]
-            return <div className="form_details_student student_relatives left-to-right">
-              <form>
-                <div className="full_width">
-                  <h3>{item.relationship}</h3>
-                </div>
-                <div className="build_box">
-                  <label>نام</label>
-                  <input type="text" value={item.name} onChange={(e) => handleInputChangeValue(e, item.relationship + ".name")} />
-                </div>
-                <div className="build_box">
-                  <label>وظیفه</label>
-                  <input type="text" value={item.job} onChange={(e) => handleInputChangeValue(e, item.relationship + ".job")} />
-                </div>
-                <div className="build_box">
-                  <label>محل وظیفه</label>
-                  <input type="text" value={item.jobLocation} onChange={(e) => handleInputChangeValue(e, item.relationship + ".jobLocation")} />
-                </div>
-                <div className="build_box">
-                  <label>شماره تماس</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    required
-                    value={item.phoneNumber} onChange={(e) => handleInputChangeValue(e, item.relationship + ".phoneNumber")}
-                  />
-                </div>
-              </form>
-            </div>
-          })
-        }
       </div>
       <Button text={"بروزرسانی اطلاعات"} onClick={sendInformationToAPI} />
-    </div>
+    </>
   )
 }
 

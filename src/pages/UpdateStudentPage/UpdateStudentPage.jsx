@@ -20,7 +20,7 @@ const UpdateStudentPage = () => {
   }
   console.log(apiResponse)
   return (
-    <div className="delete_student fade_in">
+    <div className="update_student_page fade_in ">
 
 
       {/* info */}
