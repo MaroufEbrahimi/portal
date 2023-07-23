@@ -34,7 +34,7 @@ const UpdateStudentPage = () => {
             messageType="info"
             firstBtn={{
               btnText: "تایید",
-              onClick: () => navigate("/students"),
+              onClick: () => navigate("/admin/students"),
             }}
             message={apiResponse.message}
             iconType={ICONS.info}
