@@ -403,7 +403,9 @@ const UpdatePost = () => {
           />
         }
       </BackDrop>
-      <Button text={"بروز رسانی پست"} onClick={sendInformationToAPI} />
+      <div className="updatePost_edit text_align_center">
+        <Button text={"بروز رسانی پست"} onClick={sendInformationToAPI} />
+      </div>
     </div>
   )
 }
