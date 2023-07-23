@@ -32,6 +32,8 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
+  margin: 0 !important;
+  font-size: 16px !important;
 }
 
 .search__button:hover {
@@ -53,20 +55,25 @@
     width: 80vw;
   }
 }
+
 @media (max-width: 375px) {
   .search__input {
     width: 70vw;
   }
+
   .search .search__button {
     padding: 6px 7px;
     gap: 4px;
   }
+
   .search__input input {
     padding: 10px;
   }
+
   .search__button i {
     font-size: 12px;
   }
+
   .search__button span {
     font-size: 12px;
   }
