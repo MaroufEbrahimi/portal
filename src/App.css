@@ -184,19 +184,20 @@
   color: var(--text-color);
   font-weight: normal;
 }
-.form_details_student > .build_boxes {
+.form_details_student .build_boxes {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 0.6rem;
-  grid-row-gap: 2rem;
+  grid-column-gap: 0.1rem;
   margin: 1rem 2rem;
+  margin-bottom: 2rem;
 }
-.form_details_student > .build_boxes.build_boxes_three_boxes {
+.form_details_student .build_boxes.build_boxes_three_boxes {
   grid-template-columns: repeat(3, 1fr);
 }
 
 .form_details_student .build_boxes .build_box {
   width: 100%;
+  grid-row-gap: 4rem;
 }
 .form_details_student label {
   display: block;
@@ -286,7 +287,7 @@
   }
 }
 @media (max-width: 695px) {
-  .form_details_student > .build_boxes.build_boxes_three_boxes {
+  .form_details_student .build_boxes.build_boxes_three_boxes {
     grid-template-columns: repeat(1, 1fr);
   }
 }
