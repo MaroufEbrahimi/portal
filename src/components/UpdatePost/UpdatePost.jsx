@@ -256,7 +256,7 @@ const UpdatePost = () => {
             return (
               <div className="post_file display_flex " key={doc}>
                 <div className="files_icon_container display_flex">
-                  <i className="bi bi-file-earmark-pdf-fill"></i>
+                  <i className={ICONS.fileEarmarkPdfFill}></i>
                   <p className="text_color display_flex align_items_center">
                     {doc.split("/")[doc.split("/").length - 1]}
                   </p>
@@ -268,7 +268,7 @@ const UpdatePost = () => {
                   >
                     <span className="button_download_text">حذف فایل</span>
                     <span className="button_download_icon display_flex align_items_center justify_content_center">
-                      <i className="bi bi-trash"></i>
+                      <i className={ICONS.trash}></i>
                     </span>
                   </button>
                 </div>
@@ -319,7 +319,7 @@ const UpdatePost = () => {
             className="image-upload display_flex align_items_center justify_content_center text_align_center cursor_pointer"
           >
             <i
-              className="bi bi-file-earmark-plus-fill"
+              className={ICONS.fileEarmarkPlusFill}
               title="choose your photo"
             ></i>
             <p>اضافه کردن فایل یا تصویر</p>
@@ -403,7 +403,9 @@ const UpdatePost = () => {
           />
         }
       </BackDrop>
-      <Button text={"بروز رسانی پست"} onClick={sendInformationToAPI} />
+      <div className="updatePost_edit text_align_center">
+        <Button text={"بروز رسانی پست"} onClick={sendInformationToAPI} />
+      </div>
     </div>
   )
 }

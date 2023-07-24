@@ -1,65 +1,62 @@
 /* Button */
 .btn {
-    font-family: inherit;
-    display: inline-block;
-    padding: 5px 15px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--gen-color);
-    transition: color 0.5s;
-    z-index: 1;
-    font-size: 14px;
-    border-radius: 6px;
-    font-weight: 500;
-    color: var(--text-color);
-    cursor: pointer;
-    /* background: var(--btn-bg-color); */
-    text-align: center;
-    margin: 2px;
+  font-family: inherit;
+  display: inline-block;
+  padding: 5px 15px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--gen-color);
+  transition: color 0.5s;
+  z-index: 1;
+  font-size: 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  text-align: center;
+  margin: 2px;
 }
 
 .btn:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    background: var(--gen-color-hover);
-    height: 150px;
-    width: 200px;
-    border-radius: 50%;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--gen-color-hover);
+  height: 150px;
+  width: 300px;
+  border-radius: 50%;
 }
-
 
 .btn:hover {
-    color: #fff;
+  color: #fff;
 }
 
 .btn:before {
-    top: 100%;
-    left: 100%;
-    transition: all 0.3s;
+  top: 100%;
+  left: 100%;
+  transition: all 0.3s;
 }
 
 .btn:hover:before {
-    top: -30px;
-    left: -30px;
+  top: -30px;
+  left: -30px;
 }
 
 .btn:active:before {
-
-    transition: background 0s;
+  transition: background 0s;
 }
 
 .danger:before {
-    background: #ee1818;
+  background: #ee1818;
 }
 
 .btn_container {
-    position: relative;
-    display: inline;
+  position: relative;
+  display: inline;
 }
 
 .btn i {
-    margin-left: 4px;
+  margin-left: 4px;
 }
 
 /* End Button */

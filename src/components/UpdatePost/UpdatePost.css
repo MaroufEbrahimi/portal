@@ -191,7 +191,6 @@
 .btn_download:active {
   border: 1px solid var(--gen-color);
 }
-
 /* End of download button */
 
 .share_post_on {
@@ -205,7 +204,7 @@
 
 .post_boxes {
   margin-top: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(180px, auto));
   grid-gap: 10px;
 }
 
@@ -218,19 +217,21 @@
   width: 100%;
   padding: 10px;
   font-size: 14px;
-  color: #555;
-  border: 1px solid #e0dcdc;
+  color: var(--text-color);
+  border: 1px solid transparent;
   border-left-color: var(--gen-color);
   border-left-width: 3px;
   border-radius: 8px;
   outline: none;
   transition: border 0.3s ease;
+  background-color: var(--input-box-color);
+}
+
+.updatePost_edit {
+  margin-top: 1.8rem;
 }
 
 /* Responsive */
-@media (max-width: 991px) {
-}
-
 @media (max-width: 768px) {
   .update_post {
     margin: 1rem;
@@ -249,5 +250,11 @@
     height: 20px;
     padding: 3px;
     width: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .post_boxes {
+    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
   }
 }

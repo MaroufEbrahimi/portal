@@ -12,7 +12,6 @@ import ICONS from "../../constants/Icons"
 import BtnTypes from "../../constants/BtnTypes"
 import { useNavigate } from "react-router-dom"
 
-
 const PostManagement = () => {
   useProtect({ roles: [Roles.ADMIN] })
   const navigate = useNavigate()
@@ -28,8 +27,8 @@ const PostManagement = () => {
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
   const [requestParams, setRequestParams] = useState(``)
-  const [deleteModal, setDeleteModal] = useState(false);
-  const [postToDelete, setPostToDelete] = useState();
+  const [deleteModal, setDeleteModal] = useState(false)
+  const [postToDelete, setPostToDelete] = useState()
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
   const lastNodeReference = (node) => {
@@ -85,8 +84,7 @@ const PostManagement = () => {
           setHasMore(false)
         }
         const newPosts = [...posts, ...data.content].filter(
-          (obj, index, self) =>
-            index === self.findIndex((o) => o.id === obj.id)
+          (obj, index, self) => index === self.findIndex((o) => o.id === obj.id)
         )
         setPosts(newPosts)
         setLoading(false)
@@ -94,8 +92,8 @@ const PostManagement = () => {
   }, [pagination])
 
   const showDeleteModal = (id) => {
-    setDeleteModal(true);
-    setPostToDelete(id);
+    setDeleteModal(true)
+    setPostToDelete(id)
     console.log(id)
   }
 
@@ -111,8 +109,9 @@ const PostManagement = () => {
       requestParam += `&department=${department == "همه" ? "%" : department}`
     }
     if (feildOfStudy) {
-      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" ? "%" : feildOfStudy
-        }`
+      requestParam += `&fieldOfStudy=${
+        feildOfStudy == "همه" ? "%" : feildOfStudy
+      }`
     }
     setRequestParams(requestParam)
     console.log(requestParam)
@@ -160,26 +159,26 @@ const PostManagement = () => {
       })
   }
 
-
   const handleDelete = () => {
     fetch(APIEndpoints.root + APIEndpoints.posts.deletePost(postToDelete), {
       method: "DELETE",
       headers: {
-        "Authorization": "Bearer " + authentication.token
-      }
+        Authorization: "Bearer " + authentication.token,
+      },
     })
-      .then(res => {
+      .then((res) => {
         setDeleteModal(false)
         console.log(res)
-        if (res.ok) return res.json();
+        if (res.ok) return res.json()
         else throw new Error(res.statusText)
       })
-      .then(data => {
+      .then((data) => {
         console.log(data)
         setCompleteMsg({ msg: data.message, show: true })
-        const newList = posts.filter(item => item.id != postToDelete)
+        const newList = posts.filter((item) => item.id != postToDelete)
         setPosts(newList)
-      }).catch(error => {
+      })
+      .catch((error) => {
         console.log(error)
         setCompleteMsg({ msg: error.message, show: true })
       })
@@ -189,25 +188,6 @@ const PostManagement = () => {
     <div className="posts_management">
       <div className="posts_management_tabHeader">
         <div className="posts_management_boxes">
-          <div className="post_mana_box">
-            <label>سمستر</label>
-            <select
-              id="type"
-              value={semester}
-              onChange={(e) => setsemester(e.target.value)}
-              defaultValue="همه"
-            >
-              <option>همه</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-            </select>
-          </div>
           <div className="post_mana_box">
             <label>پوهنحی</label>
             <select
@@ -236,6 +216,25 @@ const PostManagement = () => {
               })}
             </select>
           </div>
+          <div className="post_mana_box">
+            <label>سمستر</label>
+            <select
+              id="type"
+              value={semester}
+              onChange={(e) => setsemester(e.target.value)}
+              defaultValue="همه"
+            >
+              <option>همه</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
         </div>
         <div className="posts_management_filter_btn">
           <button className="btn" onClick={handleFilterButton}>
@@ -250,6 +249,25 @@ const PostManagement = () => {
             {Array.from(new Set(posts)).map((item, index) => {
               if (posts.length === index + 1) {
                 return (
+                  <div className="">
+                    <Post
+                      key={item.id}
+                      role={Roles.ADMIN}
+                      author={item.author}
+                      date={item.dateTime}
+                      images={item.images}
+                      id={item.id}
+                      docs={item.docs}
+                      text={item.message}
+                      isUpdated={item.isUpdated}
+                      handleDelete={() => showDeleteModal(item.id)}
+                      customRef={lastNodeReference}
+                    />
+                  </div>
+                )
+              }
+              return (
+                <div className="">
                   <Post
                     key={item.id}
                     role={Roles.ADMIN}
@@ -258,27 +276,12 @@ const PostManagement = () => {
                     images={item.images}
                     id={item.id}
                     docs={item.docs}
-                    text={item.message}
+                    isHidden={item.isHidden}
                     isUpdated={item.isUpdated}
+                    text={item.message}
                     handleDelete={() => showDeleteModal(item.id)}
-                    customRef={lastNodeReference}
                   />
-                )
-              }
-              return (
-                <Post
-                  key={item.id}
-                  role={Roles.ADMIN}
-                  author={item.author}
-                  date={item.dateTime}
-                  images={item.images}
-                  id={item.id}
-                  docs={item.docs}
-                  isHidden={item.isHidden}
-                  isUpdated={item.isUpdated}
-                  text={item.message}
-                  handleDelete={() => showDeleteModal(item.id)}
-                />
+                </div>
               )
             })}
           </div>
@@ -293,21 +296,35 @@ const PostManagement = () => {
         </div>
       </div>
       <BackDrop show={deleteModal}>
-        {<MessageBox
-          messageType="asking"
-          firstBtn={{ btnText: "بلی", btnType: BtnTypes.danger, onClick: handleDelete }}
-          secondBtn={{ btnText: "نخیر", onClick: () => setDeleteModal(false) }}
-          message={"برای حذف شدن پست از سیستم مطمئن هستید؟"}
-          iconType={ICONS.asking}
-        />}
+        {
+          <MessageBox
+            messageType="asking"
+            firstBtn={{
+              btnText: "بلی",
+              btnType: BtnTypes.danger,
+              onClick: handleDelete,
+            }}
+            secondBtn={{
+              btnText: "نخیر",
+              onClick: () => setDeleteModal(false),
+            }}
+            message={"برای حذف شدن پست از سیستم مطمئن هستید؟"}
+            iconType={ICONS.asking}
+          />
+        }
       </BackDrop>
       <BackDrop show={completeMsg.show}>
-        {<MessageBox
-          messageType="info"
-          firstBtn={{ btnText: "تایید", onClick: () => setCompleteMsg({ show: false, msg: "" }) }}
-          message={completeMsg.msg}
-          iconType={ICONS.info}
-        />}
+        {
+          <MessageBox
+            messageType="info"
+            firstBtn={{
+              btnText: "تایید",
+              onClick: () => setCompleteMsg({ show: false, msg: "" }),
+            }}
+            message={completeMsg.msg}
+            iconType={ICONS.info}
+          />
+        }
       </BackDrop>
     </div>
   )

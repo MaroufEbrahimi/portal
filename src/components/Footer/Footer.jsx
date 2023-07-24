@@ -1,6 +1,7 @@
 import React from "react"
 import "./Footer.css"
 import { Link } from "react-router-dom"
+import ICONS from "../../constants/Icons"
 
 const Footer = () => {
   return (
@@ -17,12 +18,12 @@ const Footer = () => {
             <ul className="display_flex">
               <li title="انستاگرام">
                 <a href="https://instagram.com/hariwa_edu" target="_blank">
-                  <i className="bi bi-instagram"></i>
+                  <i className={ICONS.instagram}></i>
                 </a>
               </li>
               <li title="تلگرام">
                 <a href="https://t.me/Hariwa_edu" target="_blank">
-                  <i className="bi bi-telegram"></i>
+                  <i className={ICONS.telegram}></i>
                 </a>
               </li>
               <li title="فیسبوک">
@@ -30,7 +31,7 @@ const Footer = () => {
                   href="https://www.facebook.com/HariwaHigherEducationInstitute"
                   target="_blank"
                 >
-                  <i className="bi bi-facebook"></i>
+                  <i className={ICONS.facebook}></i>
                 </a>
               </li>
             </ul>
@@ -38,7 +39,7 @@ const Footer = () => {
         </div>
         <div className="footer_box second_footer_box display_flex justify_content_center flex_direction_column">
           <div className="box_info">
-            <i className="bi bi-geo-alt text_color"></i>
+            <i className={`${ICONS.geoAlt} text_color`}></i>
             <div>
               <h1 className="text_color">مکان</h1>
               <p className="text_color">
@@ -47,14 +48,14 @@ const Footer = () => {
             </div>
           </div>
           <div className="box_info">
-            <i className="bi bi-envelope text_color"></i>
+            <i className={`${ICONS.envelope} text_color`}></i>
             <div>
               <h1 className="text_color">ایمیل</h1>
               <p className="text_color">info@hariwa.edu.af</p>
             </div>
           </div>
           <div className="box_info">
-            <i className="bi bi-phone text_color"></i>
+            <i className={`${ICONS.phone} text_color`}></i>
             <div>
               <h1 className="text_color">تماس</h1>
               <p className="call_number text_color">0799 600 344</p>
