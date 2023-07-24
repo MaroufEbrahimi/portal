@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import "./UpdateStudent.css"
-import "../Steps/Steps.css"
 import { useParams } from "react-router-dom"
 import { useStateValue } from "../../context/StateProvider"
 import useProtect from "../../Hooks/useProtect"
@@ -11,12 +10,11 @@ import { StudentHabitation } from "../Steps/StudentHabitation"
 import { actionTypes } from "../../context/reducer"
 import Button from "../UI/Button/Button"
 
-
 const UpdateStudent = ({ setApiResponse }) => {
   useProtect({ roles: [Roles.ADMIN] })
   const { id } = useParams()
-  const [student, setStudent] = useState({});
-  const [globalState, dispatch] = useStateValue();
+  const [student, setStudent] = useState({})
+  const [globalState, dispatch] = useStateValue()
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.students.getStudent(id), {
@@ -35,22 +33,22 @@ const UpdateStudent = ({ setApiResponse }) => {
         setStudent(data)
         dispatch({
           type: actionTypes.ADD_STUDENT_PERONAL_INFO,
-          payload: data.studentPersonalInfo
+          payload: data.studentPersonalInfo,
         })
         dispatch({
           type: actionTypes.ADD_STUDENT_IMAGE,
           payload: {
             file: null,
             url: data.imageUrl,
-            isOk: true
+            isOk: true,
           },
         })
         dispatch({
           type: actionTypes.ADD_STUDENT_IDENTIFICATION,
-          payload: data.identification
+          payload: data.identification,
         })
         let studentRelations = {}
-        data.relatives.forEach(item => {
+        data.relatives.forEach((item) => {
           if (item.relationship == "پدر") {
             studentRelations = { ...studentRelations, father: item }
           } else if (item.relationship == "کاکا") {
@@ -63,10 +61,10 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
-          payload: studentRelations
+          payload: studentRelations,
         })
         let studentLocations = {}
-        data.locations.forEach(item => {
+        data.locations.forEach((item) => {
           if (item.current) {
             studentLocations = { ...studentLocations, previous: item }
           } else {
@@ -76,11 +74,10 @@ const UpdateStudent = ({ setApiResponse }) => {
 
         dispatch({
           type: actionTypes.ADD_STIUDENT_LOCATIONS,
-          payload: studentLocations
+          payload: studentLocations,
         })
       })
   }, [id])
-
 
   const sendInformationToAPI = () => {
     console.log(globalState)
@@ -132,9 +129,7 @@ const UpdateStudent = ({ setApiResponse }) => {
       })
   }
 
-
   const handleInputChangeValue = (e, inputName) => {
-
     switch (inputName) {
       case "پدر.name": {
         dispatch({
@@ -144,11 +139,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             father: {
               ...globalState.studentRelations?.father,
               name: e.target.value,
-              relationship: "پدر"
-            }
-          }
+              relationship: "پدر",
+            },
+          },
         })
-        break;
+        break
       }
       case "پدر.job": {
         dispatch({
@@ -157,11 +152,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             father: {
               ...globalState.studentRelations?.father,
-              job: e.target.value
-            }
-          }
+              job: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "پدر.jobLocation": {
         dispatch({
@@ -170,11 +165,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             father: {
               ...globalState.studentRelations?.father,
-              jobLocation: e.target.value
-            }
-          }
+              jobLocation: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
 
       case "پدر.phoneNumber": {
@@ -184,12 +179,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             father: {
               ...globalState.studentRelations?.father,
-              phoneNumber: e.target.value
-            }
-
-          }
+              phoneNumber: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "کاکا.name": {
         dispatch({
@@ -199,11 +193,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             uncle: {
               ...globalState.studentRelations?.uncle,
               name: e.target.value,
-              relationship: "کاکا"
-            }
-          }
+              relationship: "کاکا",
+            },
+          },
         })
-        break;
+        break
       }
       case "کاکا.job": {
         dispatch({
@@ -212,11 +206,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             uncle: {
               ...globalState.studentRelations?.uncle,
-              job: e.target.value
-            }
-          }
+              job: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "کاکا.jobLocation": {
         dispatch({
@@ -225,11 +219,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             uncle: {
               ...globalState.studentRelations?.uncle,
-              jobLocation: e.target.value
-            }
-          }
+              jobLocation: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "کاکا.phoneNumber": {
         dispatch({
@@ -238,11 +232,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             uncle: {
               ...globalState.studentRelations?.uncle,
-              phoneNumber: e.target.value
-            }
-          }
+              phoneNumber: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "ماما.name": {
         dispatch({
@@ -252,11 +246,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             aunt: {
               ...globalState.studentRelations?.aunt,
               name: e.target.value,
-              relationship: "ماما"
-            }
-          }
+              relationship: "ماما",
+            },
+          },
         })
-        break;
+        break
       }
       case "ماما.job": {
         dispatch({
@@ -265,11 +259,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             aunt: {
               ...globalState.studentRelations?.aunt,
-              job: e.target.value
-            }
-          }
+              job: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "ماما.jobLocation": {
         dispatch({
@@ -278,11 +272,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             aunt: {
               ...globalState.studentRelations?.aunt,
-              jobLocation: e.target.value
-            }
-          }
+              jobLocation: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "ماما.phoneNumber": {
         dispatch({
@@ -291,11 +285,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             aunt: {
               ...globalState.studentRelations?.aunt,
-              phoneNumber: e.target.value
-            }
-          }
+              phoneNumber: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "برادر.name": {
         dispatch({
@@ -305,11 +299,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             brother: {
               ...globalState.studentRelations?.brother,
               name: e.target.value,
-              relationship: "برادر"
-            }
-          }
+              relationship: "برادر",
+            },
+          },
         })
-        break;
+        break
       }
       case "برادر.job": {
         dispatch({
@@ -318,11 +312,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             brother: {
               ...globalState.studentRelations?.brother,
-              job: e.target.value
-            }
-          }
+              job: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "برادر.jobLocation": {
         dispatch({
@@ -331,11 +325,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             brother: {
               ...globalState.studentRelations?.brother,
-              jobLocation: e.target.value
-            }
-          }
+              jobLocation: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
       case "برادر.phoneNumber": {
         dispatch({
@@ -344,11 +338,11 @@ const UpdateStudent = ({ setApiResponse }) => {
             ...globalState.studentRelations,
             brother: {
               ...globalState.studentRelations?.brother,
-              phoneNumber: e.target.value
-            }
-          }
+              phoneNumber: e.target.value,
+            },
+          },
         })
-        break;
+        break
       }
     }
   }
@@ -356,9 +350,9 @@ const UpdateStudent = ({ setApiResponse }) => {
     <>
       <div className="updateStudent">
         <div className="update_detail">
-          <h1>بروزرسانی اطلاعات محصل</h1>
-          {/* Personal Information */}
+          <h1 className="text_align_center">بروزرسانی اطلاعات محصل</h1>
 
+          {/* Personal Information */}
           <div className="form_details_student personal_info right-to-left">
             <PersonalInformation />
           </div>
@@ -369,45 +363,80 @@ const UpdateStudent = ({ setApiResponse }) => {
           </div>
 
           {/* Student Relatives */}
-          {
-            globalState.studentRelations && Object.keys(globalState.studentRelations).map(item => {
+          {globalState.studentRelations &&
+            Object.keys(globalState.studentRelations).map((item) => {
               item = globalState.studentRelations[item]
-              return <div className="form_details_student student_relatives left-to-right">
-                <form>
-                  <div className="full_width">
-                    <h3>{item.relationship}</h3>
+              return (
+                <div className="form_details_student student_relatives left-to-right">
+                  <div className="add_student_stepper_title">
+                    <h3>
+                      {item.relationship === "کاکا" ||
+                      item.relationship === "ماما"
+                        ? item.relationship + "ی"
+                        : item.relationship}{" "}
+                      مـحـصل
+                    </h3>
                   </div>
-                  <div className="build_box">
-                    <label>نام</label>
-                    <input type="text" value={item.name} onChange={(e) => handleInputChangeValue(e, item.relationship + ".name")} />
-                  </div>
-                  <div className="build_box">
-                    <label>وظیفه</label>
-                    <input type="text" value={item.job} onChange={(e) => handleInputChangeValue(e, item.relationship + ".job")} />
-                  </div>
-                  <div className="build_box">
-                    <label>محل وظیفه</label>
-                    <input type="text" value={item.jobLocation} onChange={(e) => handleInputChangeValue(e, item.relationship + ".jobLocation")} />
-                  </div>
-                  <div className="build_box">
-                    <label>شماره تماس</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                      required
-                      value={item.phoneNumber} onChange={(e) => handleInputChangeValue(e, item.relationship + ".phoneNumber")}
-                    />
-                  </div>
-                </form>
-              </div>
-            })
-          }
+                  <section className="build_boxes">
+                    <div className="build_box">
+                      <label>نام</label>
+                      <input
+                        type="text"
+                        value={item.name}
+                        onChange={(e) =>
+                          handleInputChangeValue(e, item.relationship + ".name")
+                        }
+                      />
+                    </div>
+                    <div className="build_box">
+                      <label>وظیفه</label>
+                      <input
+                        type="text"
+                        value={item.job}
+                        onChange={(e) =>
+                          handleInputChangeValue(e, item.relationship + ".job")
+                        }
+                      />
+                    </div>
+                    <div className="build_box">
+                      <label>محل وظیفه</label>
+                      <input
+                        type="text"
+                        value={item.jobLocation}
+                        onChange={(e) =>
+                          handleInputChangeValue(
+                            e,
+                            item.relationship + ".jobLocation"
+                          )
+                        }
+                      />
+                    </div>
+                    <div className="build_box">
+                      <label>شماره تماس</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        required
+                        value={item.phoneNumber}
+                        onChange={(e) =>
+                          handleInputChangeValue(
+                            e,
+                            item.relationship + ".phoneNumber"
+                          )
+                        }
+                      />
+                    </div>
+                  </section>
+                </div>
+              )
+            })}
         </div>
-
       </div>
-      <Button text={"بروزرسانی اطلاعات"} onClick={sendInformationToAPI} />
+      <div className="text_align_center" style={{ paddingTop: "1rem" }}>
+        <Button text={"بروزرسانی اطلاعات"} onClick={sendInformationToAPI} />
+      </div>
     </>
   )
 }
