@@ -7,7 +7,12 @@
 }
 
 .file_post_body {
-  padding: 20px;
+  padding: 15px;
+  gap: 20px;
+}
+
+.file_post_body .post_text {
+  flex: 1;
 }
 
 .post_text > p {
@@ -111,6 +116,7 @@
 .post_images img {
   object-fit: cover;
   width: 100%;
+  max-width: 400px;
   border-radius: 10px;
 }
 
