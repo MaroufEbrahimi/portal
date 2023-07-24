@@ -4,12 +4,20 @@
   padding: 10px;
 }
 
-.content_of_posts_details > div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(370px, auto));
-  gap: 13px;
+/* Post Management Posts */
+.content_of_posts_details {
+  position: relative;
 }
 
+.content_of_posts_details > div {
+  display: grid;
+  gap: 13px;
+  margin: 0 10rem;
+}
+
+/* End of Post Management Posts */
+
+/* End of Posts */
 .end_of_posts {
   position: relative;
   height: 60px;
