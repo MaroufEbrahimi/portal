@@ -1,33 +1,21 @@
 import React, { useState } from "react"
 import "./UpdateStudentPage.css"
-import ModalDelete from "../../components/UI/ModalDelete/ModalDelete"
 import UpdateStudent from "../../components/UpdateStudent/UpdateStudent"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import MessageBox from "../../components/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import { useNavigate } from "react-router-dom"
 
-
 const UpdateStudentPage = () => {
-  const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false)
+  const navigate = useNavigate()
   const [apiResponse, setapiResponse] = useState({})
-  const showModalHandler = () => {
-    setShowModal(true)
-  }
-  const modalCloseHandler = () => {
-    setShowModal(false)
-  }
-  console.log(apiResponse)
+
   return (
     <div className="update_student_page fade_in ">
+      {/* Student Information */}
+      <UpdateStudent setApiResponse={setapiResponse} />
 
-
-      {/* info */}
-      <UpdateStudent
-        setApiResponse={setapiResponse}
-      />
-
+      {/* Message box For Confirmation */}
       <BackDrop show={apiResponse.show}>
         {
           <MessageBox
@@ -41,7 +29,6 @@ const UpdateStudentPage = () => {
           />
         }
       </BackDrop>
-
     </div>
   )
 }
