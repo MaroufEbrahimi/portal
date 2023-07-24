@@ -4,6 +4,7 @@ import { useStateValue } from "../../context/StateProvider"
 import { actionTypes } from "../../context/reducer"
 import avatar from "../../assets/img/profile_avatar.png"
 import ICONS from "../../constants/Icons"
+import APIEndpoints from "../../constants/APIEndpoints"
 
 export const PersonalInformation = ({ updatedMode = false }) => {
   const [{ studentImage, studentPersonalInfo }, dispatch] = useStateValue()
@@ -14,8 +15,9 @@ export const PersonalInformation = ({ updatedMode = false }) => {
   })
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
+  const [semesters, setsemesters] = useState(new Array(studentPersonalInfo?.department?.semesters))
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/field-of-studies")
+    fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -24,10 +26,31 @@ export const PersonalInformation = ({ updatedMode = false }) => {
         }
       })
       .then((data) => {
-        console.log(data)
+        const f = data.content.find((item) => {
+          return item.fieldName == studentPersonalInfo?.fieldOfStudy
+        })
         setFields(data.content)
+        fetch(
+          APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f?.id))
+          .then((res) => {
+            if (res.ok) {
+              return res.json()
+            } else {
+              throw new Error(res.statusText)
+            }
+          })
+          .then((data) => {
+            setDepartments(data)
+            let sem = []
+            for (let i = 1; i <= data[0].semesters; i++)
+              sem.push(i)
+            setsemesters(sem)
+          })
       })
-  }, [])
+    if (studentPersonalInfo?.department) {
+      setsemesters(studentPersonalInfo?.department?.semesters)
+    }
+  }, [studentPersonalInfo])
 
   // handle input change of profile image
   const setProfileImgInput = (e) => {
@@ -165,6 +188,16 @@ export const PersonalInformation = ({ updatedMode = false }) => {
         })
         break
       }
+      case "joinedDate": {
+        dispatch({
+          type: actionTypes.ADD_STUDENT_PERONAL_INFO,
+          payload: {
+            ...studentPersonalInfo,
+            joinedDate: e.target.value,
+          },
+        })
+        break
+      }
       case "fieldOfStudy": {
         dispatch({
           type: actionTypes.ADD_STUDENT_PERONAL_INFO,
@@ -176,12 +209,9 @@ export const PersonalInformation = ({ updatedMode = false }) => {
         const f = fields.find((item) => {
           return item.fieldName == e.target.value
         })
-        console.log(f)
+        console.log("filed name", f)
         fetch(
-          "http://localhost:1000/api/v1/field-of-studies/" +
-            f.id +
-            "/departments"
-        )
+          APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id))
           .then((res) => {
             if (res.ok) {
               return res.json()
@@ -190,12 +220,24 @@ export const PersonalInformation = ({ updatedMode = false }) => {
             }
           })
           .then((data) => {
-            console.log(data)
             setDepartments(data)
+            let sem = []
+            for (let i = 1; i <= data[0].semesters; i++)
+              sem.push(i)
+            setsemesters(sem)
+
           })
         break
       }
       case "department": {
+        const department = departments.find(item => {
+          return item.departmentName == e.target.value
+        })
+        let sem = []
+        for (let i = 1; i <= department.semesters; i++)
+          sem.push(i);
+        setsemesters(sem)
+
         dispatch({
           type: actionTypes.ADD_STUDENT_PERONAL_INFO,
           payload: {
@@ -227,7 +269,6 @@ export const PersonalInformation = ({ updatedMode = false }) => {
       }
     }
   }
-  console.log(studentPersonalInfo)
   return (
     <div className="form_details_student personal_info right-to-left">
       {/* Here you can select Profile Student img */}
@@ -391,26 +432,31 @@ export const PersonalInformation = ({ updatedMode = false }) => {
               onChange={(e) => handleInputChangeValue(e, "phoneNumber")}
             />
           </div>
-          <div className="build_box email">
-            <label>ایــمـیـل</label>
-            <input
-              type="email"
-              value={studentPersonalInfo?.email}
-              onChange={(e) => handleInputChangeValue(e, "email")}
-              required
-              placeholder="e.g famous@gmail.com"
-              inputMode="email"
-            />
-          </div>
-          <div className="build_box">
-            <label>رمـز حسـاب کـاربـری</label>
-            <input
-              type=""
-              value={studentPersonalInfo?.password}
-              onChange={(e) => handleInputChangeValue(e, "password")}
-              required
-            />
-          </div>
+          {!updatedMode &&
+            <>
+              <div className="build_box email">
+                <label>ایــمـیـل</label>
+                <input
+                  type="email"
+                  value={studentPersonalInfo?.email}
+                  onChange={(e) => handleInputChangeValue(e, "email")}
+                  required
+                  placeholder="e.g famous@gmail.com"
+                  inputMode="email"
+                />
+              </div>
+
+              <div className="build_box">
+                <label>رمـز حسـاب کـاربـری</label>
+                <input
+                  type=""
+                  value={studentPersonalInfo?.password}
+                  onChange={(e) => handleInputChangeValue(e, "password")}
+                  required
+                />
+              </div>
+            </>
+          }
         </section>
 
         <section className="build_boxes">
@@ -454,23 +500,18 @@ export const PersonalInformation = ({ updatedMode = false }) => {
               <option selected disabled>
                 سـمسـتر
               </option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
+              {semesters?.map(sem => {
+                return <option key={sem}>{sem}</option>
+              })}
             </select>
           </div>
           <div className="build_box">
             <label>سـال شـمولـیـت</label>
             <input
               type="date"
-              value={studentPersonalInfo?.schoolGraduationDate}
+              value={studentPersonalInfo?.joinedDate}
               onChange={(e) =>
-                handleInputChangeValue(e, "schoolGraduationDate")
+                handleInputChangeValue(e, "joinedDate")
               }
               required
               inputMode="url"

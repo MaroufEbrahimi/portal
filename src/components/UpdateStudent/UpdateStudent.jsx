@@ -354,7 +354,7 @@ const UpdateStudent = ({ setApiResponse }) => {
 
           {/* Personal Information */}
           <div className="form_details_student personal_info right-to-left">
-            <PersonalInformation />
+            <PersonalInformation updatedMode={true} />
           </div>
 
           {/* Student Habitation */}
@@ -366,12 +366,13 @@ const UpdateStudent = ({ setApiResponse }) => {
           {globalState.studentRelations &&
             Object.keys(globalState.studentRelations).map((item) => {
               item = globalState.studentRelations[item]
+              console.log(item)
               return (
-                <div className="form_details_student student_relatives left-to-right">
+                <div className="form_details_student student_relatives left-to-right" key={item.relationship}>
                   <div className="add_student_stepper_title">
                     <h3>
                       {item.relationship === "کاکا" ||
-                      item.relationship === "ماما"
+                        item.relationship === "ماما"
                         ? item.relationship + "ی"
                         : item.relationship}{" "}
                       مـحـصل

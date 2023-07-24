@@ -30,7 +30,7 @@ const PostManagement = () => {
   const [deleteModal, setDeleteModal] = useState(false)
   const [postToDelete, setPostToDelete] = useState()
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
-  let endpoint = `http://localhost:1000/api/v1/posts/?offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+  let endpoint = APIEndpoints.root + APIEndpoints.posts.getAllPostsForAdmin + `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
   const lastNodeReference = (node) => {
     if (loading) return
     if (lastNode.current) lastNode.current.disconnect()
@@ -48,7 +48,7 @@ const PostManagement = () => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/field-of-studies")
+    fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -109,9 +109,8 @@ const PostManagement = () => {
       requestParam += `&department=${department == "همه" ? "%" : department}`
     }
     if (feildOfStudy) {
-      requestParam += `&fieldOfStudy=${
-        feildOfStudy == "همه" ? "%" : feildOfStudy
-      }`
+      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" ? "%" : feildOfStudy
+        }`
     }
     setRequestParams(requestParam)
     console.log(requestParam)
@@ -145,7 +144,7 @@ const PostManagement = () => {
       return item.fieldName == e.target.value
     })
     fetch(
-      "http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments"
+      APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id)
     )
       .then((res) => {
         if (res.ok) {

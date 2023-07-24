@@ -6,7 +6,7 @@ function Button({ type, icon, onClick, text, loading }) {
     return (
         <div className='btn_container'>
             <button className={'btn ' + type} onClick={onClick} >
-                <i class={"bi " + icon}></i>{text}
+                <i className={"bi " + icon}></i>{text}
             </button>
             {loading && <ButtonLoading />}
         </div>
