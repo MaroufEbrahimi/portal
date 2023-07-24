@@ -9,14 +9,14 @@ import { useNavigate, useParams } from "react-router-dom"
 import { actionTypes } from "../../context/reducer"
 import MessageBox from "../../components/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
-import Roles from '../../constants/Roles'
+import Roles from "../../constants/Roles"
 import Button from "../../components/UI/Button/Button"
 
 const ResetPassword = () => {
-  const { id } = useParams();
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [prePassword, setPrePassword] = useState('')
+  const { id } = useParams()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [prePassword, setPrePassword] = useState("")
   const [{ authentication }, dispatch] = useStateValue()
   const [error, setError] = useState(null)
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
@@ -25,65 +25,71 @@ const ResetPassword = () => {
 
   console.log(authentication)
   useEffect(() => {
-    if (authentication.roles.includes(Roles.ADMIN) && authentication.userId != id) {
+    if (
+      authentication.roles.includes(Roles.ADMIN) &&
+      authentication.userId != id
+    ) {
       fetch(APIEndpoints.root + APIEndpoints.students.getStudent(id), {
         method: "GET",
         headers: {
-          "Authorization": "Bearer " + authentication.token
-        }
+          Authorization: "Bearer " + authentication.token,
+        },
       })
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           setEmail(data?.studentPersonalInfo?.email)
-        }).catch(() => navigate("/"))
-    } else if (authentication.roles.includes(Roles.STUDENT) && authentication.userId == id ||
-      authentication.roles.includes(Roles.ADMIN) && authentication.userId == id) {
+        })
+        .catch(() => navigate("/"))
+    } else if (
+      (authentication.roles.includes(Roles.STUDENT) &&
+        authentication.userId == id) ||
+      (authentication.roles.includes(Roles.ADMIN) &&
+        authentication.userId == id)
+    ) {
       setEmail(localStorage.getItem("email"))
     } else {
       navigate("/")
     }
-
   }, [id])
-
 
   const sendInformation = (e) => {
     console.log(authentication)
     setError(null)
-    e.preventDefault();
+    e.preventDefault()
 
     // here should do some messaging
     if (password.length < 5) {
       setError("رمز باید بیشتر از 5 کارکتر باشد!")
-      return;
+      return
     }
     if (password == prePassword) {
       setError("!رمز جدید با رمز قبلی یکی است")
-      return;
+      return
     }
     setloading(true)
     fetch(APIEndpoints.root + APIEnpoints.login.update, {
       method: "PUT",
       headers: {
-        "Authorization": "Bearer " + authentication.token,
-        "Content-Type": "application/json"
+        Authorization: "Bearer " + authentication.token,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email: email,
         previousPassword: prePassword,
-        newPassword: password
-      })
+        newPassword: password,
+      }),
     })
-      .then(res => {
+      .then((res) => {
         setloading(false)
         if (res.ok) {
           setCompleteMsg({
             show: true,
-            msg: "اطلاعات کاربری با موفقیت بروزرسانی شد!"
+            msg: "اطلاعات کاربری با موفقیت بروزرسانی شد!",
           })
           return res.json()
         }
       })
-      .then(data => {
+      .then((data) => {
         localStorage.setItem("token", data?.token)
         localStorage.setItem("name", data?.name)
         localStorage.setItem("lastname", data.lastname)
@@ -95,7 +101,6 @@ const ResetPassword = () => {
           type: actionTypes.SET_AUTHENTICATION,
           payload: data,
         })
-
       })
   }
   return (
@@ -114,36 +119,46 @@ const ResetPassword = () => {
               placeholder="ایمیل جدید"
               name="resetemail"
               value={email}
-              onChange={(e) => email(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               inputMode="email"
             />
-            <i className="bi bi-person-circle"></i>
+            <i className={ICONS.personCircle}></i>
           </div>
           <div className="login_box display_grid">
-            <input type="password" value={prePassword} onChange={(e) => setPrePassword(e.target.value)} placeholder="رمز قبلی" name="password" />
-            <i className="bi bi-lock"></i>
+            <input
+              type="password"
+              value={prePassword}
+              onChange={(e) => setPrePassword(e.target.value)}
+              placeholder="رمز قبلی"
+              name="password"
+            />
+            <i className={ICONS.lock}></i>
           </div>
           <div className="login_box display_grid">
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="رمز جدید" name="password" />
-            <i className="bi bi-lock-fill"></i>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="رمز جدید"
+              name="password"
+            />
+            <i className={ICONS.lockFill}></i>
           </div>
           {error && <p className="error">{error}</p>}
         </div>
         <div className="reset_button">
-          <Button
-            loading={loading}
-            onClick={sendInformation}
-            text="ارسال"
-          />
+          <Button loading={loading} onClick={sendInformation} text="ارسال" />
         </div>
       </form>
       <BackDrop show={completeMsg.show}>
-        {<MessageBox
-          messageType="info"
-          firstBtn={{ btnText: "تایید", onClick: () => navigate("/") }}
-          message={completeMsg.msg}
-          iconType={ICONS.info}
-        />}
+        {
+          <MessageBox
+            messageType="info"
+            firstBtn={{ btnText: "تایید", onClick: () => navigate("/") }}
+            message={completeMsg.msg}
+            iconType={ICONS.info}
+          />
+        }
       </BackDrop>
     </div>
   )

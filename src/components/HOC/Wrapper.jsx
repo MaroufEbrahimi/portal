@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import "./Wrapper.css"
+import ICONS from "../../constants/Icons"
 
 const Wrapper = (props) => {
   const [showBackToTop, setShowBackToTop] = useState(false)
@@ -42,7 +43,7 @@ const Wrapper = (props) => {
             onClick={handleBackToTop}
             className="display_flex align_items_center justify_content_center cursor_pointer border_none outline_none"
           >
-            <i className="bi bi-arrow-up-short text_color"></i>
+            <i className={`${ICONS.arrowUpShort} text_color`}></i>
           </button>
         </div>
       )}

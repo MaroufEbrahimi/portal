@@ -134,7 +134,7 @@ const NewPost = () => {
             className="image-upload display_flex align_items_center justify_content_center text_align_center cursor_pointer"
           >
             <i
-              className="bi bi-file-earmark-plus-fill"
+              className={ICONS.fileEarmarkPlusFill}
               title="choose your photo"
             ></i>
             <p>اضافه کردن فایل یا تصویر</p>

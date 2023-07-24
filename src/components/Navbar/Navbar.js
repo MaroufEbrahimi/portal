@@ -5,6 +5,7 @@ import { useStateValue } from "../../context/StateProvider"
 import logo from "../../assets/img/logo.png"
 import lowIcon from "../../assets/img/faculties/low-icon.png"
 import dentistryIcon from "../../assets/img/faculties/dentistry-icon.png"
+import ICONS from "../../constants/Icons"
 
 const CustomeLinks = ({ to, children, ...props }) => {
   const resolvedPath = useResolvedPath(to)
@@ -35,9 +36,11 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           onClick={navActiveHandler}
         >
           {activeNav ? (
-            <i className="bi bi-chevron-left text_color cursor_pointer"></i>
+            <i className={`${ICONS.chevronLeft} text_color cursor_pointer`}></i>
           ) : (
-            <i className="bi bi-chevron-right text_color cursor_pointer"></i>
+            <i
+              className={`${ICONS.chevronRight} text_color cursor_pointer`}
+            ></i>
           )}
         </div>
       </div>
@@ -69,12 +72,12 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
       <div className="navbar_menu">
         <ul className="navbar_content">
           <CustomeLinks to="/" title="خانه">
-            <i className="bi bi-house-door"></i>
+            <i className={ICONS.door}></i>
             <span>خانه</span>
           </CustomeLinks>
           {authentication?.roles?.includes("STUDENT") ? (
             <CustomeLinks to="/posts" title="پست ها">
-              <i className="bi bi-collection"></i>
+              <i className={ICONS.collection}></i>
               <span>پست ها</span>
             </CustomeLinks>
           ) : null}
@@ -84,13 +87,13 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             <div className="menu_container">
               <div className="navbar__title open__navbar display_flex">
                 <li className="navbar__item display_flex align_items_center">
-                  <i className="bi bi-mortarboard"></i>
+                  <i className={ICONS.mortarboard}></i>
                   <span>پوهنــځی‌ها</span>
                   <div style={{ paddingRight: "34px" }}>
                     {activeFaculties ? (
-                      <i className="bi bi-chevron-down btn_toggle"></i>
+                      <i className={`${ICONS.chevronDown} btn_toggle`}></i>
                     ) : (
-                      <i className="bi bi-chevron-right btn_toggle"></i>
+                      <i className={`${ICONS.chevronRight} btn_toggle`}></i>
                     )}
                   </div>
                 </li>
@@ -102,7 +105,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
               />
               <div className="navbar__dropdown">
                 <CustomeLinks to="/cs" title="کامپیوتر ساینس">
-                  <i className="bi bi-window"></i>
+                  <i className={ICONS.window}></i>
                   <span>کامپیوتر ساینس</span>
                 </CustomeLinks>
                 <CustomeLinks to="/dentistry" title="طب دندان">
@@ -125,13 +128,13 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             <div className="admin_menu menu_container">
               <div className="navbar__title open__navbar display_flex">
                 <li className="navbar__item display_flex align_items_center">
-                  <i className="bi bi-gear"></i>
+                  <i className={ICONS.gear}></i>
                   <span>ادمین پنل</span>
                   <div style={{ paddingRight: "40px" }}>
                     {activeAdminPanel ? (
-                      <i className="bi bi-chevron-down btn_toggle"></i>
+                      <i className={`${ICONS.chevronDown} btn_toggle`}></i>
                     ) : (
-                      <i className="bi bi-chevron-right btn_toggle"></i>
+                      <i className={`${ICONS.chevronRight} btn_toggle`}></i>
                     )}
                   </div>
                 </li>
@@ -143,15 +146,15 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
               />
               <div className="navbar__dropdown">
                 <CustomeLinks to="/admin/students" title="محصلین">
-                  <i className="bi bi-people"></i>
+                  <i className={ICONS.people}></i>
                   <span>محصلین</span>
                 </CustomeLinks>
                 <CustomeLinks to="/admin/newpost" title="محتوا جدید">
-                  <i className="bi bi-file-earmark-plus"></i>
+                  <i className={ICONS.earmarkPlus}></i>
                   <span>محتوای جدید</span>
                 </CustomeLinks>
                 <CustomeLinks to="/admin/post-management" title="مدیریت پست ها">
-                  <i className="bi bi-files"></i>
+                  <i className={ICONS.files}></i>
                   <span>مدیریت پست ها</span>
                 </CustomeLinks>
               </div>
@@ -161,7 +164,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           )}
 
           <CustomeLinks to="/about" title="درباره">
-            <i className="bi bi-building"></i>
+            <i className={ICONS.building}></i>
             <span>درباره</span>
           </CustomeLinks>
         </ul>

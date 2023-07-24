@@ -270,10 +270,6 @@
   margin: 0;
 }
 
-.active_nav_right .navbar_menu .bi-gear {
-  margin-left: 7px;
-}
-
 /* End of Actives */
 
 /* Responsive */
@@ -313,10 +309,6 @@
     display: none;
     padding: 0;
     margin: 0;
-  }
-
-  .navbar .navbar_menu .bi-gear {
-    margin-left: 7px;
   }
 }
 

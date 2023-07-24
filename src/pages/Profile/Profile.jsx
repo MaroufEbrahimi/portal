@@ -88,7 +88,7 @@ const Profile = () => {
                   text={"حذف کردن"}
                 />
                 <Button
-                  icon={student.isEnable ? ICONS.unlock : ICONS.lock}
+                  icon={student.isEnable ? ICONS.unlock : ICONS.lockFill}
                   onClick={() => setdisableModal(true)}
                   text={student.isEnable ? "فعال سازی" : "غیرفعال سازی"}
                 />

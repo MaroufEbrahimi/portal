@@ -5,6 +5,7 @@ import { actionTypes } from "../../context/reducer"
 import { setCookie } from "../../Utils/Cookie"
 import { useStateValue } from "../../context/StateProvider"
 import Button from "../../components/UI/Button/Button"
+import ICONS from "../../constants/Icons"
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -32,7 +33,6 @@ const Login = () => {
       body: JSON.stringify(inputs),
     })
       .then((res) => {
-
         setlaoding(false)
         if (res.ok) {
           return res.json()
@@ -57,7 +57,8 @@ const Login = () => {
           payload: data,
         })
         navigate("/")
-      }).catch(error => {
+      })
+      .catch((error) => {
         setError(error)
       })
   }
@@ -76,7 +77,7 @@ const Login = () => {
                 value={inputs?.email}
                 onChange={(e) => handleChange(e)}
               />
-              <i className="bi bi-person-circle"></i>
+              <i className={ICONS.personCircle}></i>
             </div>
             <div className="login_box display_grid">
               <input
@@ -86,7 +87,7 @@ const Login = () => {
                 value={inputs.password}
                 onChange={(e) => handleChange(e)}
               />
-              <i className="bi bi-lock-fill"></i>
+              <i className={ICONS.lockFill}></i>
             </div>
           </div>
           {error && <p className="error">ایمیل یا رمز اشتباه است!</p>}

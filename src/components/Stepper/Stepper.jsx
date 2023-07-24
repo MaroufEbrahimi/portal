@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./Stepper.css"
+import ICONS from "../../constants/Icons"
 
 const Stepper = ({ steps, currentStep }) => {
   const [newStep, setNewStep] = useState([])
@@ -81,7 +82,7 @@ const Stepper = ({ steps, currentStep }) => {
 
             {step.completed ? (
               <span>
-                <i className="bi bi-check-lg"></i>
+                <i className={ICONS.checkLg}></i>
               </span>
             ) : (
               <span>{index + 1}</span>

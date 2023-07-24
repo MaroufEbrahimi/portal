@@ -1,5 +1,6 @@
 import React from "react"
 import "./Search.css"
+import ICONS from "../../constants/Icons"
 
 const Search = ({ value, onChange, handleSearchButton, placeHolder }) => {
   return (
@@ -11,7 +12,7 @@ const Search = ({ value, onChange, handleSearchButton, placeHolder }) => {
           type="submit"
           onClick={handleSearchButton}
         >
-          <i className="bi bi-search search__icon"></i>
+          <i className={`${ICONS.search} search__icon`}></i>
           <span>جستجو</span>
         </button>
       </div>

@@ -3,6 +3,7 @@ import "./Steps.css"
 import { useStateValue } from "../../context/StateProvider"
 import { actionTypes } from "../../context/reducer"
 import avatar from "../../assets/img/profile_avatar.png"
+import ICONS from "../../constants/Icons"
 
 export const PersonalInformation = ({ updatedMode = false }) => {
   const [{ studentImage, studentPersonalInfo }, dispatch] = useStateValue()
@@ -236,7 +237,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           alt="user_image"
         />
         <span className="upload_icon display_flex align_items_center justify_content_center cursor_pointer">
-          <i className="bi bi-camera"></i>
+          <i className={ICONS.camera}></i>
         </span>
         <input
           type={"file"}

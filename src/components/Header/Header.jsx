@@ -2,6 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 import "./Header.css"
 import { useStateValue } from "../../context/StateProvider"
+import ICONS from "../../constants/Icons"
 
 const Header = ({ isDark, darkModeHandler }) => {
   const navigate = useNavigate()
@@ -25,9 +26,9 @@ const Header = ({ isDark, darkModeHandler }) => {
           title="تغییر تم"
         >
           {isDark ? (
-            <i className="bi bi-brightness-high"></i>
+            <i className={ICONS.brightnessHigh}></i>
           ) : (
-            <i className="bi bi-moon"></i>
+            <i className={ICONS.moon}></i>
           )}
         </div>
       </div>
