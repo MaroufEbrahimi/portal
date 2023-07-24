@@ -5,6 +5,7 @@ import { actionTypes } from "../../context/reducer"
 import { setCookie } from "../../Utils/Cookie"
 import { useStateValue } from "../../context/StateProvider"
 import Button from "../../components/UI/Button/Button"
+import APIEndpoints from "../../constants/APIEndpoints"
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -24,7 +25,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     setlaoding(true)
     e.preventDefault()
-    fetch("http://localhost:1000/api/v1/auth/authenticate", {
+    fetch(APIEndpoints.root+APIEndpoints.login.login, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,6 +59,7 @@ const Login = () => {
         })
         navigate("/")
       }).catch(error => {
+        setlaoding(false)
         setError(error)
       })
   }

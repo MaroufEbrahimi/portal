@@ -1,5 +1,5 @@
 const APIEndpoints = {
-    root: "http://localhost:1000/api/v1/",
+    root: "http://localhost:5000/api/v1/",
     students: {
         getAll: "students/?",
         addStudent: "students",

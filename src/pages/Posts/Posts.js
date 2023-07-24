@@ -3,6 +3,7 @@ import "./Posts.css"
 import Post from '../../components/Post/Post'
 import Spinner from "../../components/UI/Loading/Spinner"
 import { useStateValue } from '../../context/StateProvider'
+import APIEndpoints from '../../constants/APIEndpoints'
 
 function Posts() {
     const [posts, setposts] = useState([])
@@ -28,7 +29,7 @@ function Posts() {
     // th e auth token must be read from somewhere in the frontend
     useEffect(() => {
         setLoading(true)
-        fetch(`http://localhost:1000/api/v1/posts/student?offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
+        fetch(APIEndpoints.root + APIEndpoints.posts.getAllPostsForStudent +`?offset=${pagination.offset}&pageSize=${pagination.pageSize}`, {
             method: "GET",
             headers: { "Authorization": "Bearer " + authentication.token }
         })
