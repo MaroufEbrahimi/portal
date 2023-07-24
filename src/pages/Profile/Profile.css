@@ -34,30 +34,16 @@
   word-spacing: 0.02em;
   text-align: center;
 }
-
 /* End of User profile img */
 
 /* Profile Buttons */
-.profile_title .logout_changePass {
+.profile_title .student_profile_buttons {
   padding-top: 1.4rem;
 }
 
-.profile_title .logout_changePass button {
-  background-color: transparent;
-  border: 1px solid var(--gen-color);
-  color: var(--text-color);
-  outline: none;
-  border-radius: 8px;
-  padding: 4px 12px;
-  cursor: pointer;
-  font-size: 14px;
-  display: flex;
+.profile_title .student_profile_buttons button i {
+  padding-left: 2px;
 }
-
-.profile_title .logout_changePass button i {
-  padding-right: 6px;
-}
-
 /* End of Profile Buttons */
 
 /* Profile Personal Info */
@@ -112,12 +98,9 @@
   flex-direction: column;
 }
 
-
-
 .delete_lock_buttons {
   flex-direction: column;
 }
-
 /* End of Profile Personal Info */
 
 /* Responsive */
