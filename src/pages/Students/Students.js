@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import "./Students.css"
 import Search from "../../components/Search/Search"
 import { useStateValue } from "../../context/StateProvider"
@@ -12,7 +12,7 @@ import Button from "../../components/UI/Button/Button"
 import { actionTypes } from "../../context/reducer"
 const Students = () => {
   useProtect({ roles: [Roles.ADMIN] })
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [{ authentication }, dispatch] = useStateValue()
   const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
@@ -43,8 +43,8 @@ const Students = () => {
 
     fetch(
       APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
+        APIEndpoints.students.getAll +
+        `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
       {
         method: "GET",
         headers: {
@@ -83,9 +83,9 @@ const Students = () => {
 
           fetch(
             APIEndpoints.root +
-            APIEndpoints.students.getAll +
-            `offset=${pagination.offset}&pageSize=${pagination.pageSize}` +
-            requestParams,
+              APIEndpoints.students.getAll +
+              `offset=${pagination.offset}&pageSize=${pagination.pageSize}` +
+              requestParams,
             {
               method: "GET",
               headers: {
@@ -159,9 +159,9 @@ const Students = () => {
     setRequestParams(url)
     fetch(
       APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `offset=0&pageSize=${pagination.pageSize}` +
-      url,
+        APIEndpoints.students.getAll +
+        `offset=0&pageSize=${pagination.pageSize}` +
+        url,
       {
         method: "GET",
         headers: {
@@ -191,16 +191,20 @@ const Students = () => {
       {/* add new student */}
       <div className="students_add_new_student display_flex align_items_center justify_content_space_between">
         <Button
-          text={'محصل جدید'}
+          text={"محصل جدید"}
           onClick={() => {
-            navigate("/admin/add-student"); dispatch({
-              type: actionTypes.REMOVE_STUDENT_REGISTERATION_STATE
+            navigate("/admin/add-student")
+            dispatch({
+              type: actionTypes.REMOVE_STUDENT_REGISTERATION_STATE,
             })
           }}
         />
-        <button>
-          <Link to="/admin/newpost">محتوای جدید</Link>
-        </button>
+        <Button
+          text="محتوای جدید"
+          onClick={() => {
+            navigate("/admin/newpost")
+          }}
+        />
       </div>
 
       {/* some button for filtering */}
