@@ -124,9 +124,11 @@ section {
   margin-top: 2rem;
 }
 .elite_stu_card .elite_stu_card_personalInfo img {
-  width: 75px;
-  height: 75px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
+  object-position: top;
+  object-fit: cover;
 }
 .elite_stu_card .elite_stu_card_personalInfo p {
   font-size: 15px;

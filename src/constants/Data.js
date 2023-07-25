@@ -3,7 +3,9 @@ import sliderImg2 from "../assets/img/slide/slide2.jpg"
 import sliderImg3 from "../assets/img/slide/slide3.jpg"
 import sliderImg4 from "../assets/img/slide/slide4.jpg"
 
-import eliteImg1 from "../assets/img/user.jpg"
+import eliteImg1 from "../assets/img/maroufEbrahimi.jpg"
+import eliteImg2 from "../assets/img/user2.jpg"
+import eliteImg3 from "../assets/img/user.jpg"
 
 // Institute
 import jami_un from "../assets/img/institutes/jami.png"
@@ -44,24 +46,24 @@ export const imageSliderData = [
 export const eliteStudents = [
   {
     id: 1,
-    text: "رسول الله در حدیث گهربار شفاعت برای ما بیان می دارد که بعد از توقف طولانی بشریت در آن روز بسیار سخت مردم پنجاه هزار سال پای برهنه عریان ایستاده هستند و خورشید بر سرها نزدیک می شود روز بسیار سختی است.",
+    text: "موفقیت های خود را تصدیق کنید فراموش نکنید که پیشرفت خود را ترسیم کنید. یک نمایش بصری مانند یک بازه زمانی یا «فهرست کارهای انجام شده» ایجاد کنید و هر کار انجام شده را بررسی کنید. این لیست تا حد زیادی نشان می دهد که چگونه به هدفی که تعیین کرده اید نزدیک می شوید.",
     eliteImg: eliteImg1,
-    eliteName: "معروف ابراهیمی",
+    eliteName: "معروف شاه ابراهیمی",
     studentsOf: "کامپیوتر ساینس",
   },
   {
     id: 2,
-    text: "رسول الله در حدیث گهربار شفاعت برای ما بیان می دارد که بعد از توقف طولانی بشریت در آن روز بسیار سخت مردم پنجاه هزار سال پای برهنه عریان ایستاده هستند و خورشید بر سرها نزدیک می شود روز بسیار سختی است.",
-    eliteImg: eliteImg1,
-    eliteName: "علی نوری",
-    studentsOf: "کامپیوتر ساینس",
+    text: "کمی استراحت کنید و دوباره شروع کنید. استراحت منظم می تواند از خستگی مطالعه و فرسودگی شغلی جلوگیری کند. این استراحت ها به شما این امکان را می دهد که ذهن خود را دوباره پر کنید، نبوغ خود را بهبود بخشید، توجه خود را در یک راستا نگه دارید و انگیزه خود را بازیابی کنید.",
+    eliteImg: eliteImg2,
+    eliteName: "علی هروی",
+    studentsOf: "طب دندان",
   },
   {
     id: 3,
-    text: "رسول الله در حدیث گهربار شفاعت برای ما بیان می دارد که بعد از توقف طولانی بشریت در آن روز بسیار سخت مردم پنجاه هزار سال پای برهنه عریان ایستاده هستند و خورشید بر سرها نزدیک می شود روز بسیار سختی است.",
-    eliteImg: eliteImg1,
+    text: "دلایل اصلی شما برای ادامه تحصیل در مقطع لیسانس باید کاملاً پایه گذاری شده باشد. تصمیم‌گیری آسان‌ترین بخش است، اما هر کسی که قصد ثبت‌نام در برنامه تحصیلات عالی را دارد باید انگیزه داشته باشد. شما باید آن را حفظ کنید، زیرا این نیروی محرکه است که شما را در فشار و خستگی نگه می دارد.",
+    eliteImg: eliteImg3,
     eliteName: "نبی عطایی",
-    studentsOf: "کامپیوتر ساینس",
+    studentsOf: "حقوق و علوم سیاسی",
   },
 ]
 // #______ End of Elite Students ______#
@@ -118,19 +120,6 @@ export const colleagueInstitute = [
   },
 ]
 // #______ End of Colleague Institute ______#
-
-// #______ Profile Tab Header ______#
-export const profileTabHeader = [
-  {
-    text: "معلومات شخصی",
-    counter: 1,
-  },
-  {
-    text: "معلومات دانشگاه",
-    counter: 2,
-  },
-]
-// #______ End of Profile Tab Header ______#
 
 // #______ Faculties ______#
 // General
