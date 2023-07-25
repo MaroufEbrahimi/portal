@@ -24,6 +24,7 @@ const Students = () => {
   const [students, setStudents] = useState([])
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
+  const [semesters, setsemesters] = useState([])
   const [searchKeyword, setSearchKeyword] = useState("")
   const [page, setPage] = useState()
   const [requestParams, setRequestParams] = useState("")
@@ -43,8 +44,8 @@ const Students = () => {
 
     fetch(
       APIEndpoints.root +
-        APIEndpoints.students.getAll +
-        `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
+      APIEndpoints.students.getAll +
+      `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
       {
         method: "GET",
         headers: {
@@ -83,9 +84,9 @@ const Students = () => {
 
           fetch(
             APIEndpoints.root +
-              APIEndpoints.students.getAll +
-              `offset=${pagination.offset}&pageSize=${pagination.pageSize}` +
-              requestParams,
+            APIEndpoints.students.getAll +
+            `offset=${pagination.offset}&pageSize=${pagination.pageSize}` +
+            requestParams,
             {
               method: "GET",
               headers: {
@@ -136,7 +137,22 @@ const Students = () => {
       })
       .then((data) => {
         setDepartments(data)
+        let sem = []
+        for (let i = 1; i <= data[0].semesters; i++)
+          sem.push(i)
+        setsemesters(sem)
       })
+  }
+  const setDep = (e) => {
+    setdepartment(e)
+    const d = departments.find(item => {
+      return item.departmentName == e
+    })
+    console.log(d)
+    let sem = []
+    for (let i = 1; i <= d.semesters; i++)
+      sem.push(i)
+    setsemesters(sem)
   }
 
   const handleSearchButton = (e) => {
@@ -159,9 +175,9 @@ const Students = () => {
     setRequestParams(url)
     fetch(
       APIEndpoints.root +
-        APIEndpoints.students.getAll +
-        `offset=0&pageSize=${pagination.pageSize}` +
-        url,
+      APIEndpoints.students.getAll +
+      `offset=0&pageSize=${pagination.pageSize}` +
+      url,
       {
         method: "GET",
         headers: {
@@ -230,7 +246,7 @@ const Students = () => {
               id="type"
               value={department}
               defaultValue={"همه"}
-              onChange={(e) => setdepartment(e.target.value)}
+              onChange={(e) => setDep(e.target.value)}
             >
               <option>همه</option>
               {departments?.map((item) => {
@@ -247,14 +263,9 @@ const Students = () => {
               onChange={(e) => setsemester(e.target.value)}
             >
               <option>همه</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
+              {semesters.map(item => {
+                return <option key={item}>{item}</option>
+              })}
             </select>
           </div>
         </div>
