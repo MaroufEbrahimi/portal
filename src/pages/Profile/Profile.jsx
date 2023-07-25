@@ -43,10 +43,14 @@ const Profile = () => {
       .then((res) => {
         if (res.ok) {
           return res.json()
+        } else {
+          throw new Error(res.status)
         }
       })
       .then((data) => {
         setstudent(data)
+      }).catch(() => {
+        navigate("/")
       })
   }, [id])
 
@@ -59,7 +63,28 @@ const Profile = () => {
     navigate("/")
   }
 
-  const removeStudent = () => { }
+  const removeStudent = () => {
+    fetch(APIEndpoints.root + APIEndpoints.students.deleteStudent(id), {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + authentication.token,
+      },
+    }).then(res => res.json())
+      .then(data => {
+        if (data.statusCode == 200) {
+          console.log(data)
+          setloading(false)
+          setresponseModal({
+            msg: data.message,
+            show: true,
+            onClick: () => {
+              navigate("/admin/students")
+            }
+          })
+        }
+      })
+
+  }
 
   const lockOrUnlockStudentAccount = () => {
     setloading(true)
@@ -77,8 +102,10 @@ const Profile = () => {
           setloading(false)
           setresponseModal({
             msg: data.message,
-            show: true
+            show: true,
+            onClick: () => setresponseModal({ msg: '', show: false })
           })
+          setstudent({ ...student, isEnable: !student.isEnable })
         }
       })
   }
@@ -255,7 +282,7 @@ const Profile = () => {
           messageType="info"
           firstBtn={{
             btnText: "تایید",
-            onClick: () => setresponseModal({ msg: '', show: false }),
+            onClick: responseModal.onClick,
           }}
           message={responseModal.msg}
           iconType={ICONS.info}

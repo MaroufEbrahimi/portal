@@ -4,7 +4,8 @@ const APIEndpoints = {
         getAll: "students/?",
         addStudent: "students",
         getStudent: (id) => `students/${id}`,
-        updateStudent: (id) => `students/${id}`
+        updateStudent: (id) => `students/${id}`,
+        deleteStudent: (id) => `students/${id}`
     },
     posts: {
         getAllPostsForStudent: "posts/student",
