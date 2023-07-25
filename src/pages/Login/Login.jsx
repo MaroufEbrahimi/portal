@@ -22,6 +22,7 @@ const Login = () => {
   }
   const navigate = useNavigate()
 
+  // Handle Submit
   const handleSubmit = (e) => {
     setlaoding(true)
     e.preventDefault()
@@ -90,8 +91,8 @@ const Login = () => {
               <i className={ICONS.lockFill}></i>
             </div>
           </div>
-          {error && <p className="error">ایمیل یا رمز اشتباه است!</p>}
-          <div className="btn_login display_flex">
+          {error && <p className="error">ایمیل یا رمز عبور اشتباه است!</p>}
+          <div className="btn_login display_flex align_items_center justify_content_center">
             <Button
               text={"ورود به سیستم"}
               onClick={handleSubmit}
