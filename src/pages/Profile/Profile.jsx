@@ -50,7 +50,10 @@ const Profile = () => {
       .then((data) => {
         setstudent(data)
       }).catch(() => {
-        navigate("/")
+        if (id != authentication.userId) {
+          navigate("/")
+        }
+
       })
   }, [id])
 
