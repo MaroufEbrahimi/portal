@@ -21,7 +21,9 @@ const APIEndpoints = {
     },
     login: {
         login: "auth/authenticate",
-        update: "auth/update-user"
+        update: "auth/update-user",
+        lock: (id) => "auth/lock/" + id,
+        unlock: (id) => "auth/unLock/" + id
     }
 
 

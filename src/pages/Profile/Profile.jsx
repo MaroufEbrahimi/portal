@@ -11,6 +11,7 @@ import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import BtnTypes from "../../constants/BtnTypes"
 import APIEndpoints from "../../constants/APIEndpoints"
 import Button from "../../components/UI/Button/Button"
+import ButtonLoading from "../../components/UI/Loading/ButtonLoading"
 
 const Profile = () => {
   const { id } = useParams()
@@ -22,7 +23,9 @@ const Profile = () => {
   // State of All Modals
   const [showModal, setShowModal] = useState(false)
   const [removeModal, setremoveModal] = useState(false)
-  const [disableModal, setdisableModal] = useState(false)
+  const [lockOrUnlockModal, setlockOrUnlockModal] = useState(false)
+  const [responseModal, setresponseModal] = useState({ msg: '', })
+  const [loading, setloading] = useState(false)
   const showModalHandler = () => {
     setShowModal(true)
   }
@@ -56,9 +59,29 @@ const Profile = () => {
     navigate("/")
   }
 
-  const removeStudent = () => {}
+  const removeStudent = () => { }
 
-  const disableStudentAccount = () => {}
+  const lockOrUnlockStudentAccount = () => {
+    setloading(true)
+    setlockOrUnlockModal(false)
+    const lockOrUnlockEndpoint = student.isEnable ? APIEndpoints.login.lock(id) : APIEndpoints.login.unlock(id)
+    fetch(APIEndpoints.root + lockOrUnlockEndpoint, {
+      method: "PUT",
+      headers: {
+        Authorization: "Bearer " + authentication.token,
+      }
+    }).then(res => res.json())
+      .then(data => {
+        if (data.statusCode == 200) {
+          console.log(data)
+          setloading(false)
+          setresponseModal({
+            msg: data.message,
+            show: true
+          })
+        }
+      })
+  }
   console.log(student)
   return (
     <div className="profile fade_in box_shadow display_flex border_radius_8">
@@ -67,8 +90,8 @@ const Profile = () => {
         <div className="user_profile_img display_flex align_items_center flex_direction_column">
           {(authentication.roles.includes(Roles.ADMIN) &&
             id != authentication?.userId) ||
-          (authentication.roles.includes(Roles.STUDENT) &&
-            id == authentication?.userId) ? (
+            (authentication.roles.includes(Roles.STUDENT) &&
+              id == authentication?.userId) ? (
             <img src={student?.imageUrl} alt="user img" />
           ) : null}
 
@@ -89,7 +112,7 @@ const Profile = () => {
                 />
                 <Button
                   icon={student?.isEnable ? ICONS.lockFill : ICONS.unlock}
-                  onClick={() => setdisableModal(true)}
+                  onClick={() => setlockOrUnlockModal(true)}
                   text={student?.isEnable ? "غیرفعال سازی" : "فعال سازی"}
                 />
               </div>
@@ -116,23 +139,23 @@ const Profile = () => {
         </div>
 
         {/* Message box for Enable or Not Enable */}
-        <BackDrop show={disableModal} modalClose={() => setdisableModal(false)}>
+        <BackDrop show={lockOrUnlockModal} modalClose={() => setlockOrUnlockModal(false)}>
           {
             <MessageBox
               messageType="asking"
               firstBtn={{
                 btnText: "بلی",
                 btnType: BtnTypes.danger,
-                onClick: disableStudentAccount,
+                onClick: lockOrUnlockStudentAccount,
               }}
               secondBtn={{
                 btnText: "نخیر",
-                onClick: () => setdisableModal(false),
+                onClick: () => setlockOrUnlockModal(false),
               }}
               message={
                 student?.isEnable
-                  ? "برای فعال سازی پروفایل محصل مطمین هستید؟"
-                  : "برای غیر فعال سازی پروفایل محصل مطمین هستید؟"
+                  ? "برای غیرفعال سازی پروفایل محصل مطمین هستید؟"
+                  : "برای فعال سازی پروفایل محصل مطمین هستید؟"
               }
               iconType={ICONS.asking}
             />
@@ -180,8 +203,8 @@ const Profile = () => {
       {/* Student Personal Information */}
       {(authentication.roles.includes(Roles.ADMIN) &&
         id != authentication?.userId) ||
-      (authentication.roles.includes(Roles.STUDENT) &&
-        id == authentication?.userId) ? (
+        (authentication.roles.includes(Roles.STUDENT) &&
+          id == authentication?.userId) ? (
         <div className="profile_details">
           <div className="content_of_profile border_radius_8">
             <div className="content">
@@ -227,6 +250,18 @@ const Profile = () => {
           </div>
         </div>
       ) : null}
+      <BackDrop show={responseModal.show} modalClose={null}>
+        <MessageBox
+          messageType="info"
+          firstBtn={{
+            btnText: "تایید",
+            onClick: () => setresponseModal({ msg: '', show: false }),
+          }}
+          message={responseModal.msg}
+          iconType={ICONS.info}
+        />
+      </BackDrop>
+      {loading && <ButtonLoading />}
     </div>
   )
 }
