@@ -144,7 +144,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 onClick={adminPanelHandler}
                 className="drop_menu_button outline_none cursor_pointer"
               />
-              <div className="navbar__dropdown">
+              <div className="navbar__dropdown admin_navbar__dropdown ">
                 <CustomeLinks to="/admin/students" title="محصلین">
                   <i className={ICONS.people}></i>
                   <span>محصلین</span>
@@ -156,6 +156,18 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 <CustomeLinks to="/admin/post-management" title="مدیریت پست ها">
                   <i className={ICONS.files}></i>
                   <span>مدیریت پست ها</span>
+                </CustomeLinks>
+                <CustomeLinks to="/admin/teachers" title="اساتید">
+                  <i className={ICONS.peopleّّFill}></i>
+                  <span>اساتید</span>
+                </CustomeLinks>
+                <CustomeLinks to="/admin/timetable" title="حاضری ها">
+                  <i className={ICONS.table}></i>
+                  <span>حاضری ها</span>
+                </CustomeLinks>
+                <CustomeLinks to="/admin/schedule" title="تقسیم اوقات ها">
+                  <i className={ICONS.calendar}></i>
+                  <span>تقسیم اوقات ها</span>
                 </CustomeLinks>
               </div>
             </div>

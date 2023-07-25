@@ -8,6 +8,7 @@ const ICONS = {
   window: "bi bi-window",
   gear: "bi bi-gear",
   people: "bi bi-people",
+  peopleّّFill: "bi bi-people-fill",
   earmarkPlus: "bi bi-file-earmark-plus",
   files: "bi bi-files",
   building: "bi bi-building",
@@ -43,6 +44,8 @@ const ICONS = {
   search: "bi bi-search",
   checkLg: "bi bi-check-lg",
   personCircle: "bi bi-person-circle",
+  table: "bi bi-table",
+  calendar: "bi bi-calendar",
 }
 
 export default ICONS

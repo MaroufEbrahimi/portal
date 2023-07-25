@@ -35,6 +35,10 @@ const Dentistry = React.lazy(() =>
   import("./pages/Faculties/Dentistry/Dentistry")
 )
 
+const Teachers = React.lazy(() => import("./pages/Teachers/Teachers"))
+const Timetable = React.lazy(() => import("./pages/Timetable/Timetable"))
+const Schedule = React.lazy(() => import("./pages/Schedule/Schedule"))
+
 const App = () => {
   // switch between light or dark mode
   const [isDark, setIsDark] = useState(
@@ -130,6 +134,18 @@ const App = () => {
         {
           path: "/admin/post-management",
           element: <PostManagement />,
+        },
+        {
+          path: "/admin/teachers",
+          element: <Teachers />,
+        },
+        {
+          path: "/admin/timetable",
+          element: <Timetable />,
+        },
+        {
+          path: "/admin/schedule",
+          element: <Schedule />,
         },
         {
           path: "/login",
