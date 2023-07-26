@@ -1,0 +1,55 @@
+.teachers {
+  margin: 20px;
+}
+.teachers h1 {
+  font-size: 30px;
+  text-shadow: 3px 3px 20px #99ffe9, -2px 1px 30px #77d5f1;
+}
+.teachers p {
+  color: var(--text-color);
+  line-height: 1.8em;
+  margin-bottom: 1rem;
+  margin-top: 10px;
+  text-align: justify;
+  text-shadow: 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.teachers_boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin: 2rem 5rem;
+}
+.teachers_boxes .teachers_box {
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.teachers_boxes .student_personal_info {
+  padding-top: 10px;
+}
+
+.teachers_boxes .student_university_info a {
+  width: 100%;
+  padding: 4px 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .teachers {
+    margin: 0px;
+  }
+  .teachers_boxes {
+    margin: 2rem 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .teachers_boxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .teachers_boxes {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
