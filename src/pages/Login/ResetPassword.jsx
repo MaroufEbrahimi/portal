@@ -87,11 +87,17 @@ const ResetPassword = () => {
             show: true,
             msg: "اطلاعات کاربری با موفقیت بروزرسانی شد!",
           })
-          return res.json()
         }
+        console.log(res)
+        return res.json()
       })
       .then((data) => {
-        if(authentication.userId == id){
+        console.log(data)
+        if (data.statusCode != 200) {
+          setError(data.message)
+          return
+        }
+        if (authentication.userId == id) {
           localStorage.setItem("token", data?.token)
           localStorage.setItem("name", data?.name)
           localStorage.setItem("lastname", data.lastname)
