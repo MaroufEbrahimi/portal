@@ -67,21 +67,26 @@ const NewPost = () => {
       })
       .then((data) => {
         // now send the file
-        const formData = new FormData()
-        for (let f in files) {
-          formData.append("files", files[f])
-        }
-        fetch(data.filesUrl, {
-          method: "POST",
-          headers: {
-            Authorization: "Bearer " + authentication.token,
-          },
-          body: formData,
-        }).then((res) => {
-          if (res.ok) {
-            setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
+        if (files.length > 0) {
+          const formData = new FormData()
+          for (let f in files) {
+            formData.append("files", files[f])
           }
-        })
+          fetch(data.filesUrl, {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + authentication.token,
+            },
+            body: formData,
+          }).then((res) => {
+            if (res.ok) {
+              setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
+            }
+          })
+        } else {
+          setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
+        }
+
       })
   }
 
