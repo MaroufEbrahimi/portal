@@ -113,10 +113,10 @@
 }
 
 .faculties_menu li i img {
-  width: 22px;
-  margin-right: -4px;
+  width: 20px;
   filter: var(--icon-faculties-color);
   z-index: 0;
+  margin-right: -4px;
 }
 
 .navbar_menu li:hover a::before,
@@ -185,6 +185,9 @@
   transform: scaleY(1);
   height: 100px;
 }
+.drop_menu_button:checked + .admin_navbar__dropdown {
+  height: 180px;
+}
 
 .navbar__dropdown {
   transition: transform 0.3s cubic-bezier(0.85, 0.02, 0.19, 1.04),
@@ -205,14 +208,17 @@
 }
 
 .navbar__dropdown li {
-  margin: 4px 0;
+  margin: 2px 0;
+}
+.admin_navbar__dropdown li {
+  margin: 1px 0;
 }
 
 .navbar__dropdown li a {
   display: flex;
   align-items: center;
   font-size: 15px;
-  margin: -4px 0;
+  margin: -6px 0;
 }
 
 .navbar__dropdown li span {
