@@ -11,6 +11,7 @@ import UpdatePost from "./components/UpdatePost/UpdatePost"
 import Spinner from "./components/UI/Loading/Spinner"
 import ButtonLoading from "./components/UI/Loading/ButtonLoading"
 import Loading from "./components/UI/Loading/Loading"
+
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
 const Posts = React.lazy(() => import("./pages/Posts/Posts"))
@@ -38,6 +39,9 @@ const Dentistry = React.lazy(() =>
 const Teachers = React.lazy(() => import("./pages/Teachers/Teachers"))
 const Timetable = React.lazy(() => import("./pages/Timetable/Timetable"))
 const Schedule = React.lazy(() => import("./pages/Schedule/Schedule"))
+const TeacherProfile = React.lazy(() =>
+  import("./pages/TeacherProfile/TeacherProfile")
+)
 
 const App = () => {
   // switch between light or dark mode
@@ -138,6 +142,10 @@ const App = () => {
         {
           path: "/admin/teachers",
           element: <Teachers />,
+        },
+        {
+          path: "/profile-teacher/:id",
+          element: <TeacherProfile />,
         },
         {
           path: "/admin/timetable",
