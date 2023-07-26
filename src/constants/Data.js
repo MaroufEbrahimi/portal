@@ -1401,3 +1401,68 @@ export const dentistry_reference10 = [
 // End of Dentistry
 
 // #______ End of Faculties ______#
+
+// #______ Teachers ______#
+export const teachers = [
+  {
+    id: 1,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+  {
+    id: 2,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+  {
+    id: 3,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+  {
+    id: 4,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+  {
+    id: 5,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+  {
+    id: 6,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+  {
+    id: 7,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+  {
+    id: 8,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+  {
+    id: 9,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+  {
+    id: 10,
+    teacherImg: eliteImg1,
+    teacherName: "معروف شاه",
+    teacherLastName: "ابراهیمی",
+  },
+]
+// #______ End of Teachers ______#
