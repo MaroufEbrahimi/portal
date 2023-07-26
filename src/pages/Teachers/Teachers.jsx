@@ -35,7 +35,7 @@ const Teachers = () => {
                 <p>{item.teacherLastName}</p>
               </div>
               <div className="student_university_info display_flex text_align_center border_radius_8">
-                <Link to={"/profile-teacher/" + item?.id}>بـشـتر</Link>
+                <Link to={"/profile-teacher/" + item?.id}>بـیشـتر</Link>
               </div>
             </div>
           </div>
