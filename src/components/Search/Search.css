@@ -16,6 +16,10 @@
   color: var(--text-color);
 }
 
+.search__input input::placeholder {
+  padding-right: 3px;
+}
+
 .search__input input:focus {
   outline-width: 0;
 }
