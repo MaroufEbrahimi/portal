@@ -26,6 +26,7 @@ const PostManagement = () => {
   const [loading, setLoading] = useState(true)
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
+  const [semesters, setsemesters] = useState([])
   const [requestParams, setRequestParams] = useState(``)
   const [deleteModal, setDeleteModal] = useState(false)
   const [postToDelete, setPostToDelete] = useState()
@@ -155,7 +156,23 @@ const PostManagement = () => {
       })
       .then((data) => {
         setDepartments(data)
+        let sem = []
+        for (let i = 1; i <= data[0].semesters; i++)
+          sem.push(i)
+        setsemesters(sem)
       })
+  }
+
+  const setDep = (e) => {
+    setdepartment(e)
+    const d = departments.find(item => {
+      return item.departmentName == e
+    })
+    console.log(d)
+    let sem = []
+    for (let i = 1; i <= d.semesters; i++)
+      sem.push(i)
+    setsemesters(sem)
   }
 
   const handleDelete = () => {
@@ -182,7 +199,6 @@ const PostManagement = () => {
         setCompleteMsg({ msg: error.message, show: true })
       })
   }
-  console.log(posts)
   return (
     <div className="posts_management">
       <div className="posts_management_tabHeader">
@@ -206,7 +222,7 @@ const PostManagement = () => {
             <select
               id="type"
               value={department}
-              onChange={(e) => setdepartment(e.target.value)}
+              onChange={(e) => setDep(e.target.value)}
               defaultValue="همه"
             >
               <option>همه</option>
@@ -224,14 +240,9 @@ const PostManagement = () => {
               defaultValue="همه"
             >
               <option>همه</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
+              {semesters.map(sem => {
+                return <option>{sem}</option>
+              })}
             </select>
           </div>
         </div>

@@ -26,7 +26,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     setlaoding(true)
     e.preventDefault()
-    fetch(APIEndpoints.root+APIEndpoints.login.login, {
+    fetch(APIEndpoints.root + APIEndpoints.login.login, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
