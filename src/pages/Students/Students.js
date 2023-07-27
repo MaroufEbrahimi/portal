@@ -46,8 +46,8 @@ const Students = () => {
 
     fetch(
       APIEndpoints.root +
-        APIEndpoints.students.getAll +
-        `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
+      APIEndpoints.students.getAll +
+      `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
       {
         method: "GET",
         headers: {
@@ -82,11 +82,10 @@ const Students = () => {
         if (hasMore && !loading && page.totalPages >= pagination.offset) {
           fetch(
             APIEndpoints.root +
-              APIEndpoints.students.getAll +
-              `offset=${pagination.offset + 1}&pageSize=${
-                pagination.pageSize
-              }` +
-              requestParams,
+            APIEndpoints.students.getAll +
+            `offset=${pagination.offset + 1}&pageSize=${pagination.pageSize
+            }` +
+            requestParams,
             {
               method: "GET",
               headers: {
@@ -177,9 +176,9 @@ const Students = () => {
     setRequestParams(url)
     fetch(
       APIEndpoints.root +
-        APIEndpoints.students.getAll +
-        `offset=0&pageSize=${pagination.pageSize}` +
-        url,
+      APIEndpoints.students.getAll +
+      `offset=0&pageSize=${pagination.pageSize}` +
+      url,
       {
         method: "GET",
         headers: {
@@ -299,7 +298,7 @@ const Students = () => {
           {!hasMore && students.length > 0 && (
             <>
               <h5>آخرین محصل</h5>
-              <h6 style={{ paddingTop: "10px" }}>تعداد کل محصلین {allStus}</h6>
+              <h6 style={{ paddingTop: "10px" }}>تعداد کل محصلین {students.length}</h6>
             </>
           )}
           {!hasMore && students.length == 0 && <h5>محصل یافت نشد!</h5>}
