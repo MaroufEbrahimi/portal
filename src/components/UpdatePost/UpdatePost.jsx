@@ -27,6 +27,7 @@ const UpdatePost = () => {
   const [files, setfiles] = useState([])
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
+  const [semesters, setsemesters] = useState([])
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   const modalCloseHandler = () => {
     console.log("close")
@@ -90,7 +91,7 @@ const UpdatePost = () => {
   }, [])
 
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/field-of-studies")
+    fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -103,11 +104,7 @@ const UpdatePost = () => {
         const f = data.content.find((item) => {
           return item.fieldName == post?.fieldOfStudy
         })
-        fetch(
-          "http://localhost:1000/api/v1/field-of-studies/" +
-            f?.id +
-            "/departments"
-        )
+        fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f?.id))
           .then((res) => {
             if (res.ok) {
               return res.json()
@@ -116,8 +113,10 @@ const UpdatePost = () => {
             }
           })
           .then((data) => {
-            console.log("dep -> ", data)
             setDepartments(data)
+            let sem = []
+            for (let i = 1; i <= data[0].semesters; i++) sem.push(i)
+            setsemesters(sem)
           })
       })
   }, [post])
@@ -173,9 +172,7 @@ const UpdatePost = () => {
     const f = fields.find((item) => {
       return item.fieldName == e.target.value
     })
-    fetch(
-      "http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments"
-    )
+    fetch(APIEndpoints.fieldOfStudy.depratments(f.id))
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -379,7 +376,7 @@ const UpdatePost = () => {
                   }
                   defaultValue={post?.semester}
                 >
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => {
+                  {semesters.map((item) => {
                     return <option>{item}</option>
                   })}
                 </select>
