@@ -29,6 +29,8 @@ const Students = () => {
   const [page, setPage] = useState()
   const [requestParams, setRequestParams] = useState("")
 
+  let allStus = 192
+
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
       .then((res) => {
@@ -44,8 +46,8 @@ const Students = () => {
 
     fetch(
       APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
+        APIEndpoints.students.getAll +
+        `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
       {
         method: "GET",
         headers: {
@@ -80,9 +82,11 @@ const Students = () => {
         if (hasMore && !loading && page.totalPages >= pagination.offset) {
           fetch(
             APIEndpoints.root +
-            APIEndpoints.students.getAll +
-            `offset=${(pagination.offset + 1)}&pageSize=${pagination.pageSize}` +
-            requestParams,
+              APIEndpoints.students.getAll +
+              `offset=${pagination.offset + 1}&pageSize=${
+                pagination.pageSize
+              }` +
+              requestParams,
             {
               method: "GET",
               headers: {
@@ -96,7 +100,7 @@ const Students = () => {
               }
             })
             .then((data) => {
-              console.log((pagination.offset + 1) + " <- offset: data ->", data)
+              console.log(pagination.offset + 1 + " <- offset: data ->", data)
               if (data.totalPages - 1 > pagination.offset) {
                 setHasMore(true)
               } else {
@@ -138,20 +142,18 @@ const Students = () => {
       .then((data) => {
         setDepartments(data)
         let sem = []
-        for (let i = 1; i <= data[0].semesters; i++)
-          sem.push(i)
+        for (let i = 1; i <= data[0].semesters; i++) sem.push(i)
         setsemesters(sem)
       })
   }
   const setDep = (e) => {
     setdepartment(e)
-    const d = departments.find(item => {
+    const d = departments.find((item) => {
       return item.departmentName == e
     })
     console.log(d)
     let sem = []
-    for (let i = 1; i <= d.semesters; i++)
-      sem.push(i)
+    for (let i = 1; i <= d.semesters; i++) sem.push(i)
     setsemesters(sem)
   }
 
@@ -175,9 +177,9 @@ const Students = () => {
     setRequestParams(url)
     fetch(
       APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `offset=0&pageSize=${pagination.pageSize}` +
-      url,
+        APIEndpoints.students.getAll +
+        `offset=0&pageSize=${pagination.pageSize}` +
+        url,
       {
         method: "GET",
         headers: {
@@ -264,7 +266,7 @@ const Students = () => {
               onChange={(e) => setsemester(e.target.value)}
             >
               <option>همه</option>
-              {semesters.map(item => {
+              {semesters.map((item) => {
                 return <option key={item}>{item}</option>
               })}
             </select>
@@ -292,14 +294,15 @@ const Students = () => {
           }
           return <Student key={student.id} studentInfo={student} />
         })}
-        <section className="students_not_found">
+        <section className="students_not_found text_align_center">
           {hasMore && <Spinner />}
           {!hasMore && students.length > 0 && (
-            <h5 style={{ textAlign: "center" }}>آخرین محصل</h5>
+            <>
+              <h5>آخرین محصل</h5>
+              <h6 style={{ paddingTop: "10px" }}>تعداد کل محصلین {allStus}</h6>
+            </>
           )}
-          {!hasMore && students.length == 0 && (
-            <h5 style={{ textAlign: "center" }}>محصل یافت نشد!</h5>
-          )}
+          {!hasMore && students.length == 0 && <h5>محصل یافت نشد!</h5>}
         </section>
       </div>
     </div>
