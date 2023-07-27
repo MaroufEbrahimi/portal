@@ -9,6 +9,7 @@ import Roles from "../../constants/Roles"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import MessageBox from "../../components/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
+import APIEndpoints from "../../constants/APIEndpoints"
 
 const NewPost = () => {
   // this is for security purpose
@@ -23,9 +24,10 @@ const NewPost = () => {
   const [files, setfiles] = useState([])
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
+  const [semesters, setsemesters] = useState([])
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   useEffect(() => {
-    fetch("http://localhost:1000/api/v1/field-of-studies")
+    fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -34,7 +36,6 @@ const NewPost = () => {
         }
       })
       .then((data) => {
-        console.log(data)
         setFields(data.content)
       })
   }, [])
@@ -49,8 +50,7 @@ const NewPost = () => {
       semester: semester,
       isPublic: isPublic == "صفحه اصلی" ? true : false,
     }
-    console.log(files)
-    fetch("http://localhost:1000/api/v1/posts", {
+    fetch(APIEndpoints.root + APIEndpoints.posts.addPost, {
       method: "POST",
       headers: {
         Authorization: "Bearer " + authentication.token,
@@ -67,21 +67,26 @@ const NewPost = () => {
       })
       .then((data) => {
         // now send the file
-        const formData = new FormData()
-        for (let f in files) {
-          formData.append("files", files[f])
-        }
-        fetch(data.filesUrl, {
-          method: "POST",
-          headers: {
-            Authorization: "Bearer " + authentication.token,
-          },
-          body: formData,
-        }).then((res) => {
-          if (res.ok) {
-            setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
+        if (files.length > 0) {
+          const formData = new FormData()
+          for (let f in files) {
+            formData.append("files", files[f])
           }
-        })
+          fetch(data.filesUrl, {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + authentication.token,
+            },
+            body: formData,
+          }).then((res) => {
+            if (res.ok) {
+              setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
+            }
+          })
+        } else {
+          setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
+        }
+
       })
   }
 
@@ -90,9 +95,8 @@ const NewPost = () => {
     const f = fields.find((item) => {
       return item.fieldName == e.target.value
     })
-    console.log(f)
     fetch(
-      "http://localhost:1000/api/v1/field-of-studies/" + f.id + "/departments"
+      APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id)
     )
       .then((res) => {
         if (res.ok) {
@@ -104,9 +108,24 @@ const NewPost = () => {
       .then((data) => {
         console.log(data)
         setDepartments(data)
+        let sem = []
+        for (let i = 1; i <= data[0].semesters; i++)
+          sem.push(i)
+        setsemesters(sem)
       })
   }
 
+  const setDep = (e) => {
+    setdepartment(e)
+    const d = departments.find(item => {
+      return item.departmentName == e
+    })
+    console.log(d)
+    let sem = []
+    for (let i = 1; i <= d.semesters; i++)
+      sem.push(i)
+    setsemesters(sem)
+  }
   return (
     <div className="new_post fade_in">
       <div className="post_description display_flex flex_direction_column">
@@ -177,7 +196,7 @@ const NewPost = () => {
               <div className="post_box">
                 <select
                   id="type"
-                  onChange={(e) => setdepartment(e.target.value)}
+                  onChange={(e) => setDep(e.target.value)}
                 >
                   <option selected disabled>
                     دیپارتمنت
@@ -192,14 +211,9 @@ const NewPost = () => {
                   <option selected disabled>
                     سمستر
                   </option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
+                  {semesters.map(sem => {
+                    return <option>{sem}</option>
+                  })}
                 </select>
               </div>
             </>

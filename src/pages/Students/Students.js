@@ -69,6 +69,7 @@ const Students = () => {
         setStudents(Array.from(new Set([...students, ...data.content])))
         setLoading(false)
       })
+    console.log("useEffet run")
   }, [])
 
   const lastNodeReference = (node) => {
@@ -76,16 +77,11 @@ const Students = () => {
     if (lastNode.current) lastNode.current.disconnect()
     lastNode.current = new IntersectionObserver((enteries) => {
       if (enteries[0].isIntersecting) {
-        if (hasMore && !loading && page.totalPages > pagination.offset) {
-          setPagination({
-            offset: pagination.offset + 1,
-            pageSize: pagination.pageSize,
-          })
-
+        if (hasMore && !loading && page.totalPages >= pagination.offset) {
           fetch(
             APIEndpoints.root +
             APIEndpoints.students.getAll +
-            `offset=${pagination.offset}&pageSize=${pagination.pageSize}` +
+            `offset=${(pagination.offset + 1)}&pageSize=${pagination.pageSize}` +
             requestParams,
             {
               method: "GET",
@@ -100,7 +96,7 @@ const Students = () => {
               }
             })
             .then((data) => {
-              console.log(pagination.offset + " <- offset: data ->", data)
+              console.log((pagination.offset + 1) + " <- offset: data ->", data)
               if (data.totalPages - 1 > pagination.offset) {
                 setHasMore(true)
               } else {
@@ -113,6 +109,10 @@ const Students = () => {
               setPage(data)
               setStudents(newList)
               setLoading(false)
+              setPagination({
+                offset: pagination.offset + 1,
+                pageSize: pagination.pageSize,
+              })
             })
         }
       }
@@ -202,6 +202,7 @@ const Students = () => {
     setPage({})
   }
 
+  console.log(students)
   return (
     <div className="students_page fade_in">
       {/* add new student */}
