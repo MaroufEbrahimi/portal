@@ -15,7 +15,9 @@ export const PersonalInformation = ({ updatedMode = false }) => {
   })
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
-  const [semesters, setsemesters] = useState(new Array(studentPersonalInfo?.department?.semesters))
+  const [semesters, setsemesters] = useState(
+    new Array(studentPersonalInfo?.department?.semesters)
+  )
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
       .then((res) => {
@@ -30,8 +32,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           return item.fieldName == studentPersonalInfo?.fieldOfStudy
         })
         setFields(data.content)
-        fetch(
-          APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f?.id))
+        fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f?.id))
           .then((res) => {
             if (res.ok) {
               return res.json()
@@ -42,8 +43,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           .then((data) => {
             setDepartments(data)
             let sem = []
-            for (let i = 1; i <= data[0].semesters; i++)
-              sem.push(i)
+            for (let i = 1; i <= data[0].semesters; i++) sem.push(i)
             setsemesters(sem)
           })
       })
@@ -210,8 +210,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           return item.fieldName == e.target.value
         })
         console.log("filed name", f)
-        fetch(
-          APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id))
+        fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id))
           .then((res) => {
             if (res.ok) {
               return res.json()
@@ -222,20 +221,17 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           .then((data) => {
             setDepartments(data)
             let sem = []
-            for (let i = 1; i <= data[0].semesters; i++)
-              sem.push(i)
+            for (let i = 1; i <= data[0].semesters; i++) sem.push(i)
             setsemesters(sem)
-
           })
         break
       }
       case "department": {
-        const department = departments.find(item => {
+        const department = departments.find((item) => {
           return item.departmentName == e.target.value
         })
         let sem = []
-        for (let i = 1; i <= department.semesters; i++)
-          sem.push(i);
+        for (let i = 1; i <= department.semesters; i++) sem.push(i)
         setsemesters(sem)
 
         dispatch({
@@ -336,7 +332,11 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           </div>
         </section>
 
-        <section className="build_boxes build_boxes_three_boxes">
+        <section
+          className={`build_boxes ${
+            updatedMode ? "build_boxes" : "build_boxes_three_boxes"
+          }`}
+        >
           <div className="build_box">
             <label>زبـان مــادری</label>
             <select
@@ -381,6 +381,23 @@ export const PersonalInformation = ({ updatedMode = false }) => {
               <option>متاهل</option>
             </select>
           </div>
+
+          {updatedMode && (
+            <>
+              <div className="build_box">
+                <label>شــمــاره تــمــاس</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  required
+                  value={studentPersonalInfo?.phoneNumber}
+                  onChange={(e) => handleInputChangeValue(e, "phoneNumber")}
+                />
+              </div>
+            </>
+          )}
         </section>
 
         <section className="build_boxes build_boxes_three_boxes">
@@ -420,20 +437,21 @@ export const PersonalInformation = ({ updatedMode = false }) => {
         </section>
 
         <section className="build_boxes build_boxes_three_boxes">
-          <div className="build_box">
-            <label>شــمــاره تــمــاس</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              required
-              value={studentPersonalInfo?.phoneNumber}
-              onChange={(e) => handleInputChangeValue(e, "phoneNumber")}
-            />
-          </div>
-          {!updatedMode &&
+          {!updatedMode && (
             <>
+              <div className="build_box">
+                <label>شــمــاره تــمــاس</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  required
+                  value={studentPersonalInfo?.phoneNumber}
+                  onChange={(e) => handleInputChangeValue(e, "phoneNumber")}
+                />
+              </div>
+
               <div className="build_box email">
                 <label>ایــمـیـل</label>
                 <input
@@ -456,7 +474,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
                 />
               </div>
             </>
-          }
+          )}
         </section>
 
         <section className="build_boxes">
@@ -500,7 +518,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
               <option selected disabled>
                 سـمسـتر
               </option>
-              {semesters?.map(sem => {
+              {semesters?.map((sem) => {
                 return <option key={sem}>{sem}</option>
               })}
             </select>
@@ -510,9 +528,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
             <input
               type="date"
               value={studentPersonalInfo?.joinedDate}
-              onChange={(e) =>
-                handleInputChangeValue(e, "joinedDate")
-              }
+              onChange={(e) => handleInputChangeValue(e, "joinedDate")}
               required
               inputMode="url"
             />
