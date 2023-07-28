@@ -56,6 +56,7 @@
   padding-top: 2rem;
 }
 
+/* Responsive */
 @media (max-width: 991px) {
   .teacher_profile .profile_details {
     margin: 0rem 4rem;
@@ -69,5 +70,16 @@
 @media (max-width: 480px) {
   .teacher_profile .profile_details {
     margin: 0rem;
+  }
+
+  .teacher_Profile_details img {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media (max-width: 375px) {
+  .teacher_Profile_details img {
+    width: 150px;
+    height: 150px;
   }
 }
