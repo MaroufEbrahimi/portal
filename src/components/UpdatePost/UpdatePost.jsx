@@ -131,6 +131,7 @@ const UpdatePost = () => {
       semester: post.semester,
       isPublic: post.isPublic == "صفحه اصلی" ? true : false,
     }
+    console.log(body)
 
     fetch(APIEndpoints.root + APIEndpoints.posts.update(post.id), {
       method: "PUT",
@@ -183,9 +184,10 @@ const UpdatePost = () => {
       .then((data) => {
         console.log(data)
         setDepartments(data)
+        setPost({ ...post, department: data[0].departmentName })
       })
   }
-
+  console.log(post)
   return (
     <div className="update_post">
       <div className="image_header_container">
@@ -347,8 +349,8 @@ const UpdatePost = () => {
               <div className="post_box">
                 <select
                   id="type"
+                  value={post?.fieldOfStudy}
                   onChange={(e) => fieldOfStudeyInputHandling(e)}
-                  defaultValue={post?.fieldOfStudy}
                 >
                   {fields.map((item) => {
                     return <option key={item.id}>{item.fieldName}</option>
@@ -361,7 +363,7 @@ const UpdatePost = () => {
                   onChange={(e) =>
                     setPost({ ...post, department: e.target.value })
                   }
-                  defaultValue={post?.department}
+                  value={post?.department}
                 >
                   {departments.map((item) => {
                     return <option key={item.id}>{item.departmentName}</option>
@@ -374,7 +376,7 @@ const UpdatePost = () => {
                   onChange={(e) =>
                     setPost({ ...post, semester: e.target.value })
                   }
-                  defaultValue={post?.semester}
+                  value={post?.semester}
                 >
                   {semesters.map((item) => {
                     return <option>{item}</option>
