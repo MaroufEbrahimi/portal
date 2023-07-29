@@ -14,17 +14,6 @@
 }
 /* End of Post Management */
 
-/* End of Posts */
-.end_of_posts {
-  position: relative;
-  height: 60px;
-  padding-top: 2rem;
-}
-
-.end_of_posts h5 {
-  font-size: 18px;
-}
-
 /* Responsive */
 @media (max-width: 991px) {
   .title_posts_management {
