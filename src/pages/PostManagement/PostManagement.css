@@ -10,23 +10,9 @@
 }
 
 .content_of_posts_details > div {
-  display: grid;
   gap: 13px;
-  margin: 0 10rem;
 }
-
-/* End of Post Management Posts */
-
-/* End of Posts */
-.end_of_posts {
-  position: relative;
-  height: 60px;
-  padding-top: 2rem;
-}
-
-.end_of_posts h5 {
-  font-size: 18px;
-}
+/* End of Post Management */
 
 /* Responsive */
 @media (max-width: 991px) {

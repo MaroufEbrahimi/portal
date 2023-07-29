@@ -53,6 +53,7 @@ const Post = ({
             </div>
           </div>
           {role == Roles.ADMIN ? (
+            // Post Settings on left of Posts
             <div className="post_settings">
               <span className="setting_icon cursor_pointer">
                 <i className={ICONS.threeDots}></i>
@@ -65,6 +66,7 @@ const Post = ({
                       <span>ویرایش پست</span>
                     </Link>
                   </li>
+                  {/* Handle Hide & UnHide of the Post */}
                   <li className="setting_option" onClick={handleHideShow}>
                     <span className="setting_option_details">
                       {!isHide ? (
@@ -75,7 +77,7 @@ const Post = ({
                       {!isHide ? (
                         <span>پنهان کردن</span>
                       ) : (
-                        <span>غیرفعال کردن حالت پنهان</span>
+                        <span>نمایش دادن</span>
                       )}
                     </span>
                   </li>
@@ -91,18 +93,19 @@ const Post = ({
           ) : null}
         </div>
       </div>
-      <div className="file_post_body display_flex">
+      <div className="file_post_body display_flex flex_direction_column">
+        {/* This is Text for each post */}
         <div className="post_text">
           <p dangerouslySetInnerHTML={{ __html: text }}></p>
         </div>
+        {/* For each item of image array render a post_file */}
         <div className="post_images">
-          {/* for each item of image array render a post_file */}
           {images?.map((item) => {
             return <img src={item} alt="" key={item} />
           })}
         </div>
         <div className="pdf_files_container">
-          {/* for each item of pdf array render a post_file */}
+          {/* For each item of pdf array render a post_file */}
           {docs?.map((doc) => {
             return (
               <div className="post_file display_flex" key={doc}>

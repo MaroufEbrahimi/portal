@@ -1,32 +1,17 @@
+/* Post */
 .post {
-  width: 100%;
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 var(--gen-bg-color);
   border-radius: 6px;
   padding: 10px;
   position: relative;
-}
-
-.file_post_body {
-  padding: 15px;
-  gap: 20px;
-}
-
-.file_post_body .post_text {
-  flex: 1;
-}
-
-.post_text > p {
-  font-size: 15px;
-  line-height: 1.8em;
-  margin-bottom: 20px;
-  color: var(--text-color);
-  text-align: justify;
+  width: 650px;
 }
 
 .post_header {
   width: 100%;
 }
 
+/* Post Shere With */
 .post_header .post_share_with {
   gap: 10px;
 }
@@ -42,8 +27,9 @@
   font-size: 14px;
   color: var(--text-color);
 }
+/* End of Post Shere With */
 
-/* post setting */
+/* Post Settings */
 .post_settings .setting_icon {
   padding: 5px;
   padding-right: 0;
@@ -74,6 +60,10 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.post_settings .setting_menu:hover {
+  transform: scaleY(1);
+}
+
 .post_settings .setting_menu .setting_option {
   padding: 4px;
   cursor: pointer;
@@ -88,25 +78,18 @@
   background-color: var(--gen-color);
   border-radius: 5px;
 }
+/* End of Post Settings */
 
-.post_settings .setting_menu:hover {
-  transform: scaleY(1);
+/* File Post */
+.file_post_body {
+  padding: 25px;
 }
-
-.img_post_body {
-  margin: 10px 20px;
-}
-
-.img_post_body p {
-  font-size: 15px;
-  line-height: 1.5em;
+.post_text > p {
+  font-size: 14.5px;
+  line-height: 1.6em;
+  margin-bottom: 20px;
   color: var(--text-color);
-}
-
-/* file post */
-.post_images {
-  flex-flow: wrap;
-  gap: 5px;
+  text-align: justify;
 }
 
 .post_image {
@@ -116,17 +99,17 @@
 .post_images img {
   object-fit: cover;
   width: 100%;
-  max-width: 400px;
+  height: 100%;
   border-radius: 10px;
+  object-fit: contain;
 }
 
 .post_file {
   border-radius: 5px;
-  background: linear-gradient(to right, var(--gen-color) #39c09e, #2bc4cfcc);
   padding: 6px;
   width: max-content;
-  margin: 5px;
   max-width: 100%;
+  width: auto;
 }
 
 .files_icon_container p {
@@ -134,16 +117,17 @@
   word-break: break-word;
   font-size: 14px;
 }
+/* End of File Post */
 
-/* download button */
+/* Download Buttons */
 .btn_download {
   position: relative;
   width: 100px;
   height: 30px;
-  border: 1px solid var(--gen-bg-color);
+  border: 1px solid transparent;
   background-color: var(--gen-color);
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-right: 5px;
 }
 
@@ -163,12 +147,11 @@
   height: 100%;
   width: 39px;
   background-color: var(--gen-bg-color);
-  color: #fff;
 }
 
 .btn_download .button_download_icon > i {
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .btn_download:hover {
@@ -182,6 +165,7 @@
 .btn_download:hover .button_download_icon {
   width: 148px;
   transform: translateX(0);
+  border-radius: 8px;
 }
 
 .btn_download:active .button_download_icon {
@@ -191,11 +175,25 @@
 .btn_download:active {
   border: 1px solid var(--gen-color);
 }
+/* End of Download Buttons */
 
-/* End of download button */
+/* On Update Post */
+.img_post_body {
+  margin: 10px 20px;
+}
+
+.img_post_body p {
+  font-size: 15px;
+  line-height: 1.5em;
+  color: var(--text-color);
+}
 
 /* Responsive */
 @media (max-width: 991px) {
+  .post {
+    max-width: 650px;
+    width: auto;
+  }
 }
 
 @media (max-width: 768px) {
@@ -206,4 +204,9 @@
 }
 
 @media (max-width: 480px) {
+  .post_file {
+    align-items: center;
+    flex-direction: column;
+    gap: 14px;
+  }
 }

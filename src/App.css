@@ -240,6 +240,25 @@
 }
 /* End Add Form Students  */
 
+/* Post Page for Student */
+.post_page {
+  margin: 2rem 0;
+  gap: 12px;
+}
+/* End of Post Page for Student */
+
+/* End of Posts */
+.end_of_posts {
+  position: relative;
+  height: 60px;
+  padding-top: 2rem;
+}
+
+.end_of_posts h5 {
+  font-size: 18px;
+}
+/* End of end of Posts */
+
 /* Responsive */
 @media (max-width: 991px) {
   .app .main {

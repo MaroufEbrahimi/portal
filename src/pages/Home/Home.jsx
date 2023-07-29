@@ -41,7 +41,7 @@ const Home = () => {
       {/* Faculties */}
       <section className="hariwa_faculties fade_in">
         <div className="section_title">
-          <h1>پوهنحی ها</h1>
+          <h1>پوهنــځی‌ها</h1>
         </div>
         <div className="faculty_boxes display_grid align_items_center text_align_center justify_content_center ">
           {fields.map((f) => {

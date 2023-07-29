@@ -92,9 +92,6 @@
   right: 0;
   bottom: 8px;
   opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   visibility: hidden;
   transition: opacity 0.3s ease-in;
   background-color: #00000077;
@@ -104,6 +101,7 @@
 
 .update_post .btn_container_for_modal i {
   color: #fff;
+  padding-right: 4px;
 }
 
 .update_post .image_container {
@@ -240,6 +238,15 @@
     width: 45px;
     height: 45px;
   }
+  .update_post .btn_container_for_modal {
+    gap: 2px;
+  }
+  .update_post .btn_container_for_modal i {
+    font-size: 13px;
+  }
+  .update_post .btn_container_for_modal button {
+    padding: 3px 8px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -250,6 +257,13 @@
     height: 20px;
     padding: 3px;
     width: 20px;
+  }
+  .post_images {
+    flex-direction: column;
+    width: 100%;
+  }
+  .update_post .image_container {
+    width: 100%;
   }
 }
 
