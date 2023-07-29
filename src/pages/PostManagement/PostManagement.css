@@ -10,12 +10,9 @@
 }
 
 .content_of_posts_details > div {
-  display: grid;
   gap: 13px;
-  margin: 0 10rem;
 }
-
-/* End of Post Management Posts */
+/* End of Post Management */
 
 /* End of Posts */
 .end_of_posts {

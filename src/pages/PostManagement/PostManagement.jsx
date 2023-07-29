@@ -10,11 +10,9 @@ import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import MessageBox from "../../components/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import BtnTypes from "../../constants/BtnTypes"
-import { useNavigate } from "react-router-dom"
 
 const PostManagement = () => {
   useProtect({ roles: [Roles.ADMIN] })
-  const navigate = useNavigate()
   const [{ authentication }, dispatch] = useStateValue()
   const [posts, setPosts] = useState([])
   const [semester, setsemester] = useState()
@@ -31,7 +29,10 @@ const PostManagement = () => {
   const [deleteModal, setDeleteModal] = useState(false)
   const [postToDelete, setPostToDelete] = useState()
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
-  let endpoint = APIEndpoints.root + APIEndpoints.posts.getAllPostsForAdmin + `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
+  let endpoint =
+    APIEndpoints.root +
+    APIEndpoints.posts.getAllPostsForAdmin +
+    `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
   const lastNodeReference = (node) => {
     if (loading) return
     if (lastNode.current) lastNode.current.disconnect()
@@ -62,7 +63,7 @@ const PostManagement = () => {
       })
   }, [])
 
-  // th e auth token must be read from somewhere in the frontend
+  // The authentication token must be read from somewhere in the frontend
   useEffect(() => {
     setLoading(true)
 
@@ -110,8 +111,9 @@ const PostManagement = () => {
       requestParam += `&department=${department == "همه" ? "%" : department}`
     }
     if (feildOfStudy) {
-      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" ? "%" : feildOfStudy
-        }`
+      requestParam += `&fieldOfStudy=${
+        feildOfStudy == "همه" ? "%" : feildOfStudy
+      }`
     }
     setRequestParams(requestParam)
     console.log(requestParam)
@@ -144,9 +146,7 @@ const PostManagement = () => {
     const f = fields.find((item) => {
       return item.fieldName == e.target.value
     })
-    fetch(
-      APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id)
-    )
+    fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id))
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -157,21 +157,19 @@ const PostManagement = () => {
       .then((data) => {
         setDepartments(data)
         let sem = []
-        for (let i = 1; i <= data[0].semesters; i++)
-          sem.push(i)
+        for (let i = 1; i <= data[0].semesters; i++) sem.push(i)
         setsemesters(sem)
       })
   }
 
   const setDep = (e) => {
     setdepartment(e)
-    const d = departments.find(item => {
+    const d = departments.find((item) => {
       return item.departmentName == e
     })
     console.log(d)
     let sem = []
-    for (let i = 1; i <= d.semesters; i++)
-      sem.push(i)
+    for (let i = 1; i <= d.semesters; i++) sem.push(i)
     setsemesters(sem)
   }
 
@@ -240,7 +238,7 @@ const PostManagement = () => {
               defaultValue="همه"
             >
               <option>همه</option>
-              {semesters.map(sem => {
+              {semesters.map((sem) => {
                 return <option>{sem}</option>
               })}
             </select>
@@ -255,7 +253,7 @@ const PostManagement = () => {
 
       <div className="content_of_PostManagement">
         <div className="content_of_posts_details">
-          <div>
+          <div className="display_flex align_items_center justify_content_center flex_direction_column">
             {Array.from(new Set(posts)).map((item, index) => {
               if (posts.length === index + 1) {
                 return (
@@ -298,9 +296,14 @@ const PostManagement = () => {
           <section className="end_of_posts">
             {hasMore && <Spinner />}
             {!hasMore && (
-              <h5 className="text_color text_align_center">
-                {posts.length > 0 ? "آخرین پست" : "پست های مورد نظر یافت نشد"}{" "}
-              </h5>
+              <div className="text_align_center">
+                <h5 className="text_color text_align_center">
+                  {posts.length > 0 ? "آخرین پست" : "پست های مورد نظر یافت نشد"}{" "}
+                </h5>
+                <h6 style={{ paddingTop: "10px" }}>
+                  تعداد کل پست ها {posts.length}
+                </h6>
+              </div>
             )}
           </section>
         </div>
