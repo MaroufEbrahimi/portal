@@ -68,7 +68,6 @@ const Students = () => {
         setStudents(Array.from(new Set([...students, ...data.content])))
         setLoading(false)
       })
-    console.log("useEffet run")
   }, [])
 
   const lastNodeReference = (node) => {
@@ -96,7 +95,6 @@ const Students = () => {
               }
             })
             .then((data) => {
-              console.log(pagination.offset + " <- offset: data ->", data)
               if (data.totalPages - 1 > pagination.offset) {
                 setHasMore(true)
               } else {
@@ -187,65 +185,17 @@ const Students = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setLoading(false)
-        console.log(data)
-        setStudents(data.content)
-        setPage(data)
-        setHasMore(false)
-
-      })
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = () => {
-    fetch(
-      APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `offset=${pagination.offset + 1}&pageSize=${pagination.pageSize
-      }` +
-      requestParams,
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + authentication.token,
-        },
-      }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-      })
-      .then((data) => {
-        console.log(pagination.offset + 1 + " <- offset: data ->", data)
-        if (data.totalPages - 1 > pagination.offset) {
+        if (data.totalPages - 1 > 0) {
           setHasMore(true)
         } else {
           setHasMore(false)
         }
-        const newList = [...students, ...data.content].filter(
-          (obj, index, self) =>
-            index === self.findIndex((o) => o.id === obj.id)
-        )
-        setPage(data)
-        setStudents(newList)
         setLoading(false)
-        setPagination({
-          ...pagination,
-          offset: pagination.offset + 1,
-          ...data.totalPages,
-          ...data.totalItems,
-        });
-        setPagination({
-          ...pagination,
-          offset: pagination.offset + 1,
-        })
+        setStudents(data.content)
+        setPage(data)
+        setPagination({ ...pagination, offset: 0 })
       })
-
-  };
+  }
 
   return (
     <div className="students_page fade_in">
