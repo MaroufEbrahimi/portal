@@ -269,6 +269,11 @@
 }
 /* End of Faculties Secitons Title */
 
+/* Image on Back Drop Modal */
+.back_drop_img_modal img {
+  max-width: 100%;
+}
+
 /* Responsive */
 @media (max-width: 991px) {
   .app .main {

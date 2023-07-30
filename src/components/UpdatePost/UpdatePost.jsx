@@ -275,15 +275,16 @@ const UpdatePost = () => {
             )
           }) && null}
         </div>
-        <BackDrop show={showModal} closeModal={modalCloseHandler}>
-          {loading && <Spinner />}
-          <img
-            src={imageOnModal}
-            onLoad={() => setloading(false)}
-            alt="file_image"
-          />
-        </BackDrop>
-
+        <div className="back_drop_img_modal">
+          <BackDrop show={showModal} closeModal={modalCloseHandler}>
+            {loading && <Spinner />}
+            <img
+              src={imageOnModal}
+              onLoad={() => setloading(false)}
+              alt="file_image"
+            />
+          </BackDrop>
+        </div>
         <BackDrop show={showRemoveFileModal} modalClose={modalCloseHandler}>
           {
             <MessageBox
