@@ -26,6 +26,26 @@ import amir_mo_azimi from "../assets/img/teachers/amir_mo_azimi.jpg"
 import javid_azimi from "../assets/img/teachers/javid_azimi.jpg"
 import qodratullah from "../assets/img/teachers/qodratullah.jpg"
 
+// Time Table
+import timetable1 from "../assets/img/timetableimg/timetable1.jpg"
+import timetable2 from "../assets/img/timetableimg/timetable2.jpg"
+import timetable3 from "../assets/img/timetableimg/timetable3.jpg"
+import timetable4 from "../assets/img/timetableimg/timetable4.jpg"
+import timetable5 from "../assets/img/timetableimg/timetable5.jpg"
+import timetable6 from "../assets/img/timetableimg/timetable6.jpg"
+import timetable7 from "../assets/img/timetableimg/timetable7.jpg"
+import timetable8 from "../assets/img/timetableimg/timetable8.jpg"
+import timetable9 from "../assets/img/timetableimg/timetable9.jpg"
+import timetable10 from "../assets/img/timetableimg/timetable10.jpg"
+import timetable11 from "../assets/img/timetableimg/timetable11.jpg"
+import timetable12 from "../assets/img/timetableimg/timetable12.jpg"
+import timetableEx1 from "../assets/img/timetableimg/timetableEx1.jpg"
+import timetableEx2 from "../assets/img/timetableimg/timetableEx2.jpg"
+import timetableEx3 from "../assets/img/timetableimg/timetableEx3.jpg"
+import timetableEx4 from "../assets/img/timetableimg/timetableEx4.jpg"
+import timetableEx5 from "../assets/img/timetableimg/timetableEx5.jpg"
+import timetableEx6 from "../assets/img/timetableimg/timetableEx6.jpg"
+
 // #______ Main Image Slider ______#
 export const imageSliderData = [
   {
@@ -1655,3 +1675,64 @@ export const teachers = [
   },
 ]
 // #______ End of Teachers ______#
+
+// #______ Time Table ______#
+export const timeTableImg = [
+  {
+    id: 1,
+    timetable: timetable1,
+  },
+  {
+    id: 2,
+    timetable: timetable2,
+  },
+  {
+    id: 3,
+    timetable: timetable3,
+  },
+  {
+    id: 4,
+    timetable: timetable4,
+  },
+  {
+    id: 5,
+    timetable: timetable5,
+  },
+  {
+    id: 6,
+    timetable: timetable6,
+  },
+  {
+    id: 7,
+    timetable: timetable7,
+  },
+  {
+    id: 8,
+    timetable: timetable8,
+  },
+  {
+    id: 9,
+    timetable: timetable9,
+  },
+  {
+    id: 10,
+    timetable: timetable10,
+  },
+  {
+    id: 11,
+    timetable: timetable11,
+  },
+  {
+    id: 12,
+    timetable: timetable12,
+  },
+]
+export const timetableExam = [
+  { id: 1, timetableEx: timetableEx1 },
+  { id: 2, timetableEx: timetableEx2 },
+  { id: 3, timetableEx: timetableEx3 },
+  { id: 4, timetableEx: timetableEx4 },
+  { id: 5, timetableEx: timetableEx5 },
+  { id: 6, timetableEx: timetableEx6 },
+]
+// #______ End of Time Table ______#
