@@ -1,0 +1,19 @@
+.time_table_content {
+  margin: 30px 50px;
+}
+
+.time_table_tabHeader {
+  margin-top: 30px;
+}
+.time_table_content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .time_table_content {
+    margin: 30px 0px;
+  }
+}
