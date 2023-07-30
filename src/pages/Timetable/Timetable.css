@@ -1,3 +1,8 @@
+.time_table .faculties_sections_title {
+  margin: 0;
+  margin-top: 20px;
+}
+
 .time_table_content {
   margin: 30px 50px;
 }

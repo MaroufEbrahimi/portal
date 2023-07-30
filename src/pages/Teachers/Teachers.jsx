@@ -7,7 +7,9 @@ import { teachers } from "../../constants/Data"
 const Teachers = () => {
   return (
     <div className="teachers">
-      <h1>اسـاتـید</h1>
+      <div className="faculties_sections_title">
+        <h2>اسـاتـید</h2>
+      </div>
       <p>
         در رأس پوهنحی کمپیوتر ساینس رئیس آن پوهنحی قرار دارد که به ریاست مؤسسه
         گزارش ده می باشد. تحت ریاست پوهنحی کمپیوترساینس بخش های مدیریت تدریس،

@@ -1,11 +1,5 @@
 /* #_____ Introduction of Faculties _____# */
-.faculties_sections_title {
-  margin-top: 6rem;
-}
-.faculties_sections_title h2 {
-  font-size: 30px;
-  text-shadow: 3px 3px 20px #99ffe9, -2px 1px 30px #77d5f1;
-}
+
 .introduction_of_faculty p {
   color: var(--text-color);
   line-height: 1.8em;
@@ -109,20 +103,13 @@
   }
 }
 @media (max-width: 768px) {
-  .faculties_sections_title {
-    margin-top: 5rem;
-  }
-  .faculties_sections_title h2 {
-    font-size: 27px;
-  }
+
   .intro_of_dean_of_faculty .dean_of_faculty_text p {
     margin: 30px 15px;
   }
 }
 @media (max-width: 480px) {
-  .faculties_sections_title h2 {
-    font-size: 23px;
-  }
+
   .dean_of_faculty_info .dean_of_img {
     width: 220px;
     height: 220px;
@@ -139,9 +126,7 @@
   }
 }
 @media (max-width: 375px) {
-  .faculties_sections_title h2 {
-    font-size: 20px;
-  }
+
   .dean_of_faculty_info .dean_of_img {
     width: 200px;
     height: 200px;

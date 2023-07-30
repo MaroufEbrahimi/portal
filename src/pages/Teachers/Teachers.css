@@ -1,9 +1,8 @@
 .teachers {
   margin: 20px;
 }
-.teachers h1 {
-  font-size: 30px;
-  text-shadow: 3px 3px 20px #99ffe9, -2px 1px 30px #77d5f1;
+.teachers .faculties_sections_title {
+  margin: 0;
 }
 .teachers p {
   color: var(--text-color);
