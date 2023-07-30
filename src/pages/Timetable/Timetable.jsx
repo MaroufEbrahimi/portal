@@ -1,11 +1,29 @@
 import React, { useState } from "react"
 import "./Timetable.css"
 import { timeTableImg, timetableExam } from "../../constants/Data"
+import Button from "../../components/UI/Button/Button"
+import ICONS from "../../constants/Icons"
+import Spinner from "../../components/UI/Loading/Spinner"
+import BackDrop from "../../components/UI/BackDrop/BackDrop"
 
 const Timetable = () => {
   const [showTabTimeTable, setShowTabTimeTable] = useState(1)
+  const [showModal, setShowModal] = useState(false)
+  const [imageOnModal, setImageOnModal] = useState("")
+  const [loading, setloading] = useState(true)
 
   const handleTimeTable = (index) => setShowTabTimeTable(index)
+
+  // show image in fullscreen mode
+  const fullscreen = (url) => {
+    setImageOnModal(url)
+    setShowModal(true)
+  }
+
+  const modalCloseHandler = () => {
+    setShowModal(false)
+    setloading(true)
+  }
 
   return (
     <div className="time_table">
@@ -40,7 +58,17 @@ const Timetable = () => {
           }
         >
           {timeTableImg.map((img) => (
-            <img src={img.timetable} key={img.id} />
+            <div className="time_table_img">
+              <img src={img.timetable} key={img.id} />
+              <div className="btn_container_for_modal display_flex align_items_center justify_content_center">
+                <span title="صحفه بزرگ">
+                  <Button
+                    icon={ICONS.fullscreen}
+                    onClick={() => fullscreen(img.timetable)}
+                  />
+                </span>
+              </div>
+            </div>
           ))}
         </div>
 
@@ -52,8 +80,28 @@ const Timetable = () => {
           }
         >
           {timetableExam.map((img) => (
-            <img src={img.timetableEx} key={img.id} />
+            <div className="time_table_img">
+              <img src={img.timetableEx} key={img.id} />
+              <div className="btn_container_for_modal display_flex align_items_center justify_content_center">
+                <span title="صحفه بزرگ">
+                  <Button
+                    icon={ICONS.fullscreen}
+                    onClick={() => fullscreen(img.timetableEx)}
+                  />
+                </span>
+              </div>
+            </div>
           ))}
+        </div>
+        <div className="back_drop_img_modal">
+          <BackDrop show={showModal} closeModal={modalCloseHandler}>
+            {loading && <Spinner />}
+            <img
+              src={imageOnModal}
+              onLoad={() => setloading(false)}
+              alt="file_image"
+            />
+          </BackDrop>
         </div>
       </div>
     </div>

@@ -3,22 +3,58 @@
   margin-top: 20px;
 }
 
+.time_table_tabHeader {
+  margin: 0 40px;
+}
+
 .time_table_content {
-  margin: 30px 50px;
+  margin: 30px 180px;
 }
 
 .time_table_tabHeader {
   margin-top: 30px;
 }
-.time_table_content img {
+
+/* Time Table img */
+.time_table_img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.time_table_img:hover .btn_container_for_modal {
+  opacity: 1;
+  visibility: visible;
+}
+.time_table_img img {
   width: 100%;
   border-radius: 10px;
-  margin-top: 20px;
+}
+
+.time_table_content .btn_container_for_modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in;
+  background-color: #00000077;
+  border-radius: 10px;
+  gap: 8px;
+}
+
+.time_table_content .btn_container_for_modal i {
+  color: #fff;
+  padding-right: 4px;
 }
 
 /* Responsive */
 @media (max-width: 991px) {
   .time_table_content {
     margin: 30px 0px;
+  }
+  .time_table_tabHeader {
+    margin: auto 0px;
   }
 }
