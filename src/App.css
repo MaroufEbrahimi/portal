@@ -80,6 +80,7 @@
   z-index: 0;
   border-radius: 10px;
 }
+
 .tab_header ul {
   display: flex;
   align-items: center;
@@ -87,20 +88,24 @@
   list-style: none;
   text-align: center;
 }
+
 .tab_header ul li {
   padding: 8px 10px;
   cursor: pointer;
   border: 2px solid transparent;
 }
+
 .tab_header ul li:hover,
 .tab_header ul .active_tab {
   border-top-color: var(--gen-color);
 }
+
 .tab_header ul li span {
   font-size: 15px;
   line-height: 1em;
   color: var(--text-color);
 }
+
 .tab_header_display {
   display: none;
   margin: 1rem;
@@ -108,6 +113,7 @@
   border: 1px solid var(--gen-color);
   border-radius: 3px;
 }
+
 .tab_header_display.active_content {
   display: block;
 }
@@ -118,6 +124,7 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 /* End of Tab Header */
 
 /* Departement Reference Table */
@@ -129,22 +136,27 @@
   margin: 10px 0;
   border-radius: 6px;
 }
+
 .dep_reference_table .table_header {
   border: none;
 }
+
 .dep_reference_table .table_header p {
   font-weight: bold;
 }
+
 .dep_reference_table .table_row p {
   color: var(--text-color);
   font-size: 16px;
 }
+
 .dep_reference_table .table_cell {
   display: table-cell;
   text-align: center;
   width: 30%;
   vertical-align: middle;
 }
+
 /* End of Departement Reference Table */
 
 /* Profile iamge  */
@@ -179,11 +191,13 @@
   border-right: 3px solid var(--gen-color);
   border-radius: 7px;
 }
+
 .add_student_stepper_title h3 {
   font-size: 22px;
   color: var(--text-color);
   font-weight: normal;
 }
+
 .form_details_student .build_boxes {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -191,6 +205,7 @@
   margin: 1rem 2rem;
   margin-bottom: 2rem;
 }
+
 .form_details_student .build_boxes.build_boxes_three_boxes {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -199,6 +214,7 @@
   width: 100%;
   grid-row-gap: 4rem;
 }
+
 .form_details_student label {
   display: block;
   color: var(--text-color);
@@ -238,6 +254,7 @@
 .form_details_student .email input {
   text-align: end;
 }
+
 /* End Add Form Students  */
 
 /* Post Page for Student */
@@ -245,28 +262,32 @@
   margin: 2rem 0;
   gap: 12px;
 }
+
 /* End of Post Page for Student */
 
 /* End of Posts */
 .end_of_posts {
   position: relative;
-  height: 60px;
+  min-height: 60px;
   padding-top: 2rem;
 }
 
 .end_of_posts h5 {
   font-size: 18px;
 }
+
 /* End of end of Posts */
 
 /* Faculties Secitons Title */
 .faculties_sections_title {
   margin-top: 6rem;
 }
+
 .faculties_sections_title h2 {
   font-size: 30px;
   text-shadow: 3px 3px 20px #99ffe9, -2px 1px 30px #77d5f1;
 }
+
 /* End of Faculties Secitons Title */
 
 /* Image on Back Drop Modal */
@@ -279,6 +300,7 @@
   .app .main {
     margin: 0 100px 0 10px;
   }
+
   .add_img_profile {
     width: 120px;
     height: 120px;
@@ -301,10 +323,12 @@
   .app .main {
     margin: 0px 70px 0px 10px;
   }
+
   .tab_header_display {
     margin: 1rem 8px;
     padding: 1rem 10px;
   }
+
   .add_img_profile {
     width: 110px;
     height: 110px;
@@ -315,6 +339,7 @@
     height: 110px;
     border: 3px solid;
   }
+
   /* Add Form Students Responsive  */
   .form_details_student .build_boxes {
     margin: 1rem 0;
@@ -324,10 +349,12 @@
   .faculties_sections_title {
     margin-top: 5rem;
   }
+
   .faculties_sections_title h2 {
     font-size: 27px;
   }
 }
+
 @media (max-width: 695px) {
   .form_details_student .build_boxes.build_boxes_three_boxes {
     grid-template-columns: repeat(1, 1fr);
@@ -338,10 +365,12 @@
   .app .main {
     margin: 0px 60px 0px 10px;
   }
+
   .tab_header_display {
     margin: 10px 4px;
     padding: 10px 5px;
   }
+
   .add_img_profile {
     width: 100px;
     height: 100px;
@@ -352,6 +381,7 @@
     height: 100px;
     border: 3px solid;
   }
+
   /* Add Form Students Responsive  */
   .form_details_student .build_boxes {
     grid-template-columns: 1fr;
@@ -362,10 +392,12 @@
     font-size: 23px;
   }
 }
+
 @media (max-width: 375px) {
   .app .main {
     margin: 0px 50px 0px 10px;
   }
+
   .faculties_sections_title h2 {
     font-size: 20px;
   }
