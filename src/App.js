@@ -1,5 +1,4 @@
 import React, { Suspense, useState } from "react"
-
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
 import "./App.css"
@@ -8,9 +7,7 @@ import Wrapper from "./components/HOC/Wrapper"
 import Header from "./components/Header/Header"
 import About from "./pages/About/About"
 import UpdatePost from "./components/UpdatePost/UpdatePost"
-import Spinner from "./components/UI/Loading/Spinner"
 import ButtonLoading from "./components/UI/Loading/ButtonLoading"
-import Loading from "./components/UI/Loading/Loading"
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
