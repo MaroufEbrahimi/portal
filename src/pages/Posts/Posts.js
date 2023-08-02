@@ -4,7 +4,7 @@ import Spinner from "../../components/UI/Loading/Spinner"
 import { useStateValue } from "../../context/StateProvider"
 import APIEndpoints from "../../constants/APIEndpoints"
 
-function Posts() {
+const Posts = () => {
   const [posts, setposts] = useState([])
   const [hasMore, setHasMore] = useState(true)
   const lastNode = useRef()

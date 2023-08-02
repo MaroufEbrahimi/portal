@@ -1,7 +1,7 @@
 import React from "react"
 import "./Spinner.css"
 
-function Spinner() {
+const Spinner = () => {
   return (
     <div className="spinner__wrapper display_flex align_items_center justify_content_center">
       <div className="spinner__circle">
