@@ -7,11 +7,11 @@ import { eliteStudents } from "../../constants/Data"
 import { colleagueInstitute } from "../../constants/Data"
 import APIEndpoints from "../../constants/APIEndpoints"
 
-import LOGO from "../../assets/img/logo.png"
 import field1 from "../../assets/img/fields/0.jpg"
 import field2 from "../../assets/img/fields/1.jpg"
 import field3 from "../../assets/img/fields/2.jpg"
-const images = [field1, field2, field3];
+const images = [field1, field2, field3]
+
 const Home = () => {
   const [{ term }, dispatch] = useStateValue()
 
@@ -51,14 +51,9 @@ const Home = () => {
                 <div className="faculty_img">
                   <img src={images[f.id - 1]} alt="img faculty" />
                 </div>
-                <div className="faculty_details display_flex align_items_center justify_content_space_between">
-                  <img src={LOGO} alt="" />
-                  <div className="display_flex flex_direction_column">
-                    <p style={{ fontSize: "1.5rem" }}>
-                      {f.fieldName}
-                    </p>
-                    <p>{f.description}</p>
-                  </div>
+                <div className="faculty_details display_flex flex_direction_column">
+                  <h3>{f.fieldName}</h3>
+                  <p>{f.description}</p>
                 </div>
               </div>
             )

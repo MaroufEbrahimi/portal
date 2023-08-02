@@ -38,20 +38,20 @@ section {
   line-height: 25px;
   color: var(--text-color);
 }
+/* End of Section title */
 
-/* faculty_boxes */
+/* Faculty Boxes */
 .faculty_boxes {
   position: relative;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   grid-gap: 1rem;
-  margin: 10px;
-  margin-bottom: 3rem;
+  margin: 5px;
+  padding-bottom: 1.5rem;
 }
 .faculty_boxes .faculty {
   position: relative;
   overflow: hidden;
   background: var(--gen-bg-color);
-  color: #000;
   border-radius: 8px;
   z-index: 1;
   transition: all 0.3s ease-in-out;
@@ -61,34 +61,23 @@ section {
 }
 .faculty_boxes .faculty .faculty_img img {
   width: 100%;
-  height: 100%;
+  height: 220px;
 }
-.faculty_boxes .faculty .faculty_img .img_details {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 96%;
-}
-.faculty_boxes .faculty .faculty_img .img_details p {
-  color: var(--text-color);
-  padding: 10px;
-  font-size: 12px;
-}
+
 .faculty .faculty_details {
   padding: 10px;
-}
-.faculty .faculty_details img {
-  height: 30px;
-  width: 30px;
-}
-.faculty .faculty_details > div {
-  align-items: end;
-}
-.faculty .faculty_details > div p {
-  font-size: 14px;
   color: var(--text-color);
+  text-align: justify;
+  gap: 6px;
 }
+.faculty .faculty_details h3 {
+  font-size: 20px;
+}
+.faculty .faculty_details p {
+  font-size: 14px;
+}
+/* End of Faculties */
+
 /* Elite Students */
 .elite_students .elite_stu {
   grid-template-columns: repeat(3, 1fr);
