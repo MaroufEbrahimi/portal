@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import "./Login.css"
 import "./ResetPassword.css"
-import APIEnpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
+import { actionTypes } from "../../context/reducer"
+import APIEnpoints from "../../constants/APIEndpoints"
 import APIEndpoints from "../../constants/APIEndpoints"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
-import { useNavigate, useParams } from "react-router-dom"
-import { actionTypes } from "../../context/reducer"
 import MessageBox from "../../components/UI/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import Roles from "../../constants/Roles"
@@ -63,7 +63,7 @@ const ResetPassword = () => {
       return
     }
     if (password == prePassword) {
-      setError("!رمز جدید با رمز قبلی یکی است")
+      setError("رمز جدید با رمز قبلی یکسان است")
       return
     }
     setloading(true)
