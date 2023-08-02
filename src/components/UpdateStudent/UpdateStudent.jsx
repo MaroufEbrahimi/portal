@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import "./UpdateStudent.css"
 import { useParams } from "react-router-dom"
 import { useStateValue } from "../../context/StateProvider"
 import useProtect from "../../Hooks/useProtect"
@@ -368,11 +367,14 @@ const UpdateStudent = ({ setApiResponse }) => {
               item = globalState.studentRelations[item]
               console.log(item)
               return (
-                <div className="form_details_student student_relatives left-to-right" key={item.relationship}>
+                <div
+                  className="form_details_student student_relatives left-to-right"
+                  key={item.relationship}
+                >
                   <div className="add_student_stepper_title">
                     <h3>
                       {item.relationship === "کاکا" ||
-                        item.relationship === "ماما"
+                      item.relationship === "ماما"
                         ? item.relationship + "ی"
                         : item.relationship}{" "}
                       مـحـصل
