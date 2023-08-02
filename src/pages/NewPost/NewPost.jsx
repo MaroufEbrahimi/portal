@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
-import MessageBox from "../../components/MessageBox/MessageBox"
+import MessageBox from "../../components/UI/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import APIEndpoints from "../../constants/APIEndpoints"
 
@@ -86,7 +86,6 @@ const NewPost = () => {
         } else {
           setCompleteMsg({ show: true, msg: "پست با موفقیت ارسال شد!" })
         }
-
       })
   }
 
@@ -95,9 +94,7 @@ const NewPost = () => {
     const f = fields.find((item) => {
       return item.fieldName == e.target.value
     })
-    fetch(
-      APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id)
-    )
+    fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id))
       .then((res) => {
         if (res.ok) {
           return res.json()
@@ -109,21 +106,19 @@ const NewPost = () => {
         console.log(data)
         setDepartments(data)
         let sem = []
-        for (let i = 1; i <= data[0].semesters; i++)
-          sem.push(i)
+        for (let i = 1; i <= data[0].semesters; i++) sem.push(i)
         setsemesters(sem)
       })
   }
 
   const setDep = (e) => {
     setdepartment(e)
-    const d = departments.find(item => {
+    const d = departments.find((item) => {
       return item.departmentName == e
     })
     console.log(d)
     let sem = []
-    for (let i = 1; i <= d.semesters; i++)
-      sem.push(i)
+    for (let i = 1; i <= d.semesters; i++) sem.push(i)
     setsemesters(sem)
   }
   return (
@@ -194,10 +189,7 @@ const NewPost = () => {
                 </select>
               </div>
               <div className="post_box">
-                <select
-                  id="type"
-                  onChange={(e) => setDep(e.target.value)}
-                >
+                <select id="type" onChange={(e) => setDep(e.target.value)}>
                   <option selected disabled>
                     دیپارتمنت
                   </option>
@@ -211,7 +203,7 @@ const NewPost = () => {
                   <option selected disabled>
                     سمستر
                   </option>
-                  {semesters.map(sem => {
+                  {semesters.map((sem) => {
                     return <option>{sem}</option>
                   })}
                 </select>

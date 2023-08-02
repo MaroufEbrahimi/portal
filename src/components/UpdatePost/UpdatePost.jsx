@@ -10,7 +10,7 @@ import ICONS from "../../constants/Icons"
 import BtnTypes from "../../constants/BtnTypes"
 import BackDrop from "../UI/BackDrop/BackDrop"
 import Spinner from "../UI/Loading/Spinner"
-import MessageBox from "../MessageBox/MessageBox"
+import MessageBox from "../UI/MessageBox/MessageBox"
 import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 
 const UpdatePost = () => {

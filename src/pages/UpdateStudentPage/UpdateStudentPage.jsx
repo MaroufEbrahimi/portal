@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import "./UpdateStudentPage.css"
 import UpdateStudent from "../../components/UpdateStudent/UpdateStudent"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
-import MessageBox from "../../components/MessageBox/MessageBox"
+import MessageBox from "../../components/UI/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import { useNavigate } from "react-router-dom"
 
