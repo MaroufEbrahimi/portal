@@ -85,3 +85,9 @@
     font-size: 13px;
   }
 }
+@media (max-width: 375px) {
+  .stepper {
+    margin: 10px 4px;
+    margin-bottom: 5rem;
+  }
+}
