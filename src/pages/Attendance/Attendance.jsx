@@ -137,7 +137,7 @@ const Attendance = () => {
             >
               <option>همه</option>
               {semesters.map((sem) => {
-                return <option>{sem}</option>
+                return <option key={sem}>{sem}</option>
               })}
             </select>
           </div>
