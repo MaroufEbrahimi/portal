@@ -1,0 +1,11 @@
+.schedule_faculty h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.schedule_faculty_btn {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
