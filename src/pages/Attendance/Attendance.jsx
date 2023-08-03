@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
 import "./Attendance.css"
-
 import APIEndpoints from "../../constants/APIEndpoints"
+import { useStateValue } from "../../context/StateProvider"
 
 const Schedule = () => {
+  const [{ authentication }, dispatch] = useStateValue()
   const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
@@ -11,6 +12,8 @@ const Schedule = () => {
   const [departments, setDepartments] = useState([])
   const [semesters, setsemesters] = useState([])
   const [students, setStudents] = useState([])
+  const [loading, setLoading] = useState(true)
+
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
@@ -70,10 +73,26 @@ const Schedule = () => {
     if (semester && department && feildOfStudy) {
       requestParam += `&semester=${semester == "همه" ? "%" : semester}`
       requestParam += `&department=${department == "همه" ? "%" : department}`
-      requestParam += `&fieldOfStudy=${
-        feildOfStudy == "همه" ? "%" : feildOfStudy
-      }`
+      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" ? "%" : feildOfStudy
+        }`
     }
+    fetch(
+      APIEndpoints.root +
+      APIEndpoints.students.getAll +
+      `offset=0&pageSize=1000` +
+      requestParam,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + authentication.token,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setLoading(false)
+        setStudents(data.content)
+      })
   }
 
   return (
