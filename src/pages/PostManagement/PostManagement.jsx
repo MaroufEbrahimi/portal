@@ -10,7 +10,6 @@ import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import MessageBox from "../../components/UI/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import BtnTypes from "../../constants/BtnTypes"
-import Student from "../../components/Student/Student"
 
 const PostManagement = () => {
   useProtect({ roles: [Roles.ADMIN] })
@@ -34,7 +33,6 @@ const PostManagement = () => {
     APIEndpoints.root +
     APIEndpoints.posts.getAllPostsForAdmin +
     `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
-
 
   // this function is for handing the infinite scrolling
   const lastNodeReference = (node) => {
@@ -113,8 +111,9 @@ const PostManagement = () => {
       requestParam += `&department=${department == "همه" ? "%" : department}`
     }
     if (feildOfStudy) {
-      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" ? "%" : feildOfStudy
-        }`
+      requestParam += `&fieldOfStudy=${
+        feildOfStudy == "همه" ? "%" : feildOfStudy
+      }`
     }
     setRequestParams(requestParam)
     console.log(requestParam)
