@@ -3,7 +3,7 @@ import "./Attendance.css"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 
-const Schedule = () => {
+const Attendance = () => {
   const [{ authentication }, dispatch] = useStateValue()
   const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
@@ -26,14 +26,8 @@ const Schedule = () => {
       })
       .then((data) => {
         setFields(data.content)
-        setStudents(Array.from(new Set([...students, ...data.content])))
       })
-      .then((data) => {
-        const newList = [...students, ...data.content].filter(
-          (obj, index, self) => index === self.findIndex((o) => o.id === obj.id)
-        )
-        setStudents(newList)
-      })
+
   }, [])
 
   const setfield = (e) => {
@@ -70,12 +64,17 @@ const Schedule = () => {
 
   const handleFilterButton = () => {
     let requestParam = ""
-    if (semester && department && feildOfStudy) {
-      requestParam += `&semester=${semester == "همه" ? "%" : semester}`
-      requestParam += `&department=${department == "همه" ? "%" : department}`
-      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" ? "%" : feildOfStudy
-        }`
+    if (feildOfStudy) {
+      requestParam += "&fieldOfStudy=" + (feildOfStudy == "همه" ? "%" : feildOfStudy)
     }
+    if (semester) {
+      requestParam += "&semester=" + (semester == "همه" ? "%" : semester)
+    }
+    if (department) {
+      requestParam += "&department=" + (department == "همه" ? "%" : department)
+    }
+
+    console.log(requestParam)
     fetch(
       APIEndpoints.root +
       APIEndpoints.students.getAll +
@@ -107,9 +106,9 @@ const Schedule = () => {
               id="type"
               value={feildOfStudy}
               onChange={(e) => setfield(e)}
-              defaultValue="هیچکدام"
+              defaultValue="همه"
             >
-              <option>هیچکدام</option>
+              <option>همه</option>
               {fields.map((item) => {
                 return <option key={item.id}>{item.fieldName}</option>
               })}
@@ -121,9 +120,9 @@ const Schedule = () => {
               id="type"
               value={department}
               onChange={(e) => setDep(e.target.value)}
-              defaultValue="هیچکدام"
+              defaultValue="همه"
             >
-              <option>هیچکدام</option>
+              <option>همه</option>
               {departments.map((item) => {
                 return <option key={item.id}>{item.departmentName}</option>
               })}
@@ -135,9 +134,9 @@ const Schedule = () => {
               id="type"
               value={semester}
               onChange={(e) => setsemester(e.target.value)}
-              defaultValue="هیچکدام"
+              defaultValue="همه"
             >
-              <option>هیچکدام</option>
+              <option>همه</option>
               {semesters.map((sem) => {
                 return <option>{sem}</option>
               })}
@@ -154,19 +153,21 @@ const Schedule = () => {
       <div className="schedule_header"></div>
 
       <div className="schedule_students">
-        {students?.map((student, index) => {
-          return (
-            <ul>
-              <li>
+        <ul>
+          {students?.map((student, index) => {
+            return (
+
+              <li key={index}>
                 <span>{student?.name} </span>
                 <span>{student?.lastname}</span>
               </li>
-            </ul>
-          )
-        })}
+
+            )
+          })}
+        </ul>
       </div>
     </div>
   )
 }
 
-export default Schedule
+export default Attendance
