@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import "./Attendance.css"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
+import { getTheMonthDays } from "../../Utils/DateTimeUtils"
 
 const Attendance = () => {
   const [{ authentication }, dispatch] = useStateValue()
@@ -13,6 +14,8 @@ const Attendance = () => {
   const [semesters, setsemesters] = useState([])
   const [students, setStudents] = useState([])
   const [loading, setLoading] = useState(true)
+  const [date, setDate] = useState(new Date())
+  const [daysInMonth, setDaysInMonth] = useState([]);
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
@@ -89,6 +92,10 @@ const Attendance = () => {
       .then((res) => res.json())
       .then((data) => {
         setLoading(false)
+        let days = []
+        for (let i = 1; i < getTheMonthDays(date); i++)
+          days.push(i);
+        setDaysInMonth(days)
         setStudents(data.content)
       })
   }
@@ -149,53 +156,30 @@ const Attendance = () => {
         </div>
       </div>
 
-      {/* <div className="attendance_content"> */}
-      {/* <div className="attendance_header">
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
-          <span>5</span>
-          <span>6</span>
-          <span>7</span>
-          <span>8</span>
-          <span>9</span>
-          <span>10</span>
-          <span>11</span>
-          <span>12</span>
-          <span>13</span>
-          <span>14</span>
-          <span>15</span>
-          <span>16</span>
-          <span>17</span>
-          <span>18</span>
-          <span>19</span>
-          <span>20</span>
-          <span>21</span>
-          <span>22</span>
-          <span>23</span>
-          <span>24</span>
-          <span>25</span>
-          <span>26</span>
-          <span>27</span>
-          <span>28</span>
-          <span>29</span>
-          <span>30</span>
-        </div> */}
-
       <div className="schedule_students">
-        <ul>
-          {students?.map((student, index) => {
-            return (
-
-              <li key={index}>
-                <span>{student?.name} </span>
-                <span>{student?.lastname}</span>
-              </li>
-
-            )
-          })}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <td>نام</td>
+              <td>آی دی</td>
+              {daysInMonth.map((num, index) => {
+                return <td key={index}>{num}</td>
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {students?.map((student, index) => {
+              return (<tr key={index}>
+                <td>{student?.name}</td>
+                <td>{student?.id}</td>
+                {daysInMonth.map((num, index) => {
+                  return <td key={index}><input type="checkbox" /></td>
+                })}
+              </tr>
+              )
+            })}
+          </tbody>
+        </table>
       </div>
       {/* </div> */}
     </div>
