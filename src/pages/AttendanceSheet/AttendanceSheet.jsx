@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react"
-import "./Attendance.css"
+import "./AttendanceSheet.css"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 import { getTheMonthDays } from "../../Utils/DateTimeUtils"
+import Checkbox from "../../components/UI/Checkbox/Checkbox"
 
-const Attendance = () => {
+const AttendanceSheet = () => {
   const [{ authentication }, dispatch] = useStateValue()
   const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
@@ -15,7 +16,7 @@ const Attendance = () => {
   const [students, setStudents] = useState([])
   const [loading, setLoading] = useState(true)
   const [date, setDate] = useState(new Date())
-  const [daysInMonth, setDaysInMonth] = useState([]);
+  const [daysInMonth, setDaysInMonth] = useState([])
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
@@ -29,7 +30,6 @@ const Attendance = () => {
       .then((data) => {
         setFields(data.content)
       })
-
   }, [])
 
   const setfield = (e) => {
@@ -67,7 +67,8 @@ const Attendance = () => {
   const handleFilterButton = () => {
     let requestParam = ""
     if (feildOfStudy) {
-      requestParam += "&fieldOfStudy=" + (feildOfStudy == "همه" ? "%" : feildOfStudy)
+      requestParam +=
+        "&fieldOfStudy=" + (feildOfStudy == "همه" ? "%" : feildOfStudy)
     }
     if (semester) {
       requestParam += "&semester=" + (semester == "همه" ? "%" : semester)
@@ -93,8 +94,7 @@ const Attendance = () => {
       .then((data) => {
         setLoading(false)
         let days = []
-        for (let i = 1; i < getTheMonthDays(date); i++)
-          days.push(i);
+        for (let i = 1; i < getTheMonthDays(date); i++) days.push(i)
         setDaysInMonth(days)
         setStudents(data.content)
       })
@@ -171,7 +171,8 @@ const Attendance = () => {
               <td>total</td>
             </tr>
           </thead>
-          <tbody>
+
+          <tbody className="attendance_details">
             {students?.map((student, index) => {
               return (<tr key={index}>
                 <td>{index + 1}</td>
@@ -189,9 +190,8 @@ const Attendance = () => {
           </tbody>
         </table>
       </div>
-      {/* </div> */}
     </div>
   )
 }
 
-export default Attendance
+export default AttendanceSheet

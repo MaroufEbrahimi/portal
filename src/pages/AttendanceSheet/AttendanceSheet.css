@@ -15,8 +15,8 @@
   margin-top: 3rem;
   border: 1px solid var(--gen-color);
   width: 100%;
-  height: 50vh;
-  border-radius: 5px;
+  border-radius: 1px;
+  padding: 15px 10px;
 }
 
 
