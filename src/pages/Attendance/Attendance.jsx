@@ -3,6 +3,7 @@ import "./Attendance.css"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 import { getTheMonthDays } from "../../Utils/DateTimeUtils"
+import Checkbox from "../../components/UI/Checkbox/Checkbox"
 
 const Attendance = () => {
   const [{ authentication }, dispatch] = useStateValue()
@@ -155,27 +156,32 @@ const Attendance = () => {
         </div>
       </div>
 
-      <div className="schedule_students">
+      <div className="attendance_content">
         <table>
-          <thead>
+          <thead className="attendance_header">
             <tr>
-              <td>نام</td>
-              <td>آی دی</td>
+              <td>نـام</td>
+              <td>نـام پـدر</td>
               {daysInMonth.map((num, index) => {
-                return <td key={index}>{num}</td>
+                return (
+                  <td className="attendance_thead_content" key={index}>
+                    {num}
+                  </td>
+                )
               })}
             </tr>
           </thead>
-          <tbody>
+
+          <tbody className="attendance_details">
             {students?.map((student, index) => {
               return (
                 <tr key={index}>
                   <td>{student?.name}</td>
-                  <td>{student?.id}</td>
+                  <td>{student?.lastname}</td>
                   {daysInMonth.map((num, index) => {
                     return (
                       <td key={index}>
-                        <input type="checkbox" />
+                        <Checkbox />
                       </td>
                     )
                   })}
