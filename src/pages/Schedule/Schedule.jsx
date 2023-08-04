@@ -2,22 +2,14 @@ import React, { useState, useEffect } from "react"
 import "./Schedule.css"
 
 import APIEndpoints from "../../constants/APIEndpoints"
-import { useStateValue } from "../../context/StateProvider"
 
 const Schedule = () => {
-  const [{ authentication }, dispatch] = useStateValue()
-  const [posts, setPosts] = useState([])
   const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
-  const [hasMore, setHasMore] = useState(true)
-  const [requestParams, setRequestParams] = useState(``)
-  const [pagination, setPagination] = useState({ offset: 0, pageSize: 3 })
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
   const [semesters, setsemesters] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [page, setPage] = useState()
   const [students, setStudents] = useState([])
 
   useEffect(() => {
@@ -32,39 +24,7 @@ const Schedule = () => {
       .then((data) => {
         setFields(data.content)
       })
-
-    fetch(
-      APIEndpoints.root +
-        APIEndpoints.students.getAll +
-        `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + authentication.token,
-        },
-      }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json()
-        }
-      })
-      .then((data) => {
-        if (data.totalPages - 1 > pagination.offset) {
-          setHasMore(true)
-        } else {
-          setHasMore(false)
-        }
-        setPage(data)
-        setStudents(Array.from(new Set([...students, ...data.content])))
-        setLoading(false)
-      })
   }, [])
-
-  let endpoint =
-    APIEndpoints.root +
-    APIEndpoints.posts.getAllPostsForAdmin +
-    `offset=${pagination.offset}&pageSize=${pagination.pageSize}`
 
   const setfield = (e) => {
     setDepartments([])
@@ -93,52 +53,20 @@ const Schedule = () => {
     const d = departments.find((item) => {
       return item.departmentName == e
     })
-    console.log(d)
     let sem = []
     for (let i = 1; i <= d.semesters; i++) sem.push(i)
     setsemesters(sem)
   }
 
   const handleFilterButton = () => {
-    setPagination({ offset: 0, pageSize: 3 })
-    setPosts([])
-
     let requestParam = ""
-    if (semester) {
+    if (semester && department && feildOfStudy) {
       requestParam += `&semester=${semester == "همه" ? "%" : semester}`
-    }
-    if (department) {
       requestParam += `&department=${department == "همه" ? "%" : department}`
-    }
-    if (feildOfStudy) {
       requestParam += `&fieldOfStudy=${
         feildOfStudy == "همه" ? "%" : feildOfStudy
       }`
     }
-    setRequestParams(requestParam)
-    console.log(requestParam)
-    fetch(endpoint + requestParam, {
-      method: "GET",
-      headers: { Authorization: "Bearer " + authentication.token },
-    })
-      .then((res) => {
-        console.log(res)
-        if (res.ok) {
-          return res.json()
-        } else {
-          throw new Error(res.statusText)
-        }
-      })
-      .then((data) => {
-        console.log(data)
-        if (data.totalPages - 1 > pagination.offset) {
-          setHasMore(true)
-        } else {
-          setHasMore(false)
-        }
-        setPosts(data.content)
-        setLoading(false)
-      })
   }
 
   return (
@@ -153,7 +81,7 @@ const Schedule = () => {
               id="type"
               value={feildOfStudy}
               onChange={(e) => setfield(e)}
-              defaultValue="همه"
+              defaultValue="هیچکدام"
             >
               <option>هیچکدام</option>
               {fields.map((item) => {
@@ -167,7 +95,7 @@ const Schedule = () => {
               id="type"
               value={department}
               onChange={(e) => setDep(e.target.value)}
-              defaultValue="همه"
+              defaultValue="هیچکدام"
             >
               <option>هیچکدام</option>
               {departments.map((item) => {
@@ -181,7 +109,7 @@ const Schedule = () => {
               id="type"
               value={semester}
               onChange={(e) => setsemester(e.target.value)}
-              defaultValue="همه"
+              defaultValue="هیچکدام"
             >
               <option>هیچکدام</option>
               {semesters.map((sem) => {
@@ -202,10 +130,12 @@ const Schedule = () => {
       <div className="schedule_students">
         {students?.map((student, index) => {
           return (
-            <>
-              <p>{student?.name}</p>
-              <p>{student?.lastname}</p>
-            </>
+            <ul>
+              <li>
+                <span>{student?.name} </span>
+                <span>{student?.lastname}</span>
+              </li>
+            </ul>
           )
         })}
       </div>
