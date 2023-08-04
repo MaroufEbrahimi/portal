@@ -156,25 +156,33 @@ const Attendance = () => {
         </div>
       </div>
 
-      <div className="schedule_students">
-        <table>
+      <div className="attendance_content">
+        <table className="attendance_table">
           <thead>
             <tr>
-              <td>نام</td>
-              <td>آی دی</td>
+              <td id="number_counter">شماره</td>
+              <td id="student_name">نام</td>
+              <td id="student_lastname">تخلص</td>
               {daysInMonth.map((num, index) => {
-                return <td key={index}>{num}</td>
+                return <td key={index} className="data_cell">{num}</td>
               })}
+              <td>p</td>
+              <td>U</td>
+              <td>total</td>
             </tr>
           </thead>
           <tbody>
             {students?.map((student, index) => {
               return (<tr key={index}>
+                <td>{index + 1}</td>
                 <td>{student?.name}</td>
-                <td>{student?.id}</td>
+                <td>{student?.lastname}</td>
                 {daysInMonth.map((num, index) => {
-                  return <td key={index}><input type="checkbox" /></td>
+                  return <td key={index} className="data_cell"><input type="checkbox" /></td>
                 })}
+                <td>2</td>
+                <td>2</td>
+                <td>4</td>
               </tr>
               )
             })}
