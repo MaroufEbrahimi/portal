@@ -67,21 +67,22 @@ const AttendanceSheet = () => {
   const handleFilterButton = () => {
     let requestParam = ""
     if (feildOfStudy) {
-      requestParam +=
-        "&fieldOfStudy=" + (feildOfStudy == "همه" ? "%" : feildOfStudy)
+      requestParam += "fieldOfStudy=" + feildOfStudy
     }
     if (semester) {
-      requestParam += "&semester=" + (semester == "همه" ? "%" : semester)
+      requestParam += "&semester=" + semester
     }
     if (department) {
-      requestParam += "&department=" + (department == "همه" ? "%" : department)
+      requestParam += "&department=" + department
     }
-
-    console.log(requestParam)
+    requestParam += "&subject=english&semester=1&year=2023&month=8";
+    //console.log(requestParam)
+    console.log(APIEndpoints.root +
+      APIEndpoints.attendances.getStudentAttendances +
+      requestParam)
     fetch(
       APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `offset=0&pageSize=1000` +
+      APIEndpoints.attendances.getStudentAttendances +
       requestParam,
       {
         method: "GET",
@@ -92,11 +93,12 @@ const AttendanceSheet = () => {
     )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         setLoading(false)
         let days = []
-        for (let i = 1; i < getTheMonthDays(date); i++) days.push(i)
+        for (let i = 1; i <= data.daysInMonth; i++) days.push(i)
         setDaysInMonth(days)
-        setStudents(data.content)
+        setStudents(data.students)
       })
   }
 
@@ -162,7 +164,7 @@ const AttendanceSheet = () => {
             <tr>
               <td id="number_counter">شماره</td>
               <td id="student_name">نام</td>
-              <td id="student_lastname">تخلص</td>
+              <td id="student_lastname">نام پدر</td>
               {daysInMonth.map((num, index) => {
                 return <td key={index} className="data_cell">{num}</td>
               })}
@@ -177,13 +179,13 @@ const AttendanceSheet = () => {
               return (<tr key={index}>
                 <td>{index + 1}</td>
                 <td>{student?.name}</td>
-                <td>{student?.lastname}</td>
+                <td>{student?.fatherName}</td>
                 {daysInMonth.map((num, index) => {
                   return <td key={index} className="data_cell"><input type="checkbox" /></td>
                 })}
-                <td>2</td>
-                <td>2</td>
-                <td>4</td>
+                <td>{student?.totalPresent}</td>
+                <td>{student?.totalAbsent}</td>
+                <td>{daysInMonth.length}</td>
               </tr>
               )
             })}

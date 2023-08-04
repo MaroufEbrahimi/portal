@@ -43,7 +43,7 @@ tr {
 
 .attendance_table #student_name,
 .attendance_table #student_lastname {
-  width: 90px;
+  width: 100px;
 }
 
 .attendance_table tr:nth-child(even) {

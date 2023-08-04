@@ -25,7 +25,11 @@ const APIEndpoints = {
         update: "auth/update-user",
         lock: (id) => "auth/lock/" + id,
         unlock: (id) => "auth/unLock/" + id
+    },
+    attendances: {
+        getStudentAttendances: "attendances/?"
     }
+
 
 
 }
