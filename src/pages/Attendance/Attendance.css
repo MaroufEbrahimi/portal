@@ -18,3 +18,14 @@
   height: 50vh;
   border-radius: 5px;
 }
+
+.attendance_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.attendance_header span {
+  border: 1px solid var(--gen-color);
+  width: 100%;
+  text-align: center;
+}

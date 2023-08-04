@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import "./Attendance.css"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
+import authentication from '../../Hooks/useProtect'
 
 const Attendance = () => {
   const [semester, setsemester] = useState()
@@ -150,8 +151,8 @@ const Attendance = () => {
         </div>
       </div>
 
-      {/* <div className="attendance_content"> */}
-      {/* <div className="attendance_header">
+      <div className="attendance_content">
+      <div className="attendance_header">
           <span>1</span>
           <span>2</span>
           <span>3</span>
@@ -182,7 +183,7 @@ const Attendance = () => {
           <span>28</span>
           <span>29</span>
           <span>30</span>
-        </div> */}
+        </div>
 
       <div className="attendance_students">
         {students?.map((student, index) => {
@@ -196,7 +197,7 @@ const Attendance = () => {
           )
         })}
       </div>
-      {/* </div> */}
+      </div>
     </div>
   )
 }
