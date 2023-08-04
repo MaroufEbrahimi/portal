@@ -160,6 +160,7 @@ const Attendance = () => {
         <table>
           <thead className="attendance_header">
             <tr>
+              <td>شماره</td>
               <td>نـام</td>
               <td>نـام پـدر</td>
               {daysInMonth.map((num, index) => {
@@ -176,6 +177,7 @@ const Attendance = () => {
             {students?.map((student, index) => {
               return (
                 <tr key={index}>
+                  <td>{index + 1}</td>
                   <td>{student?.name}</td>
                   <td>{student?.lastname}</td>
                   {daysInMonth.map((num, index) => {
