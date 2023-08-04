@@ -29,3 +29,11 @@ export function timeSince(date) {
 
     return `همین الان`;
 }
+
+export function getTheMonthDays(date) {
+    const year = date.getFullYear(); // gets the current year
+    const month = date.getMonth(); // gets the current month (0-11)
+    const daysInMonth = new Date(year, month + 1, 0).getDate(); // gets the number of days in the current month
+    console.log(daysInMonth)
+    return daysInMonth
+}
