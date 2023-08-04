@@ -161,7 +161,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                   <i className={ICONS.peopleّّFill}></i>
                   <span>اساتید</span>
                 </CustomeLinks>
-                <CustomeLinks to="/admin/schedule" title="حاضری ها">
+                <CustomeLinks to="/admin/attendance" title="حاضری ها">
                   <i className={ICONS.calendar}></i>
                   <span>حاضری ها</span>
                 </CustomeLinks>

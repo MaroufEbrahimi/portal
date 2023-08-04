@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import "./Schedule.css"
+import "./Attendance.css"
 
 import APIEndpoints from "../../constants/APIEndpoints"
 
@@ -23,6 +23,13 @@ const Schedule = () => {
       })
       .then((data) => {
         setFields(data.content)
+        setStudents(Array.from(new Set([...students, ...data.content])))
+      })
+      .then((data) => {
+        const newList = [...students, ...data.content].filter(
+          (obj, index, self) => index === self.findIndex((o) => o.id === obj.id)
+        )
+        setStudents(newList)
       })
   }, [])
 

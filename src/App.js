@@ -35,7 +35,7 @@ const Dentistry = React.lazy(() =>
 
 const Teachers = React.lazy(() => import("./pages/Teachers/Teachers"))
 const Timetable = React.lazy(() => import("./pages/Timetable/Timetable"))
-const Schedule = React.lazy(() => import("./pages/Schedule/Schedule"))
+const Attendance = React.lazy(() => import("./pages/Attendance/Attendance"))
 const TeacherProfile = React.lazy(() =>
   import("./pages/TeacherProfile/TeacherProfile")
 )
@@ -149,8 +149,8 @@ const App = () => {
           element: <Timetable />,
         },
         {
-          path: "/admin/schedule",
-          element: <Schedule />,
+          path: "/admin/attendance",
+          element: <Attendance />,
         },
         {
           path: "/login",
