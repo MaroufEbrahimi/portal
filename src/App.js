@@ -35,7 +35,9 @@ const Dentistry = React.lazy(() =>
 
 const Teachers = React.lazy(() => import("./pages/Teachers/Teachers"))
 const Timetable = React.lazy(() => import("./pages/Timetable/Timetable"))
-const Attendance = React.lazy(() => import("./pages/Attendance/Attendance"))
+const AttendanceSheet = React.lazy(() =>
+  import("./pages/AttendanceSheet/AttendanceSheet")
+)
 const TeacherProfile = React.lazy(() =>
   import("./pages/TeacherProfile/TeacherProfile")
 )
@@ -46,8 +48,8 @@ const App = () => {
     localStorage.getItem("isDark") == null
       ? false
       : localStorage.getItem("isDark") == "true"
-        ? true
-        : false
+      ? true
+      : false
   )
   console.log(isDark)
   // handle tab header
@@ -149,8 +151,8 @@ const App = () => {
           element: <Timetable />,
         },
         {
-          path: "/admin/attendance",
-          element: <Attendance />,
+          path: "/admin/attendance-sheet",
+          element: <AttendanceSheet />,
         },
         {
           path: "/login",
