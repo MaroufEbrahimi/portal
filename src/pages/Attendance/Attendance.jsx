@@ -3,7 +3,7 @@ import "./Attendance.css"
 
 import APIEndpoints from "../../constants/APIEndpoints"
 
-const Schedule = () => {
+const Attendance = () => {
   const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
@@ -77,9 +77,9 @@ const Schedule = () => {
   }
 
   return (
-    <div className="schedule">
+    <div className="attendance">
       {/* Here you can add Faculty */}
-      <div className="schedule_faculty">
+      <div className="attendance_faculty">
         <h2>حـاضـری مـربـوطـه را انـتخـاب نـمـایـد</h2>
         <div className="posts_management_boxes">
           <div className="post_mana_box">
@@ -125,16 +125,48 @@ const Schedule = () => {
             </select>
           </div>
         </div>
-        <div className="schedule_faculty_btn posts_management_filter_btn">
+        <div className="attendance_faculty_btn posts_management_filter_btn">
           <button className="btn" onClick={handleFilterButton}>
             ارسال
           </button>
         </div>
       </div>
 
-      <div className="schedule_header"></div>
+      {/* <div className="attendance_content"> */}
+      {/* <div className="attendance_header">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>10</span>
+          <span>11</span>
+          <span>12</span>
+          <span>13</span>
+          <span>14</span>
+          <span>15</span>
+          <span>16</span>
+          <span>17</span>
+          <span>18</span>
+          <span>19</span>
+          <span>20</span>
+          <span>21</span>
+          <span>22</span>
+          <span>23</span>
+          <span>24</span>
+          <span>25</span>
+          <span>26</span>
+          <span>27</span>
+          <span>28</span>
+          <span>29</span>
+          <span>30</span>
+        </div> */}
 
-      <div className="schedule_students">
+      <div className="attendance_students">
         {students?.map((student, index) => {
           return (
             <ul>
@@ -146,8 +178,9 @@ const Schedule = () => {
           )
         })}
       </div>
+      {/* </div> */}
     </div>
   )
 }
 
-export default Schedule
+export default Attendance
