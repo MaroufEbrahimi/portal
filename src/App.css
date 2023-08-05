@@ -46,7 +46,8 @@
 }
 
 .posts_management_boxes .post_mana_box select,
-.posts_management_boxes .post_mana_box button {
+.posts_management_boxes .post_mana_box button,
+.posts_management_boxes .post_mana_box input {
   box-sizing: border-box;
   width: 100%;
   padding: 6px 10px;
