@@ -19,15 +19,11 @@
   padding: 15px 10px;
 }
 
-
-
 .attendance_table {
   border: 1px solid #000;
   border-collapse: collapse;
   width: 100%;
 }
-
-
 
 tr {
   height: 20px;
@@ -47,7 +43,7 @@ tr {
 }
 
 .attendance_table tr:nth-child(even) {
-  background-color: rgb(166, 209, 250);
+  background-color: var(--gen-bg-color);
 }
 
 .attendance_table thead tr td {
@@ -55,13 +51,11 @@ tr {
   font-weight: bold;
 }
 
-
 .attendance_table tr td {
-  border: 1px solid #0088dd;
+  border: 1px solid var(--gen-color);
   font-size: 12px;
   padding: 2px;
 }
-
 
 .attendance_table tr .data_cell {
   text-align: center;
@@ -69,14 +63,14 @@ tr {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 1.5rem;
+  width: 1.44rem;
   height: 0.5rem;
 }
 
 .attendance_table tr .data_cell input {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
 }

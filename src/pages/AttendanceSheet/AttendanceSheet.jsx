@@ -75,15 +75,17 @@ const AttendanceSheet = () => {
     if (department) {
       requestParam += "&department=" + department
     }
-    requestParam += "&subject=english&semester=1&year=2023&month=8";
+    requestParam += "&subject=english&semester=1&year=2023&month=8"
     //console.log(requestParam)
-    console.log(APIEndpoints.root +
-      APIEndpoints.attendances.getStudentAttendances +
-      requestParam)
+    console.log(
+      APIEndpoints.root +
+        APIEndpoints.attendances.getStudentAttendances +
+        requestParam
+    )
     fetch(
       APIEndpoints.root +
-      APIEndpoints.attendances.getStudentAttendances +
-      requestParam,
+        APIEndpoints.attendances.getStudentAttendances +
+        requestParam,
       {
         method: "GET",
         headers: {
@@ -162,31 +164,40 @@ const AttendanceSheet = () => {
         <table className="attendance_table">
           <thead>
             <tr>
-              <td id="number_counter">شماره</td>
-              <td id="student_name">نام</td>
-              <td id="student_lastname">نام پدر</td>
+              <td id="number_counter">شـمـاره</td>
+              <td id="student_name">نـام</td>
+              <td id="student_lastname">نـام پـدر</td>
               {daysInMonth.map((num, index) => {
-                return <td key={index} className="data_cell">{num}</td>
+                return (
+                  <td key={index} className="data_cell">
+                    {num}
+                  </td>
+                )
               })}
-              <td>p</td>
-              <td>U</td>
-              <td>total</td>
+              <td>ح</td>
+              <td>غ</td>
+              <td>مجموعه</td>
             </tr>
           </thead>
 
           <tbody className="attendance_details">
             {students?.map((student, index) => {
-              return (<tr key={index}>
-                <td>{index + 1}</td>
-                <td>{student?.name}</td>
-                <td>{student?.fatherName}</td>
-                {daysInMonth.map((num, index) => {
-                  return <td key={index} className="data_cell"><input type="checkbox" /></td>
-                })}
-                <td>{student?.totalPresent}</td>
-                <td>{student?.totalAbsent}</td>
-                <td>{daysInMonth.length}</td>
-              </tr>
+              return (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{student?.name}</td>
+                  <td>{student?.fatherName}</td>
+                  {daysInMonth.map((num, index) => {
+                    return (
+                      <td key={index} className="data_cell">
+                        <input type="checkbox" />
+                      </td>
+                    )
+                  })}
+                  <td>{student?.totalPresent}</td>
+                  <td>{student?.totalAbsent}</td>
+                  <td>{daysInMonth.length}</td>
+                </tr>
               )
             })}
           </tbody>
