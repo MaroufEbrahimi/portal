@@ -28,6 +28,9 @@ const APIEndpoints = {
     },
     attendances: {
         getStudentAttendances: "attendances/?"
+    },
+    subjects: {
+        subjectSearch: "subjects/search?"
     }
 
 

@@ -10,7 +10,6 @@ const AttendanceSheet = () => {
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
   const [subject, setSubject] = useState()
-  const [month, setMonth] = useState()
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
   const [semesters, setsemesters] = useState([])
@@ -68,18 +67,24 @@ const AttendanceSheet = () => {
     setsemesters(sem)
   }
 
+  const setSemeter = (e) => {
+    console.log(e.target.value)
+    setsemester(e.target.value)
+    let requestParam = "field=" + feildOfStudy + "&department=" + department + "&semester=" + e.target.value
+
+    fetch(APIEndpoints.root + APIEndpoints.subjects.subjectSearch + requestParam)
+      .then(res => res.json())
+      .then(body => {
+        console.log(body)
+        setSubjects(body.records)
+      })
+  }
+
   const handleFilterButton = () => {
-    let requestParam = ""
-    if (feildOfStudy) {
-      requestParam += "fieldOfStudy=" + feildOfStudy
+    if (!feildOfStudy || !department || !semester || !subject || !date) {
+      return
     }
-    if (semester) {
-      requestParam += "&semester=" + semester
-    }
-    if (department) {
-      requestParam += "&department=" + department
-    }
-    requestParam += "&subject=english&semester=1&year=2023&month=8"
+    let requestParam = `fieldOfStudy=${feildOfStudy}&semester=${semester}&department=${department}&subject=${subject}&year=${+date.split("-")[0]}&month=${+date.split("-")[1]}`
     //console.log(requestParam)
     console.log(
       APIEndpoints.root +
@@ -111,9 +116,24 @@ const AttendanceSheet = () => {
 
 
   // this function is used to do the present and absent actions
-  const presentOrAbsentActions = (e, studentId, date) => {
+  const presentOrAbsentActions = (e, studentId, dayNumber) => {
+    console.log(date)
+    let dateObject = new Date(date)
+    dateObject.setFullYear(date.getFullYear)
     console.log(e, studentId, date)
+    console.log(typeof date)
+
     // create the request body
+    const body = {
+      isPresent: e.target.checked,
+      localDate: new Date(date.split("-")[0], date.split("-")[1], dayNumber),
+      fieldOfStudy: feildOfStudy,
+      department: department,
+      subject: subject,
+      semester: +semester,
+      studentId: studentId
+    }
+    console.log(body)
 
     // make an api call in here
 
@@ -131,9 +151,9 @@ const AttendanceSheet = () => {
               id="type"
               value={feildOfStudy}
               onChange={(e) => setfield(e)}
-              defaultValue="همه"
+              defaultValue="پوهنحی"
             >
-              <option>همه</option>
+              <option disabled>پوهنحی</option>
               {fields.map((item) => {
                 return <option key={item.id}>{item.fieldName}</option>
               })}
@@ -145,9 +165,9 @@ const AttendanceSheet = () => {
               id="type"
               value={department}
               onChange={(e) => setDep(e.target.value)}
-              defaultValue="همه"
+              defaultValue="دیپارتمنت"
             >
-              <option>همه</option>
+              <option disabled>دیپارتمنت</option>
               {departments.map((item) => {
                 return <option key={item.id}>{item.departmentName}</option>
               })}
@@ -158,10 +178,10 @@ const AttendanceSheet = () => {
             <select
               id="type"
               value={semester}
-              onChange={(e) => setsemester(e.target.value)}
-              defaultValue="همه"
+              onChange={(e) => setSemeter(e)}
+              defaultValue="سمستر"
             >
-              <option>همه</option>
+              <option disabled>سمستر</option>
               {semesters.map((sem) => {
                 return <option key={sem}>{sem}</option>
               })}
@@ -173,11 +193,11 @@ const AttendanceSheet = () => {
               id="type"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              defaultValue="همه"
+              defaultValue="مضمون"
             >
-              <option>همه</option>
+              <option disabled>مضمون</option>
               {subjects.map((sub) => {
-                return <option key={sub}>{sub}</option>
+                return <option key={sub.id}>{sub.name}</option>
               })}
             </select>
           </div>
@@ -186,8 +206,8 @@ const AttendanceSheet = () => {
             <input
               type="month"
               id="type"
-              value={month}
-              onChange={(e) => setMonth(e.target.value)}
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
             />
           </div>
         </div>
