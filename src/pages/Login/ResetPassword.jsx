@@ -59,7 +59,7 @@ const ResetPassword = () => {
 
     // here should do some messaging
     if (password.length < 5) {
-      setError("رمز باید بیشتر از 5 کارکتر باشد!")
+      setError("رمز جدید باید بیشتر از 5 کارکتر باشد!")
       return
     }
     if (password == prePassword) {
