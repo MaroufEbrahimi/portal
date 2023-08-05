@@ -17,6 +17,7 @@ const AttendanceSheet = () => {
   const [loading, setLoading] = useState(true)
   const [date, setDate] = useState(new Date())
   const [daysInMonth, setDaysInMonth] = useState([])
+  const [data, setData] = useState()
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
@@ -95,6 +96,7 @@ const AttendanceSheet = () => {
       .then((data) => {
         console.log(data)
         setLoading(false)
+        setData(data)
         let days = []
         for (let i = 1; i <= data.daysInMonth; i++) days.push(i)
         setDaysInMonth(days)
@@ -185,7 +187,7 @@ const AttendanceSheet = () => {
                 })}
                 <td>{student?.totalPresent}</td>
                 <td>{student?.totalAbsent}</td>
-                <td>{daysInMonth.length}</td>
+                <td>{data?.daysWithoutHolidays}</td>
               </tr>
               )
             })}
