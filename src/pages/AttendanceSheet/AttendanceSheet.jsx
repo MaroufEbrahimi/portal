@@ -20,6 +20,7 @@ const AttendanceSheet = () => {
   const [loading, setLoading] = useState(true)
   const [date, setDate] = useState(new Date())
   const [daysInMonth, setDaysInMonth] = useState([])
+  const [data, setData] = useState()
 
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
@@ -82,13 +83,13 @@ const AttendanceSheet = () => {
     //console.log(requestParam)
     console.log(
       APIEndpoints.root +
-        APIEndpoints.attendances.getStudentAttendances +
-        requestParam
+      APIEndpoints.attendances.getStudentAttendances +
+      requestParam
     )
     fetch(
       APIEndpoints.root +
-        APIEndpoints.attendances.getStudentAttendances +
-        requestParam,
+      APIEndpoints.attendances.getStudentAttendances +
+      requestParam,
       {
         method: "GET",
         headers: {
@@ -100,11 +101,22 @@ const AttendanceSheet = () => {
       .then((data) => {
         console.log(data)
         setLoading(false)
+        setData(data)
         let days = []
         for (let i = 1; i <= data.daysInMonth; i++) days.push(i)
         setDaysInMonth(days)
         setStudents(data.students)
       })
+  }
+
+
+  // this function is used to do the present and absent actions
+  const presentOrAbsentActions = (e, studentId, date) => {
+    console.log(e, studentId, date)
+    // create the request body
+
+    // make an api call in here
+
   }
 
   return (
@@ -208,22 +220,19 @@ const AttendanceSheet = () => {
 
           <tbody className="attendance_details">
             {students?.map((student, index) => {
-              return (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{student?.name}</td>
-                  <td>{student?.fatherName}</td>
-                  {daysInMonth.map((num, index) => {
-                    return (
-                      <td key={index} className="data_cell">
-                        <input type="checkbox" />
-                      </td>
-                    )
-                  })}
-                  <td>{student?.totalPresent}</td>
-                  <td>{student?.totalAbsent}</td>
-                  <td>{daysInMonth.length}</td>
-                </tr>
+              return (<tr key={index}>
+                <td>{index + 1}</td>
+                <td>{student?.name}</td>
+                <td>{student?.fatherName}</td>
+                {daysInMonth.map((num, index) => {
+                  return <td key={index} className="data_cell">
+                    <input type="checkbox" onChange={(e) => presentOrAbsentActions(e, student.studentId, num)} />
+                  </td>
+                })}
+                <td>{student?.totalPresent}</td>
+                <td>{student?.totalAbsent}</td>
+                <td>{data?.daysWithoutHolidays}</td>
+              </tr>
               )
             })}
           </tbody>

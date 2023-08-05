@@ -17,12 +17,13 @@
   width: 100%;
   border-radius: 1px;
   padding: 15px 10px;
+  overflow-x: scroll;
 }
 
 .attendance_table {
   border: 1px solid #000;
   border-collapse: collapse;
-  width: 100%;
+  min-width: 970px;
 }
 
 tr {
