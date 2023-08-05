@@ -3,16 +3,19 @@ import "./AttendanceSheet.css"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 import { getTheMonthDays } from "../../Utils/DateTimeUtils"
-import Checkbox from "../../components/UI/Checkbox/Checkbox"
 
 const AttendanceSheet = () => {
   const [{ authentication }, dispatch] = useStateValue()
   const [semester, setsemester] = useState()
   const [department, setdepartment] = useState()
   const [feildOfStudy, setfeildOfStudy] = useState()
+  const [subject, setSubject] = useState()
+  const [month, setMonth] = useState()
   const [fields, setFields] = useState([])
   const [departments, setDepartments] = useState([])
   const [semesters, setsemesters] = useState([])
+  const [subjects, setSubjects] = useState([])
+  const [months, setMonths] = useState([])
   const [students, setStudents] = useState([])
   const [loading, setLoading] = useState(true)
   const [date, setDate] = useState(new Date())
@@ -151,6 +154,29 @@ const AttendanceSheet = () => {
                 return <option key={sem}>{sem}</option>
               })}
             </select>
+          </div>
+          <div className="post_mana_box">
+            <label>مضمون</label>
+            <select
+              id="type"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+              defaultValue="همه"
+            >
+              <option>همه</option>
+              {subjects.map((sub) => {
+                return <option key={sub}>{sub}</option>
+              })}
+            </select>
+          </div>
+          <div className="post_mana_box">
+            <label>تاریخ</label>
+            <input
+              type="month"
+              id="type"
+              value={month}
+              onChange={(e) => setMonth(e.target.value)}
+            />
           </div>
         </div>
         <div className="attendance_faculty_btn posts_management_filter_btn">

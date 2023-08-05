@@ -12,7 +12,7 @@
 
 /* Attendance Content */
 .attendance_content {
-  margin-top: 3rem;
+  margin: 3rem 0 2rem 0;
   border: 1px solid var(--gen-color);
   width: 100%;
   border-radius: 1px;
