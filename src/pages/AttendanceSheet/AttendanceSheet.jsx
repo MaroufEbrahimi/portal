@@ -275,7 +275,7 @@ const AttendanceSheet = () => {
                 <td>{student?.fatherName}</td>
                 {student?.monthlyAttendance?.map((item, index) => {
                   return <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
-                    <input type="checkbox" checked={item.isPresent} onChange={(e) => presentOrAbsentActions(e, student.studentId, item.day)} />
+                    <input type="checkbox" hidden={item.isHoliday} checked={item.isPresent} onChange={(e) => presentOrAbsentActions(e, student.studentId, item.day)} />
                   </td>
                 })}
                 <td>{student?.totalPresent}</td>
