@@ -254,11 +254,11 @@ const AttendanceSheet = () => {
               <td id="number_counter">شـمـاره</td>
               <td id="student_name">نـام</td>
               <td id="student_lastname">نـام پـدر</td>
-              {monthDetails.map((item, index) => {
+              {monthDetails?.map((item, index) => {
                 return (
                   <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
-                    <p>{item.dayOfWeek.substring(0, 2)}</p>
-                    {item.dayOfMonth}
+                    <p>{item?.dayOfWeek?.substring(0, 2)}</p>
+                    {item?.dayOfMonth}
                   </td>
                 )
               })}
