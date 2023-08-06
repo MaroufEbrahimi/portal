@@ -25,6 +25,7 @@ const ResetPassword = () => {
 
   console.log(authentication)
   useEffect(() => {
+    // if the user was admin and profile page is from a student
     if (
       authentication.roles.includes(Roles.ADMIN) &&
       authentication.userId != id
@@ -40,6 +41,8 @@ const ResetPassword = () => {
           setEmail(data?.studentPersonalInfo?.email)
         })
         .catch(() => navigate("/"))
+
+      // if user is a student or admin but the profile page is from himself
     } else if (
       (authentication.roles.includes(Roles.STUDENT) &&
         authentication.userId == id) ||
@@ -93,7 +96,7 @@ const ResetPassword = () => {
       })
       .then((data) => {
         console.log(data)
-        if (data.statusCode != 200) {
+        if (data?.statusCode) {
           setError(data.message)
           return
         }
