@@ -58,12 +58,15 @@ const Profile = () => {
   }, [id])
 
   const logout = () => {
-    localStorage.clear()
-    dispatch({
-      type: actionTypes.LOGOUT,
-      payload: {},
-    })
-    navigate("/")
+    if (id == authentication.userId) {
+      localStorage.clear()
+      dispatch({
+        type: actionTypes.LOGOUT,
+        payload: {},
+      })
+      navigate("/")
+    }
+
   }
 
   const removeStudent = () => {
