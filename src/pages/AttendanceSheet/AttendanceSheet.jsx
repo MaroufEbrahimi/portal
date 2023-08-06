@@ -18,7 +18,7 @@ const AttendanceSheet = () => {
   const [students, setStudents] = useState([])
   const [loading, setLoading] = useState(true)
   const [date, setDate] = useState(new Date())
-  const [daysInMonth, setDaysInMonth] = useState([])
+  const [monthDetails, setMonthDetails] = useState([])
   const [data, setData] = useState()
 
   useEffect(() => {
@@ -113,7 +113,7 @@ const AttendanceSheet = () => {
         // let days = []
         // for (let i = 1; i <= data.daysInMonth; i++) days.push(i)
         console.log(data?.students[0]?.monthlyAttendance)
-        setDaysInMonth(data?.students[0]?.monthlyAttendance)
+        setMonthDetails(data?.monthDetails)
         setStudents(data.students)
       })
   }
@@ -254,10 +254,11 @@ const AttendanceSheet = () => {
               <td id="number_counter">شـمـاره</td>
               <td id="student_name">نـام</td>
               <td id="student_lastname">نـام پـدر</td>
-              {daysInMonth.map((item, index) => {
+              {monthDetails.map((item, index) => {
                 return (
                   <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
-                    {item.day}
+                    <p>{item.dayOfWeek.substring(0, 2)}</p>
+                    {item.dayOfMonth}
                   </td>
                 )
               })}

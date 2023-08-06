@@ -27,8 +27,8 @@
 }
 
 .holiday {
-  background-color: red;
-  border: 1px solid red;
+  background-color: #ff000045;
+  border: 1px solid #ff000045;
 }
 
 tr {
@@ -61,6 +61,8 @@ tr {
   border: 1px solid var(--gen-color);
   font-size: 12px;
   padding: 2px;
+  width: 2rem;
+  text-align: center;
 }
 
 .attendance_table tr .data_cell {
