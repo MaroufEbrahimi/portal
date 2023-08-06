@@ -99,5 +99,6 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
   `;
     printWindow.document.write(htmlContent);
     printWindow.document.close();
-    printWindow.print();
+    printWindow.
+        printWindow.print();
 };

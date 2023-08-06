@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./ComputerScience.css"
 import IntroductionOfFaculty from "../../../components/FacultiesSections/IntroductionOfFaculty"
 import IntroOfDeanOfFaculty from "../../../components/FacultiesSections/IntroOfDeanOfFaculty"
@@ -43,6 +43,9 @@ const ComputerScience = () => {
   const handleTabs = (index) => setShowTab(index)
   const handleTabsDep = (index) => setShowTabDep(index)
   const handleTabsSemester = (index) => setShowTabSemester(index)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
   return (
     <div className="computerScience">

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react"
 import "./Wrapper.css"
 import ICONS from "../../constants/Icons"
+import { useParams } from "react-router-dom"
 
 const Wrapper = (props) => {
   const [showBackToTop, setShowBackToTop] = useState(false)
   const wrapperRef = useRef(null)
+  const { id } = useParams()
 
   useEffect(() => {
     const wrapper = wrapperRef.current
@@ -17,7 +19,6 @@ const Wrapper = (props) => {
         setShowBackToTop(false)
       }
     }
-
     // Add event listener to wrapper to check if it has been scrolled
     wrapper.addEventListener("scroll", handleScroll)
 
@@ -26,6 +27,11 @@ const Wrapper = (props) => {
       wrapper.removeEventListener("scroll", handleScroll)
     }
   }, [])
+
+
+  useEffect(() => {
+    handleBackToTop();
+  }, [id])
 
   const handleBackToTop = () => {
     // Scroll to top of wrapper

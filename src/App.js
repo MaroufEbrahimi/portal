@@ -8,6 +8,7 @@ import Header from "./components/Header/Header"
 import About from "./pages/About/About"
 import UpdatePost from "./components/UpdatePost/UpdatePost"
 import ButtonLoading from "./components/UI/Loading/ButtonLoading"
+import Faculties from "./pages/Faculties/Faculties"
 
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"))
 const Home = React.lazy(() => import("./pages/Home/Home"))
@@ -47,8 +48,8 @@ const App = () => {
     localStorage.getItem("isDark") == null
       ? false
       : localStorage.getItem("isDark") == "true"
-      ? true
-      : false
+        ? true
+        : false
   )
   console.log(isDark)
   // handle tab header
@@ -90,16 +91,8 @@ const App = () => {
           element: <Home />,
         },
         {
-          path: "/cs",
-          element: <ComputerScience />,
-        },
-        {
-          path: "/dentistry",
-          element: <Dentistry />,
-        },
-        {
-          path: "/low",
-          element: <Low />,
+          path: "faculties/:id",
+          element: <Faculties />,
         },
         {
           path: "/about",

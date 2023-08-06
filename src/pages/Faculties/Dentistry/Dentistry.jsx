@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./Dentistry.css"
 import IntroductionOfFaculty from "../../../components/FacultiesSections/IntroductionOfFaculty"
 import IntroOfDeanOfFaculty from "../../../components/FacultiesSections/IntroOfDeanOfFaculty"
@@ -29,6 +29,9 @@ const Dentistry = () => {
   const [showTabSemester, setShowTabSemester] = useState(1)
 
   const handleTabsSemester = (index) => setShowTabSemester(index)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
   return (
     <div className="dentistry">

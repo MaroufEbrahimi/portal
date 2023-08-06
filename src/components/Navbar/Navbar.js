@@ -111,17 +111,17 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 className="drop_menu_button outline_none cursor_pointer"
               />
               <div className="navbar__dropdown">
-                <CustomeLinks to="/cs" title="کامپیوتر ساینس">
+                <CustomeLinks to="faculties/0" title="کامپیوتر ساینس">
                   <i className={ICONS.window}></i>
                   <span>کامپیوتر ساینس</span>
                 </CustomeLinks>
-                <CustomeLinks to="/dentistry" title="طب دندان">
+                <CustomeLinks to="faculties/1" title="طب دندان">
                   <i>
                     <img src={dentistryIcon} />
                   </i>
                   <span>طب دندان</span>
                 </CustomeLinks>
-                <CustomeLinks to="/low" title="حقوق وعلوم سیاسی">
+                <CustomeLinks to="faculties/2" title="حقوق وعلوم سیاسی">
                   <i>
                     <img src={lowIcon} />
                   </i>
