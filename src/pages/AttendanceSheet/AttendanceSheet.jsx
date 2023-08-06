@@ -3,6 +3,9 @@ import "./AttendanceSheet.css"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 import { getTheMonthDays } from "../../Utils/DateTimeUtils"
+import Button from "../../components/UI/Button/Button"
+import { handlePrintTable } from "../../Utils/printTableUtils"
+import ICONS from "../../constants/Icons"
 
 const AttendanceSheet = () => {
   const [{ authentication }, dispatch] = useStateValue()
@@ -167,7 +170,12 @@ const AttendanceSheet = () => {
 
     // make an api call in here
   }
-  console.log(department)
+
+
+
+
+
+
   return (
     <div className="attendance">
       {/* Here you can add Faculty */}
@@ -246,8 +254,8 @@ const AttendanceSheet = () => {
           </button>
         </div>
       </div>
-
-      <div className="attendance_content">
+      <Button text={"print"} icon={ICONS.printer} onClick={handlePrintTable} />
+      <div className="attendance_content" id="attendance_table_container">
         <table className="attendance_table">
           <thead>
             <tr>

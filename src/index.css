@@ -13,6 +13,7 @@
   font-family: vazir_m;
   src: url(assets/fonts/vazir-font-v16.1.0/Vazir-Medium.woff);
 }
+
 /* End of Fonts */
 
 :root {
@@ -39,8 +40,7 @@
   --gen-main-bg: #222;
   --text-color: #f5f5f5;
   --show-color: #dddddd83;
-  --icon-faculties-color: saturate(450%) contrast(410%) brightness(150%)
-    invert(120%) sepia(420%) hue-rotate(120deg);
+  --icon-faculties-color: saturate(450%) contrast(410%) brightness(150%) invert(120%) sepia(420%) hue-rotate(120deg);
   --input-box-color: #3d3d3d;
 }
 
@@ -193,6 +193,7 @@ img {
 /* Scrollbar */
 *::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -288,6 +289,7 @@ img {
 }
 
 @media (max-width: 768px) {
+
   .bottom-to-top,
   .right-to-left,
   .left-to-right {
