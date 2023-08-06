@@ -10,6 +10,7 @@ import APIEndpoints from "../../constants/APIEndpoints"
 import Spinner from "../../components/UI/Loading/Spinner"
 import Button from "../../components/UI/Button/Button"
 import { actionTypes } from "../../context/reducer"
+
 const Students = () => {
   useProtect({ roles: [Roles.ADMIN] })
   const navigate = useNavigate()

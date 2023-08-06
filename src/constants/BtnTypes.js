@@ -1,5 +1,5 @@
 const BtnTypes = {
-    danger: "danger"
+  danger: "danger",
 }
 
-export default BtnTypes;
+export default BtnTypes

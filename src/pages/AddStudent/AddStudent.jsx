@@ -13,6 +13,7 @@ import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
 import { actionTypes } from "../../context/reducer"
 import APIEndpoints from "../../constants/APIEndpoints"
+
 const components = [
   PersonalInformation,
   StudentHabitation,
@@ -43,7 +44,7 @@ const AddStudent = () => {
     if (direction == "next" && counter == steps.length - 1) {
       counter = 0
       dispatch({
-        type: actionTypes.REMOVE_STUDENT_REGISTERATION_STATE
+        type: actionTypes.REMOVE_STUDENT_REGISTERATION_STATE,
       })
       navigate("/admin/students")
       return
@@ -68,7 +69,10 @@ const AddStudent = () => {
       identification: globalState.studentIdenfication,
     }
     if (!globalState?.studentImage?.file) {
-      setApiResponse({ isFinished: false, message: "لطفا عکس محصل را وارد نمائید!" })
+      setApiResponse({
+        isFinished: false,
+        message: "لطفا عکس محصل را وارد نمائید!",
+      })
       return
     }
     fetch(APIEndpoints.root + APIEndpoints.students.addStudent, {

@@ -16,7 +16,6 @@ const Home = () => {
   const [{ term }, dispatch] = useStateValue()
 
   const [fields, setFields] = useState([])
-  const [departments, setDepartments] = useState([])
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
       .then((res) => {
