@@ -36,6 +36,7 @@ const AttendanceSheet = () => {
   }, [])
 
   const setfield = (e) => {
+    setdepartment("دیپارتمنت")
     setDepartments([])
     setfeildOfStudy(e.target.value)
     const f = fields.find((item) => {
@@ -65,13 +66,13 @@ const AttendanceSheet = () => {
     let sem = []
     for (let i = 1; i <= d.semesters; i++) sem.push(i)
     setsemesters(sem)
+    setSemeter(null)
   }
 
   const setSemeter = (e) => {
     console.log(e.target.value)
     setsemester(e.target.value)
     let requestParam = "field=" + feildOfStudy + "&department=" + department + "&semester=" + e.target.value
-
     fetch(APIEndpoints.root + APIEndpoints.subjects.subjectSearch + requestParam)
       .then(res => res.json())
       .then(body => {
@@ -107,9 +108,10 @@ const AttendanceSheet = () => {
         console.log(data)
         setLoading(false)
         setData(data)
-        let days = []
-        for (let i = 1; i <= data.daysInMonth; i++) days.push(i)
-        setDaysInMonth(days)
+        // let days = []
+        // for (let i = 1; i <= data.daysInMonth; i++) days.push(i)
+        console.log(data?.students[0]?.monthlyAttendance)
+        setDaysInMonth(data?.students[0]?.monthlyAttendance)
         setStudents(data.students)
       })
   }
@@ -161,7 +163,7 @@ const AttendanceSheet = () => {
     // make an api call in here
 
   }
-
+  console.log(department)
   return (
     <div className="attendance">
       {/* Here you can add Faculty */}
@@ -248,10 +250,10 @@ const AttendanceSheet = () => {
               <td id="number_counter">شـمـاره</td>
               <td id="student_name">نـام</td>
               <td id="student_lastname">نـام پـدر</td>
-              {daysInMonth.map((num, index) => {
+              {daysInMonth.map((item, index) => {
                 return (
-                  <td key={index} className="data_cell">
-                    {num}
+                  <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
+                    {item.day}
                   </td>
                 )
               })}
@@ -268,7 +270,7 @@ const AttendanceSheet = () => {
                 <td>{student?.name}</td>
                 <td>{student?.fatherName}</td>
                 {student?.monthlyAttendance?.map((item, index) => {
-                  return <td key={index} className="data_cell">
+                  return <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
                     <input type="checkbox" checked={item.isPresent} onChange={(e) => presentOrAbsentActions(e, student.studentId, item.day)} />
                   </td>
                 })}
