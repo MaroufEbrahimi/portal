@@ -1,7 +1,7 @@
 export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
-    const printContent = document.getElementById('attendance_table_container');
-    const printWindow = window.open('', '_blank');
-    const htmlContent = `
+  const printContent = document.getElementById('attendance_table_container');
+  const printWindow = window.open('', '_blank');
+  const htmlContent = `
     <html>
       <head>
       <title>${pageTitle}</title>
@@ -97,8 +97,7 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
       </body>
     </html>
   `;
-    printWindow.document.write(htmlContent);
-    printWindow.document.close();
-    printWindow.
-        printWindow.print();
+  printWindow.document.write(htmlContent);
+  printWindow.document.close();
+  printWindow.print();
 };
