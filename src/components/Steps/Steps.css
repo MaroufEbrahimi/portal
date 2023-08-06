@@ -58,7 +58,6 @@
 }
 
 @media (max-width: 480px) {
- 
   .form_details_student .add_img_profile:hover .upload_icon {
     height: 100px;
   }

@@ -26,6 +26,7 @@ const NewPost = () => {
   const [departments, setDepartments] = useState([])
   const [semesters, setsemesters] = useState([])
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
+
   useEffect(() => {
     fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.getAll)
       .then((res) => {

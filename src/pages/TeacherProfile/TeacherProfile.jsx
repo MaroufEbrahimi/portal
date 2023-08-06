@@ -1,13 +1,14 @@
 import React, { useState } from "react"
-import "../Profile/Profile.css"
 import "./TeacherProfile.css"
+import "../Profile/Profile.css"
 import { teachers } from "../../constants/Data"
 import ICONS from "../../constants/Icons"
 import { useParams } from "react-router-dom"
 
 const TeacherProfile = () => {
-  const { id } = useParams();
+  const { id } = useParams()
   const [teacher, setteacher] = useState(teachers[id - 1])
+
   return (
     <div className="teacher_profile">
       <div className="profile_details">

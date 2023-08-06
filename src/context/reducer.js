@@ -1,4 +1,3 @@
-
 function getAuthInfoFromLocalStorage() {
   if (localStorage.length > 0) {
     return {
@@ -9,7 +8,7 @@ function getAuthInfoFromLocalStorage() {
       token: localStorage.getItem("token"),
       userId: localStorage.getItem("userId"),
       imageUrl: localStorage.getItem("imageUrl"),
-      roles: localStorage.getItem("roles")?.split(",")
+      roles: localStorage.getItem("roles")?.split(","),
     }
   }
 }
@@ -18,17 +17,18 @@ console.log(document.cookie)
 console.log(localStorage.getItem("isDkark"))
 export const initialState = {
   term: null,
-  authentication: getAuthInfoFromLocalStorage() ? getAuthInfoFromLocalStorage() : {
-    isAuthenticated: false,
-    name: null,
-    lastName: null,
-    email: null,
-    token: null,
-    userId: null,
-    profileImage: null,
-    roles: []
-  },
-
+  authentication: getAuthInfoFromLocalStorage()
+    ? getAuthInfoFromLocalStorage()
+    : {
+        isAuthenticated: false,
+        name: null,
+        lastName: null,
+        email: null,
+        token: null,
+        userId: null,
+        profileImage: null,
+        roles: [],
+      },
 }
 
 export const actionTypes = {
@@ -40,7 +40,7 @@ export const actionTypes = {
   ADD_STUDENT_RELATIONS: "ADD_STUDENT_RELATIONS",
   ADD_STUDENT_IMAGE: "ADD_STUDENT_IMAGE",
   LOGOUT: "LOGOUT",
-  REMOVE_STUDENT_REGISTERATION_STATE: "REMOVE_STUDENT_REGISTERATION_STATE"
+  REMOVE_STUDENT_REGISTERATION_STATE: "REMOVE_STUDENT_REGISTERATION_STATE",
 }
 
 const reducer = (state, action) => {
@@ -55,33 +55,33 @@ const reducer = (state, action) => {
         ...state,
         authentication: {
           ...action.payload,
-          isAuthenticated: true
-        }
+          isAuthenticated: true,
+        },
       }
     case actionTypes.ADD_STUDENT_PERONAL_INFO:
       return {
         ...state,
-        studentPersonalInfo: action.payload
+        studentPersonalInfo: action.payload,
       }
     case actionTypes.ADD_STUDENT_RELATIONS:
       return {
         ...state,
-        studentRelations: action.payload
+        studentRelations: action.payload,
       }
     case actionTypes.ADD_STUDENT_IDENTIFICATION:
       return {
         ...state,
-        studentIdenfication: action.payload
+        studentIdenfication: action.payload,
       }
     case actionTypes.ADD_STIUDENT_LOCATIONS:
       return {
         ...state,
-        studentLocations: action.payload
+        studentLocations: action.payload,
       }
     case actionTypes.ADD_STUDENT_IMAGE:
       return {
         ...state,
-        studentImage: action.payload
+        studentImage: action.payload,
       }
     case actionTypes.LOGOUT:
       return {
@@ -94,8 +94,8 @@ const reducer = (state, action) => {
           token: null,
           userId: null,
           profileImage: null,
-          roles: []
-        }
+          roles: [],
+        },
       }
     case actionTypes.REMOVE_STUDENT_REGISTERATION_STATE:
       return {
@@ -104,7 +104,7 @@ const reducer = (state, action) => {
         studentLocations: {},
         studentImage: {},
         studentRelations: {},
-        studentPersonalInfo: {}
+        studentPersonalInfo: {},
       }
     default:
       return state

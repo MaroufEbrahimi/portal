@@ -50,7 +50,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           to={"/profile/" + authentication.userId}
           className="nav_profile display_flex align_items_center justify_content_center flex_direction_column"
         >
-          <div className="add_img_profile full_width display_flex">
+          <div className="add_img_profile display_flex">
             <img
               src={authentication.imageUrl || "/public/img/favicon.png"}
               className="input_profile_img display_flex"
@@ -62,9 +62,16 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           </h4>
         </Link>
       ) : (
-        <Link to="/" className="nav_profile">
-          <div className="add_img_profile full_width">
-            <img src={logo} className="input_profile_img" alt="user_image" />
+        <Link
+          to="/"
+          className="nav_profile display_flex align_items_center justify_content_center flex_direction_column"
+        >
+          <div className="add_img_profile">
+            <img
+              src={logo}
+              className="input_profile_img display_flex"
+              alt="user_image"
+            />
           </div>
         </Link>
       )}

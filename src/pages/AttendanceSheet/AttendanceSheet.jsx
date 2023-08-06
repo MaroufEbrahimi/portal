@@ -85,7 +85,9 @@ const AttendanceSheet = () => {
     if (!feildOfStudy || !department || !semester || !subject || !date) {
       return
     }
-    let requestParam = `fieldOfStudy=${feildOfStudy}&semester=${semester}&department=${department}&subject=${subject}&year=${+date.split("-")[0]}&month=${+date.split("-")[1]}`
+    let requestParam = `fieldOfStudy=${feildOfStudy}&semester=${semester}&department=${department}&subject=${subject}&year=${+date.split(
+      "-"
+    )[0]}&month=${+date.split("-")[1]}`
     //console.log(requestParam)
     console.log(
       APIEndpoints.root +
@@ -116,7 +118,6 @@ const AttendanceSheet = () => {
       })
   }
 
-
   // this function is used to do the present and absent actions
   const presentOrAbsentActions = (e, studentId, dayNumber) => {
     console.log(date)
@@ -135,33 +136,36 @@ const AttendanceSheet = () => {
       department: department,
       subject: subject,
       semester: +semester,
-      studentId: studentId
+      studentId: studentId,
     }
     console.log(body)
     fetch(APIEndpoints.root + APIEndpoints.attendances.addAttendance, {
       method: "POST",
       headers: {
         Authorization: "Bearer " + authentication.token,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(body)
-    }).then(res => res.json())
-      .then(body => console.log(body))
-
-    let studentIndex = students.findIndex(item => {
-      return item.studentId == studentId;
+      body: JSON.stringify(body),
     })
-    let attendanceIndex = students[studentIndex].monthlyAttendance.findIndex(item => {
-      return item.day == dayNumber
-    });
+      .then((res) => res.json())
+      .then((body) => console.log(body))
 
-    let updatedStudent = { ...students[studentIndex] };
-    updatedStudent.monthlyAttendance[attendanceIndex].isPresent = e.target.checked
-    students[studentIndex] = updatedStudent;
+    let studentIndex = students.findIndex((item) => {
+      return item.studentId == studentId
+    })
+    let attendanceIndex = students[studentIndex].monthlyAttendance.findIndex(
+      (item) => {
+        return item.day == dayNumber
+      }
+    )
+
+    let updatedStudent = { ...students[studentIndex] }
+    updatedStudent.monthlyAttendance[attendanceIndex].isPresent =
+      e.target.checked
+    students[studentIndex] = updatedStudent
     setStudents([...students])
 
     // make an api call in here
-
   }
   console.log(department)
   return (

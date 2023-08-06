@@ -32,7 +32,6 @@ const Low = React.lazy(() => import("./pages/Faculties/Low/Low"))
 const Dentistry = React.lazy(() =>
   import("./pages/Faculties/Dentistry/Dentistry")
 )
-
 const Teachers = React.lazy(() => import("./pages/Teachers/Teachers"))
 const Timetable = React.lazy(() => import("./pages/Timetable/Timetable"))
 const AttendanceSheet = React.lazy(() =>
