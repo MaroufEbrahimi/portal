@@ -142,6 +142,7 @@ const AttendanceSheet = () => {
       studentId: studentId,
     }
     console.log(body)
+    // make an api call in here
     fetch(APIEndpoints.root + APIEndpoints.attendances.addAttendance, {
       method: "POST",
       headers: {
@@ -161,14 +162,18 @@ const AttendanceSheet = () => {
         return item.day == dayNumber
       }
     )
-
+    // update the state
     let updatedStudent = { ...students[studentIndex] }
-    updatedStudent.monthlyAttendance[attendanceIndex].isPresent =
-      e.target.checked
+    updatedStudent.monthlyAttendance[attendanceIndex].isPresent = e.target.checked
+    updatedStudent.totalPresent = e.target.checked ? updatedStudent.totalPresent + 1 : updatedStudent.totalPresent - 1
+    updatedStudent.totalAbsent = data?.daysWithoutHolidays - updatedStudent.totalPresent
     students[studentIndex] = updatedStudent
-    setStudents([...students])
 
-    // make an api call in here
+    setStudents([...students])
+    console.log(updatedStudent)
+
+
+
   }
 
 
