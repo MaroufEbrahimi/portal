@@ -27,7 +27,9 @@ const APIEndpoints = {
         unlock: (id) => "auth/unLock/" + id
     },
     attendances: {
+        addAttendance: "attendances",
         getStudentAttendances: "attendances/?"
+
     },
     subjects: {
         subjectSearch: "subjects/search?"

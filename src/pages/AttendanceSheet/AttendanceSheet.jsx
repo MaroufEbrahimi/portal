@@ -121,12 +121,14 @@ const AttendanceSheet = () => {
     let dateObject = new Date(date)
     dateObject.setFullYear(date.getFullYear)
     console.log(e, studentId, date)
-    console.log(typeof date)
+    console.log(e.target.checked)
 
     // create the request body
     const body = {
       isPresent: e.target.checked,
-      localDate: new Date(date.split("-")[0], date.split("-")[1], dayNumber),
+      yearNumber: +date.split("-")[0],
+      monthNumber: +date.split("-")[1],
+      dayNumber: +dayNumber,
       fieldOfStudy: feildOfStudy,
       department: department,
       subject: subject,
@@ -134,6 +136,27 @@ const AttendanceSheet = () => {
       studentId: studentId
     }
     console.log(body)
+    fetch(APIEndpoints.root + APIEndpoints.attendances.addAttendance, {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + authentication.token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(body)
+    }).then(res => res.json())
+      .then(body => console.log(body))
+
+    let studentIndex = students.findIndex(item => {
+      return item.studentId == studentId;
+    })
+    let attendanceIndex = students[studentIndex].monthlyAttendance.findIndex(item => {
+      return item.day == dayNumber
+    });
+
+    let updatedStudent = { ...students[studentIndex] };
+    updatedStudent.monthlyAttendance[attendanceIndex].isPresent = e.target.checked
+    students[studentIndex] = updatedStudent;
+    setStudents([...students])
 
     // make an api call in here
 
@@ -244,9 +267,9 @@ const AttendanceSheet = () => {
                 <td>{index + 1}</td>
                 <td>{student?.name}</td>
                 <td>{student?.fatherName}</td>
-                {daysInMonth.map((num, index) => {
+                {student?.monthlyAttendance?.map((item, index) => {
                   return <td key={index} className="data_cell">
-                    <input type="checkbox" onChange={(e) => presentOrAbsentActions(e, student.studentId, num)} />
+                    <input type="checkbox" checked={item.isPresent} onChange={(e) => presentOrAbsentActions(e, student.studentId, item.day)} />
                   </td>
                 })}
                 <td>{student?.totalPresent}</td>
