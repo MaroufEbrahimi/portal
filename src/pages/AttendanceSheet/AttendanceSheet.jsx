@@ -255,47 +255,50 @@ const AttendanceSheet = () => {
         </div>
       </div>
       <Button text={"print"} icon={ICONS.printer} onClick={handlePrintTable} />
-      <div className="attendance_content" id="attendance_table_container">
-        <table className="attendance_table">
-          <thead>
-            <tr>
-              <td id="number_counter">شـمـاره</td>
-              <td id="student_name">نـام</td>
-              <td id="student_lastname">نـام پـدر</td>
-              {monthDetails?.map((item, index) => {
-                return (
-                  <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
-                    <p>{item?.dayOfWeek?.substring(0, 2)}</p>
-                    {item?.dayOfMonth}
-                  </td>
+      {students?.length > 0 &&
+
+        <div className="attendance_content" id="attendance_table_container">
+          <table className="attendance_table">
+            <thead>
+              <tr>
+                <td id="number_counter">شـمـاره</td>
+                <td id="student_name">نـام</td>
+                <td id="student_lastname">نـام پـدر</td>
+                {monthDetails?.map((item, index) => {
+                  return (
+                    <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
+                      <p>{item?.dayOfWeek?.substring(0, 2)}</p>
+                      {item?.dayOfMonth}
+                    </td>
+                  )
+                })}
+                <td>ح</td>
+                <td>غ</td>
+                <td>مجموعه</td>
+              </tr>
+            </thead>
+
+            <tbody className="attendance_details">
+              {students?.map((student, index) => {
+                return (<tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{student?.name}</td>
+                  <td>{student?.fatherName}</td>
+                  {student?.monthlyAttendance?.map((item, index) => {
+                    return <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
+                      <input type="checkbox" hidden={item.isHoliday} checked={item.isPresent} onChange={(e) => presentOrAbsentActions(e, student.studentId, item.day)} />
+                    </td>
+                  })}
+                  <td>{student?.totalPresent}</td>
+                  <td>{student?.totalAbsent}</td>
+                  <td>{data?.daysWithoutHolidays}</td>
+                </tr>
                 )
               })}
-              <td>ح</td>
-              <td>غ</td>
-              <td>مجموعه</td>
-            </tr>
-          </thead>
-
-          <tbody className="attendance_details">
-            {students?.map((student, index) => {
-              return (<tr key={index}>
-                <td>{index + 1}</td>
-                <td>{student?.name}</td>
-                <td>{student?.fatherName}</td>
-                {student?.monthlyAttendance?.map((item, index) => {
-                  return <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
-                    <input type="checkbox" hidden={item.isHoliday} checked={item.isPresent} onChange={(e) => presentOrAbsentActions(e, student.studentId, item.day)} />
-                  </td>
-                })}
-                <td>{student?.totalPresent}</td>
-                <td>{student?.totalAbsent}</td>
-                <td>{data?.daysWithoutHolidays}</td>
-              </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
+            </tbody>
+          </table>
+        </div>
+      }
     </div>
   )
 }
