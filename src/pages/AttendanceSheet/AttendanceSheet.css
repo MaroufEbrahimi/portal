@@ -1,13 +1,16 @@
 .attendance {
   margin: 1rem 0;
 }
+
 .attendance .print_button {
   text-align: left;
 }
+
 .attendance_faculty h2 {
   text-align: center;
   margin-bottom: 2rem;
 }
+
 .attendance_faculty_btn {
   margin-top: 1.5rem;
   display: flex;
@@ -26,23 +29,26 @@
 }
 
 /* Attendance Header */
-.attendance_content .attendance_header {
+.attendance_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-align: center;
   gap: 5px;
 }
-.attendance_content .attendance_header .attendance_header_box {
+
+.attendance_header .attendance_header_box {
   border: 1px solid var(--gen-color);
   width: 100%;
 }
-.attendance_content .attendance_header .attendance_header_box p:first-child {
+
+.attendance_header .attendance_header_box p:first-child {
   background-color: var(--gen-bg-color);
   font-size: 15px;
   font-weight: bold;
 }
-.attendance_content .attendance_header .attendance_header_box p {
+
+.attendance_header .attendance_header_box p {
   font-size: 14.5px;
   padding: 5px;
 }

@@ -102,13 +102,13 @@ const AttendanceSheet = () => {
     //console.log(requestParam)
     console.log(
       APIEndpoints.root +
-        APIEndpoints.attendances.getStudentAttendances +
-        requestParam
+      APIEndpoints.attendances.getStudentAttendances +
+      requestParam
     )
     fetch(
       APIEndpoints.root +
-        APIEndpoints.attendances.getStudentAttendances +
-        requestParam,
+      APIEndpoints.attendances.getStudentAttendances +
+      requestParam,
       {
         method: "GET",
         headers: {

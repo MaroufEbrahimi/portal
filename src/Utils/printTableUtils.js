@@ -7,18 +7,28 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
       <title>${pageTitle}</title>
         <style>
           @media print {
-            * {
-              padding: 0;
-              margin: 0;
-              box-sizing: border-box;
-              font-family: vazir_l, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-              scroll-behavior: smooth;
-              -webkit-font-smoothing: antialiased;
-              -moz-osx-font-smoothing: grayscale;
-              direction: rtl;
+            .attendance {
+              margin: 1rem 0;
             }
+
+            .attendance .print_button {
+              text-align: left;
+            }
+
+            .attendance_faculty h2 {
+              text-align: center;
+              margin-bottom: 2rem;
+            }
+
+            .attendance_faculty_btn {
+              margin-top: 1.5rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            /* Attendance Content */
             .attendance_content {
-              direction:rtl;
               margin: 3rem 0 2rem 0;
               border: 1px solid var(--gen-color);
               width: 100%;
@@ -27,10 +37,37 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
               overflow-x: scroll;
             }
 
+            /* Attendance Header */
+            .attendance_content .attendance_header {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              text-align: center;
+              gap: 5px;
+            }
+
+            .attendance_content .attendance_header .attendance_header_box {
+              border: 1px solid var(--gen-color);
+              width: 100%;
+            }
+
+            .attendance_content .attendance_header .attendance_header_box p:first-child {
+              background-color: var(--gen-bg-color);
+              font-size: 15px;
+              font-weight: bold;
+            }
+
+            .attendance_content .attendance_header .attendance_header_box p {
+              font-size: 14.5px;
+              padding: 5px;
+            }
+
             .attendance_table {
+              margin-top: 1.7rem;
               border: 1px solid #000;
               border-collapse: collapse;
               min-width: 970px;
+              max-width: 100%;
             }
 
             .holiday {

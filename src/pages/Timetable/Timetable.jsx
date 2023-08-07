@@ -5,6 +5,7 @@ import Button from "../../components/UI/Button/Button"
 import ICONS from "../../constants/Icons"
 import Spinner from "../../components/UI/Loading/Spinner"
 import BackDrop from "../../components/UI/BackDrop/BackDrop"
+import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 
 const Timetable = () => {
   const [showTabTimeTable, setShowTabTimeTable] = useState(1)
@@ -61,10 +62,16 @@ const Timetable = () => {
             <div className="time_table_img">
               <img src={img.timetable} key={img.id} />
               <div className="btn_container_for_modal display_flex align_items_center justify_content_center">
-                <span title="صحفه بزرگ">
+                <span title="بزرگنمایی">
                   <Button
                     icon={ICONS.fullscreen}
                     onClick={() => fullscreen(img.timetable)}
+                  />
+                </span>
+                <span title="دانلود">
+                  <Button
+                    icon={ICONS.download}
+                    onClick={() => downloadFileFromApi(img.timetable)}
                   />
                 </span>
               </div>
@@ -83,10 +90,16 @@ const Timetable = () => {
             <div className="time_table_img">
               <img src={img.timetableEx} key={img.id} />
               <div className="btn_container_for_modal display_flex align_items_center justify_content_center">
-                <span title="صحفه بزرگ">
+                <span title="بزرگنمایی">
                   <Button
                     icon={ICONS.fullscreen}
                     onClick={() => fullscreen(img.timetableEx)}
+                  />
+                </span>
+                <span title="دانلود">
+                  <Button
+                    icon={ICONS.download}
+                    onClick={() => downloadFileFromApi(img.timetable)}
                   />
                 </span>
               </div>
