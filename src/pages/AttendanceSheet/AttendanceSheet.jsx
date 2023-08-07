@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import "./AttendanceSheet.css"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
-import { getTheMonthDays } from "../../Utils/DateTimeUtils"
 import Button from "../../components/UI/Button/Button"
 import { handlePrintTable } from "../../Utils/printTableUtils"
 import ICONS from "../../constants/Icons"
@@ -17,7 +16,6 @@ const AttendanceSheet = () => {
   const [departments, setDepartments] = useState([])
   const [semesters, setsemesters] = useState([])
   const [subjects, setSubjects] = useState([])
-  const [months, setMonths] = useState([])
   const [students, setStudents] = useState([])
   const [loading, setLoading] = useState(true)
   const [date, setDate] = useState(new Date())
@@ -102,13 +100,13 @@ const AttendanceSheet = () => {
     //console.log(requestParam)
     console.log(
       APIEndpoints.root +
-      APIEndpoints.attendances.getStudentAttendances +
-      requestParam
+        APIEndpoints.attendances.getStudentAttendances +
+        requestParam
     )
     fetch(
       APIEndpoints.root +
-      APIEndpoints.attendances.getStudentAttendances +
-      requestParam,
+        APIEndpoints.attendances.getStudentAttendances +
+        requestParam,
       {
         method: "GET",
         headers: {
@@ -257,7 +255,7 @@ const AttendanceSheet = () => {
             />
           </div>
         </div>
-        <div className="attendance_faculty_btn posts_management_filter_btn">
+        <div className="attendance_faculty_btn display_flex align_items_center justify_content_center posts_management_filter_btn">
           <button className="btn" onClick={handleFilterButton}>
             دریافت حاضری
           </button>
@@ -267,8 +265,8 @@ const AttendanceSheet = () => {
       {students?.length > 0 && (
         <>
           <div className="attendance_content" id="attendance_table_container">
-            <div className="attendance_header">
-              <div className="attendance_header_boxes">
+            <div className="attendance_header display_grid">
+              <div className="attendance_header_boxes display_grid text_align_center">
                 <div className="attendance_header_box">
                   <p>پـوهـنـحـی</p>
                   <p>کامپیوتر ساینس</p>
@@ -301,11 +299,11 @@ const AttendanceSheet = () => {
                 </tr>
                 <tr>
                   <td>ح</td>
-                  <td>حاضری</td>
+                  <td>حاضر</td>
                 </tr>
                 <tr>
                   <td>غ</td>
-                  <td>غیر حاضری</td>
+                  <td>غیر حاضر</td>
                 </tr>
               </table>
             </div>
@@ -347,7 +345,8 @@ const AttendanceSheet = () => {
                           <td
                             key={index}
                             className={
-                              "data_cell " + (item.isHoliday ? "holiday" : "")
+                              "data_cell text_align_center align_items_center justify_content_center " +
+                              (item.isHoliday ? "holiday" : "")
                             }
                           >
                             <input

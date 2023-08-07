@@ -13,9 +13,6 @@
 
 .attendance_faculty_btn {
   margin-top: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Attendance Content */
@@ -30,15 +27,12 @@
 
 /* Attendance Header */
 .attendance_header {
-  display: grid;
   grid-template-columns: 82% 15%;
   gap: 5px;
 }
 
 .attendance_content .attendance_header_boxes {
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  text-align: center;
   grid-gap: 5px;
   min-width: 770px;
   max-width: 100%;
@@ -84,7 +78,6 @@
   font-weight: bold;
   border: 1px solid var(--gen-color);
 }
-
 /* End of Attendance Header */
 
 .attendance_table {
@@ -135,10 +128,7 @@ tr {
 }
 
 .attendance_table tr .data_cell {
-  text-align: center;
   padding: 2px;
-  align-items: center;
-  justify-content: center;
   position: relative;
   width: 1.44rem;
   height: 0.5rem;
