@@ -26,28 +26,54 @@
 }
 
 /* Attendance Header */
-.attendance_content .attendance_header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
+.attendance_header {
+  display: grid;
+  grid-template-columns: 82% 15%;
   gap: 5px;
-  min-width: 970px;
+}
+.attendance_content .attendance_header_boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  grid-gap: 5px;
+  min-width: 770px;
   max-width: 100%;
 }
-.attendance_content .attendance_header .attendance_header_box {
+.attendance_header_boxes .attendance_header_box {
   border: 1px solid var(--gen-color);
   width: 100%;
 }
-.attendance_content .attendance_header .attendance_header_box p:first-child {
+.attendance_header_boxes .attendance_header_box p {
+  font-size: 14.5px;
+  padding: 3px;
+}
+.attendance_header_boxes .attendance_header_box p:first-child {
   background-color: var(--gen-bg-color);
   font-size: 15px;
   font-weight: bold;
 }
-.attendance_content .attendance_header .attendance_header_box p {
-  font-size: 14.5px;
-  padding: 5px;
+/* keys */
+.attendance_header_keys {
+  min-width: 180px;
+  max-width: 100%;
+  border: 1px solid var(--gen-color);
+  border-collapse: collapse;
 }
+.attendance_header_keys tr {
+  border: 1px solid var(--gen-color);
+  width: 100%;
+  text-align: center;
+}
+.attendance_header_keys tr th {
+  border-collapse: collapse;
+  background-color: var(--gen-bg-color);
+}
+.attendance_header_keys tr td {
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid var(--gen-color);
+}
+/* End of Attendance Header */
 
 .attendance_table {
   margin-top: 1.7rem;

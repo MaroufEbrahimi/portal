@@ -268,30 +268,46 @@ const AttendanceSheet = () => {
         <>
           <div className="attendance_content" id="attendance_table_container">
             <div className="attendance_header">
-              <div className="attendance_header_box">
-                <p>پـوهـنـحـی</p>
-                <p>کامپیوتر ساینس</p>
+              <div className="attendance_header_boxes">
+                <div className="attendance_header_box">
+                  <p>پـوهـنـحـی</p>
+                  <p>کامپیوتر ساینس</p>
+                </div>
+                <div className="attendance_header_box">
+                  <p>دیـپـارتـمـنـت</p>
+                  <p>مهندسی نرم افزار</p>
+                </div>
+                <div className="attendance_header_box">
+                  <p>سمـسـتـر</p>
+                  <p>8</p>
+                </div>
+                <div className="attendance_header_box">
+                  <p>مـضـمـون</p>
+                  <p>mobile app</p>
+                </div>
+                <div className="attendance_header_box">
+                  <p>تـاریـخ</p>
+                  <p>augest 2023</p>
+                </div>
+                <div className="attendance_header_box">
+                  <p>تـعـداد کـردیـت ها</p>
+                  <p>5</p>
+                </div>
               </div>
-              <div className="attendance_header_box">
-                <p>دیـپـارتـمـنـت</p>
-                <p>مهندسی نرم افزار</p>
-              </div>
-              <div className="attendance_header_box">
-                <p>سمـسـتـر</p>
-                <p>8</p>
-              </div>
-              <div className="attendance_header_box">
-                <p>مـضـمـون</p>
-                <p>mobile app</p>
-              </div>
-              <div className="attendance_header_box">
-                <p>تـاریـخ</p>
-                <p>augest 2023</p>
-              </div>
-              <div className="attendance_header_box">
-                <p>تـعـداد کـردیـت ها</p>
-                <p>5</p>
-              </div>
+
+              <table className="attendance_header_keys">
+                <tr>
+                  <th colspan="2">کـلـیـد واژه ها</th>
+                </tr>
+                <tr>
+                  <td>ح</td>
+                  <td>حاضری</td>
+                </tr>
+                <tr>
+                  <td>غ</td>
+                  <td>غیر حاضری</td>
+                </tr>
+              </table>
             </div>
 
             <table className="attendance_table">
