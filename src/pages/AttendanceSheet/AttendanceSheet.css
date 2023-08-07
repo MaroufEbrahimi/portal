@@ -1,5 +1,5 @@
 .attendance {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 .attendance .print_button {
   text-align: left;
@@ -17,7 +17,7 @@
 
 /* Attendance Content */
 .attendance_content {
-  margin: 3rem 0 2rem 0;
+  margin: 2rem 0 0.8rem 0;
   border: 1px solid var(--gen-color);
   width: 100%;
   border-radius: 1px;
@@ -32,6 +32,8 @@
   justify-content: space-between;
   text-align: center;
   gap: 5px;
+  min-width: 970px;
+  max-width: 100%;
 }
 .attendance_content .attendance_header .attendance_header_box {
   border: 1px solid var(--gen-color);
@@ -56,8 +58,8 @@
 }
 
 .holiday {
-  background-color: #ff000045;
-  border: 1px solid #ff000045;
+  background-color: var(--gen-bg-color);
+  border: 1px solid var(--gen-bg-color);
 }
 
 tr {
@@ -110,4 +112,8 @@ tr {
   left: 3px;
   right: 3px;
   bottom: 3px;
+}
+
+.attendance_table tr .data_cell input[type="checkbox"] {
+  accent-color: blue;
 }
