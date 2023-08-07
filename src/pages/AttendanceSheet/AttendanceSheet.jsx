@@ -75,10 +75,18 @@ const AttendanceSheet = () => {
   const setSemeter = (e) => {
     console.log(e.target.value)
     setsemester(e.target.value)
-    let requestParam = "field=" + feildOfStudy + "&department=" + department + "&semester=" + e.target.value
-    fetch(APIEndpoints.root + APIEndpoints.subjects.subjectSearch + requestParam)
-      .then(res => res.json())
-      .then(body => {
+    let requestParam =
+      "field=" +
+      feildOfStudy +
+      "&department=" +
+      department +
+      "&semester=" +
+      e.target.value
+    fetch(
+      APIEndpoints.root + APIEndpoints.subjects.subjectSearch + requestParam
+    )
+      .then((res) => res.json())
+      .then((body) => {
         console.log(body)
         setSubjects(body.records)
       })
@@ -94,13 +102,13 @@ const AttendanceSheet = () => {
     //console.log(requestParam)
     console.log(
       APIEndpoints.root +
-      APIEndpoints.attendances.getStudentAttendances +
-      requestParam
+        APIEndpoints.attendances.getStudentAttendances +
+        requestParam
     )
     fetch(
       APIEndpoints.root +
-      APIEndpoints.attendances.getStudentAttendances +
-      requestParam,
+        APIEndpoints.attendances.getStudentAttendances +
+        requestParam,
       {
         method: "GET",
         headers: {
@@ -170,11 +178,6 @@ const AttendanceSheet = () => {
 
     // make an api call in here
   }
-
-
-
-
-
 
   return (
     <div className="attendance">
@@ -254,10 +257,36 @@ const AttendanceSheet = () => {
           </button>
         </div>
       </div>
-      <Button text={"print"} icon={ICONS.printer} onClick={handlePrintTable} />
-      {students?.length > 0 &&
 
+      {students?.length > 0 && (
         <div className="attendance_content" id="attendance_table_container">
+          <div className="attendance_header">
+            <div className="attendance_header_box">
+              <p>پـوهـنـحـی</p>
+              <p>کامپیوتر ساینس</p>
+            </div>
+            <div className="attendance_header_box">
+              <p>دیـپـارتـمـنـت</p>
+              <p>مهندسی نرم افزار</p>
+            </div>
+            <div className="attendance_header_box">
+              <p>سمـسـتـر</p>
+              <p>8</p>
+            </div>
+            <div className="attendance_header_box">
+              <p>مـضـمـون</p>
+              <p>mobile app</p>
+            </div>
+            <div className="attendance_header_box">
+              <p>تـاریـخ</p>
+              <p>augest 2023</p>
+            </div>
+            <div className="attendance_header_box">
+              <p>تـعـداد کـردیـت ها</p>
+              <p>5</p>
+            </div>
+          </div>
+
           <table className="attendance_table">
             <thead>
               <tr>
@@ -266,7 +295,12 @@ const AttendanceSheet = () => {
                 <td id="student_lastname">نـام پـدر</td>
                 {monthDetails?.map((item, index) => {
                   return (
-                    <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
+                    <td
+                      key={index}
+                      className={
+                        "data_cell " + (item.isHoliday ? "holiday" : "")
+                      }
+                    >
                       <p>{item?.dayOfWeek?.substring(0, 2)}</p>
                       {item?.dayOfMonth}
                     </td>
@@ -280,25 +314,51 @@ const AttendanceSheet = () => {
 
             <tbody className="attendance_details">
               {students?.map((student, index) => {
-                return (<tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{student?.name}</td>
-                  <td>{student?.fatherName}</td>
-                  {student?.monthlyAttendance?.map((item, index) => {
-                    return <td key={index} className={"data_cell " + (item.isHoliday ? "holiday" : "")}>
-                      <input type="checkbox" hidden={item.isHoliday} checked={item.isPresent} onChange={(e) => presentOrAbsentActions(e, student.studentId, item.day)} />
-                    </td>
-                  })}
-                  <td>{student?.totalPresent}</td>
-                  <td>{student?.totalAbsent}</td>
-                  <td>{data?.daysWithoutHolidays}</td>
-                </tr>
+                return (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{student?.name}</td>
+                    <td>{student?.fatherName}</td>
+                    {student?.monthlyAttendance?.map((item, index) => {
+                      return (
+                        <td
+                          key={index}
+                          className={
+                            "data_cell " + (item.isHoliday ? "holiday" : "")
+                          }
+                        >
+                          <input
+                            type="checkbox"
+                            hidden={item.isHoliday}
+                            checked={item.isPresent}
+                            onChange={(e) =>
+                              presentOrAbsentActions(
+                                e,
+                                student.studentId,
+                                item.day
+                              )
+                            }
+                          />
+                        </td>
+                      )
+                    })}
+                    <td>{student?.totalPresent}</td>
+                    <td>{student?.totalAbsent}</td>
+                    <td>{data?.daysWithoutHolidays}</td>
+                  </tr>
                 )
               })}
             </tbody>
           </table>
         </div>
-      }
+      )}
+      <div className="print_button">
+        <Button
+          text={"پرینت حاضری"}
+          icon={ICONS.printer}
+          onClick={handlePrintTable}
+        />
+      </div>
     </div>
   )
 }
