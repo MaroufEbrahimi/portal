@@ -104,7 +104,6 @@ const NewPost = () => {
         }
       })
       .then((data) => {
-        console.log(data)
         setDepartments(data)
         let sem = []
         for (let i = 1; i <= data[0].semesters; i++) sem.push(i)
@@ -117,7 +116,6 @@ const NewPost = () => {
     const d = departments.find((item) => {
       return item.departmentName == e
     })
-    console.log(d)
     let sem = []
     for (let i = 1; i <= d.semesters; i++) sem.push(i)
     setsemesters(sem)

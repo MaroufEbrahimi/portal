@@ -30,14 +30,12 @@ const UpdatePost = () => {
   const [semesters, setsemesters] = useState([])
   const [completeMsg, setCompleteMsg] = useState({ show: false, msg: "" })
   const modalCloseHandler = () => {
-    console.log("close")
     setShowModal(false)
     setloading(true)
   }
 
   // show image in fullscreen mode
   const fullscreen = (url) => {
-    console.log(url)
     setImageOnModal(url)
     setShowModal(true)
   }
@@ -51,7 +49,6 @@ const UpdatePost = () => {
   const removeFile = (type) => {
     // to do
     // remove the file on the server
-    console.log(fileUrlToRemove)
     if (fileUrlToRemove != null) {
       fetch(fileUrlToRemove, {
         method: "DELETE",
@@ -61,8 +58,6 @@ const UpdatePost = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(fileUrlToRemove)
-          console.log(data)
           if (data.statusCode == 200) {
             setShowRemoveFileModal(false)
             if (type == "image") {
@@ -84,7 +79,6 @@ const UpdatePost = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setPost(data)
         setText(data?.message)
       })
@@ -131,7 +125,6 @@ const UpdatePost = () => {
       semester: post.semester,
       isPublic: post.isPublic == "صفحه اصلی" ? true : false,
     }
-    console.log(body)
 
     fetch(APIEndpoints.root + APIEndpoints.posts.update(post.id), {
       method: "PUT",
@@ -144,8 +137,6 @@ const UpdatePost = () => {
       .then((res) => res.json())
       .then((data) => {
         // now send the file
-        console.log(data)
-        console.log(files)
         if (files.length > 0) {
           const formData = new FormData()
           for (let f in files) {
@@ -182,12 +173,11 @@ const UpdatePost = () => {
         }
       })
       .then((data) => {
-        console.log(data)
         setDepartments(data)
         setPost({ ...post, department: data[0].departmentName })
       })
   }
-  console.log(post)
+
   return (
     <div className="update_post">
       <div className="image_header_container">

@@ -24,7 +24,7 @@ const Profile = () => {
   const [showModal, setShowModal] = useState(false)
   const [removeModal, setremoveModal] = useState(false)
   const [lockOrUnlockModal, setlockOrUnlockModal] = useState(false)
-  const [responseModal, setresponseModal] = useState({ msg: '', })
+  const [responseModal, setresponseModal] = useState({ msg: "" })
   const [loading, setloading] = useState(false)
   const showModalHandler = () => {
     setShowModal(true)
@@ -49,11 +49,11 @@ const Profile = () => {
       })
       .then((data) => {
         setstudent(data)
-      }).catch(() => {
+      })
+      .catch(() => {
         if (id != authentication.userId) {
           navigate("/")
         }
-
       })
   }, [id])
 
@@ -66,7 +66,6 @@ const Profile = () => {
       })
       navigate("/")
     }
-
   }
 
   const removeStudent = () => {
@@ -75,47 +74,48 @@ const Profile = () => {
       headers: {
         Authorization: "Bearer " + authentication.token,
       },
-    }).then(res => res.json())
-      .then(data => {
+    })
+      .then((res) => res.json())
+      .then((data) => {
         if (data.statusCode == 200) {
-          console.log(data)
           setloading(false)
           setresponseModal({
             msg: data.message,
             show: true,
             onClick: () => {
               navigate("/admin/students")
-            }
+            },
           })
         }
       })
-
   }
 
   const lockOrUnlockStudentAccount = () => {
     setloading(true)
     setlockOrUnlockModal(false)
-    const lockOrUnlockEndpoint = student.isEnable ? APIEndpoints.login.lock(id) : APIEndpoints.login.unlock(id)
+    const lockOrUnlockEndpoint = student.isEnable
+      ? APIEndpoints.login.lock(id)
+      : APIEndpoints.login.unlock(id)
     fetch(APIEndpoints.root + lockOrUnlockEndpoint, {
       method: "PUT",
       headers: {
         Authorization: "Bearer " + authentication.token,
-      }
-    }).then(res => res.json())
-      .then(data => {
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
         if (data.statusCode == 200) {
-          console.log(data)
           setloading(false)
           setresponseModal({
             msg: data.message,
             show: true,
-            onClick: () => setresponseModal({ msg: '', show: false })
+            onClick: () => setresponseModal({ msg: "", show: false }),
           })
           setstudent({ ...student, isEnable: !student.isEnable })
         }
       })
   }
-  console.log(student)
+
   return (
     <div className="profile fade_in box_shadow display_flex border_radius_8">
       <div className="profile_title display_flex align_items_center justify_content_center flex_direction_column">
@@ -123,8 +123,8 @@ const Profile = () => {
         <div className="user_profile_img display_flex align_items_center flex_direction_column">
           {(authentication.roles.includes(Roles.ADMIN) &&
             id != authentication?.userId) ||
-            (authentication.roles.includes(Roles.STUDENT) &&
-              id == authentication?.userId) ? (
+          (authentication.roles.includes(Roles.STUDENT) &&
+            id == authentication?.userId) ? (
             <img src={student?.imageUrl} alt="user img" />
           ) : null}
 
@@ -172,7 +172,10 @@ const Profile = () => {
         </div>
 
         {/* Message box for Enable or Not Enable */}
-        <BackDrop show={lockOrUnlockModal} modalClose={() => setlockOrUnlockModal(false)}>
+        <BackDrop
+          show={lockOrUnlockModal}
+          modalClose={() => setlockOrUnlockModal(false)}
+        >
           {
             <MessageBox
               messageType="asking"
@@ -236,8 +239,8 @@ const Profile = () => {
       {/* Student Personal Information */}
       {(authentication.roles.includes(Roles.ADMIN) &&
         id != authentication?.userId) ||
-        (authentication.roles.includes(Roles.STUDENT) &&
-          id == authentication?.userId) ? (
+      (authentication.roles.includes(Roles.STUDENT) &&
+        id == authentication?.userId) ? (
         <div className="profile_details">
           <div className="content_of_profile border_radius_8">
             <div className="content">

@@ -23,7 +23,6 @@ const ResetPassword = () => {
   const navigate = useNavigate()
   const [loading, setloading] = useState(false)
 
-  console.log(authentication)
   useEffect(() => {
     // if the user was admin and profile page is from a student
     if (
@@ -56,7 +55,6 @@ const ResetPassword = () => {
   }, [id])
 
   const sendInformation = (e) => {
-    console.log(authentication)
     setError(null)
     e.preventDefault()
 
@@ -91,11 +89,9 @@ const ResetPassword = () => {
             msg: "اطلاعات کاربری با موفقیت بروزرسانی شد!",
           })
         }
-        console.log(res)
         return res.json()
       })
       .then((data) => {
-        console.log(data)
         if (data?.statusCode) {
           setError(data.message)
           return

@@ -31,7 +31,6 @@ const AddStudent = () => {
   })
   const [apiResponse, setApiResponse] = useState({})
 
-  console.log(counter)
   const handleNextStep = (direction) => {
     if (direction == "back" && counter == 0) {
       navigate("/admin/students")
@@ -55,7 +54,6 @@ const AddStudent = () => {
     // check if steps are within bounds
     setStepComponent({ component: components[counter] })
   }
-  console.log(globalState)
 
   const sendInformation = () => {
     const relations = []
@@ -96,7 +94,6 @@ const AddStudent = () => {
 
   // send the student image to the API
   const sendStudentImage = (imageUrl, image) => {
-    console.log(imageUrl, image)
     const formDate = new FormData()
     formDate.append("file", image)
     fetch(imageUrl, {
@@ -113,10 +110,9 @@ const AddStudent = () => {
           return
         }
         setApiResponse(data)
-        console.log(data)
       })
   }
-  console.log(apiResponse)
+
   return (
     <div className="add_new fade_in border_radius_8">
       {/* Stepper */}

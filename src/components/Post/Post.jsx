@@ -25,7 +25,6 @@ const Post = ({
   const [isHide, setIsHide] = useState(isHidden)
 
   const handleHideShow = () => {
-    console.log(isHidden)
     fetch(APIEndpoints.root + APIEndpoints.posts.toggleHideShow(id), {
       headers: {
         Authorization: "Bearer " + authentication.token,

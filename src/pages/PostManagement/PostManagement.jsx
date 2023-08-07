@@ -96,7 +96,6 @@ const PostManagement = () => {
   const showDeleteModal = (id) => {
     setDeleteModal(true)
     setPostToDelete(id)
-    console.log(id)
   }
 
   const handleFilterButton = () => {
@@ -116,13 +115,11 @@ const PostManagement = () => {
       }`
     }
     setRequestParams(requestParam)
-    console.log(requestParam)
     fetch(endpoint + requestParam, {
       method: "GET",
       headers: { Authorization: "Bearer " + authentication.token },
     })
       .then((res) => {
-        console.log(res)
         if (res.ok) {
           return res.json()
         } else {
@@ -130,7 +127,6 @@ const PostManagement = () => {
         }
       })
       .then((data) => {
-        console.log(data)
         if (data.totalPages - 1 > pagination.offset) {
           setHasMore(true)
         } else {
@@ -167,7 +163,6 @@ const PostManagement = () => {
     const d = departments.find((item) => {
       return item.departmentName == e
     })
-    console.log(d)
     let sem = []
     for (let i = 1; i <= d.semesters; i++) sem.push(i)
     setsemesters(sem)
@@ -182,22 +177,19 @@ const PostManagement = () => {
     })
       .then((res) => {
         setDeleteModal(false)
-        console.log(res)
         if (res.ok) return res.json()
         else throw new Error(res.statusText)
       })
       .then((data) => {
-        console.log(data)
         setCompleteMsg({ msg: data.message, show: true })
         const newList = posts.filter((item) => item.id != postToDelete)
         setPosts(newList)
       })
       .catch((error) => {
-        console.log(error)
         setCompleteMsg({ msg: error.message, show: true })
       })
   }
-  console.log(posts)
+
   return (
     <div className="posts_management">
       <div className="posts_management_tabHeader">

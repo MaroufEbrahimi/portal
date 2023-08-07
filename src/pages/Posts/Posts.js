@@ -48,7 +48,6 @@ const Posts = () => {
         }
       })
       .then((data) => {
-        console.log(data)
         if (data.totalPages - 1 > pagination.offset) {
           setHasMore(true)
         } else {

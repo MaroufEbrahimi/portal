@@ -45,8 +45,8 @@ const Students = () => {
 
     fetch(
       APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
+        APIEndpoints.students.getAll +
+        `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
       {
         method: "GET",
         headers: {
@@ -79,10 +79,9 @@ const Students = () => {
         if (hasMore && !loading && page.totalPages >= pagination.offset) {
           fetch(
             APIEndpoints.root +
-            APIEndpoints.students.getAll +
-            `offset=${pagination.offset}&pageSize=${pagination.pageSize
-            }` +
-            requestParams,
+              APIEndpoints.students.getAll +
+              `offset=${pagination.offset}&pageSize=${pagination.pageSize}` +
+              requestParams,
             {
               method: "GET",
               headers: {
@@ -146,7 +145,6 @@ const Students = () => {
     const d = departments.find((item) => {
       return item.departmentName == e
     })
-    console.log(d)
     let sem = []
     for (let i = 1; i <= d.semesters; i++) sem.push(i)
     setsemesters(sem)
@@ -155,7 +153,6 @@ const Students = () => {
   const handleSearchButton = (e) => {
     setLoading(true)
     e.preventDefault()
-
 
     let url = ""
     if (searchKeyword) {
@@ -171,12 +168,11 @@ const Students = () => {
       url += "&department=" + (department == "همه" ? "%" : department)
     }
     setRequestParams(url)
-    console.log(url)
     fetch(
       APIEndpoints.root +
-      APIEndpoints.students.getAll +
-      `offset=0&pageSize=${pagination.pageSize}` +
-      url,
+        APIEndpoints.students.getAll +
+        `offset=0&pageSize=${pagination.pageSize}` +
+        url,
       {
         method: "GET",
         headers: {
@@ -277,7 +273,13 @@ const Students = () => {
       <div className="all_students display_flex justify_content_center">
         {students?.map((student, index) => {
           if (index + 1 == students.length) {
-            return <Student key={student.id} studentInfo={student} customRef={lastNodeReference} />
+            return (
+              <Student
+                key={student.id}
+                studentInfo={student}
+                customRef={lastNodeReference}
+              />
+            )
           }
           return <Student key={student.id} studentInfo={student} />
         })}
@@ -286,7 +288,9 @@ const Students = () => {
           {!hasMore && students.length > 0 && (
             <>
               <h5>آخرین محصل</h5>
-              <h6 style={{ paddingTop: "10px" }}>تعداد کل محصلین {students.length}</h6>
+              <h6 style={{ paddingTop: "10px" }}>
+                تعداد کل محصلین {students.length}
+              </h6>
             </>
           )}
           {!hasMore && students.length == 0 && <h5>محصل یافت نشد!</h5>}
