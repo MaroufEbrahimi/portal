@@ -1,5 +1,5 @@
 .attendance {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 .attendance .print_button {
@@ -20,7 +20,7 @@
 
 /* Attendance Content */
 .attendance_content {
-  margin: 3rem 0 2rem 0;
+  margin: 2rem 0 0.8rem 0;
   border: 1px solid var(--gen-color);
   width: 100%;
   border-radius: 1px;
@@ -30,6 +30,7 @@
 
 /* Attendance Header */
 .attendance_header {
+<<<<<<< HEAD
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,15 +44,62 @@
 }
 
 .attendance_header .attendance_header_box p:first-child {
+=======
+  display: grid;
+  grid-template-columns: 82% 15%;
+  gap: 5px;
+}
+.attendance_content .attendance_header_boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  grid-gap: 5px;
+  min-width: 770px;
+  max-width: 100%;
+}
+.attendance_header_boxes .attendance_header_box {
+  border: 1px solid var(--gen-color);
+  width: 100%;
+}
+.attendance_header_boxes .attendance_header_box p {
+  font-size: 14.5px;
+  padding: 3px;
+}
+.attendance_header_boxes .attendance_header_box p:first-child {
+>>>>>>> 143078832fb649bbeec1ecc2a3c117f6af2af125
   background-color: var(--gen-bg-color);
   font-size: 15px;
   font-weight: bold;
 }
+<<<<<<< HEAD
 
 .attendance_header .attendance_header_box p {
   font-size: 14.5px;
   padding: 5px;
+=======
+/* keys */
+.attendance_header_keys {
+  min-width: 180px;
+  max-width: 100%;
+  border: 1px solid var(--gen-color);
+  border-collapse: collapse;
+>>>>>>> 143078832fb649bbeec1ecc2a3c117f6af2af125
 }
+.attendance_header_keys tr {
+  border: 1px solid var(--gen-color);
+  width: 100%;
+  text-align: center;
+}
+.attendance_header_keys tr th {
+  border-collapse: collapse;
+  background-color: var(--gen-bg-color);
+}
+.attendance_header_keys tr td {
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid var(--gen-color);
+}
+/* End of Attendance Header */
 
 .attendance_table {
   margin-top: 1.7rem;
@@ -62,8 +110,8 @@
 }
 
 .holiday {
-  background-color: #ff000045;
-  border: 1px solid #ff000045;
+  background-color: var(--gen-bg-color);
+  border: 1px solid var(--gen-bg-color);
 }
 
 tr {
@@ -116,4 +164,12 @@ tr {
   left: 3px;
   right: 3px;
   bottom: 3px;
+<<<<<<< HEAD
 }
+=======
+}
+
+.attendance_table tr .data_cell input[type="checkbox"] {
+  accent-color: blue;
+}
+>>>>>>> 143078832fb649bbeec1ecc2a3c117f6af2af125
