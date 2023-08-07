@@ -99,7 +99,7 @@ const Timetable = () => {
                 <span title="دانلود">
                   <Button
                     icon={ICONS.download}
-                    onClick={() => downloadFileFromApi(img.timetable)}
+                    onClick={() => downloadFileFromApi(img.timetableEx)}
                   />
                 </span>
               </div>
