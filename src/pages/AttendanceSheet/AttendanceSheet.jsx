@@ -129,11 +129,8 @@ const AttendanceSheet = () => {
 
   // this function is used to do the present and absent actions
   const presentOrAbsentActions = (e, studentId, dayNumber) => {
-    console.log(date)
     let dateObject = new Date(date)
     dateObject.setFullYear(date.getFullYear)
-    console.log(e, studentId, date)
-    console.log(e.target.checked)
 
     // create the request body
     const body = {
@@ -147,7 +144,6 @@ const AttendanceSheet = () => {
       semester: +semester,
       studentId: studentId,
     }
-    console.log(body)
     // make an api call in here
     fetch(APIEndpoints.root + APIEndpoints.attendances.addAttendance, {
       method: "POST",
@@ -180,7 +176,6 @@ const AttendanceSheet = () => {
     students[studentIndex] = updatedStudent
 
     setStudents([...students])
-    console.log(updatedStudent)
   }
 
   return (
@@ -269,23 +264,23 @@ const AttendanceSheet = () => {
               <div className="attendance_header_boxes display_grid text_align_center">
                 <div className="attendance_header_box">
                   <p>پـوهـنـحـی</p>
-                  <p>کامپیوتر ساینس</p>
+                  <p>{feildOfStudy}</p>
                 </div>
                 <div className="attendance_header_box">
                   <p>دیـپـارتـمـنـت</p>
-                  <p>مهندسی نرم افزار</p>
+                  <p>{department}</p>
                 </div>
                 <div className="attendance_header_box">
                   <p>سمـسـتـر</p>
-                  <p>8</p>
+                  <p>{semester}</p>
                 </div>
                 <div className="attendance_header_box">
                   <p>مـضـمـون</p>
-                  <p>mobile app</p>
+                  <p>{subject}</p>
                 </div>
                 <div className="attendance_header_box">
                   <p>تـاریـخ</p>
-                  <p>augest 2023</p>
+                  <p>{date}</p>
                 </div>
                 <div className="attendance_header_box">
                   <p>تـعـداد کـردیـت ها</p>
@@ -373,7 +368,7 @@ const AttendanceSheet = () => {
               </tbody>
             </table>
           </div>
-          <div className="print_button">
+          <div className="print_button text_align_center">
             <Button
               text={"پرینت حاضری"}
               icon={ICONS.printer}
