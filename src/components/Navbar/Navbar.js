@@ -109,6 +109,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 type="checkbox"
                 onClick={facultiesHandler}
                 className="drop_menu_button outline_none cursor_pointer"
+                title="پوهنــځی‌ها"
               />
               <div className="navbar__dropdown">
                 <CustomeLinks to="faculties/0" title="کامپیوتر ساینس">
@@ -150,6 +151,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 type="checkbox"
                 onClick={adminPanelHandler}
                 className="drop_menu_button outline_none cursor_pointer"
+                title="ادمین پنل"
               />
               <div className="navbar__dropdown admin_navbar__dropdown ">
                 <CustomeLinks to="/admin/students" title="محصلین">
