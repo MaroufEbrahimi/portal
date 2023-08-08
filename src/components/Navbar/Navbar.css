@@ -16,7 +16,7 @@
 
 .menu_container {
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 }
 
 .menu_container input {
@@ -50,7 +50,7 @@
 
 /* Navbar Profile */
 .navbar .nav_profile {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .navbar .add_img_profile,
@@ -62,10 +62,11 @@
 
 .navbar .nav_profile h4 {
   font-size: 16px;
+  margin-top: -5px;
 }
 
 .navbar_menu {
-  margin-top: 10rem;
+  margin-top: 9rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -148,9 +149,8 @@
 }
 
 /* admin panel */
-
 .navbar__title .navbar__item {
-  padding: 7px 10px;
+  padding: 4px 10px;
   font-size: 16px;
 }
 
