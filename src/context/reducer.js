@@ -12,9 +12,7 @@ function getAuthInfoFromLocalStorage() {
     }
   }
 }
-console.log(document.cookie)
 
-console.log(localStorage.getItem("isDkark"))
 export const initialState = {
   term: null,
   authentication: getAuthInfoFromLocalStorage()

@@ -209,7 +209,6 @@ export const PersonalInformation = ({ updatedMode = false }) => {
         const f = fields.find((item) => {
           return item.fieldName == e.target.value
         })
-        console.log("filed name", f)
         fetch(APIEndpoints.root + APIEndpoints.fieldOfStudy.depratments(f.id))
           .then((res) => {
             if (res.ok) {

@@ -48,10 +48,9 @@ const App = () => {
     localStorage.getItem("isDark") == null
       ? false
       : localStorage.getItem("isDark") == "true"
-        ? true
-        : false
+      ? true
+      : false
   )
-  console.log(isDark)
   // handle tab header
   const [activeNav, setActiveNav] = useState(false)
   const navActiveHandler = () => setActiveNav(!activeNav)

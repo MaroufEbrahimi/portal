@@ -44,7 +44,6 @@ const Login = () => {
         }
       })
       .then((data) => {
-        console.log(data)
         // if successfully authenticated
         localStorage.setItem("token", data?.token)
         localStorage.setItem("name", data?.name)
@@ -58,7 +57,8 @@ const Login = () => {
           payload: data,
         })
         navigate("/")
-      }).catch(error => {
+      })
+      .catch((error) => {
         setlaoding(false)
         setError(error)
       })

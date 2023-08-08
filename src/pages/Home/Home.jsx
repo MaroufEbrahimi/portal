@@ -26,7 +26,6 @@ const Home = () => {
         }
       })
       .then((data) => {
-        console.log(data)
         setFields(data.content)
       })
   }, [])
@@ -44,7 +43,6 @@ const Home = () => {
         </div>
         <div className="faculty_boxes display_grid align_items_center text_align_center justify_content_center ">
           {fields.map((f) => {
-            console.log(f)
             return (
               <div className="faculty box_shadow" key={f.id}>
                 <div className="faculty_img">

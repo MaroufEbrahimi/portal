@@ -71,7 +71,6 @@ const AttendanceSheet = () => {
   }
 
   const setSemeter = (e) => {
-    console.log(e.target.value)
     setsemester(e.target.value)
     let requestParam =
       "field=" +
@@ -85,7 +84,6 @@ const AttendanceSheet = () => {
     )
       .then((res) => res.json())
       .then((body) => {
-        console.log(body)
         setSubjects(body.records)
       })
   }
@@ -97,12 +95,6 @@ const AttendanceSheet = () => {
     let requestParam = `fieldOfStudy=${feildOfStudy}&semester=${semester}&department=${department}&subject=${subject}&year=${+date.split(
       "-"
     )[0]}&month=${+date.split("-")[1]}`
-    //console.log(requestParam)
-    console.log(
-      APIEndpoints.root +
-      APIEndpoints.attendances.getStudentAttendances +
-      requestParam
-    )
     fetch(
       APIEndpoints.root +
       APIEndpoints.attendances.getStudentAttendances +
@@ -116,12 +108,10 @@ const AttendanceSheet = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setLoading(false)
         setData(data)
         // let days = []
         // for (let i = 1; i <= data.daysInMonth; i++) days.push(i)
-        console.log(data?.students[0]?.monthlyAttendance)
         setMonthDetails(data?.monthDetails)
         setStudents(data.students)
       })

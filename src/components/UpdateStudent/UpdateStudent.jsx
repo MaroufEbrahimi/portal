@@ -28,7 +28,6 @@ const UpdateStudent = ({ setApiResponse }) => {
         }
       })
       .then((data) => {
-        console.log(data)
         setStudent(data)
         dispatch({
           type: actionTypes.ADD_STUDENT_PERONAL_INFO,
@@ -79,7 +78,6 @@ const UpdateStudent = ({ setApiResponse }) => {
   }, [id])
 
   const sendInformationToAPI = () => {
-    console.log(globalState)
     const relations = []
     for (let r in globalState.studentRelations) {
       relations.push(globalState.studentRelations[r])
@@ -365,7 +363,6 @@ const UpdateStudent = ({ setApiResponse }) => {
           {globalState.studentRelations &&
             Object.keys(globalState.studentRelations).map((item) => {
               item = globalState.studentRelations[item]
-              console.log(item)
               return (
                 <div
                   className="form_details_student student_relatives left-to-right"
