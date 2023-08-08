@@ -100,13 +100,13 @@ const AttendanceSheet = () => {
     //console.log(requestParam)
     console.log(
       APIEndpoints.root +
-        APIEndpoints.attendances.getStudentAttendances +
-        requestParam
+      APIEndpoints.attendances.getStudentAttendances +
+      requestParam
     )
     fetch(
       APIEndpoints.root +
-        APIEndpoints.attendances.getStudentAttendances +
-        requestParam,
+      APIEndpoints.attendances.getStudentAttendances +
+      requestParam,
       {
         method: "GET",
         headers: {
@@ -284,7 +284,9 @@ const AttendanceSheet = () => {
                 </div>
                 <div className="attendance_header_box">
                   <p>تـعـداد کـردیـت ها</p>
-                  <p>5</p>
+                  <p>{
+                    subjects.find(item => item.name == subject)?.credit
+                  }</p>
                 </div>
               </div>
 
