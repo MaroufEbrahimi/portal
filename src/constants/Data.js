@@ -1516,7 +1516,7 @@ export const teachers = [
   {
     id: 5,
     teacherImg: user,
-    teacherName: "استاد",
+    teacherName: "محمد داود",
     teacherLastName: "رقیب",
     teacherDegreeFfEducation: "ماستر",
     teacherCallNum: "0799503350",
@@ -1557,7 +1557,7 @@ export const teachers = [
     id: 7,
     teacherImg: tariq,
     teacherName: "طارق",
-    teacherLastName: "احمدی",
+    teacherLastName: "امینی",
     teacherDegreeFfEducation: "لیسانس",
     teacherCallNum: "0799503350",
     teacherGraduationYear: "01-01-2019",
