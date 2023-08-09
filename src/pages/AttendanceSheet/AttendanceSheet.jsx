@@ -250,7 +250,7 @@ const AttendanceSheet = () => {
       {students?.length > 0 && (
         <>
           <div className="attendance_content" id="attendance_table_container">
-            <div className="attendance_header display_grid">
+            <div className="attendance_header display_flex">
               <div className="attendance_header_boxes display_grid text_align_center">
                 <div className="attendance_header_box">
                   <p>پـوهـنـحـی</p>

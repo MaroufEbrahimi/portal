@@ -23,14 +23,13 @@
 
 /* Attendance Header */
 .attendance_header {
-  grid-template-columns: 82% 15%;
   gap: 5px;
 }
 
 .attendance_content .attendance_header_boxes {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
-  min-width: 770px;
+  min-width: 848px;
   max-width: 100%;
 }
 
@@ -140,4 +139,11 @@ tr {
 
 .attendance_table tr .data_cell input[type="checkbox"] {
   accent-color: blue;
+}
+
+/* Responsive */
+@media (max-width: 1351px) {
+  .attendance_table {
+    min-width: 1035px;
+  }
 }
