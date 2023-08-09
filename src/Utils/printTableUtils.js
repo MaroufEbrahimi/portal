@@ -1,6 +1,6 @@
-export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
-  const printContent = document.getElementById('attendance_table_container');
-  const printWindow = window.open('', '_blank');
+export const handlePrintTable = ({ pageTitle = "جدول حاضری" }) => {
+  const printContent = document.getElementById("attendance_table_container")
+  const printWindow = window.open("", "_blank")
   const htmlContent = `
     <html>
       <head>
@@ -45,8 +45,7 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
           /* Attendance Header */
           .attendance_header {
             margin-top:40px;
-            display: grid;
-            grid-template-columns: 80% 15%;
+            display: flex;
             gap: 5px;
           }
 
@@ -77,7 +76,7 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
 
           /* keys */
           .attendance_header_keys {
-            min-width: 180px;
+            min-width: 220px;
             max-width: 100%;
             border: 1px solid var(--gen-color);
             border-collapse: collapse;
@@ -176,8 +175,8 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
         ${printContent.innerHTML}
       </body>
     </html>
-  `;
-  printWindow.document.write(htmlContent);
-  printWindow.document.close();
-  printWindow.print();
-};
+  `
+  printWindow.document.write(htmlContent)
+  printWindow.document.close()
+  printWindow.print()
+}
