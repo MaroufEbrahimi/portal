@@ -128,10 +128,15 @@ const Profile = () => {
             <img src={student?.imageUrl} alt="user img" />
           ) : null}
 
-          <h1>
-            {student?.studentPersonalInfo?.name}{" "}
-            {student?.studentPersonalInfo?.lastName}
-          </h1>
+          {(authentication.roles.includes(Roles.ADMIN) &&
+            id != authentication?.userId) ||
+          (authentication.roles.includes(Roles.STUDENT) &&
+            id == authentication?.userId) ? (
+            <h1>
+              {student?.studentPersonalInfo?.name}{" "}
+              {student?.studentPersonalInfo?.lastName}
+            </h1>
+          ) : null}
         </div>
         {/* Profile Edit buttons */}
         <div className="student_profile_buttons display_flex align_items_center flex_direction_column">
