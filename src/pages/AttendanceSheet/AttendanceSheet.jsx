@@ -173,8 +173,8 @@ const AttendanceSheet = () => {
       {/* Here you can add Faculty */}
       <div className="attendance_faculty">
         <h2>حـاضـری مـربـوطـه را انـتخـاب نـمـایـد</h2>
-        <div className="posts_management_boxes">
-          <div className="post_mana_box">
+        <div className="posts_management_boxes ">
+          <div className="post_mana_box ">
             <label>پوهنحی</label>
             <select
               id="type"
@@ -188,7 +188,7 @@ const AttendanceSheet = () => {
               })}
             </select>
           </div>
-          <div className="post_mana_box">
+          <div className="post_mana_box ">
             <label>دیپارتمنت</label>
             <select
               id="type"
@@ -202,7 +202,7 @@ const AttendanceSheet = () => {
               })}
             </select>
           </div>
-          <div className="post_mana_box">
+          <div className="post_mana_box ">
             <label>سمستر</label>
             <select
               id="type"
@@ -216,7 +216,7 @@ const AttendanceSheet = () => {
               })}
             </select>
           </div>
-          <div className="post_mana_box">
+          <div className="post_mana_box  ">
             <label>مضمون</label>
             <select
               id="type"
@@ -230,7 +230,7 @@ const AttendanceSheet = () => {
               })}
             </select>
           </div>
-          <div className="post_mana_box">
+          <div className="post_mana_box ">
             <label>تاریخ</label>
             <input
               type="month"
@@ -249,7 +249,7 @@ const AttendanceSheet = () => {
 
       {students?.length > 0 && (
         <>
-          <div className="attendance_content" id="attendance_table_container">
+          <div className="attendance_content box_shadow " id="attendance_table_container">
             <div className="attendance_header display_grid">
               <div className="attendance_header_boxes display_grid text_align_center">
                 <div className="attendance_header_box">

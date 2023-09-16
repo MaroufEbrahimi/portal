@@ -48,8 +48,8 @@ const App = () => {
     localStorage.getItem("isDark") == null
       ? false
       : localStorage.getItem("isDark") == "true"
-      ? true
-      : false
+        ? true
+        : false
   )
   // handle tab header
   const [activeNav, setActiveNav] = useState(false)
@@ -65,6 +65,7 @@ const App = () => {
     return (
       <Suspense fallback={<ButtonLoading />}>
         <div className={`app ${isDark ? "theme-dark" : "theme-light"}`}>
+          <span className="background_colors"></span>
           <main className={`main ${activeNav && "main_active_nav"}`}>
             <div className="app_header">
               <Header isDark={isDark} darkModeHandler={darkModeHandler} />

@@ -64,9 +64,9 @@ const Footer = () => {
         </div>
         <div className="footer_box third_footer_box display_flex flex_direction_column">
           <Link to="/">خانه</Link>
-          <Link to="/cs">کامپیوتر ساینس</Link>
-          <Link to="/dentistry">طب دندان</Link>
-          <Link to="/low">حقوق و علوم سیاسی</Link>
+          <Link to="faculties/0">کامپیوتر ساینس</Link>
+          <Link to="faculties/1">طب دندان</Link>
+          <Link to="faculties/2">حقوق و علوم سیاسی</Link>
           <Link to="/about">درباره</Link>
         </div>
       </div>

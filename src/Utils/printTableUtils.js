@@ -44,19 +44,19 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
 
           /* Attendance Header */
           .attendance_header {
-            margin-top:40px;
-            display: grid;
-            grid-template-columns: 80% 15%;
+            display: flex;
             gap: 5px;
+            width: 100%;  
           }
+          
 
           .attendance_header_boxes {
-            display: grid;
+            display:grid;
             grid-template-columns: repeat(3, 1fr);
-            text-align: center;
             grid-gap: 5px;
             min-width: 770px;
             max-width: 100%;
+            flex: 1;
           }
 
           .attendance_header_boxes .attendance_header_box {
@@ -77,7 +77,7 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
 
           /* keys */
           .attendance_header_keys {
-            min-width: 180px;
+            min-width: 194px;
             max-width: 100%;
             border: 1px solid var(--gen-color);
             border-collapse: collapse;
@@ -107,7 +107,7 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
             border: 1px solid #000;
             border-collapse: collapse;
             min-width: 970px;
-            max-width: 100%;
+            width: 100%;
           }
 
           .holiday {

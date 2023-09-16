@@ -10,8 +10,8 @@ const TeacherProfile = () => {
   const [teacher, setteacher] = useState(teachers[id - 1])
 
   return (
-    <div className="teacher_profile">
-      <div className="profile_details">
+    <div className="teacher_profile ">
+      <div className="profile_details box_shadow">
         <div className="content_of_profile teacher_Profile_details">
           <div className="teacher_profile_img">
             <img src={teacher?.teacherImg} />

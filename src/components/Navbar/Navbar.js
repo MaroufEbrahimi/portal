@@ -93,7 +93,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           <div className="faculties_menu">
             <div className="menu_container">
               <div className="navbar__title open__navbar display_flex">
-                <li className="navbar__item display_flex align_items_center">
+                <div className="navbar__item display_flex align_items_center">
                   <i className={ICONS.mortarboard}></i>
                   <span>پوهنــځی‌ها</span>
                   <div style={{ paddingRight: "34px" }}>
@@ -103,7 +103,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                       <i className={`${ICONS.chevronRight} btn_toggle`}></i>
                     )}
                   </div>
-                </li>
+                </div>
               </div>
               <input
                 type="checkbox"
@@ -111,31 +111,27 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 className="drop_menu_button outline_none cursor_pointer"
                 title="پوهنــځی‌ها"
               />
-              <div className="navbar__dropdown">
+              <ul className="navbar__dropdown">
                 <CustomeLinks to="faculties/0" title="کامپیوتر ساینس">
                   <i className={ICONS.window}></i>
                   <span>کامپیوتر ساینس</span>
                 </CustomeLinks>
                 <CustomeLinks to="faculties/1" title="طب دندان">
-                  <i>
-                    <img src={dentistryIcon} />
-                  </i>
+                  <img src={dentistryIcon} />
                   <span>طب دندان</span>
                 </CustomeLinks>
                 <CustomeLinks to="faculties/2" title="حقوق وعلوم سیاسی">
-                  <i>
-                    <img src={lowIcon} />
-                  </i>
+                  <img src={lowIcon} />
                   <span>حقوق</span>
                 </CustomeLinks>
-              </div>
+              </ul>
             </div>
           </div>
 
           {authentication?.roles?.includes("ADMIN") ? (
             <div className="admin_menu menu_container">
               <div className="navbar__title open__navbar display_flex">
-                <li className="navbar__item display_flex align_items_center">
+                <div className="navbar__item display_flex align_items_center">
                   <i className={ICONS.gear}></i>
                   <span>ادمین پنل</span>
                   <div style={{ paddingRight: "40px" }}>
@@ -145,7 +141,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                       <i className={`${ICONS.chevronRight} btn_toggle`}></i>
                     )}
                   </div>
-                </li>
+                </div>
               </div>
               <input
                 type="checkbox"
@@ -153,7 +149,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 className="drop_menu_button outline_none cursor_pointer"
                 title="ادمین پنل"
               />
-              <div className="navbar__dropdown admin_navbar__dropdown ">
+              <ul className="navbar__dropdown admin_navbar__dropdown ">
                 <CustomeLinks to="/admin/students" title="محصلین">
                   <i className={ICONS.people}></i>
                   <span>محصلین</span>
@@ -178,7 +174,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                   <i className={ICONS.table}></i>
                   <span>تقسیم اوقات ها</span>
                 </CustomeLinks>
-              </div>
+              </ul>
             </div>
           ) : (
             ""

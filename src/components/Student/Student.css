@@ -9,17 +9,15 @@
 .student_title_profile {
   position: relative;
 }
+
 .student_profile_header {
   width: 100%;
   height: 70px;
-  background-image: linear-gradient(
-    to top,
-    var(--gen-bg-color),
-    var(--gen-color)
-  );
+  background-image: linear-gradient(150deg, #4caf5040, var(--gen-color));
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+
 /* Student img */
 .student_profile_img img {
   position: absolute;

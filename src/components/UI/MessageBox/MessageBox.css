@@ -1,5 +1,5 @@
 .message_box {
-  background: var(--gen-bg-color);
+  background: var(--light-dark);
   border-radius: 10px;
   padding: 10px;
   display: flex;

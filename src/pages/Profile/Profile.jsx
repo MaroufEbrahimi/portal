@@ -117,21 +117,21 @@ const Profile = () => {
   }
 
   return (
-    <div className="profile fade_in box_shadow display_flex border_radius_8">
+    <div className="profile box_shadow fade_in box_shadow display_flex border_radius_8">
       <div className="profile_title display_flex align_items_center justify_content_center flex_direction_column">
         {/* User Profile Image */}
         <div className="user_profile_img display_flex align_items_center flex_direction_column">
           {(authentication.roles.includes(Roles.ADMIN) &&
             id != authentication?.userId) ||
-          (authentication.roles.includes(Roles.STUDENT) &&
-            id == authentication?.userId) ? (
+            (authentication.roles.includes(Roles.STUDENT) &&
+              id == authentication?.userId) ? (
             <img src={student?.imageUrl} alt="user img" />
           ) : null}
 
           {(authentication.roles.includes(Roles.ADMIN) &&
             id != authentication?.userId) ||
-          (authentication.roles.includes(Roles.STUDENT) &&
-            id == authentication?.userId) ? (
+            (authentication.roles.includes(Roles.STUDENT) &&
+              id == authentication?.userId) ? (
             <h1>
               {student?.studentPersonalInfo?.name}{" "}
               {student?.studentPersonalInfo?.lastName}
@@ -244,9 +244,9 @@ const Profile = () => {
       {/* Student Personal Information */}
       {(authentication.roles.includes(Roles.ADMIN) &&
         id != authentication?.userId) ||
-      (authentication.roles.includes(Roles.STUDENT) &&
-        id == authentication?.userId) ? (
-        <div className="profile_details">
+        (authentication.roles.includes(Roles.STUDENT) &&
+          id == authentication?.userId) ? (
+        <div className="profile_details box_shadow">
           <div className="content_of_profile border_radius_8">
             <div className="content">
               <div className="content_boxes display_grid ">

@@ -27,6 +27,7 @@
   font-size: 14px;
   color: var(--text-color);
 }
+
 /* End of Post Shere With */
 
 /* Post Settings */
@@ -39,7 +40,7 @@
   font-size: 17px;
 }
 
-.setting_icon:hover + .setting_menu {
+.setting_icon:hover+.setting_menu {
   transform: scaleY(1);
 }
 
@@ -68,6 +69,7 @@
   padding: 4px;
   cursor: pointer;
 }
+
 .post_settings .setting_menu .setting_option_details {
   display: flex;
   gap: 10px;
@@ -78,13 +80,15 @@
   background-color: var(--gen-color);
   border-radius: 5px;
 }
+
 /* End of Post Settings */
 
 /* File Post */
 .file_post_body {
   padding: 25px;
 }
-.post_text > p {
+
+.post_text>p {
   font-size: 14.5px;
   line-height: 1.6em;
   margin-bottom: 20px;
@@ -117,6 +121,7 @@
   word-break: break-word;
   font-size: 14px;
 }
+
 /* End of File Post */
 
 /* Download Buttons */
@@ -149,7 +154,7 @@
   background-color: var(--gen-bg-color);
 }
 
-.btn_download .button_download_icon > i {
+.btn_download .button_download_icon>i {
   color: #fff;
   font-size: 16px;
 }
@@ -175,6 +180,7 @@
 .btn_download:active {
   border: 1px solid var(--gen-color);
 }
+
 /* End of Download Buttons */
 
 /* On Update Post */

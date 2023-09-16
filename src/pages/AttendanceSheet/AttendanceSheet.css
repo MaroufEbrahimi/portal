@@ -14,17 +14,18 @@
 /* Attendance Content */
 .attendance_content {
   margin: 2rem 0 0.8rem 0;
-  border: 1px solid var(--gen-color);
   width: 100%;
-  border-radius: 1px;
+  background-color: var(--gen-bg-color);
+  border-radius: 8px;
   padding: 15px 10px;
   overflow-x: scroll;
 }
 
 /* Attendance Header */
 .attendance_header {
-  grid-template-columns: 82% 15%;
+  display: flex;
   gap: 5px;
+  width: 100%;
 }
 
 .attendance_content .attendance_header_boxes {
@@ -32,6 +33,7 @@
   grid-gap: 5px;
   min-width: 770px;
   max-width: 100%;
+  flex: 1;
 }
 
 .attendance_header_boxes .attendance_header_box {
@@ -45,14 +47,13 @@
 }
 
 .attendance_header_boxes .attendance_header_box p:first-child {
-  background-color: var(--gen-bg-color);
   font-size: 15px;
   font-weight: bold;
 }
 
 /* keys */
 .attendance_header_keys {
-  min-width: 180px;
+  min-width: 194px;
   max-width: 100%;
   border: 1px solid var(--gen-color);
   border-collapse: collapse;
@@ -66,7 +67,6 @@
 
 .attendance_header_keys tr th {
   border-collapse: collapse;
-  background-color: var(--gen-bg-color);
 }
 
 .attendance_header_keys tr td {
@@ -74,6 +74,7 @@
   font-weight: bold;
   border: 1px solid var(--gen-color);
 }
+
 /* End of Attendance Header */
 
 .attendance_table {
@@ -81,7 +82,7 @@
   border: 1px solid #000;
   border-collapse: collapse;
   min-width: 970px;
-  max-width: 100%;
+  width: 100%;
 }
 
 .holiday {

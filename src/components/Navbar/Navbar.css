@@ -9,9 +9,11 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--gen-bg-color);
+  background-color: var(--navbar-bg);
   transition: width 0.3s ease-in-out;
+  border-left: 1px solid #dddddd83;
   z-index: 1000;
+  overflow-x: hidden;
 }
 
 .menu_container {
@@ -75,30 +77,32 @@
 }
 
 .navbar_menu li {
+  height: 30px;
+  display: flex;
   position: relative;
-  width: 100%;
-  font-size: 16px;
+  width: 90%;
+  font-size: 14px;
   text-align: left;
   border: none;
   outline: none;
   user-select: none;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+  margin: 10px 0;
+  border-radius: 10px;
 }
 
 .navbar_menu li:hover,
 .navbar_menu .active {
   position: relative;
-  background-color: var(--gen-main-bg);
+  /* background-color: #1d8b98; */
+  background: linear-gradient(38deg, #86ebed91, var(--gen-color));
 }
 
 .navbar_menu li a {
   color: var(--text-color);
   display: flex;
   align-items: center;
-  padding: 5px 10px;
-  font-size: 16px;
-  margin: 2px 0;
+  padding: 3px 6px;
+  font-size: 14px;
 }
 
 .navbar_menu li span {
@@ -113,45 +117,19 @@
   z-index: 10;
 }
 
-.faculties_menu li i img {
+.faculties_menu li img {
   width: 20px;
   filter: var(--icon-faculties-color);
   z-index: 0;
-  margin-right: -4px;
+  margin: 0 4px;
 }
 
-.navbar_menu li:hover a::before,
-.navbar_menu .active a::before {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  left: 0;
-  top: -50px;
-  background-color: transparent;
-  border-radius: 50%;
-  box-shadow: -35px 35px 0 10px var(--gen-main-bg);
-  pointer-events: none;
-}
-
-.navbar_menu li:hover a::after,
-.navbar_menu .active a::after {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  left: 0;
-  bottom: -50px;
-  background-color: transparent;
-  border-radius: 50%;
-  box-shadow: -34px -34px 0 10px var(--gen-main-bg);
-  pointer-events: none;
-}
 
 /* admin panel */
 .navbar__title .navbar__item {
-  padding: 4px 10px;
-  font-size: 16px;
+  padding: 4px 14px;
+  font-size: 14px;
+  width: max-content;
 }
 
 .navbar__title .navbar__item:hover {
@@ -181,11 +159,12 @@
   width: 100%;
 }
 
-.drop_menu_button:checked + .navbar__dropdown {
+.drop_menu_button:checked+.navbar__dropdown {
   transform: scaleY(1);
   height: 100px;
 }
-.drop_menu_button:checked + .admin_navbar__dropdown {
+
+.drop_menu_button:checked+.admin_navbar__dropdown {
   height: 180px;
 }
 
@@ -210,6 +189,7 @@
 .navbar__dropdown li {
   margin: 2px 0;
 }
+
 .admin_navbar__dropdown li {
   margin: 1px 0;
 }
@@ -217,7 +197,7 @@
 .navbar__dropdown li a {
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 14px;
   margin: -6px 0;
 }
 
@@ -227,7 +207,7 @@
 
 /* Actives */
 .active_nav_right .toggle_header_navbar .toggle_header_icon {
-  right: 35px;
+  right: 25px;
   width: 25px;
   height: 25px;
 }
@@ -250,7 +230,7 @@
 }
 
 .active_nav_right .add_img_profile {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .active_nav_right .nav_profile h4 {
@@ -258,8 +238,9 @@
 }
 
 .active_nav_right {
-  width: 70px;
+  width: 60px;
   transition: width 0.3s ease-in-out;
+
 }
 
 .active_nav_right .navbar_menu span {
@@ -267,7 +248,7 @@
 }
 
 .active_nav_right .navbar_menu .navbar__dropdown {
-  padding-right: 0px;
+  padding-right: 10px;
 }
 
 .active_nav_right .navbar_menu .btn_toggle {
@@ -281,9 +262,15 @@
 /* Responsive */
 @media (max-width: 991px) {
   .navbar {
-    width: 70px;
+    width: 60px;
     padding: 0px;
   }
+
+  .navbar li {
+    align-items: center;
+    justify-content: center;
+  }
+
   .toggle_header_navbar .toggle_header_icon {
     right: 53px;
   }
@@ -321,35 +308,39 @@
 @media (max-width: 768px) {
   .navbar {
     width: 60px;
+    font-size: 14px;
   }
+
   .toggle_header_navbar .toggle_header_icon {
     right: 45px;
   }
 }
 
 @media (max-width: 480px) {
-  .navbar {
-    width: 55px;
-  }
   .navbar_menu {
     padding-right: 5px;
   }
+
   .faculties_menu li i img {
     width: 20px;
     margin-right: 0px;
   }
+
   .navbar_menu li a {
     padding: 6px 7px;
     font-size: 16px;
   }
+
   .navbar_menu li i {
     padding: 0 5px;
   }
+
   .toggle_header_navbar .toggle_header_icon {
     right: 40px;
     width: 25px;
     height: 25px;
   }
+
   .toggle_header_navbar .toggle_header_icon i {
     font-size: 14px;
   }
@@ -359,20 +350,24 @@
   .navbar {
     width: 40px;
   }
+
   .navbar_menu {
     padding-right: 2px;
   }
+
   .navbar .add_img_profile,
   .navbar .input_profile_img {
     width: 30px;
     height: 30px;
     border-width: 1px;
   }
+
   .toggle_header_navbar .toggle_header_icon {
     right: 32px;
     width: 23px;
     height: 23px;
   }
+
   .toggle_header_navbar .toggle_header_icon i {
     font-size: 13.2px;
   }

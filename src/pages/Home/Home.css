@@ -38,6 +38,7 @@ section {
   line-height: 25px;
   color: var(--text-color);
 }
+
 /* End of Section title */
 
 /* Faculty Boxes */
@@ -48,6 +49,7 @@ section {
   margin: 5px;
   padding-bottom: 1.5rem;
 }
+
 .faculty_boxes .faculty {
   position: relative;
   overflow: hidden;
@@ -56,9 +58,11 @@ section {
   z-index: 1;
   transition: all 0.3s ease-in-out;
 }
+
 .faculty_boxes .faculty .faculty_img {
   position: relative;
 }
+
 .faculty_boxes .faculty .faculty_img img {
   width: 100%;
   height: 220px;
@@ -70,12 +74,15 @@ section {
   text-align: justify;
   gap: 6px;
 }
+
 .faculty .faculty_details h3 {
   font-size: 20px;
 }
+
 .faculty .faculty_details p {
   font-size: 14px;
 }
+
 /* End of Faculties */
 
 /* Elite Students */
@@ -83,35 +90,40 @@ section {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.7rem;
 }
+
 .elite_students .elite_stu_card_text {
   position: relative;
-  background-color: var(--gen-bg-color);
+  background-color: var(--gen-main-bg);
   padding: 20px 15px 30px;
   border-radius: 6px;
   box-sizing: content-box;
   min-height: 130px;
 }
+
 .elite_students .elite_stu_card_text::after {
   content: "";
   width: 0;
   height: 0;
-  border-top: 18px solid var(--gen-bg-color);
+  border-top: 18px solid var(--gen-main-bg);
   border-right: 18px solid transparent;
   border-left: 18px solid transparent;
   position: absolute;
   bottom: -18px;
   left: calc(50% - 18px);
 }
+
 .elite_students .elite_stu_card_text p {
   color: var(--text-color);
   text-align: center;
   font-size: 16px;
   line-height: 1.4em;
 }
+
 .elite_stu_card .elite_stu_card_personalInfo {
   text-align: center;
   margin-top: 2rem;
 }
+
 .elite_stu_card .elite_stu_card_personalInfo img {
   width: 80px;
   height: 80px;
@@ -119,12 +131,14 @@ section {
   object-position: top;
   object-fit: cover;
 }
+
 .elite_stu_card .elite_stu_card_personalInfo p {
   font-size: 15px;
   font-weight: 800;
   color: var(--text-color);
   text-align: center;
 }
+
 .elite_stu_card .elite_stu_card_personalInfo p:last-child {
   font-size: 13px;
   font-weight: 500;
@@ -136,17 +150,20 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(100px, auto));
   grid-column: 2rem;
 }
+
 .colleague_institute_boxes .colleague_institute_box {
   margin: 2px;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 4px;
 }
+
 .colleague_institute_boxes .colleague_institute_box img {
   max-width: 50%;
   padding: 15px 0;
   transition: all 0.4s ease-in-out;
   filter: grayscale(100);
 }
+
 .colleague_institute_boxes .colleague_institute_box img:hover {
   filter: none;
   transform: scale(1.15);
@@ -158,10 +175,11 @@ section {
     margin: 0 100px 0 20px;
   }
 }
+
 @media (max-width: 768px) {
   .elite_students .elite_stu {
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 480px) {
-}
+
+@media (max-width: 480px) {}

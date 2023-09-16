@@ -110,9 +110,8 @@ const PostManagement = () => {
       requestParam += `&department=${department == "همه" ? "%" : department}`
     }
     if (feildOfStudy) {
-      requestParam += `&fieldOfStudy=${
-        feildOfStudy == "همه" ? "%" : feildOfStudy
-      }`
+      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" ? "%" : feildOfStudy
+        }`
     }
     setRequestParams(requestParam)
     fetch(endpoint + requestParam, {

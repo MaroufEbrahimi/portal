@@ -8,7 +8,7 @@
   flex: 1.2;
   width: 100%;
   height: 500px;
-  background-color: var(--gen-bg-color);
+  background-color: var(--gen-main-bg);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
@@ -34,6 +34,7 @@
   word-spacing: 0.02em;
   text-align: center;
 }
+
 /* End of User profile img */
 
 /* Profile Buttons */
@@ -44,12 +45,13 @@
 .profile_title .student_profile_buttons button i {
   padding-left: 2px;
 }
+
 /* End of Profile Buttons */
 
 /* Profile Personal Info */
 .profile_details {
   flex: 2;
-  background-color: var(--input-box-color);
+  background-color: var(--gen-main-bg);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
@@ -81,7 +83,7 @@
   width: 100%;
   padding: 4px 15px;
   font-size: 16px;
-  background: #e6f7fff3;
+  background: var(--gen-color);
   outline: none;
   word-break: break-word;
   border-radius: 4px;
@@ -101,6 +103,7 @@
 .delete_lock_buttons {
   flex-direction: column;
 }
+
 /* End of Profile Personal Info */
 
 /* Responsive */

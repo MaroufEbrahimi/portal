@@ -158,7 +158,7 @@ const NewPost = () => {
       <div className="share_post_on">
         <h3>اشتراک گذاری در کجا</h3>
         <div className="post_boxes display_grid">
-          <div className="post_box">
+          <div className="post_box box_shadow">
             <select
               id="type"
               onChange={(e) =>
