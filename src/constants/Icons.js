@@ -49,7 +49,9 @@ const ICONS = {
   personCircle: "bi bi-person-circle",
   table: "bi bi-table",
   calendar: "bi bi-calendar",
-  printer: "bi bi-printer"
+  printer: "bi bi-printer",
+  thick: "bi bi-check-lg",
+  cross: "bi bi-x"
 }
 
 export default ICONS

@@ -74,14 +74,13 @@ const Stepper = ({ steps, currentStep }) => {
       >
         <div className="display_nums_des display_flex align_items_center justify_content_center flex_direction_column text_align_center">
           <div
-            className={`display_nums display_flex align_items_center justify_content_center ${
-              step.selected ? "numbers_completed" : ""
-            }`}
+            className={`display_nums display_flex align_items_center justify_content_center ${step.selected ? "numbers_completed" : ""
+              }`}
           >
             {/* Display Numbers  */}
 
             {step.completed ? (
-              <span>
+              <span className="display_flex">
                 <i className={ICONS.checkLg}></i>
               </span>
             ) : (
@@ -89,22 +88,20 @@ const Stepper = ({ steps, currentStep }) => {
             )}
           </div>
           <div
-            className={`display_des display_flex ${
-              step.highlighted
-                ? "description_highlighted"
-                : "description_not_highlighted"
-            }`}
+            className={`display_des display_flex ${step.highlighted
+              ? "description_highlighted"
+              : "description_not_highlighted"
+              }`}
           >
             {/*  Display Description  */}
             <p className="text_color">{step.description}</p>
           </div>
         </div>
         <div
-          className={`display_line ${
-            step.completed
-              ? "display_line_completed"
-              : "display_line_not_completed"
-          }`}
+          className={`display_line ${step.completed
+            ? "display_line_completed"
+            : "display_line_not_completed"
+            }`}
         >
           {/* Display Line */}
         </div>

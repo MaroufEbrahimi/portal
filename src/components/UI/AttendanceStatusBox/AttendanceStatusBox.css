@@ -1,0 +1,13 @@
+.attendance_status_box {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    /* border: 1px solid var(--gen-color); */
+}
+
+.attendance_status_box i {
+    margin-top: 6px;
+}

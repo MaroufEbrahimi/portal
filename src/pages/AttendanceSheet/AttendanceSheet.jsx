@@ -5,6 +5,8 @@ import { useStateValue } from "../../context/StateProvider"
 import Button from "../../components/UI/Button/Button"
 import { handlePrintTable } from "../../Utils/printTableUtils"
 import ICONS from "../../constants/Icons"
+import AttendanceStatusBox from "../../components/UI/AttendanceStatusBox/AttendanceStatusBox"
+import AttendanceStatusName from "../../constants/AttendanceStatusName"
 
 const AttendanceSheet = () => {
   const [{ authentication }, dispatch] = useStateValue()
@@ -65,13 +67,14 @@ const AttendanceSheet = () => {
       return item.departmentName == e
     })
     let sem = []
-    for (let i = 1; i <= d.semesters; i++) sem.push(i)
+    for (let i = 1; i <= d.semesters; i++) { sem.push(i) }
+
     setsemesters(sem)
     setSemeter(null)
   }
 
   const setSemeter = (e) => {
-    setsemester(e.target.value)
+    setsemester(e?.target?.value)
     let requestParam =
       "field=" +
       feildOfStudy +
@@ -92,6 +95,7 @@ const AttendanceSheet = () => {
     if (!feildOfStudy || !department || !semester || !subject || !date) {
       return
     }
+    setStudents([])
     let requestParam = `fieldOfStudy=${feildOfStudy}&semester=${semester}&department=${department}&subject=${subject}&year=${+date.split(
       "-"
     )[0]}&month=${+date.split("-")[1]}`
@@ -110,6 +114,7 @@ const AttendanceSheet = () => {
       .then((data) => {
         setLoading(false)
         setData(data)
+        console.log(data)
         // let days = []
         // for (let i = 1; i <= data.daysInMonth; i++) days.push(i)
         setMonthDetails(data?.monthDetails)
@@ -117,14 +122,14 @@ const AttendanceSheet = () => {
       })
   }
 
-  // this function is used to do the present and absent actions
-  const presentOrAbsentActions = (e, studentId, dayNumber) => {
+  // this function is used to perform the present and absent operations
+  const sendAttendanceDataToAPI = (attendanceStatus, studentId, dayNumber) => {
     let dateObject = new Date(date)
     dateObject.setFullYear(date.getFullYear)
 
     // create the request body
     const body = {
-      isPresent: e.target.checked,
+      attendanceStatus: attendanceStatus,
       yearNumber: +date.split("-")[0],
       monthNumber: +date.split("-")[1],
       dayNumber: +dayNumber,
@@ -134,6 +139,7 @@ const AttendanceSheet = () => {
       semester: +semester,
       studentId: studentId,
     }
+    console.log(body)
     // make an api call in here
     fetch(APIEndpoints.root + APIEndpoints.attendances.addAttendance, {
       method: "POST",
@@ -156,15 +162,19 @@ const AttendanceSheet = () => {
     )
     // update the state
     let updatedStudent = { ...students[studentIndex] }
-    updatedStudent.monthlyAttendance[attendanceIndex].isPresent =
-      e.target.checked
-    updatedStudent.totalPresent = e.target.checked
-      ? updatedStudent.totalPresent + 1
-      : updatedStudent.totalPresent - 1
-    updatedStudent.totalAbsent =
-      data?.daysWithoutHolidays - updatedStudent.totalPresent
-    students[studentIndex] = updatedStudent
+    updatedStudent.monthlyAttendance[attendanceIndex].attendanceStatusName = attendanceStatus
+    console.log("attendance name: " + attendanceStatus)
+    // calculate the total absent and present days
+    if (attendanceStatus == AttendanceStatusName.PRESENT) {
+      updatedStudent.totalPresent = updatedStudent.totalPresent + 1
+    } else if (attendanceStatus == AttendanceStatusName.ABSENT) {
+      updatedStudent.totalPresent -= 1
+      updatedStudent.totalAbsent += 1
+    } else if (attendanceStatus == AttendanceStatusName.UNKNOWN) {
+      updatedStudent.totalAbsent -= 1
+    }
 
+    students[studentIndex] = updatedStudent
     setStudents([...students])
   }
 
@@ -246,6 +256,7 @@ const AttendanceSheet = () => {
           </button>
         </div>
       </div>
+
 
       {students?.length > 0 && (
         <>
@@ -336,7 +347,7 @@ const AttendanceSheet = () => {
                               (item.isHoliday ? "holiday" : "")
                             }
                           >
-                            <input
+                            {/* <input
                               type="checkbox"
                               hidden={item.isHoliday}
                               checked={item.isPresent}
@@ -347,7 +358,13 @@ const AttendanceSheet = () => {
                                   item.day
                                 )
                               }
-                            />
+                            /> */}
+                            <AttendanceStatusBox
+                              attendanceStatus={item.attendanceStatusName}
+                              hidden={item.isHoliday}
+                              dayNumber={item.day}
+                              studentId={student.studentId}
+                              sendDataToTheAPI={sendAttendanceDataToAPI} />
                           </td>
                         )
                       })}

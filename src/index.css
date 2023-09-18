@@ -77,6 +77,14 @@ select {
   box-shadow: 0px 7px 25px rgba(0, 0, 0, 0.08);
 }
 
+input::placeholder {
+  color: var(--text-color) !important;
+}
+
+input {
+  background-color: var(--gen-bg-color);
+}
+
 
 /* style for light | dark of react-quill */
 .ql-container {

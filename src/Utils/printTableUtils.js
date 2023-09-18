@@ -8,15 +8,17 @@ export const handlePrintTable = ({ pageTitle = 'جدول حاضری' }) => {
         <style>
 
           :root{
-            --gen-color: #67b0d1;
-            --gen-color-hover: #8ec4dd;
-            --gen-bg-color: #c2e2f1;
-            --gen-main-bg: #eaf8ff;
+            --gen-color: #40e0f1;
+            --gen-color-hover: #40e0f1;
+            --gen-bg-color: #ffffff94;
+            --gen-main-bg: #ffffff85;
+            --navbar-bg: #ffffff54;
             --text-color: #000;
             --icon-faculties-color: #fff;
             --btn-bg-color: #6dc7f1f3;
             --show-color: #22222283;
             --input-box-color: #fff;
+            --light-dark: #fff
           }
           * {
             padding: 0;
