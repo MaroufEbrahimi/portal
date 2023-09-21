@@ -23,10 +23,7 @@
 
 /* Attendance Header */
 .attendance_header {
-<<<<<<< HEAD
   display: flex;
-=======
->>>>>>> 051b6f425d2c98bf5295ac8ffca59a92b55020e5
   gap: 5px;
   width: 100%;
 }
@@ -144,15 +141,4 @@ tr {
 
 .attendance_table tr .data_cell input[type="checkbox"] {
   accent-color: blue;
-<<<<<<< HEAD
 }
-=======
-}
-
-/* Responsive */
-@media (max-width: 1351px) {
-  .attendance_table {
-    min-width: 1035px;
-  }
-}
->>>>>>> 051b6f425d2c98bf5295ac8ffca59a92b55020e5
