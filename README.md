@@ -8,11 +8,11 @@ Visit: [Project sigma demo](https://sigma.netlify.app/) -->
 
 ## Home page
 ![Home page](src/assets/img/ui_design/home.png)
-## Chat page
+## profile page
 ![profile page](src/assets/img/ui_design/profile.png)
-## Profile page
+## attendance page
 ![attendance page](src/assets/img/ui_design/attendance.png)
-## People page
+## students page
 ![students page](src/assets/img/ui_design/students.png)
 
 ### `npm start`
