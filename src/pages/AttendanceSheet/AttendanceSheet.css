@@ -23,7 +23,10 @@
 
 /* Attendance Header */
 .attendance_header {
+<<<<<<< HEAD
   display: flex;
+=======
+>>>>>>> 051b6f425d2c98bf5295ac8ffca59a92b55020e5
   gap: 5px;
   width: 100%;
 }
@@ -31,7 +34,7 @@
 .attendance_content .attendance_header_boxes {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
-  min-width: 770px;
+  min-width: 848px;
   max-width: 100%;
   flex: 1;
 }
@@ -141,4 +144,15 @@ tr {
 
 .attendance_table tr .data_cell input[type="checkbox"] {
   accent-color: blue;
+<<<<<<< HEAD
 }
+=======
+}
+
+/* Responsive */
+@media (max-width: 1351px) {
+  .attendance_table {
+    min-width: 1035px;
+  }
+}
+>>>>>>> 051b6f425d2c98bf5295ac8ffca59a92b55020e5
