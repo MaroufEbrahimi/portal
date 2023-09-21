@@ -1,6 +1,5 @@
 # Portal app
-
-Portal app developed and built with **React (v18.2.0)**, **JavaScript** and **React Router v6**. For Styles and animations, is used **CSS**.
+The portal application is developed and built with **React (v18.2.0)**, **JavaScript** and **React Router v6**. CSS is used for styles and animations.
 
 <!-- # Demo
 
