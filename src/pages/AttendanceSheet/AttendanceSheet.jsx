@@ -7,6 +7,7 @@ import { handlePrintTable } from "../../Utils/printTableUtils"
 import ICONS from "../../constants/Icons"
 import AttendanceStatusBox from "../../components/UI/AttendanceStatusBox/AttendanceStatusBox"
 import AttendanceStatusName from "../../constants/AttendanceStatusName"
+import { attendanceTableStyles } from "../../constants/PrintCssStyles"
 
 const AttendanceSheet = () => {
   const [{ authentication }, dispatch] = useStateValue()
@@ -176,6 +177,12 @@ const AttendanceSheet = () => {
 
     students[studentIndex] = updatedStudent
     setStudents([...students])
+  }
+
+  // print attendance table 
+  const printTable = () => {
+    let pageTitle = `جدول حاضری  مضمون ${subject} تاریخ ${date} سمستر ${semester} دیپارتمنت ${department}`;
+    handlePrintTable(pageTitle, attendanceTableStyles)
   }
 
   return (
@@ -381,7 +388,7 @@ const AttendanceSheet = () => {
             <Button
               text={"پرینت حاضری"}
               icon={ICONS.printer}
-              onClick={handlePrintTable}
+              onClick={printTable}
             />
           </div>
         </>

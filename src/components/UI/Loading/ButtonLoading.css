@@ -37,6 +37,10 @@
   animation-delay: -0.15s;
 }
 
+.gen-loading {
+  background: none !important;
+}
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);

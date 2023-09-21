@@ -14,7 +14,7 @@
   box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
 }
 
-.spinner__circle > div {
+.spinner__circle>div {
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
   animation: spinner 0.6s linear infinite;
@@ -27,6 +27,8 @@
   background: black;
   border-radius: 50%;
 }
+
+
 
 @keyframes spinner {
   0% {
@@ -44,7 +46,7 @@
     border-radius: 10px;
   }
 
-  .spinner__circle > div {
+  .spinner__circle>div {
     gap: 3.7px;
   }
 

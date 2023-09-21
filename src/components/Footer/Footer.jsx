@@ -76,16 +76,6 @@ const Footer = () => {
           <p className="text_color text_align_center">
             حق کاپی محفوظ است &copy; 2023 هریوا
           </p>
-          <p className="text_color text_align_center">
-            ارایه شده توسط
-            <a
-              className="text_color"
-              href="https://github.com/maroufebrahimi"
-              target="_blank"
-            >
-              <span> </span>MaroufEbrahimi
-            </a>
-          </p>
         </div>
       </div>
     </div>
